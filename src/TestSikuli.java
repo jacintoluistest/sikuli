@@ -13,11 +13,13 @@ import org.sikuli.script.Key;
 public class TestSikuli {
 	public static void main(String args[]){
 		
-//		TSTester tstester = new TSTester();
-//		tstester.openProjectMac(TSAutomationUtils.getProperty("SocialNetworkProyectPath"));
-//		tstester.launchDesktopPreview();
-		App.focus("Tom Sawyer Perspectives Previewer");
-		//App.close("Tom Sawyer Perspectives Previewer - SocialNetworkAnalysis.tsp");
+		TSTester tstester = new TSTester();
+		tstester.openProjectMac(TSAutomationUtils.getProperty("SocialNetworkProyectPath"));
+		tstester.launchDesktopPreview();		
+		tstester.closeOnMacRedCross();
+		//tstester.closeTSP();
+		
+	
 	}
 		
 		

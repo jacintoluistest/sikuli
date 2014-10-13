@@ -18,6 +18,23 @@ public class TSSocialNetworkTestsDesktopPreview
 	@BeforeClass
 	public static void setUp()
 	{
+		if(TSAutomationUtils.getOs()=="mac os x")
+		{
+			TSAutomationTester = new TSTester();
+			TSAutomationTester.LaunchTS();
+			TSAutomationTester.openProjectMac(TSAutomationUtils.getProperty("SocialNetworkProyectPath"));
+			TSAutomationTester.launchDesktopPreview();
+			
+		}
+		else
+		{
+			
+		}
+		
+		
+		
+		
+		
 		TSAutomationTester = new TSTester();
 		TSAutomationTester.LaunchTS();
 		TSAutomationTester.openProyectWindows(TSAutomationUtils.getProperty("SocialNetworkProyectPath"));

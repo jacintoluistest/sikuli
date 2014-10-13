@@ -427,5 +427,15 @@ public class TSTester
 			System.out.println(ff.getMessage());
 		}
 	}
+	
+	public void closeOnMacRedCross(){
+		try{
+			automationTesterCurrentScreen.click(new Pattern(tsperspectivesToolBarImagesPath + File.separator +"closeRedCircle.png").similar(new Float (0.8)));
+		}
+		catch(FindFailed ff){
+			System.out.println(ff.getMessage());
+		}
+		
+	}
 
 }
