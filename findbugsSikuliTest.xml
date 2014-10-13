@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="3.0.0" sequence="1" timestamp="1412874024530" analysisTimestamp="1412874023110" release="">
+  <Project projectName="SikuliSeleniumJava">
+    <Jar>C:\Users\ljacinto\Documents\Tom Sawyer Testing\workspace\SikuliSeleniumJava\bin</Jar>
+    <AuxClasspathEntry>C:\Users\ljacinto\Documents\Tom Sawyer Testing\workspace\SikuliSeleniumJava\bin</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\ljacinto\Documents\Software\Utils\Sikuli\sikuli-java.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\ljacinto\Documents\Software\Utils\selenium-java-2.41.0\selenium-2.41.0\selenium-java-2.41.0.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Apps\eclipse\plugins\org.junit_4.11.0.v201303080030\junit.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Apps\eclipse\plugins\org.hamcrest.core_1.3.0.v201303031735.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Program Files\Java\jre7\lib\rt.jar</AuxClasspathEntry>
+    <SrcDir>C:\Users\ljacinto\Documents\Tom Sawyer Testing\workspace\SikuliSeleniumJava\src</SrcDir>
+    <Cloud id="edu.umd.cs.findbugs.cloud.doNothingCloud" online="false"></Cloud>
+  </Project>
+  <BugInstance type="DM_BOXED_PRIMITIVE_FOR_PARSING" priority="1" rank="16" abbrev="Bx" category="PERFORMANCE" first="1">
+    <Class classname="TSAutomationUtils">
+      <SourceLine classname="TSAutomationUtils" sourcefile="TSAutomationUtils.java" sourcepath="TSAutomationUtils.java"/>
+    </Class>
+    <Method classname="TSAutomationUtils" name="pauseScript" signature="()V" isStatic="true">
+      <SourceLine classname="TSAutomationUtils" start="101" end="110" startBytecode="0" endBytecode="145" sourcefile="TSAutomationUtils.java" sourcepath="TSAutomationUtils.java"/>
+    </Method>
+    <Method classname="java.lang.Long" name="longValue" signature="()J" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.lang.Long"/>
+    </Method>
+    <Method classname="java.lang.Long" name="parseLong" signature="(Ljava/lang/String;)J" isStatic="true" role="SHOULD_CALL"/>
+    <SourceLine classname="TSAutomationUtils" start="101" end="101" startBytecode="8" endBytecode="8" sourcefile="TSAutomationUtils.java" sourcepath="TSAutomationUtils.java"/>
+    <SourceLine classname="TSAutomationUtils" start="101" end="101" startBytecode="8" endBytecode="8" sourcefile="TSAutomationUtils.java" sourcepath="TSAutomationUtils.java"/>
+  </BugInstance>
+  <BugInstance type="OBL_UNSATISFIED_OBLIGATION" priority="2" rank="20" abbrev="OBL" category="EXPERIMENTAL" first="1">
+    <Class classname="TSAutomationUtils">
+      <SourceLine classname="TSAutomationUtils" sourcefile="TSAutomationUtils.java" sourcepath="TSAutomationUtils.java"/>
+    </Class>
+    <Method classname="TSAutomationUtils" name="getProperty" signature="(Ljava/lang/String;)Ljava/lang/String;" isStatic="true">
+      <SourceLine classname="TSAutomationUtils" start="65" end="78" startBytecode="0" endBytecode="178" sourcefile="TSAutomationUtils.java" sourcepath="TSAutomationUtils.java"/>
+    </Method>
+    <Class classname="java.io.InputStream" role="CLASS_REFTYPE">
+      <SourceLine classname="java.io.InputStream"/>
+    </Class>
+    <Int value="1" role="INT_OBLIGATIONS_REMAINING"/>
+    <SourceLine classname="TSAutomationUtils" start="70" end="70" startBytecode="16" endBytecode="16" sourcefile="TSAutomationUtils.java" sourcepath="TSAutomationUtils.java" role="SOURCE_LINE_OBLIGATION_CREATED"/>
+    <SourceLine classname="TSAutomationUtils" start="71" end="71" startBytecode="20" endBytecode="20" sourcefile="TSAutomationUtils.java" sourcepath="TSAutomationUtils.java" role="SOURCE_LINE_PATH_CONTINUES"/>
+    <SourceLine classname="TSAutomationUtils" start="72" end="72" startBytecode="25" endBytecode="25" sourcefile="TSAutomationUtils.java" sourcepath="TSAutomationUtils.java" role="SOURCE_LINE_PATH_CONTINUES"/>
+    <String value="{InputStream x 1}" role="STRING_REMAINING_OBLIGATIONS"/>
+  </BugInstance>
+  <BugInstance type="OS_OPEN_STREAM" priority="2" rank="16" abbrev="OS" category="BAD_PRACTICE" first="1">
+    <Class classname="TSAutomationUtils">
+      <SourceLine classname="TSAutomationUtils" sourcefile="TSAutomationUtils.java" sourcepath="TSAutomationUtils.java"/>
+    </Class>
+    <Method classname="TSAutomationUtils" name="getProperty" signature="(Ljava/lang/String;)Ljava/lang/String;" isStatic="true">
+      <SourceLine classname="TSAutomationUtils" start="65" end="78" startBytecode="0" endBytecode="24" sourcefile="TSAutomationUtils.java" sourcepath="TSAutomationUtils.java"/>
+    </Method>
+    <Type descriptor="Ljava/io/InputStream;" role="TYPE_CLOSEIT">
+      <SourceLine classname="java.io.InputStream"/>
+    </Type>
+    <SourceLine classname="TSAutomationUtils" start="70" end="70" startBytecode="10" endBytecode="10" sourcefile="TSAutomationUtils.java" sourcepath="TSAutomationUtils.java"/>
+    <SourceLine classname="TSAutomationUtils" start="70" end="70" startBytecode="10" endBytecode="10" sourcefile="TSAutomationUtils.java" sourcepath="TSAutomationUtils.java"/>
+  </BugInstance>
+  <BugInstance type="RV_RETURN_VALUE_IGNORED_BAD_PRACTICE" priority="2" rank="16" abbrev="RV" category="BAD_PRACTICE" first="1">
+    <Class classname="TSAutomationUtils">
+      <SourceLine classname="TSAutomationUtils" sourcefile="TSAutomationUtils.java" sourcepath="TSAutomationUtils.java"/>
+    </Class>
+    <Method classname="TSAutomationUtils" name="getScreenShot" signature="(LTSTester;Ljava/lang/String;)V" isStatic="true">
+      <SourceLine classname="TSAutomationUtils" start="115" end="131" startBytecode="0" endBytecode="220" sourcefile="TSAutomationUtils.java" sourcepath="TSAutomationUtils.java"/>
+    </Method>
+    <Method classname="java.io.File" name="renameTo" signature="(Ljava/io/File;)Z" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.io.File"/>
+    </Method>
+    <SourceLine classname="TSAutomationUtils" start="126" end="126" startBytecode="74" endBytecode="74" sourcefile="TSAutomationUtils.java" sourcepath="TSAutomationUtils.java"/>
+    <SourceLine classname="TSAutomationUtils" start="126" end="126" startBytecode="74" endBytecode="74" sourcefile="TSAutomationUtils.java" sourcepath="TSAutomationUtils.java"/>
+  </BugInstance>
+  <BugInstance type="OBL_UNSATISFIED_OBLIGATION" priority="2" rank="20" abbrev="OBL" category="EXPERIMENTAL" first="1">
+    <Class classname="TSSNetworkEditor">
+      <SourceLine classname="TSSNetworkEditor" sourcefile="TSSNetworkEditor.java" sourcepath="TSSNetworkEditor.java"/>
+    </Class>
+    <Method classname="TSSNetworkEditor" name="openTS" signature="()V" isStatic="true">
+      <SourceLine classname="TSSNetworkEditor" start="18" end="36" startBytecode="0" endBytecode="245" sourcefile="TSSNetworkEditor.java" sourcepath="TSSNetworkEditor.java"/>
+    </Method>
+    <Class classname="java.io.InputStream" role="CLASS_REFTYPE">
+      <SourceLine classname="java.io.InputStream"/>
+    </Class>
+    <Int value="1" role="INT_OBLIGATIONS_REMAINING"/>
+    <SourceLine classname="TSSNetworkEditor" start="24" end="24" startBytecode="16" endBytecode="16" sourcefile="TSSNetworkEditor.java" sourcepath="TSSNetworkEditor.java" role="SOURCE_LINE_OBLIGATION_CREATED"/>
+    <SourceLine classname="TSSNetworkEditor" start="26" end="26" startBytecode="20" endBytecode="20" sourcefile="TSSNetworkEditor.java" sourcepath="TSSNetworkEditor.java" role="SOURCE_LINE_PATH_CONTINUES"/>
+    <SourceLine classname="TSSNetworkEditor" start="27" end="27" startBytecode="25" endBytecode="25" sourcefile="TSSNetworkEditor.java" sourcepath="TSSNetworkEditor.java" role="SOURCE_LINE_PATH_CONTINUES"/>
+    <SourceLine classname="TSSNetworkEditor" start="28" end="28" startBytecode="32" endBytecode="32" sourcefile="TSSNetworkEditor.java" sourcepath="TSSNetworkEditor.java" role="SOURCE_LINE_PATH_CONTINUES"/>
+    <SourceLine classname="TSSNetworkEditor" start="29" end="29" startBytecode="54" endBytecode="54" sourcefile="TSSNetworkEditor.java" sourcepath="TSSNetworkEditor.java" role="SOURCE_LINE_PATH_CONTINUES"/>
+    <SourceLine classname="TSSNetworkEditor" start="33" end="33" startBytecode="68" endBytecode="68" sourcefile="TSSNetworkEditor.java" sourcepath="TSSNetworkEditor.java" role="SOURCE_LINE_PATH_CONTINUES"/>
+    <SourceLine classname="TSSNetworkEditor" start="34" end="34" startBytecode="78" endBytecode="78" sourcefile="TSSNetworkEditor.java" sourcepath="TSSNetworkEditor.java" role="SOURCE_LINE_PATH_CONTINUES"/>
+    <SourceLine classname="TSSNetworkEditor" start="35" end="35" startBytecode="84" endBytecode="84" sourcefile="TSSNetworkEditor.java" sourcepath="TSSNetworkEditor.java" role="SOURCE_LINE_PATH_CONTINUES"/>
+    <SourceLine classname="TSSNetworkEditor" start="36" end="36" startBytecode="92" endBytecode="92" sourcefile="TSSNetworkEditor.java" sourcepath="TSSNetworkEditor.java" role="SOURCE_LINE_PATH_CONTINUES"/>
+    <String value="{InputStream x 1}" role="STRING_REMAINING_OBLIGATIONS"/>
+  </BugInstance>
+  <BugInstance type="OS_OPEN_STREAM" priority="2" rank="16" abbrev="OS" category="BAD_PRACTICE" first="1">
+    <Class classname="TSSNetworkEditor">
+      <SourceLine classname="TSSNetworkEditor" sourcefile="TSSNetworkEditor.java" sourcepath="TSSNetworkEditor.java"/>
+    </Class>
+    <Method classname="TSSNetworkEditor" name="openTS" signature="()V" isStatic="true">
+      <SourceLine classname="TSSNetworkEditor" start="18" end="36" startBytecode="0" endBytecode="42" sourcefile="TSSNetworkEditor.java" sourcepath="TSSNetworkEditor.java"/>
+    </Method>
+    <Type descriptor="Ljava/io/InputStream;" role="TYPE_CLOSEIT">
+      <SourceLine classname="java.io.InputStream"/>
+    </Type>
+    <SourceLine classname="TSSNetworkEditor" start="24" end="24" startBytecode="10" endBytecode="10" sourcefile="TSSNetworkEditor.java" sourcepath="TSSNetworkEditor.java"/>
+    <SourceLine classname="TSSNetworkEditor" start="24" end="24" startBytecode="10" endBytecode="10" sourcefile="TSSNetworkEditor.java" sourcepath="TSSNetworkEditor.java"/>
+  </BugInstance>
+  <BugInstance type="BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION" priority="2" rank="18" abbrev="Bx" category="PERFORMANCE" first="1">
+    <Class classname="TSSTestNetworkEditor">
+      <SourceLine classname="TSSTestNetworkEditor" sourcefile="TSSTestNetworkEditor.java" sourcepath="TSSTestNetworkEditor.java"/>
+    </Class>
+    <Method classname="TSSTestNetworkEditor" name="testLaunchDesktopPreview" signature="()V" isStatic="false">
+      <SourceLine classname="TSSTestNetworkEditor" start="30" end="43" startBytecode="0" endBytecode="189" sourcefile="TSSTestNetworkEditor.java" sourcepath="TSSTestNetworkEditor.java"/>
+    </Method>
+    <SourceLine classname="TSSTestNetworkEditor" start="37" end="37" startBytecode="48" endBytecode="48" sourcefile="TSSTestNetworkEditor.java" sourcepath="TSSTestNetworkEditor.java"/>
+    <SourceLine classname="TSSTestNetworkEditor" start="37" end="37" startBytecode="48" endBytecode="48" sourcefile="TSSTestNetworkEditor.java" sourcepath="TSSTestNetworkEditor.java"/>
+  </BugInstance>
+  <BugInstance type="BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION" priority="2" rank="18" abbrev="Bx" category="PERFORMANCE" first="1">
+    <Class classname="TSSTestNetworkEditor">
+      <SourceLine classname="TSSTestNetworkEditor" sourcefile="TSSTestNetworkEditor.java" sourcepath="TSSTestNetworkEditor.java"/>
+    </Class>
+    <Method classname="TSSTestNetworkEditor" name="testLaunchWebPreview" signature="()V" isStatic="false">
+      <SourceLine classname="TSSTestNetworkEditor" start="49" end="65" startBytecode="0" endBytecode="217" sourcefile="TSSTestNetworkEditor.java" sourcepath="TSSTestNetworkEditor.java"/>
+    </Method>
+    <SourceLine classname="TSSTestNetworkEditor" start="58" end="58" startBytecode="62" endBytecode="62" sourcefile="TSSTestNetworkEditor.java" sourcepath="TSSTestNetworkEditor.java"/>
+    <SourceLine classname="TSSTestNetworkEditor" start="58" end="58" startBytecode="62" endBytecode="62" sourcefile="TSSTestNetworkEditor.java" sourcepath="TSSTestNetworkEditor.java"/>
+  </BugInstance>
+  <BugInstance type="NM_METHOD_NAMING_CONVENTION" priority="2" rank="16" abbrev="Nm" category="BAD_PRACTICE" first="1">
+    <Class classname="TSSTestNetworkEditor">
+      <SourceLine classname="TSSTestNetworkEditor" sourcefile="TSSTestNetworkEditor.java" sourcepath="TSSTestNetworkEditor.java"/>
+    </Class>
+    <Method classname="TSSTestNetworkEditor" name="CloseAll" signature="()V" isStatic="true">
+      <SourceLine classname="TSSTestNetworkEditor" start="77" end="80" startBytecode="0" endBytecode="66" sourcefile="TSSTestNetworkEditor.java" sourcepath="TSSTestNetworkEditor.java"/>
+    </Method>
+  </BugInstance>
+  <BugInstance type="BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION" priority="2" rank="18" abbrev="Bx" category="PERFORMANCE" first="1">
+    <Class classname="TSSocialNetworkTestsDesktopPreview">
+      <SourceLine classname="TSSocialNetworkTestsDesktopPreview" sourcefile="TSSocialNetworkTestsDesktopPreview.java" sourcepath="TSSocialNetworkTestsDesktopPreview.java"/>
+    </Class>
+    <Method classname="TSSocialNetworkTestsDesktopPreview" name="testIsOverviewPresent" signature="()V" isStatic="false">
+      <SourceLine classname="TSSocialNetworkTestsDesktopPreview" start="102" end="107" startBytecode="0" endBytecode="124" sourcefile="TSSocialNetworkTestsDesktopPreview.java" sourcepath="TSSocialNetworkTestsDesktopPreview.java"/>
+    </Method>
+    <SourceLine classname="TSSocialNetworkTestsDesktopPreview" start="106" end="106" startBytecode="49" endBytecode="49" sourcefile="TSSocialNetworkTestsDesktopPreview.java" sourcepath="TSSocialNetworkTestsDesktopPreview.java"/>
+    <SourceLine classname="TSSocialNetworkTestsDesktopPreview" start="106" end="106" startBytecode="49" endBytecode="49" sourcefile="TSSocialNetworkTestsDesktopPreview.java" sourcepath="TSSocialNetworkTestsDesktopPreview.java"/>
+  </BugInstance>
+  <BugInstance type="BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION" priority="2" rank="18" abbrev="Bx" category="PERFORMANCE" first="1">
+    <Class classname="TSSocialNetworkTestsDesktopPreview">
+      <SourceLine classname="TSSocialNetworkTestsDesktopPreview" sourcefile="TSSocialNetworkTestsDesktopPreview.java" sourcepath="TSSocialNetworkTestsDesktopPreview.java"/>
+    </Class>
+    <Method classname="TSSocialNetworkTestsDesktopPreview" name="testOnMouseHoverSaveAs" signature="()V" isStatic="false">
+      <SourceLine classname="TSSocialNetworkTestsDesktopPreview" start="113" end="120" startBytecode="0" endBytecode="172" sourcefile="TSSocialNetworkTestsDesktopPreview.java" sourcepath="TSSocialNetworkTestsDesktopPreview.java"/>
+    </Method>
+    <SourceLine classname="TSSocialNetworkTestsDesktopPreview" start="118" end="118" startBytecode="75" endBytecode="75" sourcefile="TSSocialNetworkTestsDesktopPreview.java" sourcepath="TSSocialNetworkTestsDesktopPreview.java"/>
+    <SourceLine classname="TSSocialNetworkTestsDesktopPreview" start="118" end="118" startBytecode="75" endBytecode="75" sourcefile="TSSocialNetworkTestsDesktopPreview.java" sourcepath="TSSocialNetworkTestsDesktopPreview.java"/>
+  </BugInstance>
+  <BugInstance type="BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION" priority="2" rank="18" abbrev="Bx" category="PERFORMANCE" first="1">
+    <Class classname="TSSocialNetworkTestsDesktopPreview">
+      <SourceLine classname="TSSocialNetworkTestsDesktopPreview" sourcefile="TSSocialNetworkTestsDesktopPreview.java" sourcepath="TSSocialNetworkTestsDesktopPreview.java"/>
+    </Class>
+    <Method classname="TSSocialNetworkTestsDesktopPreview" name="testOnMouseHoverSelect" signature="()V" isStatic="false">
+      <SourceLine classname="TSSocialNetworkTestsDesktopPreview" start="126" end="133" startBytecode="0" endBytecode="172" sourcefile="TSSocialNetworkTestsDesktopPreview.java" sourcepath="TSSocialNetworkTestsDesktopPreview.java"/>
+    </Method>
+    <SourceLine classname="TSSocialNetworkTestsDesktopPreview" start="131" end="131" startBytecode="75" endBytecode="75" sourcefile="TSSocialNetworkTestsDesktopPreview.java" sourcepath="TSSocialNetworkTestsDesktopPreview.java"/>
+    <SourceLine classname="TSSocialNetworkTestsDesktopPreview" start="131" end="131" startBytecode="75" endBytecode="75" sourcefile="TSSocialNetworkTestsDesktopPreview.java" sourcepath="TSSocialNetworkTestsDesktopPreview.java"/>
+  </BugInstance>
+  <BugInstance type="URF_UNREAD_FIELD" priority="2" rank="18" abbrev="UrF" category="PERFORMANCE" first="1">
+    <Class classname="TSSocialNetworkTestsWebPreviewPreview">
+      <SourceLine classname="TSSocialNetworkTestsWebPreviewPreview" sourcefile="TSSocialNetworkTestsWebPreviewPreview.java" sourcepath="TSSocialNetworkTestsWebPreviewPreview.java"/>
+    </Class>
+    <Field classname="TSSocialNetworkTestsWebPreviewPreview" name="projectImagesPath" signature="Ljava/lang/String;" isStatic="false">
+      <SourceLine classname="TSSocialNetworkTestsWebPreviewPreview" sourcefile="TSSocialNetworkTestsWebPreviewPreview.java" sourcepath="TSSocialNetworkTestsWebPreviewPreview.java"/>
+    </Field>
+    <SourceLine classname="TSSocialNetworkTestsWebPreviewPreview" start="10" end="10" startBytecode="7" endBytecode="7" sourcefile="TSSocialNetworkTestsWebPreviewPreview.java" sourcepath="TSSocialNetworkTestsWebPreviewPreview.java"/>
+  </BugInstance>
+  <BugInstance type="BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION" priority="2" rank="18" abbrev="Bx" category="PERFORMANCE" first="1">
+    <Class classname="TSTestCases">
+      <SourceLine classname="TSTestCases" sourcefile="TSTestCases.java" sourcepath="TSTestCases.java"/>
+    </Class>
+    <Method classname="TSTestCases" name="isToolTipPresentDesktop" signature="(LTSTester;Ljava/lang/String;)Z" isStatic="true">
+      <SourceLine classname="TSTestCases" start="145" end="156" startBytecode="0" endBytecode="158" sourcefile="TSTestCases.java" sourcepath="TSTestCases.java"/>
+    </Method>
+    <SourceLine classname="TSTestCases" start="148" end="148" startBytecode="23" endBytecode="23" sourcefile="TSTestCases.java" sourcepath="TSTestCases.java"/>
+    <SourceLine classname="TSTestCases" start="148" end="148" startBytecode="23" endBytecode="23" sourcefile="TSTestCases.java" sourcepath="TSTestCases.java"/>
+  </BugInstance>
+  <BugInstance type="BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION" priority="2" rank="18" abbrev="Bx" category="PERFORMANCE" first="1">
+    <Class classname="TSTestCases">
+      <SourceLine classname="TSTestCases" sourcefile="TSTestCases.java" sourcepath="TSTestCases.java"/>
+    </Class>
+    <Method classname="TSTestCases" name="isToolTipPresentImageMap" signature="(LTSTester;Ljava/lang/String;Ljava/lang/String;)Z" isStatic="true">
+      <SourceLine classname="TSTestCases" start="127" end="139" startBytecode="0" endBytecode="170" sourcefile="TSTestCases.java" sourcepath="TSTestCases.java"/>
+    </Method>
+    <SourceLine classname="TSTestCases" start="131" end="131" startBytecode="24" endBytecode="24" sourcefile="TSTestCases.java" sourcepath="TSTestCases.java"/>
+    <SourceLine classname="TSTestCases" start="131" end="131" startBytecode="24" endBytecode="24" sourcefile="TSTestCases.java" sourcepath="TSTestCases.java"/>
+  </BugInstance>
+  <BugInstance type="BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION" priority="2" rank="18" abbrev="Bx" category="PERFORMANCE" first="1">
+    <Class classname="TSTester">
+      <SourceLine classname="TSTester" sourcefile="TSTester.java" sourcepath="TSTester.java"/>
+    </Class>
+    <Method classname="TSTester" name="circularLayout" signature="()V" isStatic="false">
+      <SourceLine classname="TSTester" start="197" end="206" startBytecode="0" endBytecode="164" sourcefile="TSTester.java" sourcepath="TSTester.java"/>
+    </Method>
+    <SourceLine classname="TSTester" start="198" end="198" startBytecode="43" endBytecode="43" sourcefile="TSTester.java" sourcepath="TSTester.java"/>
+    <SourceLine classname="TSTester" start="198" end="198" startBytecode="43" endBytecode="43" sourcefile="TSTester.java" sourcepath="TSTester.java"/>
+  </BugInstance>
+  <BugInstance type="BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION" priority="2" rank="18" abbrev="Bx" category="PERFORMANCE" first="1">
+    <Class classname="TSTester">
+      <SourceLine classname="TSTester" sourcefile="TSTester.java" sourcepath="TSTester.java"/>
+    </Class>
+    <Method classname="TSTester" name="closeDekstopPreview" signature="()V" isStatic="false">
+      <SourceLine classname="TSTester" start="273" end="283" startBytecode="0" endBytecode="167" sourcefile="TSTester.java" sourcepath="TSTester.java"/>
+    </Method>
+    <SourceLine classname="TSTester" start="276" end="276" startBytecode="33" endBytecode="33" sourcefile="TSTester.java" sourcepath="TSTester.java"/>
+    <SourceLine classname="TSTester" start="276" end="276" startBytecode="33" endBytecode="33" sourcefile="TSTester.java" sourcepath="TSTester.java"/>
+  </BugInstance>
+  <BugInstance type="BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION" priority="2" rank="18" abbrev="Bx" category="PERFORMANCE" first="1">
+    <Class classname="TSTester">
+      <SourceLine classname="TSTester" sourcefile="TSTester.java" sourcepath="TSTester.java"/>
+    </Class>
+    <Method classname="TSTester" name="isPresentElement" signature="(Ljava/lang/String;)Lorg/sikuli/script/Match;" isStatic="false">
+      <SourceLine classname="TSTester" start="228" end="232" startBytecode="0" endBytecode="116" sourcefile="TSTester.java" sourcepath="TSTester.java"/>
+    </Method>
+    <SourceLine classname="TSTester" start="232" end="232" startBytecode="47" endBytecode="47" sourcefile="TSTester.java" sourcepath="TSTester.java"/>
+    <SourceLine classname="TSTester" start="232" end="232" startBytecode="47" endBytecode="47" sourcefile="TSTester.java" sourcepath="TSTester.java"/>
+  </BugInstance>
+  <BugInstance type="BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION" priority="2" rank="18" abbrev="Bx" category="PERFORMANCE" first="1">
+    <Class classname="TSTester">
+      <SourceLine classname="TSTester" sourcefile="TSTester.java" sourcepath="TSTester.java"/>
+    </Class>
+    <Method classname="TSTester" name="launchDesktopPreview" signature="()V" isStatic="false">
+      <SourceLine classname="TSTester" start="109" end="128" startBytecode="0" endBytecode="299" sourcefile="TSTester.java" sourcepath="TSTester.java"/>
+    </Method>
+    <SourceLine classname="TSTester" start="111" end="111" startBytecode="44" endBytecode="44" sourcefile="TSTester.java" sourcepath="TSTester.java"/>
+    <SourceLine classname="TSTester" start="111" end="111" startBytecode="44" endBytecode="44" sourcefile="TSTester.java" sourcepath="TSTester.java"/>
+  </BugInstance>
+  <BugInstance type="BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION" priority="2" rank="18" abbrev="Bx" category="PERFORMANCE" first="1">
+    <Class classname="TSTester">
+      <SourceLine classname="TSTester" sourcefile="TSTester.java" sourcepath="TSTester.java"/>
+    </Class>
+    <Method classname="TSTester" name="launchHtml5Preview" signature="()V" isStatic="false">
+      <SourceLine classname="TSTester" start="177" end="190" startBytecode="0" endBytecode="245" sourcefile="TSTester.java" sourcepath="TSTester.java"/>
+    </Method>
+    <SourceLine classname="TSTester" start="181" end="181" startBytecode="46" endBytecode="46" sourcefile="TSTester.java" sourcepath="TSTester.java"/>
+    <SourceLine classname="TSTester" start="181" end="181" startBytecode="46" endBytecode="46" sourcefile="TSTester.java" sourcepath="TSTester.java"/>
+  </BugInstance>
+  <BugInstance type="BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION" priority="2" rank="18" abbrev="Bx" category="PERFORMANCE" first="1">
+    <Class classname="TSTester">
+      <SourceLine classname="TSTester" sourcefile="TSTester.java" sourcepath="TSTester.java"/>
+    </Class>
+    <Method classname="TSTester" name="launchWebPreview" signature="()V" isStatic="false">
+      <SourceLine classname="TSTester" start="137" end="172" startBytecode="0" endBytecode="475" sourcefile="TSTester.java" sourcepath="TSTester.java"/>
+    </Method>
+    <SourceLine classname="TSTester" start="139" end="139" startBytecode="44" endBytecode="44" sourcefile="TSTester.java" sourcepath="TSTester.java"/>
+    <SourceLine classname="TSTester" start="139" end="139" startBytecode="44" endBytecode="44" sourcefile="TSTester.java" sourcepath="TSTester.java"/>
+  </BugInstance>
+  <BugInstance type="BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION" priority="2" rank="18" abbrev="Bx" category="PERFORMANCE" first="1">
+    <Class classname="TSTester">
+      <SourceLine classname="TSTester" sourcefile="TSTester.java" sourcepath="TSTester.java"/>
+    </Class>
+    <Method classname="TSTester" name="onMouseHoverDesktop" signature="(Ljava/lang/String;)V" isStatic="false">
+      <SourceLine classname="TSTester" start="331" end="341" startBytecode="0" endBytecode="156" sourcefile="TSTester.java" sourcepath="TSTester.java"/>
+    </Method>
+    <SourceLine classname="TSTester" start="334" end="334" startBytecode="29" endBytecode="29" sourcefile="TSTester.java" sourcepath="TSTester.java"/>
+    <SourceLine classname="TSTester" start="334" end="334" startBytecode="29" endBytecode="29" sourcefile="TSTester.java" sourcepath="TSTester.java"/>
+  </BugInstance>
+  <BugInstance type="BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION" priority="2" rank="18" abbrev="Bx" category="PERFORMANCE" first="1">
+    <Class classname="TSTester">
+      <SourceLine classname="TSTester" sourcefile="TSTester.java" sourcepath="TSTester.java"/>
+    </Class>
+    <Method classname="TSTester" name="onMouseHoverImageMap" signature="(Ljava/lang/String;)V" isStatic="false">
+      <SourceLine classname="TSTester" start="346" end="356" startBytecode="0" endBytecode="190" sourcefile="TSTester.java" sourcepath="TSTester.java"/>
+    </Method>
+    <SourceLine classname="TSTester" start="350" end="350" startBytecode="34" endBytecode="34" sourcefile="TSTester.java" sourcepath="TSTester.java"/>
+    <SourceLine classname="TSTester" start="350" end="350" startBytecode="34" endBytecode="34" sourcefile="TSTester.java" sourcepath="TSTester.java"/>
+  </BugInstance>
+  <BugInstance type="BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION" priority="2" rank="18" abbrev="Bx" category="PERFORMANCE" first="1">
+    <Class classname="TSTester">
+      <SourceLine classname="TSTester" sourcefile="TSTester.java" sourcepath="TSTester.java"/>
+    </Class>
+    <Method classname="TSTester" name="openOverviewDesktop" signature="()V" isStatic="false">
+      <SourceLine classname="TSTester" start="296" end="307" startBytecode="0" endBytecode="213" sourcefile="TSTester.java" sourcepath="TSTester.java"/>
+    </Method>
+    <SourceLine classname="TSTester" start="301" end="301" startBytecode="82" endBytecode="82" sourcefile="TSTester.java" sourcepath="TSTester.java"/>
+    <SourceLine classname="TSTester" start="301" end="301" startBytecode="82" endBytecode="82" sourcefile="TSTester.java" sourcepath="TSTester.java"/>
+  </BugInstance>
+  <BugInstance type="BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION" priority="2" rank="18" abbrev="Bx" category="PERFORMANCE" first="1">
+    <Class classname="TSTester">
+      <SourceLine classname="TSTester" sourcefile="TSTester.java" sourcepath="TSTester.java"/>
+    </Class>
+    <Method classname="TSTester" name="openProyect" signature="(Ljava/lang/String;)V" isStatic="false">
+      <SourceLine classname="TSTester" start="55" end="101" startBytecode="0" endBytecode="767" sourcefile="TSTester.java" sourcepath="TSTester.java"/>
+    </Method>
+    <SourceLine classname="TSTester" start="63" end="63" startBytecode="60" endBytecode="60" sourcefile="TSTester.java" sourcepath="TSTester.java"/>
+    <SourceLine classname="TSTester" start="63" end="63" startBytecode="60" endBytecode="60" sourcefile="TSTester.java" sourcepath="TSTester.java"/>
+  </BugInstance>
+  <BugInstance type="BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION" priority="2" rank="18" abbrev="Bx" category="PERFORMANCE" first="1">
+    <Class classname="TSTester">
+      <SourceLine classname="TSTester" sourcefile="TSTester.java" sourcepath="TSTester.java"/>
+    </Class>
+    <Method classname="TSTester" name="orthogonalLayout" signature="()V" isStatic="false">
+      <SourceLine classname="TSTester" start="214" end="223" startBytecode="0" endBytecode="164" sourcefile="TSTester.java" sourcepath="TSTester.java"/>
+    </Method>
+    <SourceLine classname="TSTester" start="215" end="215" startBytecode="43" endBytecode="43" sourcefile="TSTester.java" sourcepath="TSTester.java"/>
+    <SourceLine classname="TSTester" start="215" end="215" startBytecode="43" endBytecode="43" sourcefile="TSTester.java" sourcepath="TSTester.java"/>
+  </BugInstance>
+  <BugInstance type="DM_BOXED_PRIMITIVE_FOR_PARSING" priority="1" rank="16" abbrev="Bx" category="PERFORMANCE" first="1">
+    <Class classname="TSTester">
+      <SourceLine classname="TSTester" sourcefile="TSTester.java" sourcepath="TSTester.java"/>
+    </Class>
+    <Method classname="TSTester" name="&lt;init&gt;" signature="()V" isStatic="false">
+      <SourceLine classname="TSTester" start="28" end="40" startBytecode="0" endBytecode="223" sourcefile="TSTester.java" sourcepath="TSTester.java"/>
+    </Method>
+    <Method classname="java.lang.Long" name="longValue" signature="()J" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.lang.Long"/>
+    </Method>
+    <Method classname="java.lang.Long" name="parseLong" signature="(Ljava/lang/String;)J" isStatic="true" role="SHOULD_CALL"/>
+    <SourceLine classname="TSTester" start="35" end="35" startBytecode="69" endBytecode="69" sourcefile="TSTester.java" sourcepath="TSTester.java"/>
+    <SourceLine classname="TSTester" start="35" end="35" startBytecode="69" endBytecode="69" sourcefile="TSTester.java" sourcepath="TSTester.java"/>
+  </BugInstance>
+  <BugInstance type="DM_NUMBER_CTOR" priority="2" rank="18" abbrev="Bx" category="PERFORMANCE" first="1">
+    <Class classname="TSTester">
+      <SourceLine classname="TSTester" sourcefile="TSTester.java" sourcepath="TSTester.java"/>
+    </Class>
+    <Method classname="TSTester" name="&lt;init&gt;" signature="()V" isStatic="false">
+      <SourceLine classname="TSTester" start="28" end="40" startBytecode="0" endBytecode="223" sourcefile="TSTester.java" sourcepath="TSTester.java"/>
+    </Method>
+    <Method classname="java.lang.Long" name="&lt;init&gt;" signature="(Ljava/lang/String;)V" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.lang.Long"/>
+    </Method>
+    <Method classname="java.lang.Long" name="valueOf" signature="(Ljava/lang/String;)Ljava/lang/Long;" isStatic="true" role="SHOULD_CALL">
+      <SourceLine classname="java.lang.Long"/>
+    </Method>
+    <SourceLine classname="TSTester" start="35" end="35" startBytecode="66" endBytecode="66" sourcefile="TSTester.java" sourcepath="TSTester.java"/>
+    <SourceLine classname="TSTester" start="35" end="35" startBytecode="66" endBytecode="66" sourcefile="TSTester.java" sourcepath="TSTester.java"/>
+  </BugInstance>
+  <BugInstance type="NM_METHOD_NAMING_CONVENTION" priority="2" rank="16" abbrev="Nm" category="BAD_PRACTICE" first="1">
+    <Class classname="TSTester">
+      <SourceLine classname="TSTester" sourcefile="TSTester.java" sourcepath="TSTester.java"/>
+    </Class>
+    <Method classname="TSTester" name="LaunchTS" signature="()V" isStatic="false">
+      <SourceLine classname="TSTester" start="45" end="50" startBytecode="0" endBytecode="101" sourcefile="TSTester.java" sourcepath="TSTester.java"/>
+    </Method>
+  </BugInstance>
+  <Errors errors="0" missingClasses="0"></Errors>
+  <FindBugsSummary timestamp="Thu, 9 Oct 2014 11:31:19 -0500" total_classes="8" referenced_classes="40" total_bugs="29" total_size="512" num_packages="1" java_version="1.7.0_60" vm_version="24.60-b09" cpu_seconds="11.50" clock_seconds="59.73" peak_mbytes="468.26" alloc_mbytes="455.00" gc_seconds="0.75" priority_2="27" priority_1="2">
+    <PackageStats package="" total_bugs="29" total_types="8" total_size="512" priority_2="27" priority_1="2">
+      <ClassStats class="TSAutomationUtils" sourceFile="TSAutomationUtils.java" interface="false" size="59" bugs="4" priority_2="3" priority_1="1"/>
+      <ClassStats class="TSSNetworkEditor" sourceFile="TSSNetworkEditor.java" interface="false" size="24" bugs="2" priority_2="2"/>
+      <ClassStats class="TSSTestNetworkEditor" sourceFile="TSSTestNetworkEditor.java" interface="false" size="41" bugs="3" priority_2="3"/>
+      <ClassStats class="TSSocialNetworkTestsDesktopPreview" sourceFile="TSSocialNetworkTestsDesktopPreview.java" interface="false" size="81" bugs="3" priority_2="3"/>
+      <ClassStats class="TSSocialNetworkTestsWebPreviewPreview" sourceFile="TSSocialNetworkTestsWebPreviewPreview.java" interface="false" size="50" bugs="1" priority_2="1"/>
+      <ClassStats class="TSTestCases" sourceFile="TSTestCases.java" interface="false" size="67" bugs="2" priority_2="2"/>
+      <ClassStats class="TSTester" sourceFile="TSTester.java" interface="false" size="180" bugs="14" priority_2="13" priority_1="1"/>
+      <ClassStats class="TestSikuli" sourceFile="TestSikuli.java" interface="false" size="10" bugs="0"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="159" invocations="463" avgMicrosecondsPerInvocation="343" maxMicrosecondsPerInvocation="9872" standardDeviationMircosecondsPerInvocation="798"/>
+      <ClassProfile name="de.tobject.findbugs.builder.FindBugs2Eclipse" totalMilliseconds="129" invocations="2" avgMicrosecondsPerInvocation="64502" maxMicrosecondsPerInvocation="108165" standardDeviationMircosecondsPerInvocation="43662"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FieldItemSummary" totalMilliseconds="83" invocations="40" avgMicrosecondsPerInvocation="2088" maxMicrosecondsPerInvocation="10048" standardDeviationMircosecondsPerInvocation="2458"/>
+      <ClassProfile name="edu.umd.cs.findbugs.ba.npe.NullDerefAndRedundantComparisonFinder" totalMilliseconds="75" invocations="65" avgMicrosecondsPerInvocation="1165" maxMicrosecondsPerInvocation="11219" standardDeviationMircosecondsPerInvocation="1575"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ValueNumberDataflowFactory" totalMilliseconds="67" invocations="81" avgMicrosecondsPerInvocation="838" maxMicrosecondsPerInvocation="7577" standardDeviationMircosecondsPerInvocation="1126"/>
+      <ClassProfile name="edu.umd.cs.findbugs.OpcodeStack$JumpInfoFactory" totalMilliseconds="61" invocations="147" avgMicrosecondsPerInvocation="419" maxMicrosecondsPerInvocation="3530" standardDeviationMircosecondsPerInvocation="499"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.TypeDataflowFactory" totalMilliseconds="60" invocations="81" avgMicrosecondsPerInvocation="741" maxMicrosecondsPerInvocation="7927" standardDeviationMircosecondsPerInvocation="1095"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.IsNullValueDataflowFactory" totalMilliseconds="57" invocations="65" avgMicrosecondsPerInvocation="878" maxMicrosecondsPerInvocation="8957" standardDeviationMircosecondsPerInvocation="1199"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.CFGFactory" totalMilliseconds="51" invocations="65" avgMicrosecondsPerInvocation="794" maxMicrosecondsPerInvocation="8527" standardDeviationMircosecondsPerInvocation="1167"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.UnconditionalValueDerefDataflowFactory" totalMilliseconds="49" invocations="65" avgMicrosecondsPerInvocation="768" maxMicrosecondsPerInvocation="8580" standardDeviationMircosecondsPerInvocation="1143"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine" totalMilliseconds="43" invocations="463" avgMicrosecondsPerInvocation="94" maxMicrosecondsPerInvocation="421" standardDeviationMircosecondsPerInvocation="54"/>
+      <ClassProfile name="edu.umd.cs.findbugs.util.TopologicalSort" totalMilliseconds="28" invocations="431" avgMicrosecondsPerInvocation="67" maxMicrosecondsPerInvocation="12476" standardDeviationMircosecondsPerInvocation="610"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.StreamResourceTracker" totalMilliseconds="22" invocations="71" avgMicrosecondsPerInvocation="310" maxMicrosecondsPerInvocation="1038" standardDeviationMircosecondsPerInvocation="285"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindRefComparison$SpecialTypeAnalysis" totalMilliseconds="21" invocations="62" avgMicrosecondsPerInvocation="347" maxMicrosecondsPerInvocation="2675" standardDeviationMircosecondsPerInvocation="414"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindUnrelatedTypesInGenericContainer" totalMilliseconds="20" invocations="8" avgMicrosecondsPerInvocation="2522" maxMicrosecondsPerInvocation="18205" standardDeviationMircosecondsPerInvocation="5931"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.NoteDirectlyRelevantTypeQualifiers" totalMilliseconds="18" invocations="40" avgMicrosecondsPerInvocation="467" maxMicrosecondsPerInvocation="1452" standardDeviationMircosecondsPerInvocation="415"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FunctionsThatMightBeMistakenForProcedures" totalMilliseconds="17" invocations="40" avgMicrosecondsPerInvocation="433" maxMicrosecondsPerInvocation="2462" standardDeviationMircosecondsPerInvocation="551"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.BuildObligationPolicyDatabase" totalMilliseconds="15" invocations="40" avgMicrosecondsPerInvocation="378" maxMicrosecondsPerInvocation="1569" standardDeviationMircosecondsPerInvocation="400"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.OverridingEqualsNotSymmetrical" totalMilliseconds="13" invocations="40" avgMicrosecondsPerInvocation="328" maxMicrosecondsPerInvocation="1811" standardDeviationMircosecondsPerInvocation="372"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.UnreadFields" totalMilliseconds="12" invocations="8" avgMicrosecondsPerInvocation="1624" maxMicrosecondsPerInvocation="7659" standardDeviationMircosecondsPerInvocation="2353"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.JavaClassAnalysisEngine" totalMilliseconds="12" invocations="51" avgMicrosecondsPerInvocation="236" maxMicrosecondsPerInvocation="1684" standardDeviationMircosecondsPerInvocation="306"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindOpenStream" totalMilliseconds="11" invocations="8" avgMicrosecondsPerInvocation="1426" maxMicrosecondsPerInvocation="4733" standardDeviationMircosecondsPerInvocation="1495"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNullDeref$CheckCallSitesAndReturnInstructions" totalMilliseconds="11" invocations="65" avgMicrosecondsPerInvocation="170" maxMicrosecondsPerInvocation="1696" standardDeviationMircosecondsPerInvocation="235"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History>
+    <AppVersion sequence="0" timestamp="1412874024529" release="" codeSize="0" numClasses="0"/>
+  </History>
+</BugCollection>
