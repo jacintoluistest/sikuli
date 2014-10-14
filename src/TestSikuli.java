@@ -14,23 +14,7 @@ import org.sikuli.script.Key;
 public class TestSikuli {
 	public static void main(String args[]){
 		
-//		String path ="images/Mac/TomSawyerPerspectives/TSPerspectivesToolBar/openFileIcon.png";
-//		
-//		for(int i =0; i< path.length();i++){
-//			char a = path.charAt(i);
-//			if(a=='/'){
-//				a= Key.C_NUM9;
-//				
-//			}
-//			System.out.print(a);
-//		}
-		
-		TSTester tstester = new TSTester();
-		
-		
-		//System.out.println(TSAutomationUtils.formatPath(TSAutomationUtils.getProperty("NetworkEditorProjectPath")));
-		tstester.openProjectMac(TSAutomationUtils.getProperty("NetworkEditorProjectPath"));
-		//tstester.closeTSP();
+		System.out.println(TSAutomationUtils.getProperty("SocialNetworkProyectPath_Win"));
 		
 	
 	}

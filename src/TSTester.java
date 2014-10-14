@@ -1,5 +1,4 @@
 import java.io.File;
-
 import org.sikuli.script.FindFailed;
 import org.sikuli.script.Key;
 import org.sikuli.script.Match;
@@ -171,8 +170,8 @@ public class TSTester
 			automationTesterCurrentScreen.click(new Pattern(tsperspectivesToolBarImagesPath
 				+ File.separator + "openFilePathInput.png").similar(new Float(0.7)));
 			automationTesterCurrentScreen.type(new Pattern(tsperspectivesToolBarImagesPath
-				+ File.separator + "openFilePathInput.png").similar(new Float(0.7)),TS_HOME+ proyectPath);
-
+				+ File.separator + "openFilePathInput.png").similar(new Float(0.7)),
+				TS_HOME + proyectPath);
 
 			automationTesterCurrentScreen.click(new Pattern(tsperspectivesToolBarImagesPath
 				+ File.separator + "openFileGoButton.png").similar(new Float(0.8)));
@@ -189,12 +188,13 @@ public class TSTester
 	public void launchDesktopPreview()
 	{
 		// Setting the screen
-		System.out.println(tsperspectivesToolBarImagesPath + "/launchDesktopPreview.png");
+		System.out.println(tsperspectivesToolBarImagesPath + File.separator
+			+ "launchDesktopPreview.png");
 		try
 		{
 			automationTesterCurrentScreen =
 				new Screen(TSAutomationUtils.getCurrentScreenId(new Pattern(tsperspectivesToolBarImagesPath
-					+ "/launchDesktopPreview.png").similar(new Float(0.7))));
+					+ File.separator + "launchDesktopPreview.png").similar(new Float(0.7))));
 		}
 		catch (Exception e)
 		{
@@ -203,7 +203,7 @@ public class TSTester
 		try
 		{
 			automationTesterCurrentScreen.click(new Pattern(tsperspectivesToolBarImagesPath
-				+ "/launchDesktopPreview.png").similar(new Float(0.5)));
+				+ File.separator + "launchDesktopPreview.png").similar(new Float(0.5)));
 
 		}
 		catch (FindFailed ff)

@@ -1,6 +1,6 @@
+import org.sikuli.script.Env;
 import org.sikuli.script.Pattern;
 import org.sikuli.script.Screen;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -115,14 +115,19 @@ public class TSAutomationUtils
 	{
 		File defautlFile = null;
 		File destinationFile = null;
+		String evidenceProperty;
+		if(TSAutomationUtils.getOs().contains("mac")){
+			evidenceProperty = "EvidencePathMac";
+		}
+		else{
+			evidenceProperty = "EvidencePathWin";
+		}
 		
-			
-			
 			defautlFile =
 				new File(tester.automationTesterCurrentScreen.capture(tester.automationTesterCurrentScreen.getBounds())
 					.getFile());
 			destinationFile =
-				new File(TSAutomationUtils.getProperty("EvidencePath")
+				new File(TSAutomationUtils.getProperty(evidenceProperty)
 					+ TestSikuli.class.getName() + currentMethod + ".png");
 			defautlFile.renameTo(destinationFile);
 			System.out.println("Saving Evidence in: " + destinationFile);

@@ -19,12 +19,11 @@ public class TSSocialNetworkTestsDesktopPreview
 	@BeforeClass
 	public static void setUp()
 	{
+		Settings.MoveMouseDelay = new Float(1.5);
 		System.out.println(TSAutomationUtils.getOs());
 		if (TSAutomationUtils.getOs().contains("mac os x"))
-			
+
 		{
-			
-			Settings.MoveMouseDelay = new Float(1.5);
 			projectPath =
 				"images" + File.separator + "Mac" + File.separator
 					+ "SocialNetworkAnalysis" + File.separator + "Desktop";
@@ -39,23 +38,28 @@ public class TSSocialNetworkTestsDesktopPreview
 					+ File.separator + "HoverToolTips";
 			TSAutomationTester = new TSTester();
 			TSAutomationTester.LaunchTS();
-			TSAutomationTester.openProjectMac(TSAutomationUtils.getProperty("SocialNetworkProyectPath"));
+			TSAutomationTester.openProjectMac(TSAutomationUtils.getProperty("SocialNetworkProyectPath_Mac"));
 			TSAutomationTester.launchDesktopPreview();
 
 		}
 		else
 		{
 			projectPath =
-				"+ File.separator +SocialNetworkAnalysis+ File.separator +Desktop";
+				"images" + File.separator + "Windows" + File.separator
+					+ "SocialNetworkAnalysis" + File.separator + "Desktop";
 
 			toolBar =
-				"+ File.separator +TomSawyerPerspectives+ File.separator +CommonDesktopPreview+ File.separator +ToolBar";
+				"images" + File.separator + "Windows" + File.separator
+					+ "TomSawyerPerspectives" + File.separator + "CommonDesktopPreview"
+					+ File.separator + "ToolBar";
 
 			toolTips =
-				"+ File.separator +TomSawyerPerspectives+ File.separator +CommonDesktopPreview+ File.separator +HoverToolTips";
+				"images" + File.separator + "Windows" + File.separator
+					+ "TomSawyerPerspectives" + File.separator + "CommonDesktopPreview"
+					+ File.separator + "HoverToolTips";
 			TSAutomationTester = new TSTester();
 			TSAutomationTester.LaunchTS();
-			TSAutomationTester.openProyectWindows(TSAutomationUtils.getProperty("SocialNetworkProyectPath"));
+			TSAutomationTester.openProyectWindows(TSAutomationUtils.getProperty("SocialNetworkProyectPath_Win"));
 			TSAutomationTester.launchDesktopPreview();
 
 		}
@@ -158,16 +162,16 @@ public class TSSocialNetworkTestsDesktopPreview
 	{
 		System.out.println("testIsOverViewPresent");
 		TSAutomationTester.openOverviewDesktop();
-		if (!TSTestCases.isOverviewPresent(TSAutomationTester, projectPath + File.separator
-			+ "overviewExpected2.png"))
+		if (!TSTestCases.isOverviewPresent(TSAutomationTester, projectPath
+			+ File.separator + "overviewExpected.png"))
 		{
 			TSAutomationUtils.getScreenShot(TSAutomationTester,
 				TSSocialNetworkTestsDesktopPreview.class.getName()
 					+ "testIsOverviewPresent");
 		}
-		
+
 		Assert.assertTrue(TSTestCases.isOverviewPresent(TSAutomationTester, projectPath
-			+ File.separator + "overviewExpected2.png", new Float(0.95)));
+			+ File.separator + "overviewExpected.png", new Float(0.95)));
 	}
 
 
@@ -178,8 +182,8 @@ public class TSSocialNetworkTestsDesktopPreview
 		System.out.println("testOnMouseHoverSaveAs");
 		TSAutomationTester.onMouseHoverDesktopMac(toolBar + File.separator
 			+ "SaveAsToolBarDesktop.png");
-		if (TSAutomationTester.isPresentElement(toolTips
-			+ File.separator + "SaveAsImage.png", new Float(0.8), timeOut)==null)
+		if (TSAutomationTester.isPresentElement(toolTips + File.separator
+			+ "SaveAsImage.png", new Float(0.8), timeOut) == null)
 		{
 			TSAutomationUtils.getScreenShot(TSAutomationTester,
 				TSSocialNetworkTestsDesktopPreview.class.getName()
@@ -196,15 +200,17 @@ public class TSSocialNetworkTestsDesktopPreview
 	{
 		long timeOut = 1000;
 		System.out.println("testOnMouseHoverSelect");
-		if (TSAutomationTester.isPresentElement(toolTips
-			+ File.separator + "Select.png", new Float(0.8), timeOut)==null)
+		TSAutomationTester.onMouseHoverDesktopMac(toolBar + File.separator
+			+ "SelectToolBarDesktop.png");
+		if (TSAutomationTester.isPresentElement(toolTips + File.separator + "Select.png",
+			new Float(0.8),
+			timeOut) == null)
 		{
 			TSAutomationUtils.getScreenShot(TSAutomationTester,
 				TSSocialNetworkTestsDesktopPreview.class.getName()
-					+ "testIsOverviewPresent");
+					+ "testOnMouseHoverSelect");
 		}
-		TSAutomationTester.onMouseHoverDesktopMac(toolBar + File.separator
-			+ "SelectToolBarDesktop2.png");
+		
 		Assert.assertNotNull(TSAutomationTester.isPresentElement(toolTips
 			+ File.separator + "Select.png", new Float(0.8), timeOut));
 
