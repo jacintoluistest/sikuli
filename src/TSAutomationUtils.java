@@ -1,5 +1,6 @@
 import org.sikuli.script.Pattern;
 import org.sikuli.script.Screen;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -133,6 +134,12 @@ public class TSAutomationUtils
 	public static String getOs(){
 		
 		return System.getProperty("os.name").toLowerCase();
+	}
+	
+	public static String formatPath(String path){
+		String pathParsed;
+		pathParsed=path.replace('/', File.separatorChar);
+		return pathParsed;
 	}
 
 }

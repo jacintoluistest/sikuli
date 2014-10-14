@@ -1,4 +1,5 @@
 import java.io.File;
+
 import org.sikuli.script.FindFailed;
 import org.sikuli.script.Key;
 import org.sikuli.script.Match;
@@ -31,8 +32,6 @@ public class TSTester
 		setAutomationOsEnvironment();
 		System.out.println("Wait Time Out for sleep is " + openTSPerspectivesTimeOut);
 		automationTesterCurrentScreen = new Screen();
-		//automationTesterCurrentScreen.setAutoWaitTimeout(40);
-		
 
 	}
 
@@ -42,7 +41,7 @@ public class TSTester
 		// This method sets the environment for test execution
 
 		String operativeSystem = TSAutomationUtils.getOs();
-		if (operativeSystem.equals("mac os x"))
+		if (operativeSystem.contains("mac os x"))
 		{
 			TS_HOME = TSAutomationUtils.getProperty("TS_HOME_Mac");
 			System.out.println("Path de Tom Sawyer es " + TS_HOME);
@@ -143,7 +142,7 @@ public class TSTester
 
 	public void openProjectMac(String proyectPath)
 	{
-		System.out.println("*******Opening Project ******");
+		System.out.println("*******Opening Project ******" + proyectPath);
 		// Waiting for screen
 
 		try
@@ -164,16 +163,19 @@ public class TSTester
 		{
 			automationTesterCurrentScreen.click(new Pattern(this.tsperspectivesToolBarImagesPath
 				+ File.separator + "openFileIcon.png").similar(new Float(0.9)));
-			//App.focus("Tom Sawyer Perspectives Designer");
+			TSAutomationUtils.pauseScript(new Long(1000));
 			automationTesterCurrentScreen.type("g", Key.CMD + Key.SHIFT);
-			System.out.println("wait");
-			automationTesterCurrentScreen.paste(proyectPath);
-//			automationTesterCurrentScreen.wait(new Pattern("images" + File.separator
-//				+ "Mac" + File.separator + "TomSawyerPerspectives" + File.separator
-//				+ "TSPerspectivesToolBar" + File.separator + "openFileButton.png").similar(new Float(0.80)), 2);
+			TSAutomationUtils.pauseScript(new Long(500));
+			automationTesterCurrentScreen.type(Key.DELETE);
+			TSAutomationUtils.pauseScript(new Long(500));
+			automationTesterCurrentScreen.click(new Pattern(tsperspectivesToolBarImagesPath
+				+ File.separator + "openFilePathInput.png").similar(new Float(0.7)));
+			automationTesterCurrentScreen.type(new Pattern(tsperspectivesToolBarImagesPath
+				+ File.separator + "openFilePathInput.png").similar(new Float(0.7)),TS_HOME+ proyectPath);
+
+
 			automationTesterCurrentScreen.click(new Pattern(tsperspectivesToolBarImagesPath
 				+ File.separator + "openFileGoButton.png").similar(new Float(0.8)));
-			System.out.println("click");
 			automationTesterCurrentScreen.click(new Pattern(tsperspectivesToolBarImagesPath
 				+ File.separator + "openButton.png").similar(new Float(0.9)));
 		}
@@ -356,15 +358,6 @@ public class TSTester
 	{
 		App.close("Tom Sawyer Perspectives Previewer");
 		System.out.println("Intentando cerrar");
-		// try
-		// {
-		// automationTesterCurrentScreen.click(new
-		// Pattern("images//CloseDesktopPreview.png").similar(new Float(0.8)));
-		// }
-		// catch (FindFailed ff)
-		// {
-		// System.out.println(ff.getMessage());
-		// }
 		TSAutomationUtils.pauseScript(new Long(5000));
 	}
 
@@ -420,7 +413,7 @@ public class TSTester
 	{
 		try
 		{
-			automationTesterCurrentScreen.hover(new Pattern(patternStringPath).similar(new Float(0.90)));
+			automationTesterCurrentScreen.hover(new Pattern(patternStringPath).similar(new Float(0.80)));
 		}
 		catch (FindFailed ff)
 		{
