@@ -31,8 +31,8 @@ public class TSTester
 		setAutomationOsEnvironment();
 		System.out.println("Wait Time Out for sleep is " + openTSPerspectivesTimeOut);
 		automationTesterCurrentScreen = new Screen();
-		automationTesterCurrentScreen.setAutoWaitTimeout(40);
-		LaunchTS();
+		//automationTesterCurrentScreen.setAutoWaitTimeout(40);
+		
 
 	}
 
@@ -164,12 +164,13 @@ public class TSTester
 		{
 			automationTesterCurrentScreen.click(new Pattern(this.tsperspectivesToolBarImagesPath
 				+ File.separator + "openFileIcon.png").similar(new Float(0.9)));
-			App.focus("Tom Sawyer Perspectives Designer");
+			//App.focus("Tom Sawyer Perspectives Designer");
 			automationTesterCurrentScreen.type("g", Key.CMD + Key.SHIFT);
 			System.out.println("wait");
-			// automationTesterCurrentScreen.wait(tspDesktopPreviewImagesPath
-			// +File.separator+"openFileGoButton.png");
 			automationTesterCurrentScreen.paste(proyectPath);
+//			automationTesterCurrentScreen.wait(new Pattern("images" + File.separator
+//				+ "Mac" + File.separator + "TomSawyerPerspectives" + File.separator
+//				+ "TSPerspectivesToolBar" + File.separator + "openFileButton.png").similar(new Float(0.80)), 2);
 			automationTesterCurrentScreen.click(new Pattern(tsperspectivesToolBarImagesPath
 				+ File.separator + "openFileGoButton.png").similar(new Float(0.8)));
 			System.out.println("click");
@@ -178,7 +179,7 @@ public class TSTester
 		}
 		catch (FindFailed ff)
 		{
-			System.out.println(ff.getMessage());
+			System.out.println(ff.getMessage() + ff);
 		}
 	}
 
@@ -384,7 +385,8 @@ public class TSTester
 		try
 		{
 			automationTesterCurrentScreen.click(new Pattern(tspDesktopPreviewImagesPath
-				+ "//OverviewToolBarDesktop.png").similar(new Float(0.8)));
+				+ "//OverviewToolBarDesktop.png").similar(new Float(0.)));
+			TSAutomationUtils.pauseScript(new Long(2000));
 		}
 		catch (FindFailed ff)
 		{
@@ -414,6 +416,20 @@ public class TSTester
 	}
 
 
+	public void onMouseHoverDesktopMac(String patternStringPath)
+	{
+		try
+		{
+			automationTesterCurrentScreen.hover(new Pattern(patternStringPath).similar(new Float(0.90)));
+		}
+		catch (FindFailed ff)
+		{
+			System.out.println(ff.getMessage());
+		}
+
+	}
+
+
 	public void onMouseHoverImageMap(String patternStringPath)
 	{
 		String browserApp = TSAutomationUtils.getProperty("DefaultBrowserName");
@@ -427,15 +443,20 @@ public class TSTester
 			System.out.println(ff.getMessage());
 		}
 	}
-	
-	public void closeOnMacRedCross(){
-		try{
-			automationTesterCurrentScreen.click(new Pattern(tsperspectivesToolBarImagesPath + File.separator +"closeRedCircle.png").similar(new Float (0.8)));
+
+
+	public void closeOnMacRedCross()
+	{
+		try
+		{
+			automationTesterCurrentScreen.click(new Pattern(tsperspectivesToolBarImagesPath
+				+ File.separator + "closeRedCircle.png").similar(new Float(0.8)));
 		}
-		catch(FindFailed ff){
+		catch (FindFailed ff)
+		{
 			System.out.println(ff.getMessage());
 		}
-		
+
 	}
 
 }

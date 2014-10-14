@@ -131,7 +131,7 @@ public class TSAutomationUtils
 	}
 	
 	public static String getOs(){
-		System.out.println(System.getProperty("os.name").toLowerCase());
+		
 		return System.getProperty("os.name").toLowerCase();
 	}
 
