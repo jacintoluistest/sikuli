@@ -1,4 +1,3 @@
-
 import java.io.File;
 import org.sikuli.script.FindFailed;
 import org.sikuli.script.Key;
@@ -18,7 +17,7 @@ public class TSTester
 
 	String TS_HOME;
 
-	public Screen automationTesterCurrentScreen;
+	Screen automationTesterCurrentScreen;
 
 	long openTSPerspectivesTimeOut;
 
@@ -106,7 +105,7 @@ public class TSTester
 			System.out.println(e.getMessage());
 		}
 		System.out.println("Pantalla actual= " + automationTesterCurrentScreen.getID());
-		// System.out.println("Pause on openProyect");
+		System.out.println("Pause on openProyect");
 		// TSSAutomationUtils.pauseScript();
 		try
 		{
@@ -128,8 +127,8 @@ public class TSTester
 			automationTesterCurrentScreen.click(new Pattern(tsperspectivesToolBarImagesPath
 				+ File.separator + "openButton.png").similar(new Float(0.9)));
 			automationTesterCurrentScreen.wait(new Pattern(tsperspectivesToolBarImagesPath
-				+ File.separator + "DesktopPreview.png").similar(new Float(0.9)),
-				10000);
+				+ File.separator + "DrawViewIcon.png").similar(new Float(0.7)),
+				5);
 
 		}
 		catch (FindFailed ff)
@@ -255,7 +254,8 @@ public class TSTester
 		{
 			System.out.println(e.getMessage());
 		}
-
+		
+		System.out.println("Finish launch Web Preview");
 	}
 
 
@@ -359,7 +359,7 @@ public class TSTester
 	{
 		App.close("Tom Sawyer Perspectives Previewer");
 		System.out.println("Intentando cerrar");
-		TSAutomationUtils.pauseScript(new Long(5000));
+		//TSAutomationUtils.pauseScript(new Long(5000));
 	}
 
 
@@ -427,7 +427,7 @@ public class TSTester
 	public void onMouseHoverImageMap(String patternStringPath)
 	{
 		String browserApp = TSAutomationUtils.getProperty("DefaultBrowserName");
-		App.focus(browserApp);
+		//App.focus(browserApp);
 		try
 		{
 			automationTesterCurrentScreen.hover(new Pattern(patternStringPath).similar(new Float(0.7)));

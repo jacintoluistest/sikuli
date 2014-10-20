@@ -1,8 +1,6 @@
-
 public class TSTestCases
 {
 
-	
 	public static boolean isDesktopPreviewLaunched(TSTester tester,
 		String expectedImagePath)
 	{
@@ -137,6 +135,28 @@ public class TSTestCases
 		{
 			result = false;
 		}
+		return result;
+	}
+
+
+	public static boolean isToolTipPresentDesktop(TSTester tester,
+		String imageHover,
+		String imageExpected)
+
+	{
+		boolean result = true;
+		long timeOut = 1000;
+
+		tester.onMouseHoverDesktop(imageHover);
+		if (tester.isPresentElement(imageExpected, new Float(0.7), timeOut) != null)
+		{
+			result = true;
+		}
+		else
+		{
+			result = false;
+		}
+		System.out.println("isToolTipPresent result =" + result);
 		return result;
 	}
 

@@ -13,8 +13,11 @@ import org.sikuli.script.Key;
 public class TestSikuli {
 	public static void main(String args[]){
 		
-		System.out.println(TSAutomationUtils.getProperty("SocialNetworkProyectPath_Win"));
+		App.focus("Internet Explorer");
 		
+//		TSTester tester = new TSTester();
+//		tester.launchWebPreview();
+//		System.out.println("My Screen id is :" +tester.automationTesterCurrentScreen.getID());
 	
 	}
 		

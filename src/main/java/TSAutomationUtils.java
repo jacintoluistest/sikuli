@@ -1,4 +1,3 @@
-
 import org.sikuli.script.Env;
 import org.sikuli.script.Pattern;
 import org.sikuli.script.Screen;
