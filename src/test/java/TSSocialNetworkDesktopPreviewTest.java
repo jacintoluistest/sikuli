@@ -79,7 +79,9 @@ public class TSSocialNetworkDesktopPreviewTest
 		{
 			TSAutomationTester.closeOnMacRedCross();
 			TSAutomationTester.closeTSP();
+			System.out.println("Closing everything...");
 			System.out.println("Thank you");
+			TSAutomationUtils.pauseScript(new Long (5000));
 
 		}
 		else
@@ -182,7 +184,7 @@ public class TSSocialNetworkDesktopPreviewTest
 	@Test
 	public void testOnMouseHoverSaveAs()
 	{
-		System.out.println("******testOnMouseHoverSaveAs2******");
+		System.out.println("******testOnMouseHoverSaveAs******");
 		String imageToolBar =
 			desktopPreviewToolBarImagesPath + File.separator + "SaveAsToolBarDesktop.png";
 		String imageExpected =
@@ -205,7 +207,7 @@ public class TSSocialNetworkDesktopPreviewTest
 	@Test
 	public void testOnMouseHoverSelect()
 	{
-		System.out.println("******testOnMouseHoverSaveAs2******");
+		System.out.println("******testOnMouseHoverSelect******");
 		String imageToolBar =
 			desktopPreviewToolBarImagesPath + File.separator + "SelectToolBarDesktop.png";
 		String imageExpected =

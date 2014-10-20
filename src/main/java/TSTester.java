@@ -24,6 +24,8 @@ public class TSTester
 	String tomSawyerDesignerApplicationPath;
 
 	App tomSawyerApplication;
+	
+	public String operativeSystem;
 
 
 	public TSTester()
@@ -39,7 +41,8 @@ public class TSTester
 	{
 		// This method sets the environment for test execution
 
-		String operativeSystem = TSAutomationUtils.getOs();
+		 operativeSystem = TSAutomationUtils.getOs();
+		System.out.println(operativeSystem);
 		if (operativeSystem.contains("mac os x"))
 		{
 			TS_HOME = TSAutomationUtils.getProperty("TS_HOME_Mac");
@@ -81,6 +84,9 @@ public class TSTester
 
 	public void LaunchTS()
 	{
+		
+		System.out.println("Pause before launch TS");
+		TSAutomationUtils.pauseScript(new Long(6000));
 		tomSawyerApplication = new App(tomSawyerDesignerApplicationPath);
 		tomSawyerApplication.open();
 		System.out.println("Pause on LaunchTS");

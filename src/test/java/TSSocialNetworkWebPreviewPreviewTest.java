@@ -48,6 +48,23 @@ public class TSSocialNetworkWebPreviewPreviewTest
 			TSAutomationTester.LaunchTS();
 			TSAutomationTester.openProjectMac(TSAutomationUtils.getProperty("SocialNetworkProyectPath_Mac"));
 			TSAutomationTester.launchWebPreview();
+			
+			screenId = TSAutomationTester.automationTesterCurrentScreen.getID();
+			if (screenId == 0)
+			{
+				projectImagesPath =
+					"images" + File.separator + "Mac" + File.separator
+						+ "SocialNetworkAnalysis" + File.separator + "ImageMap"
+						+ File.separator + "PrimaryScreen";
+
+			}
+			else if (screenId == 1)
+			{
+				projectImagesPath =
+					"images" + File.separator + "Mac" + File.separator
+						+ "SocialNetworkAnalysis" + File.separator + "ImageMap"
+						+ File.separator + "SecondaryScreen";
+			}
 
 		}
 		else

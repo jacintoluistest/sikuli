@@ -125,8 +125,9 @@ public class TSTestCases
 	{
 		boolean result = true;
 		long timeOut = 1000;
-
-		tester.onMouseHoverImageMap(imageHover);
+		
+			tester.onMouseHoverImageMap(imageHover);
+		
 		if (tester.isPresentElement(imageExpected, new Float(0.7), timeOut) != null)
 		{
 			result = true;
@@ -147,7 +148,15 @@ public class TSTestCases
 		boolean result = true;
 		long timeOut = 1000;
 
-		tester.onMouseHoverDesktop(imageHover);
+		if (tester.operativeSystem.contains("windows"))
+		{
+			tester.onMouseHoverImageMap(imageHover);
+		}
+
+		else
+		{
+			tester.onMouseHoverDesktopMac(imageHover);
+		}
 		if (tester.isPresentElement(imageExpected, new Float(0.7), timeOut) != null)
 		{
 			result = true;
