@@ -1,4 +1,4 @@
-import org.sikuli.script.Env;
+
 import org.sikuli.script.Pattern;
 import org.sikuli.script.Screen;
 import java.io.File;
@@ -17,12 +17,12 @@ public class TSAutomationUtils
 
 		for (int i = 0; i <= 1; i++)
 		{
-			System.out.println("intento no " + i);
+			System.out.println("Try number " + i);
 			if (new Screen(i).exists(pattern) != null)
 			{
 				System.out.println("Searching on Screen: " + i);
 				result = i;
-				System.out.print("Screen founded =" + result);
+				System.out.println("Screen founded =" + result);
 
 			}
 			else

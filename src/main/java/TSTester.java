@@ -24,7 +24,7 @@ public class TSTester
 	String tomSawyerDesignerApplicationPath;
 
 	App tomSawyerApplication;
-	
+
 	public String operativeSystem;
 
 
@@ -41,7 +41,7 @@ public class TSTester
 	{
 		// This method sets the environment for test execution
 
-		 operativeSystem = TSAutomationUtils.getOs();
+		operativeSystem = TSAutomationUtils.getOs();
 		System.out.println(operativeSystem);
 		if (operativeSystem.contains("mac os x"))
 		{
@@ -84,9 +84,9 @@ public class TSTester
 
 	public void LaunchTS()
 	{
-		
+
 		System.out.println("Pause before launch TS");
-		TSAutomationUtils.pauseScript(new Long(6000));
+		TSAutomationUtils.pauseScript(new Long(8000));
 		tomSawyerApplication = new App(tomSawyerDesignerApplicationPath);
 		tomSawyerApplication.open();
 		System.out.println("Pause on LaunchTS");
@@ -153,17 +153,17 @@ public class TSTester
 		try
 		{
 			System.out.println("Getting current Screen");
-			System.out.println("Trying to get :" + tsperspectivesToolBarImagesPath
+			System.out.println("Trying to get:  " + tsperspectivesToolBarImagesPath
 				+ File.separator + "openFileIcon.png");
 			automationTesterCurrentScreen =
 				new Screen(TSAutomationUtils.getCurrentScreenId(new Pattern(this.tsperspectivesToolBarImagesPath
-					+ "/openFileIcon.png").similar(new Float(0.9))));
+					+ File.separator+"openFileIcon.png").similar(new Float(0.8))));
 		}
 		catch (Exception e)
 		{
 			System.out.println(e.getMessage());
 		}
-		System.out.println("Pantalla actual= " + automationTesterCurrentScreen.getID());
+		System.out.println("Current screenl= " + automationTesterCurrentScreen.getID());
 		try
 		{
 			automationTesterCurrentScreen.click(new Pattern(this.tsperspectivesToolBarImagesPath
@@ -246,7 +246,7 @@ public class TSTester
 			System.out.println(ff.getMessage());
 		}
 		System.out.println("Pause on launchWebPreview");
-		TSAutomationUtils.pauseScript(new Long(15000));
+		TSAutomationUtils.pauseScript(new Long(Long.valueOf(TSAutomationUtils.getProperty("TimeWaitLwebPreview"))));
 		System.out.println("Getting again screen");
 
 		try
@@ -260,7 +260,7 @@ public class TSTester
 		{
 			System.out.println(e.getMessage());
 		}
-		
+
 		System.out.println("Finish launch Web Preview");
 	}
 
@@ -365,15 +365,18 @@ public class TSTester
 	{
 		App.close("Tom Sawyer Perspectives Previewer");
 		System.out.println("Intentando cerrar");
-		//TSAutomationUtils.pauseScript(new Long(5000));
+		// TSAutomationUtils.pauseScript(new Long(5000));
 	}
 
 
-	public void closeWebPreview()
+	public void closeCurrentBrowser()
 	{
 		System.out.println("Closing Web Preview");
-
-		App.close("chrome");
+		if(operativeSystem.contains("windows"))
+		App.close(TSAutomationUtils.getProperty("DefaultBrowserNameWindows"));
+		else{
+			App.close(TSAutomationUtils.getProperty("DefaultBrowserNameMac"));
+		}
 	}
 
 
@@ -432,8 +435,7 @@ public class TSTester
 
 	public void onMouseHoverImageMap(String patternStringPath)
 	{
-		String browserApp = TSAutomationUtils.getProperty("DefaultBrowserName");
-		//App.focus(browserApp);
+		
 		try
 		{
 			automationTesterCurrentScreen.hover(new Pattern(patternStringPath).similar(new Float(0.7)));

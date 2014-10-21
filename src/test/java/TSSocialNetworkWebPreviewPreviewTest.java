@@ -188,7 +188,7 @@ public class TSSocialNetworkWebPreviewPreviewTest
 	@AfterClass
 	public static void closeAll()
 	{
-		TSAutomationTester.closeWebPreview();
+		TSAutomationTester.closeCurrentBrowser();
 		System.out.println("Closing everything...");
 		System.out.println("Thank you");
 		TSAutomationTester.closeTSP();
