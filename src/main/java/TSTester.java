@@ -157,7 +157,7 @@ public class TSTester
 				+ File.separator + "openFileIcon.png");
 			automationTesterCurrentScreen =
 				new Screen(TSAutomationUtils.getCurrentScreenId(new Pattern(this.tsperspectivesToolBarImagesPath
-					+ File.separator+"openFileIcon.png").similar(new Float(0.8))));
+					+ File.separator + "openFileIcon.png").similar(new Float(0.8))));
 		}
 		catch (Exception e)
 		{
@@ -372,9 +372,12 @@ public class TSTester
 	public void closeCurrentBrowser()
 	{
 		System.out.println("Closing Web Preview");
-		if(operativeSystem.contains("windows"))
-		App.close(TSAutomationUtils.getProperty("DefaultBrowserNameWindows"));
-		else{
+		if (operativeSystem.contains("windows"))
+		{
+			App.close(TSAutomationUtils.getProperty("DefaultBrowserNameWindows"));
+		}
+		else
+		{
 			App.close(TSAutomationUtils.getProperty("DefaultBrowserNameMac"));
 		}
 	}
@@ -435,7 +438,7 @@ public class TSTester
 
 	public void onMouseHoverImageMap(String patternStringPath)
 	{
-		
+
 		try
 		{
 			automationTesterCurrentScreen.hover(new Pattern(patternStringPath).similar(new Float(0.7)));
