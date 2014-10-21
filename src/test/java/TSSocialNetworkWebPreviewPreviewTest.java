@@ -48,6 +48,9 @@ public class TSSocialNetworkWebPreviewPreviewTest
 			TSAutomationTester.LaunchTS();
 			TSAutomationTester.openProjectMac(TSAutomationUtils.getProperty("SocialNetworkProyectPath_Mac"));
 			TSAutomationTester.launchWebPreview();
+			TSAutomationTester.maximizeOnMac();
+			TSAutomationUtils.pauseScript(new Long(3000));
+			TSAutomationTester.refreshChrome();
 			
 			screenId = TSAutomationTester.automationTesterCurrentScreen.getID();
 			if (screenId == 0)

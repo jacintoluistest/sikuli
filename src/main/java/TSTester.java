@@ -262,6 +262,7 @@ public class TSTester
 		}
 
 		System.out.println("Finish launch Web Preview");
+		
 	}
 
 
@@ -462,6 +463,41 @@ public class TSTester
 			System.out.println(ff.getMessage());
 		}
 
+	}
+
+
+	public void maximizeOnMac()
+	{
+		String maximizeImage =
+			"images" + File.separator + "Mac" + File.separator + "TomSawyerPerspectives"
+				+ File.separator + "TSPerspectivesToolBar" + File.separator
+			+ "maximize.png";
+	
+		Pattern maximizeElement = new Pattern(maximizeImage).similar(new Float(0.7));
+		if(automationTesterCurrentScreen.exists(maximizeElement)!=null)
+		try
+		{
+			automationTesterCurrentScreen.click(maximizeElement);
+			
+		}
+		catch (FindFailed ff)
+		{
+			System.out.println(ff.getMessage());
+		}
+	}
+	
+	public void refreshChrome(){
+		String refreshButton="images" + File.separator + "Mac" + File.separator + "TomSawyerPerspectives"
+				+ File.separator + "TSPerspectivesToolBar" + File.separator
+			+ "refreshChrome.png";
+		try
+		{
+			automationTesterCurrentScreen.click(refreshButton);
+		}
+		catch (FindFailed ff)
+		{
+			System.out.println(ff.getMessage());
+		}
 	}
 
 }
