@@ -111,23 +111,15 @@ public class TSAutomationUtils
 	}
 
 
-	public static void getScreenShot(TSTester tester, String currentMethod)
+	public static void getScreenShot(TSTester tester, String currentMethod, String evidencePath)
 	{
 		File defautlFile = null;
 		File destinationFile = null;
-		String evidenceProperty;
-		if(TSAutomationUtils.getOs().contains("mac")){
-			evidenceProperty = "EvidencePathMac";
-		}
-		else{
-			evidenceProperty = "EvidencePathWin";
-		}
-		
 			defautlFile =
 				new File(tester.automationTesterCurrentScreen.capture(tester.automationTesterCurrentScreen.getBounds())
 					.getFile());
 			destinationFile =
-				new File(TSAutomationUtils.getProperty(evidenceProperty)
+				new File(evidencePath
 					+ TestSikuli.class.getName() + currentMethod + ".png");
 			defautlFile.renameTo(destinationFile);
 			System.out.println("Saving Evidence in: " + destinationFile);

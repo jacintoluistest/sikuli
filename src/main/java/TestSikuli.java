@@ -1,6 +1,7 @@
-import org.sikuli.script.App;
+import org.sikuli.api.robot.Key;
+import org.sikuli.script.Screen;
 
-import org.sikuli.script.Sikulix;
+
 
 
 /**
@@ -9,18 +10,11 @@ import org.sikuli.script.Sikulix;
  */
 public class TestSikuli {
 	public static void main(String args[]){
+		Screen a = new Screen();
+
+		a.type(Key.UP, Key.WIN);
 		
-		
-//		TSTester tester = new TSTester();
-//		tester.launchWebPreview();
-//		System.out.println("My Screen id is :" +tester.automationTesterCurrentScreen.getID());
 	
 	}
-		
-		
-		
-		
-		
-		
-	
 }
+		

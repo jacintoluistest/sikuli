@@ -31,7 +31,7 @@ public class TSSTestNetworkEditor {
 			}
 		a = new TSTester();
 		a.LaunchTS();
-		a.openProyectWindows("");
+		a.openProjectWindows("");
 	}
 	
 	@AfterClass
