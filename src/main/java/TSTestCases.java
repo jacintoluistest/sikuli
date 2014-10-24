@@ -1,3 +1,5 @@
+
+
 public class TSTestCases
 {
 
@@ -33,6 +35,19 @@ public class TSTestCases
 
 		return result;
 
+	}
+	
+	public static boolean isCanvasPreviewLaunched(TSTester tester , String expectedImagePath){
+		boolean result;
+		if (tester.isPresentElement(expectedImagePath) != null)
+		{
+			result = true;
+		}
+		else
+		{
+			result = false;
+		}
+		return result;
 	}
 
 

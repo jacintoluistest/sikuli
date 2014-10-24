@@ -43,6 +43,7 @@ public class TSTester
 
 		operativeSystem = TSAutomationUtils.getOs();
 		System.out.println(operativeSystem);
+
 		if (operativeSystem.contains("mac os x"))
 		{
 			TS_HOME = TSAutomationUtils.getProperty("TS_HOME_Mac");
@@ -262,25 +263,51 @@ public class TSTester
 		}
 
 		System.out.println("Finish launch Web Preview");
-		
+
 	}
 
 
 	public void launchHtml5Preview()
 	{
-		TSAutomationUtils.pauseScript();
+		// Setting the screen
+		try
+		{
+			automationTesterCurrentScreen =
+				new Screen(TSAutomationUtils.getCurrentScreenId(new Pattern(tsperspectivesToolBarImagesPath
+					+ File.separator + "WebPreview.png").similar(new Float(0.7))));
+		}
+		catch (Exception e)
+		{
+			System.out.println(e.getMessage());
+		}
+		// Launch CanvasPreview
 		try
 		{
 			automationTesterCurrentScreen.click(new Pattern(tsperspectivesToolBarImagesPath
-				+ File.separator + "html5.png").similar(new Float(0.5)));
-			automationTesterCurrentScreen.wait(new Pattern(tsperspectivesToolBarImagesPath
-				+ File.separator + "TSWebLogoText.png").similar(new Float(0.5)),
-				20000);
+				+ File.separator + "Html5Preview.png").similar(new Float(0.5)));
 		}
+
 		catch (FindFailed ff)
 		{
 			System.out.println(ff.getMessage());
 		}
+		System.out.println("Pause on launchCanvasPreview");
+		TSAutomationUtils.pauseScript(new Long(Long.valueOf(TSAutomationUtils.getProperty("TimeWaitLwebPreview"))));
+		System.out.println("Getting again screen");
+
+		try
+		{
+			System.out.println("Trying get screen again");
+			automationTesterCurrentScreen =
+				new Screen(TSAutomationUtils.getCurrentScreenId(new Pattern(tspWebPreviewImagesPath
+					+ File.separator + "WebCommonToolBar.png").similar(new Float(0.8))));
+		}
+		catch (Exception e)
+		{
+			System.out.println(e.getMessage());
+		}
+
+		System.out.println("Finish launch Web Preview");
 	}
 
 
@@ -466,30 +493,55 @@ public class TSTester
 	}
 
 
-	public void maximizeOnMac()
+	public void maximizeWindow()
 	{
-		String maximizeImage =
+		if (TSAutomationUtils.getOs().contains("mac"))
+		{
+			String maximizeImage =
+				"images" + File.separator + "Mac" + File.separator
+					+ "TomSawyerPerspectives" + File.separator + "TSPerspectivesToolBar"
+					+ File.separator + "maximize.png";
+
+			Pattern maximizeElement = new Pattern(maximizeImage).similar(new Float(0.7));
+			if (automationTesterCurrentScreen.exists(maximizeElement) != null)
+				try
+				{
+					automationTesterCurrentScreen.click(maximizeElement);
+
+				}
+				catch (FindFailed ff)
+				{
+					System.out.println(ff.getMessage());
+				}
+		}
+
+		else
+			automationTesterCurrentScreen.type(Key.UP,Key.WIN );
+		{
+		}
+
+	}
+
+
+	public void refreshChrome()
+	{	
+		String refreshButton = null;
+		if(TSAutomationUtils.getOs().contains("mac"))
+		{
+		
+		
+		 refreshButton =
 			"images" + File.separator + "Mac" + File.separator + "TomSawyerPerspectives"
 				+ File.separator + "TSPerspectivesToolBar" + File.separator
-			+ "maximize.png";
-	
-		Pattern maximizeElement = new Pattern(maximizeImage).similar(new Float(0.7));
-		if(automationTesterCurrentScreen.exists(maximizeElement)!=null)
-		try
-		{
-			automationTesterCurrentScreen.click(maximizeElement);
-			
+				+ "refreshChrome.png";
 		}
-		catch (FindFailed ff)
-		{
-			System.out.println(ff.getMessage());
+		else{
+			refreshButton =
+				"images" + File.separator + "Windows" + File.separator + "TomSawyerPerspectives"
+					+ File.separator + "TSPerspectivesToolBar" + File.separator
+					+ "refreshChrome.png";
 		}
-	}
-	
-	public void refreshChrome(){
-		String refreshButton="images" + File.separator + "Mac" + File.separator + "TomSawyerPerspectives"
-				+ File.separator + "TSPerspectivesToolBar" + File.separator
-			+ "refreshChrome.png";
+		
 		try
 		{
 			automationTesterCurrentScreen.click(refreshButton);
@@ -497,6 +549,29 @@ public class TSTester
 		catch (FindFailed ff)
 		{
 			System.out.println(ff.getMessage());
+		}
+		TSAutomationUtils.pauseScript(new Long(1500));
+	}
+
+
+	public void closeAll()
+	{
+		if (TSAutomationUtils.getOs() == "mac os x")
+		{
+
+			closeTSP();
+			System.out.println("Closing everything...");
+			System.out.println("Thank you");
+			TSAutomationUtils.pauseScript(new Long(5000));
+
+		}
+		else
+		{
+			closeDekstopPreview();
+			System.out.println("Closing everything...");
+			System.out.println("Thank you");
+			closeTSP();
+
 		}
 	}
 
