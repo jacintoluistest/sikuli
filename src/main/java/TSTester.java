@@ -95,7 +95,7 @@ public class TSTester
 	}
 
 
-	public void openProyectWindows(String proyectPath)
+	public void openProjectWindows(String proyectPath)
 	{
 		System.out.println("*******Opening Project ******");
 		// Waiting for screen
@@ -572,6 +572,15 @@ public class TSTester
 			System.out.println("Thank you");
 			closeTSP();
 
+		}
+	}
+	
+	public void openProject(String proyectPath){
+		if(TSAutomationUtils.getOs().contains("mac")){
+			openProjectMac(proyectPath);
+		}
+		else{
+			openProjectWindows(proyectPath);
 		}
 	}
 

@@ -20,7 +20,7 @@ public class TSSocialNetworkImageMapPreviewTest
 
 		TSAutomationTester = new TSTester();
 		TSAutomationTester.LaunchTS();
-		TSAutomationTester.openProyectWindows(TSAutomationUtils.getProperty("SocialNetworkProyectPath_Win"));
+		TSAutomationTester.openProject(TSAutomationUtils.getProperty("SocialNetworkProyectPath_Win"));
 		TSAutomationTester.launchWebPreview();
 		TSAutomationTester.maximizeWindow();
 		TSAutomationUtils.pauseScript(new Long(3000));

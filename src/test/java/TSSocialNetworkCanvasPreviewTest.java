@@ -16,7 +16,7 @@ public class TSSocialNetworkCanvasPreviewTest
 			new TSEnvironment("SocialNetworkAnalysis", TSEnvironment.HTML5_PREVIEW);
 		TSAutomationTester = new TSTester();
 		TSAutomationTester.LaunchTS();
-		TSAutomationTester.openProyectWindows(TSAutomationUtils.getProperty("SocialNetworkProyectPath_Win"));
+		TSAutomationTester.openProject(TSAutomationUtils.getProperty("SocialNetworkProyectPath_Win"));
 		TSAutomationTester.launchHtml5Preview();
 		TSAutomationTester.maximizeWindow();
 		TSAutomationUtils.pauseScript(new Long(3000));

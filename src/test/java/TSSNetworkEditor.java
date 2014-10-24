@@ -33,7 +33,7 @@ public class TSSNetworkEditor {
 			}
 		a = new TSTester();
 		a.LaunchTS();
-		a.openProyectWindows("");
+		a.openProjectWindows("");
 	}
 	
 	@AfterClass

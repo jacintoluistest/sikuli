@@ -18,7 +18,7 @@ public class TSSocialNetworkDesktopPreviewTest
 			new TSEnvironment("SocialNetworkAnalysis", TSEnvironment.DESKTOP_PREVIEW);
 		TSAutomationTester = new TSTester();
 		TSAutomationTester.LaunchTS();
-		TSAutomationTester.openProyectWindows(TSAutomationUtils.getProperty("SocialNetworkProyectPath_Win"));
+		TSAutomationTester.openProject(TSAutomationUtils.getProperty("SocialNetworkProyectPath_Win"));
 		TSAutomationTester.launchDesktopPreview();
 
 	}
