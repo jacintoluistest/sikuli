@@ -577,10 +577,10 @@ public class TSTester
 	
 	public void openProject(String proyectPath){
 		if(TSAutomationUtils.getOs().contains("mac")){
-			openProjectMac(proyectPath);
+			openProjectMac(TSAutomationUtils.getProperty(proyectPath+"_Mac"));
 		}
 		else{
-			openProjectWindows(proyectPath);
+			openProjectWindows(TSAutomationUtils.getProperty(proyectPath+"_Win"));
 		}
 	}
 
