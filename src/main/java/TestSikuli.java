@@ -11,8 +11,8 @@ import org.sikuli.script.Screen;
 public class TestSikuli {
 	public static void main(String args[]){
 		Screen a = new Screen();
-
-		a.type(Key.UP, Key.WIN);
+		System.out.println(Screen.getBounds(0));
+		System.out.println(Screen.getBounds(1));
 		
 	
 	}

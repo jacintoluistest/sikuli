@@ -39,7 +39,9 @@ public class TSSocialNetworkImageMapPreviewTest
 			environment.projectImagesPath =
 				environment.projectImagesPath.concat(File.separator + "SecondaryScreen");
 			System.out.println(environment.projectImagesPath);
+			
 		}
+		System.out.println(TSAutomationTester.automationTesterCurrentScreen.getBounds());
 
 	}
 

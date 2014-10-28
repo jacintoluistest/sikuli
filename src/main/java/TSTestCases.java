@@ -200,5 +200,11 @@ public class TSTestCases
 		}
 		return result;
 	}
+	
+	
+	public static boolean circularLayout(){
+		
+		return true;
+	}
 
 }

@@ -12,14 +12,16 @@ public class TSSocialNetworkDesktopPreviewTest
 	@BeforeClass
 	public static void setUp() throws Exception
 	{
-		className = TSSocialNetworkImageMapPreviewTest.class.getName();
+		className = TSSocialNetworkDesktopPreviewTest.class.getName();
 		Settings.MoveMouseDelay = new Float(1.5);
 		environment =
 			new TSEnvironment("SocialNetworkAnalysis", TSEnvironment.DESKTOP_PREVIEW);
 		TSAutomationTester = new TSTester();
 		TSAutomationTester.LaunchTS();
-		TSAutomationTester.openProject(TSAutomationUtils.getProperty("SocialNetworkProyectPath_Win"));
+		TSAutomationTester.maximizeWindow();
+		TSAutomationTester.openProject("SocialNetworkProyectPath");
 		TSAutomationTester.launchDesktopPreview();
+		
 
 	}
 
@@ -110,7 +112,7 @@ public class TSSocialNetworkDesktopPreviewTest
 		boolean result =
 			TSTestCases.isOverviewPresent(TSAutomationTester,
 				environment.projectImagesPath + File.separator + "overviewExpected.png",
-				new Float(0.95));
+				new Float(0.80));
 		if (!result)
 		{
 			TSAutomationUtils.getScreenShot(TSAutomationTester, className
@@ -466,9 +468,9 @@ public class TSSocialNetworkDesktopPreviewTest
 	{
 		System.out.println("******testOnMouseHoverBetweenesCentrality******");
 		String imageToolBar =
-			environment.toolBarImagesPath + File.separator + "BetweenesCentralityToolBarDesktop.png";
+			environment.toolBarImagesPath + File.separator + "BetweennessCentralityToolBarDesktop.png";
 		String imageExpected =
-			environment.toolTipsImagePath + File.separator + "BetweenesCentrality.png";
+			environment.toolTipsImagePath + File.separator + "BetweennessCentrality.png";
 		boolean result =
 			TSTestCases.isToolTipPresentDesktop(TSAutomationTester,
 				imageToolBar,
@@ -488,9 +490,9 @@ public class TSSocialNetworkDesktopPreviewTest
 	{
 		System.out.println("******testOnMouseHoverClosenessCentralityLayout******");
 		String imageToolBar =
-			environment.toolBarImagesPath + File.separator + "ClosenesCentralityToolBarDesktop.png";
+			environment.toolBarImagesPath + File.separator + "ClosenessCentralityToolBarDesktop.png";
 		String imageExpected =
-			environment.toolTipsImagePath + File.separator + "ClosenesCentrality.png";
+			environment.toolTipsImagePath + File.separator + "ClosenessCentrality.png";
 		boolean result =
 			TSTestCases.isToolTipPresentDesktop(TSAutomationTester,
 				imageToolBar,
@@ -511,7 +513,7 @@ public class TSSocialNetworkDesktopPreviewTest
 	{
 		System.out.println("******testOnMouseHoverDegreeCentralityLayout******");
 		String imageToolBar =
-			environment.toolBarImagesPath + File.separator + "DegreeCentralityLayoutToolBarDesktop.png";
+			environment.toolBarImagesPath + File.separator + "DegreeCentralityToolBarDesktop.png";
 		String imageExpected =
 			environment.toolTipsImagePath + File.separator + "DegreeCentrality.png";
 		boolean result =
@@ -532,7 +534,7 @@ public class TSSocialNetworkDesktopPreviewTest
 	@Test
 	public void testOnMouseHoverEigenVectorCentralityLayout()
 	{
-		System.out.println("******testOnMouseHoverIncrementalLayout******");
+		System.out.println("******testOnMouseHoverEigenvectorCentralityLayout******");
 		String imageToolBar =
 			environment.toolBarImagesPath + File.separator + "EigenVectorCentralityToolBarDesktop.png";
 		String imageExpected =

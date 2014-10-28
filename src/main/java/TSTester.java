@@ -239,7 +239,7 @@ public class TSTester
 		try
 		{
 			automationTesterCurrentScreen.click(new Pattern(tsperspectivesToolBarImagesPath
-				+ File.separator + "WebPreview.png").similar(new Float(0.5)));
+				+ File.separator + "WebPreview.png").similar(new Float(0.7)));
 		}
 
 		catch (FindFailed ff)
@@ -247,7 +247,7 @@ public class TSTester
 			System.out.println(ff.getMessage());
 		}
 		System.out.println("Pause on launchWebPreview");
-		TSAutomationUtils.pauseScript(new Long(Long.valueOf(TSAutomationUtils.getProperty("TimeWaitLwebPreview"))));
+		TSAutomationUtils.pauseScript(new Long(Long.valueOf(TSAutomationUtils.getProperty("TimeWaitwebPreview"))));
 		System.out.println("Getting again screen");
 
 		try
@@ -292,7 +292,7 @@ public class TSTester
 			System.out.println(ff.getMessage());
 		}
 		System.out.println("Pause on launchCanvasPreview");
-		TSAutomationUtils.pauseScript(new Long(Long.valueOf(TSAutomationUtils.getProperty("TimeWaitLwebPreview"))));
+		TSAutomationUtils.pauseScript(new Long(Long.valueOf(TSAutomationUtils.getProperty("TimeWaitwebPreview"))));
 		System.out.println("Getting again screen");
 
 		try
@@ -368,12 +368,20 @@ public class TSTester
 
 	public Match isPresentElement(String patternStringPath, float similar, Long timeout)
 	{
+		File imageFile;
 		TSAutomationUtils.pauseScript(timeout);
 		System.out.println("Searching image for validation" + patternStringPath);
 		// Waiting for screen
-
+		imageFile = new File(patternStringPath);
+		if(imageFile.exists()){
+		
 		return automationTesterCurrentScreen.exists(new Pattern(patternStringPath).similar(similar));
-
+		}
+		else{
+			System.out.println("Could not load file :" + patternStringPath);
+			return null;
+		}
+		
 	}
 
 
@@ -502,7 +510,7 @@ public class TSTester
 					+ "TomSawyerPerspectives" + File.separator + "TSPerspectivesToolBar"
 					+ File.separator + "maximize.png";
 
-			Pattern maximizeElement = new Pattern(maximizeImage).similar(new Float(0.7));
+			Pattern maximizeElement = new Pattern(maximizeImage).similar(new Float(0.95));
 			if (automationTesterCurrentScreen.exists(maximizeElement) != null)
 				try
 				{
@@ -582,6 +590,19 @@ public class TSTester
 		else{
 			openProjectWindows(TSAutomationUtils.getProperty(proyectPath+"_Win"));
 		}
+	}
+	
+	public void zoomFit(){
+		String zoomFit=tspDesktopPreviewImagesPath + File.separator +"SelectToolBarDesktop";
+		try
+		{
+			automationTesterCurrentScreen.click(zoomFit);
+		}
+		catch (FindFailed ff)
+		{
+			System.out.println(ff.getMessage());
+		}
+		TSAutomationUtils.pauseScript(new Long(1500));
 	}
 
 }
