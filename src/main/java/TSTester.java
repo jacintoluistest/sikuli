@@ -256,6 +256,10 @@ public class TSTester
 			automationTesterCurrentScreen =
 				new Screen(TSAutomationUtils.getCurrentScreenId(new Pattern(tspWebPreviewImagesPath
 					+ File.separator + "WebCommonToolBar.png").similar(new Float(0.8))));
+			System.out.println("*********Screen Settings");
+			System.out.println(automationTesterCurrentScreen.getBounds());
+			System.out.println(automationTesterCurrentScreen.getID());
+			
 		}
 		catch (Exception e)
 		{
@@ -477,7 +481,7 @@ public class TSTester
 
 		try
 		{
-			automationTesterCurrentScreen.hover(new Pattern(patternStringPath).similar(new Float(0.7)));
+			automationTesterCurrentScreen.hover(new Pattern(patternStringPath).similar(new Float(0.8)));
 		}
 		catch (FindFailed ff)
 		{
