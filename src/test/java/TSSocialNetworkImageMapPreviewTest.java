@@ -104,6 +104,7 @@ public class TSSocialNetworkImageMapPreviewTest
 	public void testIsTableViewPresent()
 	{
 		System.out.println("*******testIsTableViewPresent*******");
+		System.out.println(TSAutomationTester.automationTesterCurrentScreen.getID());
 		boolean result =
 			TSTestCases.isToolBarPresent(TSAutomationTester,
 				environment.projectImagesPath + File.separator + "TableViewImageMap.png");
@@ -121,6 +122,7 @@ public class TSSocialNetworkImageMapPreviewTest
 	public void testOnMouseHoverSaveAs()
 	{
 		System.out.println("*******testHoverSaveAs*******");
+		System.out.println(TSAutomationTester.automationTesterCurrentScreen.getID());
 		String imageToolBar =
 			environment.toolBarImagesPath + File.separator + "SaveAsImageMap.png";
 		String imageExpected =
@@ -144,6 +146,7 @@ public class TSSocialNetworkImageMapPreviewTest
 	public void testOnMouseHoverPan()
 	{
 		System.out.println("*******testOnMouseHoverPan*******");
+		System.out.println(TSAutomationTester.automationTesterCurrentScreen.getID());
 		String imageToolBar =
 			environment.toolBarImagesPath + File.separator + "PanImageMap.png";
 		String imageExpected = environment.toolTipsImagePath + File.separator + "Pan.png";
@@ -191,6 +194,7 @@ public class TSSocialNetworkImageMapPreviewTest
 	public void testOnMouseHoverZoomIn()
 	{
 		System.out.println("*******TestOnMouseHoverZoomIn*******");
+		System.out.println(TSAutomationTester.automationTesterCurrentScreen.getID());
 		String imageToolBar =
 			environment.toolBarImagesPath + File.separator + "ZoomInImageMap.png";
 		String imageExpected =
@@ -214,6 +218,7 @@ public class TSSocialNetworkImageMapPreviewTest
 	public void testOnMouseHoverZoomOut()
 	{
 		System.out.println("*******TestOnMouseHoverZoomOut*******");
+		System.out.println(TSAutomationTester.automationTesterCurrentScreen.getID());
 		String imageToolBar =
 			environment.toolBarImagesPath + File.separator + "ZoomOutImageMap.png";
 		String imageExpected =
@@ -236,6 +241,7 @@ public class TSSocialNetworkImageMapPreviewTest
 	public void testOnMouseHoverZoomFit()
 	{
 		System.out.println("*******TestOnMouseHoverZoomFit*******");
+		System.out.println(TSAutomationTester.automationTesterCurrentScreen.getID());
 		String imageToolBar =
 			environment.toolBarImagesPath + File.separator + "ZoomFitImageMap.png";
 		String imageExpected =
@@ -259,6 +265,7 @@ public class TSSocialNetworkImageMapPreviewTest
 	public void testOnMouseHoverOverview()
 	{
 		System.out.println("*******TestOnMouseHoverOverview*******");
+		System.out.println(TSAutomationTester.automationTesterCurrentScreen.getID());
 		String imageToolBar =
 			environment.toolBarImagesPath + File.separator + "OverviewImageMap.png";
 		String imageExpected =

@@ -537,26 +537,40 @@ public class TSTester
 
 	public void refreshChrome()
 	{	
-		String refreshButton = null;
+		
+		String refreshButtonPath = null;
+		String refreshButtonFile=null;
+		
+		
 		if(TSAutomationUtils.getOs().contains("mac"))
 		{
+		String browser = TSAutomationUtils.getProperty("DefaultBrowserNameMac");
+		if(browser.contains("chrome")){
+			refreshButtonFile = "refreshChrome.png";
+		}
+		else {
+			refreshButtonFile = "refreshSafari.png";
+		}
 		
 		
-		 refreshButton =
+		
+		
+		
+		refreshButtonPath =
 			"images" + File.separator + "Mac" + File.separator + "TomSawyerPerspectives"
 				+ File.separator + "TSPerspectivesToolBar" + File.separator
-				+ "refreshChrome.png";
+				+ refreshButtonFile;
 		}
 		else{
-			refreshButton =
+			refreshButtonPath =
 				"images" + File.separator + "Windows" + File.separator + "TomSawyerPerspectives"
 					+ File.separator + "TSPerspectivesToolBar" + File.separator
-					+ "refreshChrome.png";
+					+ refreshButtonFile;
 		}
 		
 		try
 		{
-			automationTesterCurrentScreen.click(refreshButton);
+			automationTesterCurrentScreen.click(refreshButtonPath);
 		}
 		catch (FindFailed ff)
 		{
