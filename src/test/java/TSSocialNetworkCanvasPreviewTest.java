@@ -11,7 +11,7 @@ public class TSSocialNetworkCanvasPreviewTest
 	@BeforeClass
 	public static void setUp()
 	{
-		org.sikuli.basics.Debug.setDebugLevel(3);
+		//org.sikuli.basics.Debug.setDebugLevel(3);
 		className = TSSocialNetworkCanvasPreviewTest.class.getName();
 		environment =
 			new TSEnvironment("SocialNetworkAnalysis", TSEnvironment.HTML5_PREVIEW);
