@@ -11,7 +11,7 @@ public class TSSocialNetworkCanvasPreviewTest
 	@BeforeClass
 	public static void setUp()
 	{
-		//org.sikuli.basics.Debug.setDebugLevel(3);
+		// org.sikuli.basics.Debug.setDebugLevel(3);
 		className = TSSocialNetworkCanvasPreviewTest.class.getName();
 		environment =
 			new TSEnvironment("SocialNetworkAnalysis", TSEnvironment.HTML5_PREVIEW);
@@ -496,6 +496,62 @@ public class TSSocialNetworkCanvasPreviewTest
 		}
 		Assert.assertTrue(result);
 
+	}
+
+
+	@Test
+	public void testIsOverviewPresent()
+	{
+		System.out.println("*******TestIsOverviewPresent*******");
+		TSAutomationTester.openOverviewHtml5();
+		boolean result =
+			TSTestCases.isOverviewPresent(TSAutomationTester,
+				environment.projectImagesPath + File.separator + "overviewExpected.png");
+		if (!result)
+		{
+			TSAutomationUtils.getScreenShot(TSAutomationTester, className
+				+ "testIsOverviewPresent", environment.evidencePath);
+		}
+		Assert.assertTrue(result);
+
+	}
+	
+	@Test
+	public void testCircularLayout()
+	{
+		System.out.println("testCircularLayout");
+		TSAutomationTester.CircularLayoutHtml5();
+		boolean result =
+			TSTestCases.isOverviewPresent(TSAutomationTester,
+				environment.projectImagesPath + File.separator + "CircularExpected.png",
+				new Float(0.80));
+		if (!result)
+		{
+			TSAutomationUtils.getScreenShot(TSAutomationTester, className
+				+ "testIsOverviewPresent", environment.evidencePath);
+		}
+
+		Assert.assertTrue(result);
+		TSAutomationTester.SymmetricLayoutHtml5();
+	}
+	
+	@Test
+	public void testHierarchicalLayout()
+	{
+		System.out.println("testHierarchicalLayout");
+		TSAutomationTester.HierarchicalLayoutHtml5();
+		boolean result =
+			TSTestCases.isOverviewPresent(TSAutomationTester,
+				environment.projectImagesPath + File.separator + "HierarchicalExpected.png",
+				new Float(0.80));
+		if (!result)
+		{
+			TSAutomationUtils.getScreenShot(TSAutomationTester, className
+				+ "testIsOverviewPresent", environment.evidencePath);
+		}
+
+		Assert.assertTrue(result);
+		TSAutomationTester.SymmetricLayoutHtml5();
 	}
 
 

@@ -1,5 +1,4 @@
 import java.io.File;
-import javax.swing.plaf.basic.BasicSplitPaneUI.KeyboardEndHandler;
 import org.sikuli.script.FindFailed;
 import org.sikuli.script.Key;
 import org.sikuli.script.Match;
@@ -14,7 +13,9 @@ public class TSTester
 
 	String tspDesktopPreviewImagesPath;
 
-	String tspWebPreviewImagesPath;
+	String tspImageMapImagesPath;
+
+	String tspHtml5PreviewImagePath;
 
 	String TS_HOME;
 
@@ -57,7 +58,7 @@ public class TSTester
 				"images" + File.separator + "Mac" + File.separator
 					+ "TomSawyerPerspectives" + File.separator + "CommonDesktopPreview"
 					+ File.separator + "ToolBar";
-			tspWebPreviewImagesPath =
+			tspImageMapImagesPath =
 				"images" + File.separator + "Mac" + File.separator
 					+ "TomSawyerPerspectives" + File.separator + "CommonImageMapPreview"
 					+ File.separator + "ToolBar";
@@ -75,9 +76,13 @@ public class TSTester
 				"images" + File.separator + "Windows" + File.separator
 					+ "TomSawyerPerspectives" + File.separator + "CommonDesktopPreview"
 					+ File.separator + "ToolBar";
-			tspWebPreviewImagesPath =
+			tspImageMapImagesPath =
 				"images" + File.separator + "Windows" + File.separator
 					+ "TomSawyerPerspectives" + File.separator + "CommonImageMapPreview"
+					+ File.separator + "ToolBar";
+			tspHtml5PreviewImagePath =
+				"images" + File.separator + "Windows" + File.separator
+					+ "TomSawyerPerspectives" + File.separator + "CommonCanvasPreview"
 					+ File.separator + "ToolBar";
 		}
 
@@ -255,12 +260,12 @@ public class TSTester
 		{
 			System.out.println("Trying get screen again");
 			automationTesterCurrentScreen =
-				new Screen(TSAutomationUtils.getCurrentScreenId(new Pattern(tspWebPreviewImagesPath
+				new Screen(TSAutomationUtils.getCurrentScreenId(new Pattern(tspImageMapImagesPath
 					+ File.separator + "WebCommonToolBar.png").similar(new Float(0.8))));
 			System.out.println("*********Screen Settings");
 			System.out.println(automationTesterCurrentScreen.getBounds());
 			System.out.println(automationTesterCurrentScreen.getID());
-			
+
 		}
 		catch (Exception e)
 		{
@@ -304,7 +309,7 @@ public class TSTester
 		{
 			System.out.println("Trying get screen again");
 			automationTesterCurrentScreen =
-				new Screen(TSAutomationUtils.getCurrentScreenId(new Pattern(tspWebPreviewImagesPath
+				new Screen(TSAutomationUtils.getCurrentScreenId(new Pattern(tspImageMapImagesPath
 					+ File.separator + "WebCommonToolBar.png").similar(new Float(0.8))));
 		}
 		catch (Exception e)
@@ -378,25 +383,21 @@ public class TSTester
 		System.out.println("Searching image for validation" + patternStringPath);
 		// Waiting for screen
 		imageFile = new File(patternStringPath);
-		if(imageFile.exists()){
-		
-		return automationTesterCurrentScreen.exists(new Pattern(patternStringPath).similar(similar));
+		if (imageFile.exists())
+		{
+
+			return automationTesterCurrentScreen.exists(new Pattern(patternStringPath).similar(similar));
 		}
-		else{
+		else
+		{
 			System.out.println("Could not load file :" + patternStringPath);
 			return null;
 		}
-		
+
 	}
 
 
 	public void isPresentElementImageMap(String patternStringPath)
-	{
-
-	}
-
-
-	public void openOverviewImageMap()
 	{
 
 	}
@@ -432,7 +433,43 @@ public class TSTester
 		try
 		{
 			automationTesterCurrentScreen.click(new Pattern(tspDesktopPreviewImagesPath
-				+ "//OverviewToolBarDesktop.png").similar(new Float(0.)));
+				+ "//OverviewToolBarDesktop.png").similar(new Float(0.7)));
+			TSAutomationUtils.pauseScript(new Long(2000));
+		}
+		catch (FindFailed ff)
+		{
+			System.out.println(ff.getMessage());
+		}
+	}
+
+
+	public void openOverviewImageMap()
+	{
+		System.out.println("Opening Overview");
+		System.out.println(tspImageMapImagesPath + File.separator
+			+ "OverviewImageMap.png");
+		try
+		{
+			automationTesterCurrentScreen.click(new Pattern(tspImageMapImagesPath
+				+ File.separator + "OverviewImageMap.png").similar(new Float(0.7)));
+			TSAutomationUtils.pauseScript(new Long(2000));
+		}
+		catch (FindFailed ff)
+		{
+			System.out.println(ff.getMessage());
+		}
+	}
+
+
+	public void openOverviewHtml5()
+	{
+		System.out.println("Opening Overview");
+		System.out.println(tspHtml5PreviewImagePath + File.separator
+			+ "OverviewCanvas.png");
+		try
+		{
+			automationTesterCurrentScreen.click(new Pattern(tspHtml5PreviewImagePath
+				+ File.separator + "OverviewCanvas.png").similar(new Float(0.7)));
 			TSAutomationUtils.pauseScript(new Long(2000));
 		}
 		catch (FindFailed ff)
@@ -510,29 +547,30 @@ public class TSTester
 	{
 		if (TSAutomationUtils.getOs().contains("mac"))
 		{
-			
-////			String maximizeImage =
-////				"images" + File.separator + "Mac" + File.separator
-////					+ "TomSawyerPerspectives" + File.separator + "TSPerspectivesToolBar"
-////					+ File.separator + "maximize.png";
-////
-////			Pattern maximizeElement = new Pattern(maximizeImage).similar(new Float(0.95));
-//			if (automationTesterCurrentScreen.exists(maximizeElement) != null)
-//				try
-//				{
-//					automationTesterCurrentScreen.click(maximizeElement);
-//
-//				}
-//				catch (FindFailed ff)
-//				{
-//					System.out.println(ff.getMessage());
-//				}
-			
-			automationTesterCurrentScreen.type("f",Key.CTRL+Key.META);
+
+			// // String maximizeImage =
+			// // "images" + File.separator + "Mac" + File.separator
+			// // + "TomSawyerPerspectives" + File.separator + "TSPerspectivesToolBar"
+			// // + File.separator + "maximize.png";
+			// //
+			// // Pattern maximizeElement = new Pattern(maximizeImage).similar(new
+			// Float(0.95));
+			// if (automationTesterCurrentScreen.exists(maximizeElement) != null)
+			// try
+			// {
+			// automationTesterCurrentScreen.click(maximizeElement);
+			//
+			// }
+			// catch (FindFailed ff)
+			// {
+			// System.out.println(ff.getMessage());
+			// }
+
+			automationTesterCurrentScreen.type("f", Key.CTRL + Key.META);
 		}
 
 		else
-			automationTesterCurrentScreen.type(Key.UP,Key.WIN );
+			automationTesterCurrentScreen.type(Key.UP, Key.WIN);
 		{
 		}
 
@@ -540,38 +578,47 @@ public class TSTester
 
 
 	public void refreshChrome()
-	{	
-		
+	{
+
 		String refreshButtonPath = null;
-		String refreshButtonFile=null;
-		
-		
-		if(TSAutomationUtils.getOs().contains("mac"))
+		String refreshButtonFile = null;
+
+		if (TSAutomationUtils.getOs().contains("mac"))
 		{
-		String browser = TSAutomationUtils.getProperty("DefaultBrowserNameMac");
-		if(browser.contains("chrome")){
-			refreshButtonFile = "refreshChrome.png";
-		}
-		else {
-			refreshButtonFile = "refreshSafari.png";
-		}
-		
-		
-		
-		
-		
-		refreshButtonPath =
-			"images" + File.separator + "Mac" + File.separator + "TomSawyerPerspectives"
-				+ File.separator + "TSPerspectivesToolBar" + File.separator
-				+ refreshButtonFile;
-		}
-		else{
+			String browser = TSAutomationUtils.getProperty("DefaultBrowserNameMac");
+			if (browser.contains("chrome"))
+			{
+				refreshButtonFile = "refreshChrome.png";
+			}
+			else
+			{
+				refreshButtonFile = "refreshSafari.png";
+			}
+
 			refreshButtonPath =
-				"images" + File.separator + "Windows" + File.separator + "TomSawyerPerspectives"
-					+ File.separator + "TSPerspectivesToolBar" + File.separator
-					+ refreshButtonFile;
+				"images" + File.separator + "Mac" + File.separator
+					+ "TomSawyerPerspectives" + File.separator + "TSPerspectivesToolBar"
+					+ File.separator + refreshButtonFile;
 		}
-		
+		else
+		{
+
+			String browser = TSAutomationUtils.getProperty("DefaultBrowserNameWindows");
+			if (browser.contains("Chrome"))
+			{
+				refreshButtonFile = "refreshChrome.png";
+			}
+			else
+			{
+				refreshButtonFile = "refreshSafari.png";
+			}
+
+			refreshButtonPath =
+				"images" + File.separator + "Windows" + File.separator
+					+ "TomSawyerPerspectives" + File.separator + "TSPerspectivesToolBar"
+					+ File.separator + refreshButtonFile;
+		}
+
 		try
 		{
 			automationTesterCurrentScreen.click(refreshButtonPath);
@@ -604,18 +651,25 @@ public class TSTester
 
 		}
 	}
-	
-	public void openProject(String proyectPath){
-		if(TSAutomationUtils.getOs().contains("mac")){
-			openProjectMac(TSAutomationUtils.getProperty(proyectPath+"_Mac"));
+
+
+	public void openProject(String proyectPath)
+	{
+		if (TSAutomationUtils.getOs().contains("mac"))
+		{
+			openProjectMac(TSAutomationUtils.getProperty(proyectPath + "_Mac"));
 		}
-		else{
-			openProjectWindows(TSAutomationUtils.getProperty(proyectPath+"_Win"));
+		else
+		{
+			openProjectWindows(TSAutomationUtils.getProperty(proyectPath + "_Win"));
 		}
 	}
-	
-	public void zoomFit(){
-		String zoomFit=tspDesktopPreviewImagesPath + File.separator +"SelectToolBarDesktop";
+
+
+	public void zoomFit()
+	{
+		String zoomFit =
+			tspDesktopPreviewImagesPath + File.separator + "SelectToolBarDesktop";
 		try
 		{
 			automationTesterCurrentScreen.click(zoomFit);
@@ -625,6 +679,162 @@ public class TSTester
 			System.out.println(ff.getMessage());
 		}
 		TSAutomationUtils.pauseScript(new Long(1500));
+	}
+
+
+	public void CircularLayoutDesktop()
+	{
+		String circularLayout =
+			tspDesktopPreviewImagesPath + File.separator
+				+ "CircularLayoutToolBarDesktop.png";
+		try
+		{
+			automationTesterCurrentScreen.click(circularLayout);
+		}
+		catch (FindFailed ff)
+		{
+			System.out.println(ff.getMessage());
+		}
+		TSAutomationUtils.pauseScript(new Long(1500));
+
+	}
+
+
+	public void CircularLayoutImageMap()
+	{
+		String circularLayout =
+			tspImageMapImagesPath + File.separator + "CircularLayoutImageMap.png";
+		try
+		{
+			automationTesterCurrentScreen.click(circularLayout);
+		}
+		catch (FindFailed ff)
+		{
+			System.out.println(ff.getMessage());
+		}
+		TSAutomationUtils.pauseScript(new Long(1500));
+
+	}
+
+
+	public void CircularLayoutHtml5()
+	{
+		String circularLayout =
+			tspHtml5PreviewImagePath + File.separator + "CircularLayoutCanvas.png";
+		try
+		{
+			automationTesterCurrentScreen.click(circularLayout);
+		}
+		catch (FindFailed ff)
+		{
+			System.out.println(ff.getMessage());
+		}
+		TSAutomationUtils.pauseScript(new Long(1500));
+
+	}
+
+
+	public void HierarchicalLayoutDesktop()
+	{
+		String circularLayout =
+			tspDesktopPreviewImagesPath + File.separator
+				+ "HierarchicalLayoutToolBarDesktop.png";
+		try
+		{
+			automationTesterCurrentScreen.click(circularLayout);
+		}
+		catch (FindFailed ff)
+		{
+			System.out.println(ff.getMessage());
+		}
+		TSAutomationUtils.pauseScript(new Long(1500));
+
+	}
+
+
+	public void HierarchicalLayoutImageMap()
+	{
+		String circularLayout =
+			tspImageMapImagesPath + File.separator + "HierarchicaLayoutImageMap.png";
+		try
+		{
+			automationTesterCurrentScreen.click(circularLayout);
+		}
+		catch (FindFailed ff)
+		{
+			System.out.println(ff.getMessage());
+		}
+		TSAutomationUtils.pauseScript(new Long(1500));
+
+	}
+
+
+	public void HierarchicalLayoutHtml5()
+	{
+		String circularLayout =
+			tspHtml5PreviewImagePath + File.separator + "HierarchicalLayoutCanvas.png";
+		try
+		{
+			automationTesterCurrentScreen.click(circularLayout);
+		}
+		catch (FindFailed ff)
+		{
+			System.out.println(ff.getMessage());
+		}
+		TSAutomationUtils.pauseScript(new Long(1500));
+
+	}
+
+
+	public void SymmetricLayoutDesktop()
+	{
+		String circularLayout =
+			tspDesktopPreviewImagesPath + File.separator
+				+ "SymmetricLayoutToolBarDesktop.png";
+		try
+		{
+			automationTesterCurrentScreen.click(circularLayout);
+		}
+		catch (FindFailed ff)
+		{
+			System.out.println(ff.getMessage());
+		}
+		TSAutomationUtils.pauseScript(new Long(1500));
+
+	}
+
+
+	public void SymmetricLayoutImageMap()
+	{
+		String circularLayout =
+			tspImageMapImagesPath + File.separator + "SymmetricLayoutImageMap.png";
+		try
+		{
+			automationTesterCurrentScreen.click(circularLayout);
+		}
+		catch (FindFailed ff)
+		{
+			System.out.println(ff.getMessage());
+		}
+		TSAutomationUtils.pauseScript(new Long(1500));
+
+	}
+
+
+	public void SymmetricLayoutHtml5()
+	{
+		String circularLayout =
+			tspHtml5PreviewImagePath + File.separator + "SymmetricLayoutCanvas.png";
+		try
+		{
+			automationTesterCurrentScreen.click(circularLayout);
+		}
+		catch (FindFailed ff)
+		{
+			System.out.println(ff.getMessage());
+		}
+		TSAutomationUtils.pauseScript(new Long(1500));
+
 	}
 
 }

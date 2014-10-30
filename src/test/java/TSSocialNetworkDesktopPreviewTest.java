@@ -121,6 +121,44 @@ public class TSSocialNetworkDesktopPreviewTest
 
 		Assert.assertTrue(result);
 	}
+	
+	@Test
+	public void testCircularLayout()
+	{
+		System.out.println("testCircularLayout");
+		TSAutomationTester.CircularLayoutDesktop();
+		boolean result =
+			TSTestCases.isOverviewPresent(TSAutomationTester,
+				environment.projectImagesPath + File.separator + "CircularLayoutExpected.png",
+				new Float(0.80));
+		if (!result)
+		{
+			TSAutomationUtils.getScreenShot(TSAutomationTester, className
+				+ "testIsOverviewPresent", environment.evidencePath);
+		}
+
+		Assert.assertTrue(result);
+		TSAutomationTester.SymmetricLayoutDesktop();
+	}
+	
+	@Test
+	public void testHierarchicalLayout()
+	{
+		System.out.println("testHierarchicalLayout");
+		TSAutomationTester.HierarchicalLayoutDesktop();
+		boolean result =
+			TSTestCases.isOverviewPresent(TSAutomationTester,
+				environment.projectImagesPath + File.separator + "HierarchicalLayoutExpected.png",
+				new Float(0.80));
+		if (!result)
+		{
+			TSAutomationUtils.getScreenShot(TSAutomationTester, className
+				+ "testIsOverviewPresent", environment.evidencePath);
+		}
+
+		Assert.assertTrue(result);
+		TSAutomationTester.SymmetricLayoutDesktop();
+	}
 
 
 	@Test
