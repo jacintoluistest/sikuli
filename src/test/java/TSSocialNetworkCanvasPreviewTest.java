@@ -499,7 +499,7 @@ public class TSSocialNetworkCanvasPreviewTest
 	}
 
 
-	@Test
+	
 	public void testIsOverviewPresent()
 	{
 		System.out.println("*******TestIsOverviewPresent*******");
