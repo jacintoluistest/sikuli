@@ -5,14 +5,14 @@ import org.junit.AfterClass;
 import org.junit.Test;
 
 
-public class TSSocialNetworkCanvasPreviewTest
+public class TSSocialNetworkHtml5PreviewTest
 {
 
 	@BeforeClass
 	public static void setUp()
 	{
 		//org.sikuli.basics.Debug.setDebugLevel(3);
-		className = TSSocialNetworkCanvasPreviewTest.class.getName();
+		className = TSSocialNetworkHtml5PreviewTest.class.getName();
 		environment =
 			new TSEnvironment("SocialNetworkAnalysis", TSEnvironment.HTML5_PREVIEW);
 		TSAutomationTester = new TSTester();
