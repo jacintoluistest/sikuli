@@ -3,6 +3,7 @@ import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.AfterClass;
 import org.junit.Test;
+import org.sikuli.basics.Settings;
 
 
 public class TSSocialNetworkHtml5PreviewTest
@@ -11,8 +12,8 @@ public class TSSocialNetworkHtml5PreviewTest
 	@BeforeClass
 	public static void setUp()
 	{
-		//org.sikuli.basics.Debug.setDebugLevel(3);
 		className = TSSocialNetworkHtml5PreviewTest.class.getName();
+		Settings.MoveMouseDelay = new Float(1.5);
 		environment =
 			new TSEnvironment("SocialNetworkAnalysis", TSEnvironment.HTML5_PREVIEW);
 		TSAutomationTester = new TSTester();
@@ -457,6 +458,8 @@ public class TSSocialNetworkHtml5PreviewTest
 	public void testOnMouseHoverDegreeCentralityLayout()
 	{
 		System.out.println("*******TestOnMouseHoverDegreeCentralityLayout*******");
+		System.out.println("Coordinates for x =" + TSAutomationTester.automationTesterCurrentScreen.x);
+		System.out.println("Coordinates for y =" + TSAutomationTester.automationTesterCurrentScreen.y);
 		String imageToolBar =
 			environment.toolBarImagesPath + File.separator + "DegreeCentralityCanvas.png";
 		String imageExpected =

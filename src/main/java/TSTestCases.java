@@ -139,11 +139,11 @@ public class TSTestCases
 		String imageExpected)
 	{
 		boolean result = true;
-		long timeOut = 1000;
+		long timeOut = 800;
 		
 			tester.onMouseHoverImageMap(imageHover);
 		
-		if (tester.isPresentElement(imageExpected, new Float(0.6), timeOut) != null)
+		if (tester.isPresentElement(imageExpected, new Float(0.8), timeOut) != null)
 		{
 			result = true;
 		}

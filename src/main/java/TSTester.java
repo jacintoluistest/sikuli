@@ -1,5 +1,4 @@
 import java.io.File;
-import javax.swing.plaf.basic.BasicSplitPaneUI.KeyboardEndHandler;
 import org.sikuli.script.FindFailed;
 import org.sikuli.script.Key;
 import org.sikuli.script.Match;
@@ -482,7 +481,17 @@ public class TSTester
 
 		try
 		{
-			automationTesterCurrentScreen.hover(new Pattern(patternStringPath).similar(new Float(0.8)));
+			int coordinateX=automationTesterCurrentScreen.x;
+			int coordinateY=automationTesterCurrentScreen.y;
+			System.out.println("x= "+coordinateX);
+			System.out.println("x= "+coordinateY);
+			
+			
+			automationTesterCurrentScreen.hover(new Pattern(patternStringPath).similar(new Float(0.4)));
+			if(automationTesterCurrentScreen.x!=coordinateX){
+				System.out.println("Entre aqui");
+				automationTesterCurrentScreen.x=coordinateX;
+			}
 		}
 		catch (FindFailed ff)
 		{
@@ -510,23 +519,6 @@ public class TSTester
 	{
 		if (TSAutomationUtils.getOs().contains("mac"))
 		{
-			
-////			String maximizeImage =
-////				"images" + File.separator + "Mac" + File.separator
-////					+ "TomSawyerPerspectives" + File.separator + "TSPerspectivesToolBar"
-////					+ File.separator + "maximize.png";
-////
-////			Pattern maximizeElement = new Pattern(maximizeImage).similar(new Float(0.95));
-//			if (automationTesterCurrentScreen.exists(maximizeElement) != null)
-//				try
-//				{
-//					automationTesterCurrentScreen.click(maximizeElement);
-//
-//				}
-//				catch (FindFailed ff)
-//				{
-//					System.out.println(ff.getMessage());
-//				}
 			
 			automationTesterCurrentScreen.type("f",Key.CTRL+Key.META);
 		}
