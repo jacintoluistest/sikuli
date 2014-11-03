@@ -111,13 +111,13 @@ public class TSTester
 			System.out.println("Getting current Screen");
 			automationTesterCurrentScreen =
 				new Screen(TSAutomationUtils.getCurrentScreenId(new Pattern(this.tsperspectivesToolBarImagesPath
-					+ File.separator + "openFileIcon.png").similar(new Float(0.9))));
+					+ File.separator + "openFileIcon.png").similar(new Float(0.8))));
 		}
 		catch (Exception e)
 		{
 			System.out.println(e.getMessage());
 		}
-		System.out.println("Pantalla actual= " + automationTesterCurrentScreen.getID());
+		System.out.println("Current Screen= " + automationTesterCurrentScreen.getID());
 		System.out.println("Pause on openProyect");
 		// TSSAutomationUtils.pauseScript();
 		try
@@ -527,22 +527,6 @@ public class TSTester
 		}
 	}
 
-
-	public void closeOnMacRedCross()
-	{
-		try
-		{
-			automationTesterCurrentScreen.click(new Pattern(tsperspectivesToolBarImagesPath
-				+ File.separator + "closeRedCircle.png").similar(new Float(0.8)));
-		}
-		catch (FindFailed ff)
-		{
-			System.out.println(ff.getMessage());
-		}
-
-	}
-
-
 	public void maximizeWindow()
 	{
 		if (TSAutomationUtils.getOs().contains("mac"))
@@ -643,11 +627,11 @@ public class TSTester
 
 		}
 		else
-		{
-			closeDekstopPreview();
+		{	
+			closeTSP();
 			System.out.println("Closing everything...");
 			System.out.println("Thank you");
-			closeTSP();
+			TSAutomationUtils.pauseScript(new Long(5000));
 
 		}
 	}

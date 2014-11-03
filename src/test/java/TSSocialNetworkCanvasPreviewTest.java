@@ -11,6 +11,7 @@ public class TSSocialNetworkCanvasPreviewTest
 	@BeforeClass
 	public static void setUp()
 	{
+		org.sikuli.basics.Debug.setDebugLevel(3);
 		// org.sikuli.basics.Debug.setDebugLevel(3);
 		className = TSSocialNetworkCanvasPreviewTest.class.getName();
 		environment =
@@ -297,7 +298,7 @@ public class TSSocialNetworkCanvasPreviewTest
 		System.out.println("*******TestOnMouseHoverHierarchicalLayout*******");
 		String imageToolBar =
 			environment.toolBarImagesPath + File.separator
-				+ "HierarchicaLayoutCanvas.png";
+				+ "HierarchicalLayoutCanvas.png";
 		String imageExpected =
 			environment.toolTipsImagePath + File.separator + "HierarchicalLayout.png";
 		boolean result =
