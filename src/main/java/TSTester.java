@@ -431,6 +431,42 @@ public class TSTester
 		try
 		{
 			automationTesterCurrentScreen.click(new Pattern(tspDesktopPreviewImagesPath
+				+ "//OverviewToolBarDesktop.png").similar(new Float(0.7)));
+			TSAutomationUtils.pauseScript(new Long(2000));
+		}
+		catch (FindFailed ff)
+		{
+			System.out.println(ff.getMessage());
+		}
+	}
+
+
+	public void openOverviewImageMap()
+	{
+		System.out.println("Opening Overview");
+		System.out.println(tspImageMapImagesPath + File.separator
+			+ "OverviewImageMap.png");
+		try
+		{
+			automationTesterCurrentScreen.click(new Pattern(tspImageMapImagesPath
+				+ File.separator + "OverviewImageMap.png").similar(new Float(0.7)));
+			TSAutomationUtils.pauseScript(new Long(2000));
+		}
+		catch (FindFailed ff)
+		{
+			System.out.println(ff.getMessage());
+		}
+	}
+
+
+	public void openOverviewHtml5()
+	{
+		System.out.println("Opening Overview");
+		System.out.println(tspHtml5PreviewImagePath + File.separator
+			+ "OverviewCanvas.png");
+		try
+		{
+			automationTesterCurrentScreen.click(new Pattern(tspHtml5PreviewImagePath
 				+ "//OverviewToolBarDesktop.png").similar(new Float(0.)));
 			TSAutomationUtils.pauseScript(new Long(2000));
 		}
@@ -617,6 +653,162 @@ public class TSTester
 			System.out.println(ff.getMessage());
 		}
 		TSAutomationUtils.pauseScript(new Long(1500));
+	}
+
+
+	public void CircularLayoutDesktop()
+	{
+		String circularLayout =
+			tspDesktopPreviewImagesPath + File.separator
+				+ "CircularLayoutToolBarDesktop.png";
+		try
+		{
+			automationTesterCurrentScreen.click(circularLayout);
+		}
+		catch (FindFailed ff)
+		{
+			System.out.println(ff.getMessage());
+		}
+		TSAutomationUtils.pauseScript(new Long(1500));
+
+	}
+
+
+	public void CircularLayoutImageMap()
+	{
+		String circularLayout =
+			tspImageMapImagesPath + File.separator + "CircularLayoutImageMap.png";
+		try
+		{
+			automationTesterCurrentScreen.click(circularLayout);
+		}
+		catch (FindFailed ff)
+		{
+			System.out.println(ff.getMessage());
+		}
+		TSAutomationUtils.pauseScript(new Long(1500));
+
+	}
+
+
+	public void CircularLayoutHtml5()
+	{
+		String circularLayout =
+			tspHtml5PreviewImagePath + File.separator + "CircularLayoutCanvas.png";
+		try
+		{
+			automationTesterCurrentScreen.click(circularLayout);
+		}
+		catch (FindFailed ff)
+		{
+			System.out.println(ff.getMessage());
+		}
+		TSAutomationUtils.pauseScript(new Long(1500));
+
+	}
+
+
+	public void HierarchicalLayoutDesktop()
+	{
+		String circularLayout =
+			tspDesktopPreviewImagesPath + File.separator
+				+ "HierarchicalLayoutToolBarDesktop.png";
+		try
+		{
+			automationTesterCurrentScreen.click(circularLayout);
+		}
+		catch (FindFailed ff)
+		{
+			System.out.println(ff.getMessage());
+		}
+		TSAutomationUtils.pauseScript(new Long(1500));
+
+	}
+
+
+	public void HierarchicalLayoutImageMap()
+	{
+		String circularLayout =
+			tspImageMapImagesPath + File.separator + "HierarchicaLayoutImageMap.png";
+		try
+		{
+			automationTesterCurrentScreen.click(circularLayout);
+		}
+		catch (FindFailed ff)
+		{
+			System.out.println(ff.getMessage());
+		}
+		TSAutomationUtils.pauseScript(new Long(1500));
+
+	}
+
+
+	public void HierarchicalLayoutHtml5()
+	{
+		String circularLayout =
+			tspHtml5PreviewImagePath + File.separator + "HierarchicalLayoutCanvas.png";
+		try
+		{
+			automationTesterCurrentScreen.click(circularLayout);
+		}
+		catch (FindFailed ff)
+		{
+			System.out.println(ff.getMessage());
+		}
+		TSAutomationUtils.pauseScript(new Long(1500));
+
+	}
+
+
+	public void SymmetricLayoutDesktop()
+	{
+		String circularLayout =
+			tspDesktopPreviewImagesPath + File.separator
+				+ "SymmetricLayoutToolBarDesktop.png";
+		try
+		{
+			automationTesterCurrentScreen.click(circularLayout);
+		}
+		catch (FindFailed ff)
+		{
+			System.out.println(ff.getMessage());
+		}
+		TSAutomationUtils.pauseScript(new Long(1500));
+
+	}
+
+
+	public void SymmetricLayoutImageMap()
+	{
+		String circularLayout =
+			tspImageMapImagesPath + File.separator + "SymmetricLayoutImageMap.png";
+		try
+		{
+			automationTesterCurrentScreen.click(circularLayout);
+		}
+		catch (FindFailed ff)
+		{
+			System.out.println(ff.getMessage());
+		}
+		TSAutomationUtils.pauseScript(new Long(1500));
+
+	}
+
+
+	public void SymmetricLayoutHtml5()
+	{
+		String circularLayout =
+			tspHtml5PreviewImagePath + File.separator + "SymmetricLayoutCanvas.png";
+		try
+		{
+			automationTesterCurrentScreen.click(circularLayout);
+		}
+		catch (FindFailed ff)
+		{
+			System.out.println(ff.getMessage());
+		}
+		TSAutomationUtils.pauseScript(new Long(1500));
+
 	}
 
 }
