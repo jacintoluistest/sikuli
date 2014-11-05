@@ -41,7 +41,8 @@ public class TSTester
 	}
 	public TSTester(String browser)
 	{
-		setAutomationOsEnvironment(browser);
+		this.browser = browser;
+		setAutomationOsEnvironmentWeb();
 		System.out.println("Wait Time Out for sleep is " + openTSPerspectivesTimeOut);
 		automationTesterCurrentScreen = new Screen();
 
@@ -49,7 +50,7 @@ public class TSTester
 
 
 	
-	public void setAutomationOsEnvironment(String browser)
+	public void setAutomationOsEnvironmentWeb()
 	{
 		// This method sets the environment for test execution
 
@@ -104,6 +105,11 @@ public class TSTester
 					+File.separator + browser
 					+ File.separator + "ToolBar";
 		}
+		
+		System.out.println(tomSawyerDesignerApplicationPath);
+		System.out.println(tsperspectivesToolBarImagesPath);
+		System.out.println(tspImageMapImagesPath);
+		System.out.println(tspHtml5PreviewImagePath);
 
 	}
 	
@@ -489,11 +495,11 @@ public class TSTester
 		System.out.println("Closing Web Preview");
 		if (operativeSystem.contains("windows"))
 		{
-			App.close(TSAutomationUtils.getProperty("DefaultBrowserNameWindows"));
+			App.close(TSAutomationUtils.getProperty("DefaultBrowser"));
 		}
 		else
 		{
-			App.close(TSAutomationUtils.getProperty("DefaultBrowserNameMac"));
+			App.close(TSAutomationUtils.getProperty("DefaultBrowser"));
 		}
 	}
 
@@ -634,7 +640,7 @@ public class TSTester
 	}
 
 
-	public void refreshChrome()
+	public void refreshBrowser()
 	{
 
 		String refreshButtonPath = null;
@@ -642,7 +648,7 @@ public class TSTester
 
 		if (TSAutomationUtils.getOs().contains("mac"))
 		{
-			String browser = TSAutomationUtils.getProperty("DefaultBrowserNameMac");
+			String browser = TSAutomationUtils.getProperty("DefaultBrowser");
 			if (browser.contains("chrome"))
 			{
 				refreshButtonFile = "refreshChrome.png";
@@ -660,7 +666,7 @@ public class TSTester
 		else
 		{
 
-			String browser = TSAutomationUtils.getProperty("DefaultBrowserNameWindows");
+			String browser = TSAutomationUtils.getProperty("DefaultBrowser");
 			if (browser.contains("Chrome"))
 			{
 				refreshButtonFile = "refreshChrome.png";
@@ -684,7 +690,7 @@ public class TSTester
 		{
 			System.out.println(ff.getMessage());
 		}
-		TSAutomationUtils.pauseScript(new Long(1500));
+		TSAutomationUtils.pauseScript(new Long(3000));
 	}
 
 
