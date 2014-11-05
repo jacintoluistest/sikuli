@@ -28,6 +28,8 @@ public class TSTester
 	App tomSawyerApplication;
 
 	public String operativeSystem;
+	
+	String browser;
 
 
 	public TSTester()
@@ -37,8 +39,74 @@ public class TSTester
 		automationTesterCurrentScreen = new Screen();
 
 	}
+	public TSTester(String browser)
+	{
+		setAutomationOsEnvironment(browser);
+		System.out.println("Wait Time Out for sleep is " + openTSPerspectivesTimeOut);
+		automationTesterCurrentScreen = new Screen();
+
+	}
 
 
+	
+	public void setAutomationOsEnvironment(String browser)
+	{
+		// This method sets the environment for test execution
+
+		operativeSystem = TSAutomationUtils.getOs();
+		System.out.println(operativeSystem);
+
+		if (operativeSystem.contains("mac os x"))
+		{
+			TS_HOME = TSAutomationUtils.getProperty("TS_HOME_Mac");
+			System.out.println("Path de Tom Sawyer es " + TS_HOME);
+			tomSawyerDesignerApplicationPath =
+				TSAutomationUtils.getProperty("TSPApplicationPathMac");
+			tsperspectivesToolBarImagesPath =
+				"images/Mac/TomSawyerPerspectives/TSPerspectivesToolBar";
+			tspDesktopPreviewImagesPath =
+				"images" + File.separator + "Mac" + File.separator
+					+ "TomSawyerPerspectives" + File.separator + "CommonDesktopPreview"
+					+ File.separator + "ToolBar";
+			tspImageMapImagesPath =
+				"images" + File.separator + "Mac" + File.separator
+					+ "TomSawyerPerspectives" + File.separator + "CommonImageMapPreview"
+					+ File.separator+browser
+					+ File.separator + "ToolBar";
+			
+			tspHtml5PreviewImagePath =
+				"images" + File.separator + "Mac" + File.separator
+					+ "TomSawyerPerspectives" + File.separator + "CommonCanvasPreview"
+					+File.separator + browser
+					+ File.separator + "ToolBar";
+		}
+		else
+		{
+			TS_HOME = TSAutomationUtils.getProperty("TS_HOME");
+			System.out.println("Path de Tom Sawyer es " + TS_HOME);
+			tomSawyerDesignerApplicationPath =
+				TSAutomationUtils.getProperty("TSPApplicationPathWindows");
+			tsperspectivesToolBarImagesPath =
+				"images" + File.separator + "Windows" + File.separator
+					+ "TomSawyerPerspectives" + File.separator + "TSPerspectivesToolBar";
+			tspDesktopPreviewImagesPath =
+				"images" + File.separator + "Windows" + File.separator
+					+ "TomSawyerPerspectives" + File.separator + "CommonDesktopPreview"
+					+ File.separator + "ToolBar";
+			tspImageMapImagesPath =
+				"images" + File.separator + "Windows" + File.separator
+					+ "TomSawyerPerspectives" + File.separator + "CommonImageMapPreview"
+					+File.separator + browser
+					+ File.separator + "ToolBar";
+			tspHtml5PreviewImagePath =
+				"images" + File.separator + "Windows" + File.separator
+					+ "TomSawyerPerspectives" + File.separator + "CommonCanvasPreview"
+					+File.separator + browser
+					+ File.separator + "ToolBar";
+		}
+
+	}
+	
 	public void setAutomationOsEnvironment()
 	{
 		// This method sets the environment for test execution
@@ -61,6 +129,11 @@ public class TSTester
 			tspImageMapImagesPath =
 				"images" + File.separator + "Mac" + File.separator
 					+ "TomSawyerPerspectives" + File.separator + "CommonImageMapPreview"
+					+ File.separator + "ToolBar";
+			
+			tspHtml5PreviewImagePath =
+				"images" + File.separator + "Mac" + File.separator
+					+ "TomSawyerPerspectives" + File.separator + "CommonCanvasPreview"
 					+ File.separator + "ToolBar";
 		}
 		else
