@@ -21,7 +21,6 @@ public class TSSocialNetworkDesktopPreviewTest
 		TSAutomationTester.maximizeWindow();
 		TSAutomationTester.openProject("SocialNetworkProyectPath");
 		TSAutomationTester.launchDesktopPreview();
-		
 
 	}
 
@@ -121,7 +120,8 @@ public class TSSocialNetworkDesktopPreviewTest
 
 		Assert.assertTrue(result);
 	}
-	
+
+
 	@Test
 	public void testCircularLayout()
 	{
@@ -129,7 +129,8 @@ public class TSSocialNetworkDesktopPreviewTest
 		TSAutomationTester.CircularLayoutDesktop();
 		boolean result =
 			TSTestCases.isOverviewPresent(TSAutomationTester,
-				environment.projectImagesPath + File.separator + "CircularLayoutExpected.png",
+				environment.projectImagesPath + File.separator
+					+ "SocialNetworkAnalysisDesktopCircularExpected.png",
 				new Float(0.80));
 		if (!result)
 		{
@@ -140,7 +141,8 @@ public class TSSocialNetworkDesktopPreviewTest
 		Assert.assertTrue(result);
 		TSAutomationTester.SymmetricLayoutDesktop();
 	}
-	
+
+
 	@Test
 	public void testHierarchicalLayout()
 	{
@@ -148,7 +150,8 @@ public class TSSocialNetworkDesktopPreviewTest
 		TSAutomationTester.HierarchicalLayoutDesktop();
 		boolean result =
 			TSTestCases.isOverviewPresent(TSAutomationTester,
-				environment.projectImagesPath + File.separator + "HierarchicalLayoutExpected.png",
+				environment.projectImagesPath + File.separator
+					+ "SocialNetworkAnalysisDesktopCircularExpected.png",
 				new Float(0.80));
 		if (!result)
 		{
@@ -213,8 +216,7 @@ public class TSSocialNetworkDesktopPreviewTest
 		System.out.println("******testOnMouseHoverPan******");
 		String imageToolBar =
 			environment.toolBarImagesPath + File.separator + "PanToolBarDesktop.png";
-		String imageExpected =
-			environment.toolTipsImagePath + File.separator + "Pan.png";
+		String imageExpected = environment.toolTipsImagePath + File.separator + "Pan.png";
 		boolean result =
 			TSTestCases.isToolTipPresentDesktop(TSAutomationTester,
 				imageToolBar,
@@ -235,7 +237,8 @@ public class TSSocialNetworkDesktopPreviewTest
 	{
 		System.out.println("******testOnMouseHoverNavigateLinks******");
 		String imageToolBar =
-			environment.toolBarImagesPath + File.separator + "NavigateLinksToolBarDesktop.png";
+			environment.toolBarImagesPath + File.separator
+				+ "NavigateLinksToolBarDesktop.png";
 		String imageExpected =
 			environment.toolTipsImagePath + File.separator + "NavigateLinks.png";
 		boolean result =
@@ -257,7 +260,8 @@ public class TSSocialNetworkDesktopPreviewTest
 	{
 		System.out.println("******testOnMouseHoverMarqueeZoom******");
 		String imageToolBar =
-			environment.toolBarImagesPath + File.separator + "MarqueeZoomToolBarDesktop.png";
+			environment.toolBarImagesPath + File.separator
+				+ "MarqueeZoomToolBarDesktop.png";
 		String imageExpected =
 			environment.toolTipsImagePath + File.separator + "MarqueeZoom.png";
 		boolean result =
@@ -371,7 +375,8 @@ public class TSSocialNetworkDesktopPreviewTest
 	{
 		System.out.println("******testOnMouseHoverCircularLayout******");
 		String imageToolBar =
-			environment.toolBarImagesPath + File.separator + "CircularLayoutToolBarDesktop.png";
+			environment.toolBarImagesPath + File.separator
+				+ "CircularLayoutToolBarDesktop.png";
 		String imageExpected =
 			environment.toolTipsImagePath + File.separator + "CircularLayout.png";
 		boolean result =
@@ -394,7 +399,8 @@ public class TSSocialNetworkDesktopPreviewTest
 	{
 		System.out.println("******testOnMouseHoverCircularLayout******");
 		String imageToolBar =
-			environment.toolBarImagesPath + File.separator + "HierarchicalLayoutToolBarDesktop.png";
+			environment.toolBarImagesPath + File.separator
+				+ "HierarchicalLayoutToolBarDesktop.png";
 		String imageExpected =
 			environment.toolTipsImagePath + File.separator + "HierarchicalLayout.png";
 		boolean result =
@@ -416,7 +422,8 @@ public class TSSocialNetworkDesktopPreviewTest
 	{
 		System.out.println("******testOnMouseHoverOrthogonalLayout******");
 		String imageToolBar =
-			environment.toolBarImagesPath + File.separator + "OrthogonalLayoutToolBarDesktop.png";
+			environment.toolBarImagesPath + File.separator
+				+ "OrthogonalLayoutToolBarDesktop.png";
 		String imageExpected =
 			environment.toolTipsImagePath + File.separator + "OrthogonalLayout.png";
 		boolean result =
@@ -438,7 +445,8 @@ public class TSSocialNetworkDesktopPreviewTest
 	{
 		System.out.println("******testOnMouseHoverOrthogonalLayout******");
 		String imageToolBar =
-			environment.toolBarImagesPath + File.separator + "SymmetricLayoutToolBarDesktop.png";
+			environment.toolBarImagesPath + File.separator
+				+ "SymmetricLayoutToolBarDesktop.png";
 		String imageExpected =
 			environment.toolTipsImagePath + File.separator + "SymmetricLayout.png";
 		boolean result =
@@ -460,7 +468,8 @@ public class TSSocialNetworkDesktopPreviewTest
 	{
 		System.out.println("******testOnMouseHoverOrthogonalLayout******");
 		String imageToolBar =
-			environment.toolBarImagesPath + File.separator + "GlobalLayoutToolBarDesktop.png";
+			environment.toolBarImagesPath + File.separator
+				+ "GlobalLayoutToolBarDesktop.png";
 		String imageExpected =
 			environment.toolTipsImagePath + File.separator + "GlobalLayout.png";
 		boolean result =
@@ -483,7 +492,8 @@ public class TSSocialNetworkDesktopPreviewTest
 	{
 		System.out.println("******testOnMouseHoverIncrementalLayout******");
 		String imageToolBar =
-			environment.toolBarImagesPath + File.separator + "IncrementalLayoutToolBarDesktop.png";
+			environment.toolBarImagesPath + File.separator
+				+ "IncrementalLayoutToolBarDesktop.png";
 		String imageExpected =
 			environment.toolTipsImagePath + File.separator + "IncrementalLayout.png";
 		boolean result =
@@ -506,7 +516,8 @@ public class TSSocialNetworkDesktopPreviewTest
 	{
 		System.out.println("******testOnMouseHoverBetweenesCentrality******");
 		String imageToolBar =
-			environment.toolBarImagesPath + File.separator + "BetweennessCentralityToolBarDesktop.png";
+			environment.toolBarImagesPath + File.separator
+				+ "BetweennessCentralityToolBarDesktop.png";
 		String imageExpected =
 			environment.toolTipsImagePath + File.separator + "BetweennessCentrality.png";
 		boolean result =
@@ -528,7 +539,8 @@ public class TSSocialNetworkDesktopPreviewTest
 	{
 		System.out.println("******testOnMouseHoverClosenessCentralityLayout******");
 		String imageToolBar =
-			environment.toolBarImagesPath + File.separator + "ClosenessCentralityToolBarDesktop.png";
+			environment.toolBarImagesPath + File.separator
+				+ "ClosenessCentralityToolBarDesktop.png";
 		String imageExpected =
 			environment.toolTipsImagePath + File.separator + "ClosenessCentrality.png";
 		boolean result =
@@ -551,7 +563,8 @@ public class TSSocialNetworkDesktopPreviewTest
 	{
 		System.out.println("******testOnMouseHoverDegreeCentralityLayout******");
 		String imageToolBar =
-			environment.toolBarImagesPath + File.separator + "DegreeCentralityToolBarDesktop.png";
+			environment.toolBarImagesPath + File.separator
+				+ "DegreeCentralityToolBarDesktop.png";
 		String imageExpected =
 			environment.toolTipsImagePath + File.separator + "DegreeCentrality.png";
 		boolean result =
@@ -574,7 +587,8 @@ public class TSSocialNetworkDesktopPreviewTest
 	{
 		System.out.println("******testOnMouseHoverEigenvectorCentralityLayout******");
 		String imageToolBar =
-			environment.toolBarImagesPath + File.separator + "EigenVectorCentralityToolBarDesktop.png";
+			environment.toolBarImagesPath + File.separator
+				+ "EigenVectorCentralityToolBarDesktop.png";
 		String imageExpected =
 			environment.toolTipsImagePath + File.separator + "EigenVectorCentrality.png";
 		boolean result =
