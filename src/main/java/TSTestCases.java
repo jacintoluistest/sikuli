@@ -143,7 +143,7 @@ public class TSTestCases
 		
 			tester.onMouseHoverImageMap(imageHover);
 		
-		if (tester.isPresentElement(imageExpected, new Float(0.6), timeOut) != null)
+		if (tester.isPresentElement(imageExpected, new Float(0.8), timeOut) != null)
 		{
 			result = true;
 		}
