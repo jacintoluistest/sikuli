@@ -5,24 +5,25 @@ import org.junit.AfterClass;
 import org.junit.Test;
 
 
+
 public class TSSocialNetworkCanvasPreviewTest
 {
 
 	@BeforeClass
-	public static void setUp()
+	public static void setUp ()
 	{
+		String defaultBrowser=TSAutomationUtils.getProperty("DefaultBrowser");
 		className = TSSocialNetworkCanvasPreviewTest.class.getName();
 		environment =
 			new TSEnvironment("SocialNetworkAnalysis",
-				TSEnvironment.HTML5_PREVIEW,
-				TSAutomationUtils.getProperty("DefaultBrowser"));
-		TSAutomationTester = new TSTester(TSAutomationUtils.getProperty("DefaultBrowser"));
+				TSEnvironment.HTML5_PREVIEW,defaultBrowser);
+		TSAutomationTester = new TSTester(defaultBrowser);
 		TSAutomationTester.LaunchTS();
 		TSAutomationTester.openProject("SocialNetworkProyectPath");
 		TSAutomationTester.launchHtml5Preview();
 		TSAutomationTester.maximizeWindow();
 		TSAutomationUtils.pauseScript(new Long(3000));
-		TSAutomationTester.refreshChrome();
+		TSAutomationTester.refreshBrowser();
 		screenId = TSAutomationTester.automationTesterCurrentScreen.getID();
 		if (screenId == 0)
 		{

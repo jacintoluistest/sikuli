@@ -20,13 +20,13 @@ public class TSSocialNetworkImageMapPreviewTest
 				TSEnvironment.IMAGEMAP_PREVIEW,
 				TSAutomationUtils.getProperty("DefaultBrowser"));
 
-		TSAutomationTester = new TSTester();
+		TSAutomationTester = new TSTester(TSAutomationUtils.getProperty("DefaultBrowser"));
 		TSAutomationTester.LaunchTS();
 		TSAutomationTester.openProject("SocialNetworkProyectPath");
 		TSAutomationTester.launchWebPreview();
 		TSAutomationTester.maximizeWindow();
 		TSAutomationUtils.pauseScript(new Long(3000));
-		TSAutomationTester.refreshChrome();
+		TSAutomationTester.refreshBrowser();
 
 		screenId = TSAutomationTester.automationTesterCurrentScreen.getID();
 		if (screenId == 0)
