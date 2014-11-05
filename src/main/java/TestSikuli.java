@@ -13,8 +13,8 @@ import org.sikuli.script.Sikulix;
 public class TestSikuli {
 	public static void main(String args[]){
 		org.sikuli.basics.Debug.setDebugLevel(3);
-		Screen a = new Screen(0);
-		//a.type("l",Key.CMD);
+		System.out.println(Screen.getBounds(0));
+		System.out.println(Screen.getBounds(1));
 		
 	
 	}
