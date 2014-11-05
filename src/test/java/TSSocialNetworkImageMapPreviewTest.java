@@ -16,7 +16,9 @@ public class TSSocialNetworkImageMapPreviewTest
 		System.out.println(TSAutomationUtils.getOs());
 		className = TSSocialNetworkImageMapPreviewTest.class.getName();
 		environment =
-			new TSEnvironment("SocialNetworkAnalysis", TSEnvironment.IMAGEMAP_PREVIEW);
+			new TSEnvironment("SocialNetworkAnalysis",
+				TSEnvironment.IMAGEMAP_PREVIEW,
+				TSAutomationUtils.getProperty("DefaultBrowser"));
 
 		TSAutomationTester = new TSTester();
 		TSAutomationTester.LaunchTS();
@@ -29,41 +31,15 @@ public class TSSocialNetworkImageMapPreviewTest
 		screenId = TSAutomationTester.automationTesterCurrentScreen.getID();
 		if (screenId == 0)
 		{
-			if (TSAutomationUtils.getOs().contains("mac"))
-			{
-				environment.projectImagesPath =
-					environment.projectImagesPath.concat(File.separator
-						+ "SecondaryScreen");
-				System.out.println(environment.projectImagesPath);
+			environment.projectImagesPath =
+				environment.projectImagesPath.concat(File.separator + "PrimaryScreen");
 
-			}
-
-			else
-			{
-				environment.projectImagesPath =
-					environment.projectImagesPath.concat(File.separator + "PrimaryScreen");
-				System.out.println(environment.projectImagesPath);
-			}
 		}
 		else if (screenId == 1)
 		{
-			if (TSAutomationUtils.getOs().contains("mac"))
-			{
-				environment.projectImagesPath =
-					environment.projectImagesPath.concat(File.separator + "PrimaryScreen");
-				System.out.println(environment.projectImagesPath);
-
-			}
-			else
-			{
-				environment.projectImagesPath =
-					environment.projectImagesPath.concat(File.separator
-						+ "SecondaryScreen");
-				System.out.println(environment.projectImagesPath);
-			}
+			environment.projectImagesPath =
+				environment.projectImagesPath.concat(File.separator + "SecondaryScreen");
 		}
-		System.out.println(TSAutomationTester.automationTesterCurrentScreen.getBounds());
-
 	}
 
 
@@ -541,6 +517,7 @@ public class TSSocialNetworkImageMapPreviewTest
 
 	}
 
+
 	@Test
 	public void testCircularLayout()
 	{
@@ -559,6 +536,7 @@ public class TSSocialNetworkImageMapPreviewTest
 		Assert.assertTrue(result);
 		TSAutomationTester.SymmetricLayoutImageMap();
 	}
+
 
 	@Test
 	public void testHierarchicalLayout()
