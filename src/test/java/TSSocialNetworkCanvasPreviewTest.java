@@ -11,12 +11,12 @@ public class TSSocialNetworkCanvasPreviewTest
 	@BeforeClass
 	public static void setUp()
 	{
-		org.sikuli.basics.Debug.setDebugLevel(3);
-		// org.sikuli.basics.Debug.setDebugLevel(3);
 		className = TSSocialNetworkCanvasPreviewTest.class.getName();
 		environment =
-			new TSEnvironment("SocialNetworkAnalysis", TSEnvironment.HTML5_PREVIEW);
-		TSAutomationTester = new TSTester();
+			new TSEnvironment("SocialNetworkAnalysis",
+				TSEnvironment.HTML5_PREVIEW,
+				TSAutomationUtils.getProperty("DefaultBrowser"));
+		TSAutomationTester = new TSTester(TSAutomationUtils.getProperty("DefaultBrowser"));
 		TSAutomationTester.LaunchTS();
 		TSAutomationTester.openProject("SocialNetworkProyectPath");
 		TSAutomationTester.launchHtml5Preview();
@@ -500,7 +500,6 @@ public class TSSocialNetworkCanvasPreviewTest
 	}
 
 
-	
 	public void testIsOverviewPresent()
 	{
 		System.out.println("*******TestIsOverviewPresent*******");
@@ -516,7 +515,8 @@ public class TSSocialNetworkCanvasPreviewTest
 		Assert.assertTrue(result);
 
 	}
-	
+
+
 	@Test
 	public void testCircularLayout()
 	{
@@ -535,7 +535,8 @@ public class TSSocialNetworkCanvasPreviewTest
 		Assert.assertTrue(result);
 		TSAutomationTester.SymmetricLayoutHtml5();
 	}
-	
+
+
 	@Test
 	public void testHierarchicalLayout()
 	{
@@ -543,7 +544,8 @@ public class TSSocialNetworkCanvasPreviewTest
 		TSAutomationTester.HierarchicalLayoutHtml5();
 		boolean result =
 			TSTestCases.isOverviewPresent(TSAutomationTester,
-				environment.projectImagesPath + File.separator + "HierarchicalExpected.png",
+				environment.projectImagesPath + File.separator
+					+ "HierarchicalExpected.png",
 				new Float(0.80));
 		if (!result)
 		{
