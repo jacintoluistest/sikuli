@@ -116,7 +116,7 @@ public class TSAutomationUtils
 		File defautlFile = null;
 		File destinationFile = null;
 			defautlFile =
-				new File(tester.automationTesterCurrentScreen.capture(tester.automationTesterCurrentScreen.getBounds())
+				new File(tester.automationTesterCurrentScreen.capture(tester.automationTesterCurrentScreen)
 					.getFile());
 			destinationFile =
 				new File(evidencePath

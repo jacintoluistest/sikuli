@@ -83,7 +83,7 @@ public class TSTester
 		}
 		else
 		{
-			TS_HOME = TSAutomationUtils.getProperty("TS_HOME");
+			TS_HOME = TSAutomationUtils.getProperty("TS_HOME_Win");
 			System.out.println("Path de Tom Sawyer es " + TS_HOME);
 			tomSawyerDesignerApplicationPath =
 				TSAutomationUtils.getProperty("TSPApplicationPathWindows");
