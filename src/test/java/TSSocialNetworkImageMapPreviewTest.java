@@ -108,7 +108,7 @@ public class TSSocialNetworkImageMapPreviewTest
 		String imageExpected =
 			environment.toolTipsImagePath + File.separator + "SaveAsImage.png";
 		boolean result =
-			TSTestCases.isToolTipPresentImageMap(TSAutomationTester,
+			TSTestCases.isToolTipPresentWeb(TSAutomationTester,
 				imageToolBar,
 				imageExpected);
 
@@ -131,7 +131,7 @@ public class TSSocialNetworkImageMapPreviewTest
 			environment.toolBarImagesPath + File.separator + "PanImageMap.png";
 		String imageExpected = environment.toolTipsImagePath + File.separator + "Pan.png";
 		boolean result =
-			TSTestCases.isToolTipPresentImageMap(TSAutomationTester,
+			TSTestCases.isToolTipPresentWeb(TSAutomationTester,
 				imageToolBar,
 				imageExpected);
 
@@ -155,7 +155,7 @@ public class TSSocialNetworkImageMapPreviewTest
 		String imageExpected =
 			environment.toolTipsImagePath + File.separator + "MarqueeZoom.png";
 		boolean result =
-			TSTestCases.isToolTipPresentImageMap(TSAutomationTester,
+			TSTestCases.isToolTipPresentWeb(TSAutomationTester,
 				imageToolBar,
 				imageExpected);
 
@@ -179,7 +179,7 @@ public class TSSocialNetworkImageMapPreviewTest
 		String imageExpected =
 			environment.toolTipsImagePath + File.separator + "ZoomIn.png";
 		boolean result =
-			TSTestCases.isToolTipPresentImageMap(TSAutomationTester,
+			TSTestCases.isToolTipPresentWeb(TSAutomationTester,
 				imageToolBar,
 				imageExpected);
 
@@ -203,7 +203,7 @@ public class TSSocialNetworkImageMapPreviewTest
 		String imageExpected =
 			environment.toolTipsImagePath + File.separator + "ZoomOut.png";
 		boolean result =
-			TSTestCases.isToolTipPresentImageMap(TSAutomationTester,
+			TSTestCases.isToolTipPresentWeb(TSAutomationTester,
 				imageToolBar,
 				imageExpected);
 
@@ -226,7 +226,7 @@ public class TSSocialNetworkImageMapPreviewTest
 		String imageExpected =
 			environment.toolTipsImagePath + File.separator + "ZoomFit.png";
 		boolean result =
-			TSTestCases.isToolTipPresentImageMap(TSAutomationTester,
+			TSTestCases.isToolTipPresentWeb(TSAutomationTester,
 				imageToolBar,
 				imageExpected);
 
@@ -250,7 +250,7 @@ public class TSSocialNetworkImageMapPreviewTest
 		String imageExpected =
 			environment.toolTipsImagePath + File.separator + "Overview.png";
 		boolean result =
-			TSTestCases.isToolTipPresentImageMap(TSAutomationTester,
+			TSTestCases.isToolTipPresentWeb(TSAutomationTester,
 				imageToolBar,
 				imageExpected);
 
@@ -273,7 +273,7 @@ public class TSSocialNetworkImageMapPreviewTest
 		String imageExpected =
 			environment.toolTipsImagePath + File.separator + "CircularLayout.png";
 		boolean result =
-			TSTestCases.isToolTipPresentImageMap(TSAutomationTester,
+			TSTestCases.isToolTipPresentWeb(TSAutomationTester,
 				imageToolBar,
 				imageExpected);
 
@@ -297,7 +297,7 @@ public class TSSocialNetworkImageMapPreviewTest
 		String imageExpected =
 			environment.toolTipsImagePath + File.separator + "HierarchicalLayout.png";
 		boolean result =
-			TSTestCases.isToolTipPresentImageMap(TSAutomationTester,
+			TSTestCases.isToolTipPresentWeb(TSAutomationTester,
 				imageToolBar,
 				imageExpected);
 
@@ -322,7 +322,7 @@ public class TSSocialNetworkImageMapPreviewTest
 		String imageExpected =
 			environment.toolTipsImagePath + File.separator + "OrthogonalLayout.png";
 		boolean result =
-			TSTestCases.isToolTipPresentImageMap(TSAutomationTester,
+			TSTestCases.isToolTipPresentWeb(TSAutomationTester,
 				imageToolBar,
 				imageExpected);
 
@@ -346,7 +346,7 @@ public class TSSocialNetworkImageMapPreviewTest
 		String imageExpected =
 			environment.toolTipsImagePath + File.separator + "SymmetricLayout.png";
 		boolean result =
-			TSTestCases.isToolTipPresentImageMap(TSAutomationTester,
+			TSTestCases.isToolTipPresentWeb(TSAutomationTester,
 				imageToolBar,
 				imageExpected);
 
@@ -369,7 +369,7 @@ public class TSSocialNetworkImageMapPreviewTest
 		String imageExpected =
 			environment.toolTipsImagePath + File.separator + "GlobalLayout.png";
 		boolean result =
-			TSTestCases.isToolTipPresentImageMap(TSAutomationTester,
+			TSTestCases.isToolTipPresentWeb(TSAutomationTester,
 				imageToolBar,
 				imageExpected);
 
@@ -393,7 +393,7 @@ public class TSSocialNetworkImageMapPreviewTest
 		String imageExpected =
 			environment.toolTipsImagePath + File.separator + "IncrementalLayout.png";
 		boolean result =
-			TSTestCases.isToolTipPresentImageMap(TSAutomationTester,
+			TSTestCases.isToolTipPresentWeb(TSAutomationTester,
 				imageToolBar,
 				imageExpected);
 
@@ -416,7 +416,7 @@ public class TSSocialNetworkImageMapPreviewTest
 		String imageExpected =
 			environment.toolTipsImagePath + File.separator + "BetweennessCentrality.png";
 		boolean result =
-			TSTestCases.isToolTipPresentImageMap(TSAutomationTester,
+			TSTestCases.isToolTipPresentWeb(TSAutomationTester,
 				imageToolBar,
 				imageExpected);
 
@@ -439,7 +439,7 @@ public class TSSocialNetworkImageMapPreviewTest
 		String imageExpected =
 			environment.toolTipsImagePath + File.separator + "ClosenessCentrality.png";
 		boolean result =
-			TSTestCases.isToolTipPresentImageMap(TSAutomationTester,
+			TSTestCases.isToolTipPresentWeb(TSAutomationTester,
 				imageToolBar,
 				imageExpected);
 
@@ -463,7 +463,7 @@ public class TSSocialNetworkImageMapPreviewTest
 		String imageExpected =
 			environment.toolTipsImagePath + File.separator + "ClosenessCentrality.png";
 		boolean result =
-			TSTestCases.isToolTipPresentImageMap(TSAutomationTester,
+			TSTestCases.isToolTipPresentWeb(TSAutomationTester,
 				imageToolBar,
 				imageExpected);
 
@@ -487,7 +487,7 @@ public class TSSocialNetworkImageMapPreviewTest
 		String imageExpected =
 			environment.toolTipsImagePath + File.separator + "EigenVectorCentrality.png";
 		boolean result =
-			TSTestCases.isToolTipPresentImageMap(TSAutomationTester,
+			TSTestCases.isToolTipPresentWeb(TSAutomationTester,
 				imageToolBar,
 				imageExpected);
 
