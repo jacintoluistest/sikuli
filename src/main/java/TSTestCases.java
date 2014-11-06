@@ -132,9 +132,25 @@ public class TSTestCases
 		}
 		return result;
 	}
+	
+	public static boolean isLayoutPresent(TSTester tester,
+		String overviewImagePath,
+		float similar)
+	{
+		boolean result = true;
+		if (tester.isPresentElement(overviewImagePath, similar) != null)
+		{
+			result = true;
+		}
+		else
+		{
+			result = false;
+		}
+		return result;
+	}
 
 
-	public static boolean isToolTipPresentImageMap(TSTester tester,
+	public static boolean isToolTipPresentWeb(TSTester tester,
 		String imageHover,
 		String imageExpected)
 	{
