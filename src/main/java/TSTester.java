@@ -64,7 +64,7 @@ public class TSTester
 			tomSawyerDesignerApplicationPath =
 				TSAutomationUtils.getProperty("TSPApplicationPathMac");
 			tsperspectivesToolBarImagesPath =
-				"images/Mac/TomSawyerPerspectives/TSPerspectivesToolBar";
+				"images/Mac/TomSawyerPerspectives"+ File.separator+"TSPerspectivesToolBar";
 			tspDesktopPreviewImagesPath =
 				"images" + File.separator + "Mac" + File.separator
 					+ "TomSawyerPerspectives" + File.separator + "CommonDesktopPreview"
@@ -598,7 +598,7 @@ public class TSTester
 
 		try
 		{
-			automationTesterCurrentScreen.hover(new Pattern(patternStringPath).similar(new Float(0.8)));
+			automationTesterCurrentScreen.hover(new Pattern(patternStringPath).similar(new Float(0.85)));
 		}
 		catch (FindFailed ff)
 		{
@@ -610,24 +610,6 @@ public class TSTester
 	{
 		if (TSAutomationUtils.getOs().contains("mac"))
 		{
-
-			// // String maximizeImage =
-			// // "images" + File.separator + "Mac" + File.separator
-			// // + "TomSawyerPerspectives" + File.separator + "TSPerspectivesToolBar"
-			// // + File.separator + "maximize.png";
-			// //
-			// // Pattern maximizeElement = new Pattern(maximizeImage).similar(new
-			// Float(0.95));
-			// if (automationTesterCurrentScreen.exists(maximizeElement) != null)
-			// try
-			// {
-			// automationTesterCurrentScreen.click(maximizeElement);
-			//
-			// }
-			// catch (FindFailed ff)
-			// {
-			// System.out.println(ff.getMessage());
-			// }
 
 			automationTesterCurrentScreen.type("f", Key.CTRL + Key.META);
 		}
@@ -887,9 +869,10 @@ public class TSTester
 	public void SymmetricLayoutHtml5()
 	{
 		String circularLayout =
-			tspHtml5PreviewImagePath + File.separator + "SymmetricLayoutCanvas.png";
+			tspHtml5PreviewImagePath + File.separator + "SymmetricUnselectedLayoutCanvas.png";
 		try
 		{
+			System.out.println(circularLayout);
 			automationTesterCurrentScreen.click(circularLayout);
 		}
 		catch (FindFailed ff)
