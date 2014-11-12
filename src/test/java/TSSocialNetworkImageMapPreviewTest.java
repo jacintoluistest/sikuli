@@ -54,7 +54,7 @@ public class TSSocialNetworkImageMapPreviewTest
 
 
 	@Test
-	public void testLaunchWebPreview()
+	public void testLaunchImageMap()
 	{
 		System.out.println("testLaunchWebPreview");
 
