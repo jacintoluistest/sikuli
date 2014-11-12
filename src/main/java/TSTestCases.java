@@ -155,11 +155,11 @@ public class TSTestCases
 		String imageExpected)
 	{
 		boolean result = true;
-		long timeOut = 1000;
+		long timeOut = 1200;
 		
 			tester.onMouseHoverImageMap(imageHover);
 		
-		if (tester.isPresentElement(imageExpected, new Float(0.8), timeOut) != null)
+		if (tester.isPresentElement(imageExpected, new Float(0.64), timeOut) != null)
 		{
 			result = true;
 		}
@@ -177,11 +177,11 @@ public class TSTestCases
 
 	{
 		boolean result = true;
-		long timeOut = 1000;
+		long timeOut = 1200;
 
 		if (tester.operativeSystem.contains("windows"))
 		{
-			tester.onMouseHoverImageMap(imageHover);
+			tester.onMouseHoverDesktop(imageHover);
 		}
 
 		else

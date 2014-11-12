@@ -3,26 +3,29 @@ import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.AfterClass;
 import org.junit.Test;
-
+import org.sikuli.basics.Settings;
 
 
 public class TSSocialNetworkCanvasPreviewTest
 {
 
 	@BeforeClass
-	public static void setUp ()
+	public static void setUp()
 	{
-		String defaultBrowser=TSAutomationUtils.getProperty("DefaultBrowser");
+		// org.sikuli.basics.Debug.setDebugLevel(3);
+		Settings.MoveMouseDelay = new Float(1.5);
+		String defaultBrowser = TSAutomationUtils.getProperty("DefaultBrowser");
 		className = TSSocialNetworkCanvasPreviewTest.class.getName();
 		environment =
 			new TSEnvironment("SocialNetworkAnalysis",
-				TSEnvironment.HTML5_PREVIEW,defaultBrowser);
+				TSEnvironment.HTML5_PREVIEW,
+				defaultBrowser);
 		TSAutomationTester = new TSTester(defaultBrowser);
 		TSAutomationTester.LaunchTS();
 		TSAutomationTester.openProject("SocialNetworkProyectPath");
 		TSAutomationTester.launchHtml5Preview();
-		TSAutomationTester.maximizeWindow();
-		TSAutomationUtils.pauseScript(new Long(3000));
+		TSAutomationTester.fullScreenBrowser();
+		TSAutomationUtils.pauseScript(new Long(2000));
 		TSAutomationTester.refreshBrowser();
 		screenId = TSAutomationTester.automationTesterCurrentScreen.getID();
 		if (screenId == 0)
@@ -43,6 +46,7 @@ public class TSSocialNetworkCanvasPreviewTest
 	@AfterClass
 	public static void closeAll()
 	{
+		TSAutomationTester.fullScreenBrowser();
 		TSAutomationTester.closeCurrentBrowser();
 		TSAutomationTester.closeAll();
 	}
@@ -345,7 +349,8 @@ public class TSSocialNetworkCanvasPreviewTest
 	{
 		System.out.println("*******TestOnMouseHoverSymmetricLayout*******");
 		String imageToolBar =
-			environment.toolBarImagesPath + File.separator + "SymmetricLayoutCanvas.png";
+			environment.toolBarImagesPath + File.separator
+				+ "SelectedSymmetricLayout.png";
 		String imageExpected =
 			environment.toolTipsImagePath + File.separator + "SymmetricLayout.png";
 		boolean result =
@@ -501,13 +506,16 @@ public class TSSocialNetworkCanvasPreviewTest
 	}
 
 
+	@Test
 	public void testIsOverviewPresent()
 	{
+		Float similar = new Float(0.75);
 		System.out.println("*******TestIsOverviewPresent*******");
 		TSAutomationTester.openOverviewHtml5();
 		boolean result =
 			TSTestCases.isOverviewPresent(TSAutomationTester,
-				environment.projectImagesPath + File.separator + "overviewExpected.png");
+				environment.projectImagesPath + File.separator + "overviewExpected.png",
+				similar);
 		if (!result)
 		{
 			TSAutomationUtils.getScreenShot(TSAutomationTester, className
@@ -524,9 +532,8 @@ public class TSSocialNetworkCanvasPreviewTest
 		System.out.println("testCircularLayout");
 		TSAutomationTester.CircularLayoutHtml5();
 		boolean result =
-			TSTestCases.isLayoutPresent(TSAutomationTester,
-				environment.projectImagesPath + File.separator + "CircularExpected.png",
-				new Float(0.60));
+			TSTestCases.isLayoutPresent(TSAutomationTester, environment.projectImagesPath
+				+ File.separator + "CircularExpected.png", new Float(0.60));
 		if (!result)
 		{
 			TSAutomationUtils.getScreenShot(TSAutomationTester, className
@@ -544,10 +551,8 @@ public class TSSocialNetworkCanvasPreviewTest
 		System.out.println("testHierarchicalLayout");
 		TSAutomationTester.HierarchicalLayoutHtml5();
 		boolean result =
-			TSTestCases.isLayoutPresent(TSAutomationTester,
-				environment.projectImagesPath + File.separator
-					+ "HierarchicalExpected.png",
-				new Float(0.80));
+			TSTestCases.isLayoutPresent(TSAutomationTester, environment.projectImagesPath
+				+ File.separator + "HierarchicalExpected.png", new Float(0.80));
 		if (!result)
 		{
 			TSAutomationUtils.getScreenShot(TSAutomationTester, className

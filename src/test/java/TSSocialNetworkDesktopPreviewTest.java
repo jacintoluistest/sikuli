@@ -128,14 +128,14 @@ public class TSSocialNetworkDesktopPreviewTest
 		System.out.println("testCircularLayout");
 		TSAutomationTester.CircularLayoutDesktop();
 		boolean result =
-			TSTestCases.isOverviewPresent(TSAutomationTester,
+			TSTestCases.isLayoutPresent(TSAutomationTester,
 				environment.projectImagesPath + File.separator
 					+ "SocialNetworkAnalysisDesktopCircularExpected.png",
 				new Float(0.80));
 		if (!result)
 		{
 			TSAutomationUtils.getScreenShot(TSAutomationTester, className
-				+ "testIsOverviewPresent", environment.evidencePath);
+				+ "testCircularLayout", environment.evidencePath);
 		}
 
 		Assert.assertTrue(result);
@@ -149,9 +149,9 @@ public class TSSocialNetworkDesktopPreviewTest
 		System.out.println("testHierarchicalLayout");
 		TSAutomationTester.HierarchicalLayoutDesktop();
 		boolean result =
-			TSTestCases.isOverviewPresent(TSAutomationTester,
+			TSTestCases.isLayoutPresent(TSAutomationTester,
 				environment.projectImagesPath + File.separator
-					+ "SocialNetworkAnalysisDesktopCircularExpected.png",
+					+ "SocialNetworkAnalysisDesktopHierarchicalExpected.png",
 				new Float(0.80));
 		if (!result)
 		{
@@ -443,10 +443,10 @@ public class TSSocialNetworkDesktopPreviewTest
 	@Test
 	public void testOnMouseHoverSymmetricLayout()
 	{
-		System.out.println("******testOnMouseHoverOrthogonalLayout******");
+		System.out.println("******testOnMouseHoverSymmetricLayout******");
 		String imageToolBar =
 			environment.toolBarImagesPath + File.separator
-				+ "SymmetricLayoutToolBarDesktop.png";
+				+ "SymmetricLayoutToolBarDesktopSelected.png";
 		String imageExpected =
 			environment.toolTipsImagePath + File.separator + "SymmetricLayout.png";
 		boolean result =

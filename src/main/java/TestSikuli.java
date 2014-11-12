@@ -1,3 +1,4 @@
+import org.sikuli.script.App;
 import org.sikuli.script.Screen;
 import org.sikuli.script.Sikulix;
 
@@ -15,6 +16,7 @@ public class TestSikuli {
 		org.sikuli.basics.Debug.setDebugLevel(3);
 		System.out.println(Screen.getBounds(0));
 		System.out.println(Screen.getBounds(1));
+		App.close("Tom Sawyer Perspectives Designer");
 		
 	
 	}

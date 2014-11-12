@@ -28,7 +28,7 @@ public class TSTester
 	App tomSawyerApplication;
 
 	public String operativeSystem;
-	
+
 	String browser;
 
 
@@ -39,6 +39,8 @@ public class TSTester
 		automationTesterCurrentScreen = new Screen();
 
 	}
+
+
 	public TSTester(String browser)
 	{
 		this.browser = browser;
@@ -49,7 +51,6 @@ public class TSTester
 	}
 
 
-	
 	public void setAutomationOsEnvironmentWeb()
 	{
 		// This method sets the environment for test execution
@@ -64,7 +65,8 @@ public class TSTester
 			tomSawyerDesignerApplicationPath =
 				TSAutomationUtils.getProperty("TSPApplicationPathMac");
 			tsperspectivesToolBarImagesPath =
-				"images/Mac/TomSawyerPerspectives"+ File.separator+"TSPerspectivesToolBar";
+				"images/Mac/TomSawyerPerspectives" + File.separator
+					+ "TSPerspectivesToolBar";
 			tspDesktopPreviewImagesPath =
 				"images" + File.separator + "Mac" + File.separator
 					+ "TomSawyerPerspectives" + File.separator + "CommonDesktopPreview"
@@ -72,14 +74,12 @@ public class TSTester
 			tspImageMapImagesPath =
 				"images" + File.separator + "Mac" + File.separator
 					+ "TomSawyerPerspectives" + File.separator + "CommonImageMapPreview"
-					+ File.separator+browser
-					+ File.separator + "ToolBar";
-			
+					+ File.separator + browser + File.separator + "ToolBar";
+
 			tspHtml5PreviewImagePath =
 				"images" + File.separator + "Mac" + File.separator
 					+ "TomSawyerPerspectives" + File.separator + "CommonCanvasPreview"
-					+File.separator + browser
-					+ File.separator + "ToolBar";
+					+ File.separator + browser + File.separator + "ToolBar";
 		}
 		else
 		{
@@ -97,22 +97,21 @@ public class TSTester
 			tspImageMapImagesPath =
 				"images" + File.separator + "Windows" + File.separator
 					+ "TomSawyerPerspectives" + File.separator + "CommonImageMapPreview"
-					+File.separator + browser
-					+ File.separator + "ToolBar";
+					+ File.separator + browser + File.separator + "ToolBar";
 			tspHtml5PreviewImagePath =
 				"images" + File.separator + "Windows" + File.separator
 					+ "TomSawyerPerspectives" + File.separator + "CommonCanvasPreview"
-					+File.separator + browser
-					+ File.separator + "ToolBar";
+					+ File.separator + browser + File.separator + "ToolBar";
 		}
-		
+
 		System.out.println(tomSawyerDesignerApplicationPath);
 		System.out.println(tsperspectivesToolBarImagesPath);
 		System.out.println(tspImageMapImagesPath);
 		System.out.println(tspHtml5PreviewImagePath);
 
 	}
-	
+
+
 	public void setAutomationOsEnvironment()
 	{
 		// This method sets the environment for test execution
@@ -136,7 +135,7 @@ public class TSTester
 				"images" + File.separator + "Mac" + File.separator
 					+ "TomSawyerPerspectives" + File.separator + "CommonImageMapPreview"
 					+ File.separator + "ToolBar";
-			
+
 			tspHtml5PreviewImagePath =
 				"images" + File.separator + "Mac" + File.separator
 					+ "TomSawyerPerspectives" + File.separator + "CommonCanvasPreview"
@@ -144,7 +143,7 @@ public class TSTester
 		}
 		else
 		{
-			TS_HOME = TSAutomationUtils.getProperty("TS_HOME");
+			TS_HOME = TSAutomationUtils.getProperty("TS_HOME_Win");
 			System.out.println("Path de Tom Sawyer es " + TS_HOME);
 			tomSawyerDesignerApplicationPath =
 				TSAutomationUtils.getProperty("TSPApplicationPathWindows");
@@ -176,7 +175,7 @@ public class TSTester
 		tomSawyerApplication = new App(tomSawyerDesignerApplicationPath);
 		tomSawyerApplication.open();
 		System.out.println("Pause on LaunchTS");
-		TSAutomationUtils.pauseScript();
+		TSAutomationUtils.pauseScript(Long.valueOf(TSAutomationUtils.getProperty("openTomSawyerPerspectivesSecondsTimeOut")));
 	}
 
 
@@ -332,8 +331,8 @@ public class TSTester
 			System.out.println(ff.getMessage());
 		}
 		System.out.println("Pause on launchWebPreview");
+
 		TSAutomationUtils.pauseScript(new Long(Long.valueOf(TSAutomationUtils.getProperty("TimeWaitwebPreview"))));
-		System.out.println("Getting again screen");
 
 		try
 		{
@@ -342,8 +341,6 @@ public class TSTester
 				new Screen(TSAutomationUtils.getCurrentScreenId(new Pattern(tspImageMapImagesPath
 					+ File.separator + "WebCommonToolBar.png").similar(new Float(0.8))));
 			System.out.println("*********Screen Settings");
-			System.out.println(automationTesterCurrentScreen.getBounds());
-			System.out.println(automationTesterCurrentScreen.getID());
 
 		}
 		catch (Exception e)
@@ -447,7 +444,7 @@ public class TSTester
 	public Match isPresentElement(String patternStringPath, float similar)
 	{
 		TSAutomationUtils.pauseScript();
-		System.out.println("Searching image for validation" + patternStringPath);
+		System.out.println("Searching image for validation" + patternStringPath + similar);
 		// Waiting for screen
 
 		return automationTesterCurrentScreen.exists(new Pattern(patternStringPath).similar(similar));
@@ -492,14 +489,18 @@ public class TSTester
 
 	public void closeCurrentBrowser()
 	{
+		String browser = TSAutomationUtils.getProperty("DefaultBrowser");
 		System.out.println("Closing Web Preview");
-		if (operativeSystem.contains("windows"))
+		if (browser.contains("Explorer"))
 		{
-			App.close(TSAutomationUtils.getProperty("DefaultBrowser"));
+			
+				App.close(browser);
+				App.close(browser);
+			
 		}
 		else
 		{
-			App.close(TSAutomationUtils.getProperty("DefaultBrowser"));
+			App.close(browser);
 		}
 	}
 
@@ -531,7 +532,7 @@ public class TSTester
 		{
 			automationTesterCurrentScreen.click(new Pattern(tspImageMapImagesPath
 				+ File.separator + "OverviewImageMap.png").similar(new Float(0.7)));
-			TSAutomationUtils.pauseScript(new Long(2000));
+			TSAutomationUtils.pauseScript(new Long(1500));
 		}
 		catch (FindFailed ff)
 		{
@@ -569,7 +570,7 @@ public class TSTester
 		App.focus("Tom Sawyer Perspectives Previewer");
 		try
 		{
-			automationTesterCurrentScreen.hover(new Pattern(patternStringPath).similar(new Float(0.7)));
+			automationTesterCurrentScreen.hover(new Pattern(patternStringPath).similar(new Float(0.85)));
 		}
 		catch (FindFailed ff)
 		{
@@ -598,13 +599,14 @@ public class TSTester
 
 		try
 		{
-			automationTesterCurrentScreen.hover(new Pattern(patternStringPath).similar(new Float(0.85)));
+			automationTesterCurrentScreen.hover(new Pattern(patternStringPath).similar(new Float(0.90)));
 		}
 		catch (FindFailed ff)
 		{
 			System.out.println(ff.getMessage());
 		}
 	}
+
 
 	public void maximizeWindow()
 	{
@@ -622,63 +624,23 @@ public class TSTester
 	}
 
 
+	public void fullScreenBrowser()
+	{
+		automationTesterCurrentScreen.type(Key.F11);
+	}
+
+
 	public void refreshBrowser()
 	{
 
-		String refreshButtonPath = null;
-		String refreshButtonFile = null;
-
-		if (TSAutomationUtils.getOs().contains("mac"))
-		{
-			String browser = TSAutomationUtils.getProperty("DefaultBrowser");
-			if (browser.contains("chrome"))
-			{
-				refreshButtonFile = "refreshChrome.png";
-			}
-			else
-			{
-				refreshButtonFile = "refreshSafari.png";
-			}
-
-			refreshButtonPath =
-				"images" + File.separator + "Mac" + File.separator
-					+ "TomSawyerPerspectives" + File.separator + "TSPerspectivesToolBar"
-					+ File.separator + refreshButtonFile;
-		}
-		else
-		{
-
-			String browser = TSAutomationUtils.getProperty("DefaultBrowser");
-			if (browser.contains("Chrome"))
-			{
-				refreshButtonFile = "refreshChrome.png";
-			}
-			else
-			{
-				refreshButtonFile = "refreshSafari.png";
-			}
-
-			refreshButtonPath =
-				"images" + File.separator + "Windows" + File.separator
-					+ "TomSawyerPerspectives" + File.separator + "TSPerspectivesToolBar"
-					+ File.separator + refreshButtonFile;
-		}
-
-		try
-		{
-			automationTesterCurrentScreen.click(refreshButtonPath);
-		}
-		catch (FindFailed ff)
-		{
-			System.out.println(ff.getMessage());
-		}
-		TSAutomationUtils.pauseScript(new Long(3000));
+		automationTesterCurrentScreen.type(Key.F5);
+		TSAutomationUtils.pauseScript(new Long(3500));
 	}
 
 
 	public void closeAll()
 	{
-		if (TSAutomationUtils.getOs() == "mac os x")
+		if (TSAutomationUtils.getOs().contains("mac os x"))
 		{
 
 			closeTSP();
@@ -688,7 +650,7 @@ public class TSTester
 
 		}
 		else
-		{	
+		{
 			closeTSP();
 			System.out.println("Closing everything...");
 			System.out.println("Thank you");
@@ -869,7 +831,8 @@ public class TSTester
 	public void SymmetricLayoutHtml5()
 	{
 		String circularLayout =
-			tspHtml5PreviewImagePath + File.separator + "SymmetricUnselectedLayoutCanvas.png";
+			tspHtml5PreviewImagePath + File.separator
+				+ "UnselectedSymmetricLayoutCanvas.png";
 		try
 		{
 			System.out.println(circularLayout);

@@ -12,20 +12,22 @@ public class TSSocialNetworkImageMapPreviewTest
 	@BeforeClass
 	public static void setUp()
 	{
+		org.sikuli.basics.Debug.setDebugLevel(3);
 		Settings.MoveMouseDelay = new Float(1.5);
+		String defaultBrowser = TSAutomationUtils.getProperty("DefaultBrowser");
 		System.out.println(TSAutomationUtils.getOs());
 		className = TSSocialNetworkImageMapPreviewTest.class.getName();
 		environment =
 			new TSEnvironment("SocialNetworkAnalysis",
 				TSEnvironment.IMAGEMAP_PREVIEW,
-				TSAutomationUtils.getProperty("DefaultBrowser"));
+				defaultBrowser);
 
-		TSAutomationTester = new TSTester(TSAutomationUtils.getProperty("DefaultBrowser"));
+		TSAutomationTester = new TSTester(defaultBrowser);
 		TSAutomationTester.LaunchTS();
 		TSAutomationTester.openProject("SocialNetworkProyectPath");
 		TSAutomationTester.launchWebPreview();
-		TSAutomationTester.maximizeWindow();
-		TSAutomationUtils.pauseScript(new Long(3000));
+		TSAutomationTester.fullScreenBrowser();
+		TSAutomationUtils.pauseScript(new Long(2000));
 		TSAutomationTester.refreshBrowser();
 
 		screenId = TSAutomationTester.automationTesterCurrentScreen.getID();
@@ -40,6 +42,14 @@ public class TSSocialNetworkImageMapPreviewTest
 			environment.projectImagesPath =
 				environment.projectImagesPath.concat(File.separator + "SecondaryScreen");
 		}
+	}
+
+
+	@AfterClass
+	public static void closeAll()
+	{
+		TSAutomationTester.closeCurrentBrowser();
+		TSAutomationTester.closeAll();
 	}
 
 
@@ -86,8 +96,26 @@ public class TSSocialNetworkImageMapPreviewTest
 		System.out.println("*******testIsTableViewPresent*******");
 
 		boolean result =
-			TSTestCases.isToolBarPresent(TSAutomationTester,
-				environment.projectImagesPath + File.separator + "TableViewImageMap.png");
+			TSTestCases.isViewPresent(TSAutomationTester, environment.projectImagesPath
+				+ File.separator + "TableViewImageMap.png");
+		if (!result)
+		{
+			TSAutomationUtils.getScreenShot(TSAutomationTester, className
+				+ "testIsTableViewPresent", environment.evidencePath);
+		}
+
+		Assert.assertTrue(result);
+	}
+
+
+	@Test
+	public void testIsTreeViewPresent()
+	{
+		System.out.println("*******testIsTreeViewPresent*******");
+
+		boolean result =
+			TSTestCases.isViewPresent(TSAutomationTester, environment.projectImagesPath
+				+ File.separator + "TreeViewImageMap.png");
 		if (!result)
 		{
 			TSAutomationUtils.getScreenShot(TSAutomationTester, className
@@ -342,7 +370,7 @@ public class TSSocialNetworkImageMapPreviewTest
 		System.out.println("*******TestOnMouseHoverSymmetricLayout*******");
 		String imageToolBar =
 			environment.toolBarImagesPath + File.separator
-				+ "SymmetricLayoutImageMap.png";
+				+ "SymmetricLayoutImageMapSelected.png";
 		String imageExpected =
 			environment.toolTipsImagePath + File.separator + "SymmetricLayout.png";
 		boolean result =
@@ -461,7 +489,7 @@ public class TSSocialNetworkImageMapPreviewTest
 			environment.toolBarImagesPath + File.separator
 				+ "DegreeCentralityImageMap.png";
 		String imageExpected =
-			environment.toolTipsImagePath + File.separator + "ClosenessCentrality.png";
+			environment.toolTipsImagePath + File.separator + "DegreeCentrality.png";
 		boolean result =
 			TSTestCases.isToolTipPresentWeb(TSAutomationTester,
 				imageToolBar,
@@ -470,7 +498,7 @@ public class TSSocialNetworkImageMapPreviewTest
 		if (!result)
 		{
 			TSAutomationUtils.getScreenShot(TSAutomationTester, className
-				+ "testOnMouseHoverClosenessCentralityLayout", environment.evidencePath);
+				+ "testOnMouseHoverDegreeCentrality", environment.evidencePath);
 		}
 		Assert.assertTrue(result);
 	}
@@ -501,13 +529,16 @@ public class TSSocialNetworkImageMapPreviewTest
 	}
 
 
+	@Test
 	public void testIsOverviewPresent()
 	{
+		Float similar = new Float(0.50);
 		System.out.println("*******TestIsOverviewPresent*******");
 		TSAutomationTester.openOverviewImageMap();
 		boolean result =
 			TSTestCases.isOverviewPresent(TSAutomationTester,
-				environment.projectImagesPath + File.separator + "overviewExpected.png");
+				environment.projectImagesPath + File.separator + "overviewExpected.png",
+				similar);
 		if (!result)
 		{
 			TSAutomationUtils.getScreenShot(TSAutomationTester, className
@@ -524,13 +555,12 @@ public class TSSocialNetworkImageMapPreviewTest
 		System.out.println("testCircularLayout");
 		TSAutomationTester.CircularLayoutImageMap();
 		boolean result =
-			TSTestCases.isOverviewPresent(TSAutomationTester,
-				environment.projectImagesPath + File.separator + "CircularExpected.png",
-				new Float(0.80));
+			TSTestCases.isLayoutPresent(TSAutomationTester, environment.projectImagesPath
+				+ File.separator + "CircularExpected.png", new Float(0.80));
 		if (!result)
 		{
 			TSAutomationUtils.getScreenShot(TSAutomationTester, className
-				+ "testIsOverviewPresent", environment.evidencePath);
+				+ "testCircularLayout", environment.evidencePath);
 		}
 
 		Assert.assertTrue(result);
@@ -544,10 +574,8 @@ public class TSSocialNetworkImageMapPreviewTest
 		System.out.println("testHierarchicalLayout");
 		TSAutomationTester.HierarchicalLayoutImageMap();
 		boolean result =
-			TSTestCases.isOverviewPresent(TSAutomationTester,
-				environment.projectImagesPath + File.separator
-					+ "HierarchicalExpected.png",
-				new Float(0.80));
+			TSTestCases.isLayoutPresent(TSAutomationTester, environment.projectImagesPath
+				+ File.separator + "HierarchicalExpected.png", new Float(0.80));
 		if (!result)
 		{
 			TSAutomationUtils.getScreenShot(TSAutomationTester, className
@@ -556,14 +584,6 @@ public class TSSocialNetworkImageMapPreviewTest
 
 		Assert.assertTrue(result);
 		TSAutomationTester.SymmetricLayoutImageMap();
-	}
-
-
-	@AfterClass
-	public static void closeAll()
-	{
-		TSAutomationTester.closeCurrentBrowser();
-		TSAutomationTester.closeAll();
 	}
 
 
