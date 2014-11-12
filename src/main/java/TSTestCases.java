@@ -155,7 +155,7 @@ public class TSTestCases
 		String imageExpected)
 	{
 		boolean result = true;
-		long timeOut = 1200;
+		long timeOut = Long.valueOf( TSAutomationUtils.getProperty("OnMouseHoverTimeOut"));
 		
 			tester.onMouseHoverImageMap(imageHover);
 		
