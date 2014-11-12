@@ -498,6 +498,10 @@ public class TSTester
 				App.close(browser);
 			
 		}
+		else if(browser.contains("Safari"))
+		{
+			App.close("Tom Sawyer Perspectives Previewer");
+		}
 		else
 		{
 			App.close(browser);
@@ -599,7 +603,7 @@ public class TSTester
 
 		try
 		{
-			automationTesterCurrentScreen.hover(new Pattern(patternStringPath).similar(new Float(0.90)));
+			automationTesterCurrentScreen.hover(new Pattern(patternStringPath).similar(new Float(0.85)));
 		}
 		catch (FindFailed ff)
 		{
