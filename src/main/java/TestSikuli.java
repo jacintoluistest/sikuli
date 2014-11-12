@@ -13,10 +13,11 @@ import org.sikuli.script.Sikulix;
  */
 public class TestSikuli {
 	public static void main(String args[]){
-		org.sikuli.basics.Debug.setDebugLevel(3);
-		System.out.println(Screen.getBounds(0));
-		System.out.println(Screen.getBounds(1));
-		App.close("Tom Sawyer Perspectives Designer");
+//		org.sikuli.basics.Debug.setDebugLevel(3);
+//		TSTester a = new TSTester(TSAutomationUtils.getProperty("DefaultBrowser"));
+//		a.automationTesterCurrentScreen.setRect(new Screen(0));
+//		a.SymmetricLayoutHtml5();
+		App.close("Tom Sawyer Perspectives Previewer");
 		
 	
 	}
