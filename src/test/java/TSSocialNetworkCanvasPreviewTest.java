@@ -53,7 +53,7 @@ public class TSSocialNetworkCanvasPreviewTest
 
 
 	@Test
-	public void testLaunchImageMapPreview()
+	public void testLaunchCanvasPreview()
 	{
 		System.out.println("testCanvasPreview");
 		boolean result =
@@ -65,6 +65,41 @@ public class TSSocialNetworkCanvasPreviewTest
 			TSAutomationUtils.getScreenShot(TSAutomationTester, className
 				+ "testCanvasPreview", environment.evidencePath);
 		}
+		Assert.assertTrue(result);
+	}
+	
+	@Test
+	public void testIsTableViewPresent()
+	{
+		System.out.println("*******testIsTableViewPresent*******");
+
+		boolean result =
+			TSTestCases.isViewPresent(TSAutomationTester, environment.projectImagesPath
+				+ File.separator + "TableViewCanvas.png");
+		if (!result)
+		{
+			TSAutomationUtils.getScreenShot(TSAutomationTester, className
+				+ "testIsTableViewPresent", environment.evidencePath);
+		}
+
+		Assert.assertTrue(result);
+	}
+
+
+	@Test
+	public void testIsTreeViewPresent()
+	{
+		System.out.println("*******testIsTreeViewPresent*******");
+
+		boolean result =
+			TSTestCases.isViewPresent(TSAutomationTester, environment.projectImagesPath
+				+ File.separator + "TreeViewCanvas.png");
+		if (!result)
+		{
+			TSAutomationUtils.getScreenShot(TSAutomationTester, className
+				+ "testIsTableViewPresent", environment.evidencePath);
+		}
+
 		Assert.assertTrue(result);
 	}
 
