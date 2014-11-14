@@ -413,19 +413,54 @@ public class TSTester
 	}
 
 
-	public void orthogonalLayout()
+	public void orthogonalLayoutDesktop()
 	{
-
+		String circularLayout =
+			tspDesktopPreviewImagesPath + File.separator
+				+ "OrthogonalLayoutToolBarDesktop.png";
 		try
 		{
-			automationTesterCurrentScreen.click(new Pattern(tsperspectivesToolBarImagesPath
-				+ File.separator + "orthogonalLayout.png").similar(new Float(0.7)));
+			automationTesterCurrentScreen.click(circularLayout);
 		}
-
 		catch (FindFailed ff)
 		{
 			System.out.println(ff.getMessage());
 		}
+		TSAutomationUtils.pauseScript(new Long(1500));
+
+	}
+	
+	public void orthogonalLayoutImageMap()
+	{
+		String orthogonalLayout =
+			tspImageMapImagesPath + File.separator
+				+ "OrthogonalLayoutImageMap.png";
+		try
+		{
+			automationTesterCurrentScreen.click(orthogonalLayout);
+		}
+		catch (FindFailed ff)
+		{
+			System.out.println(ff.getMessage());
+		}
+		TSAutomationUtils.pauseScript(new Long(1500));
+
+	}
+	
+	public void orthogonalLayoutHtml5()
+	{
+		String orthogonalLayout =
+			tspImageMapImagesPath + File.separator
+				+ "OrthogonalLayoutCanvas.png";
+		try
+		{
+			automationTesterCurrentScreen.click(orthogonalLayout);
+		}
+		catch (FindFailed ff)
+		{
+			System.out.println(ff.getMessage());
+		}
+		TSAutomationUtils.pauseScript(new Long(1500));
 
 	}
 
@@ -444,7 +479,7 @@ public class TSTester
 	public Match isPresentElement(String patternStringPath, float similar)
 	{
 		TSAutomationUtils.pauseScript();
-		System.out.println("Searching image for validation" + patternStringPath + similar);
+		System.out.println("Searching image for validation" + patternStringPath);
 		// Waiting for screen
 
 		return automationTesterCurrentScreen.exists(new Pattern(patternStringPath).similar(similar));
@@ -849,5 +884,45 @@ public class TSTester
 		TSAutomationUtils.pauseScript(new Long(1500));
 
 	}
+	
+	public void runAlgorithm(String button)
+	{
+		try
+		{
+			automationTesterCurrentScreen.click(button);
+		}
+		catch (FindFailed ff)
+		{
+			System.out.println(ff.getMessage());
+		}
+		TSAutomationUtils.pauseScript(new Long(1500));
+		
+		
+	}
+	
+	public void clearResults(String button)
+	{
+		try
+		{
+			automationTesterCurrentScreen.click(button);
+		}
+		catch (FindFailed ff)
+		{
+			System.out.println(ff.getMessage());
+		}
+		TSAutomationUtils.pauseScript(new Long(1500));	
+	}
 
+	public void closeOverview(String overviewButton){ 
+		try
+		{
+			automationTesterCurrentScreen.click(overviewButton);
+		}
+		catch (FindFailed ff)
+		{
+			System.out.println(ff.getMessage());
+		}
+		TSAutomationUtils.pauseScript(new Long(1500));	
+		
+	}
 }
