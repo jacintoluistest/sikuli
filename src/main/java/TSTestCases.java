@@ -200,13 +200,9 @@ public class TSTestCases
 		return result;
 	}
 
-
-	public static boolean isToolTipPresentDesktop(TSTester tester, String imageToolPath)
-	{
-		boolean result = true;
-		long timeOut = 1000;
-		tester.onMouseHoverImageMap(imageToolPath);
-		if (tester.isPresentElement(imageToolPath, new Float(0.7), timeOut) != null)
+	public static boolean isButtonPresent(TSTester tester, String buttonExpected){
+		boolean result;
+		if (tester.isPresentElement(buttonExpected) != null)
 		{
 			result = true;
 		}
@@ -214,13 +210,24 @@ public class TSTestCases
 		{
 			result = false;
 		}
+
+		return result;
+	}
+	
+	public static boolean isButtonPresent(TSTester tester, String buttonExpected, float similar){
+		boolean result;
+		if (tester.isPresentElement(buttonExpected,similar) != null)
+		{
+			result = true;
+		}
+		else
+		{
+			result = false;
+		}
+
 		return result;
 	}
 	
 	
-	public static boolean circularLayout(){
-		
-		return true;
-	}
-
+	
 }
