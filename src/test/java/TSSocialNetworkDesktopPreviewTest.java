@@ -19,8 +19,21 @@ public class TSSocialNetworkDesktopPreviewTest
 		TSAutomationTester = new TSTester();
 		TSAutomationTester.LaunchTS();
 		TSAutomationTester.maximizeWindow();
-		TSAutomationTester.openProject("SocialNetworkProyectPath");
+		TSAutomationTester.openProject("SocialNetworkProjectPath");
 		TSAutomationTester.launchDesktopPreview();
+		screenId = TSAutomationTester.automationTesterCurrentScreen.getID();
+		if (screenId == 0)
+		{
+			environment.projectImagesPath =
+				environment.projectImagesPath.concat(File.separator + "PrimaryScreen");
+
+		}
+		else if (screenId == 1)
+		{
+			environment.projectImagesPath =
+				environment.projectImagesPath.concat(File.separator + "SecondaryScreen");
+		}
+
 
 	}
 
@@ -611,5 +624,7 @@ public class TSSocialNetworkDesktopPreviewTest
 	static String className;
 
 	static TSEnvironment environment;
+	
+	static int screenId;
 
 }
