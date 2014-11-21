@@ -12,7 +12,7 @@ public class TSSocialNetworkImageMapPreviewTest
 	@BeforeClass
 	public static void setUp()
 	{
-		org.sikuli.basics.Debug.setDebugLevel(3);
+		//org.sikuli.basics.Debug.setDebugLevel(3);
 		Settings.MoveMouseDelay = new Float(1.5);
 		String defaultBrowser = TSAutomationUtils.getProperty("DefaultBrowser");
 		System.out.println(TSAutomationUtils.getOs());

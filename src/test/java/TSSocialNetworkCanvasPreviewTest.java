@@ -22,7 +22,7 @@ public class TSSocialNetworkCanvasPreviewTest
 				defaultBrowser);
 		TSAutomationTester = new TSTester(defaultBrowser);
 		TSAutomationTester.LaunchTS();
-		TSAutomationTester.openProject("SocialNetworkProyectPath");
+		TSAutomationTester.openProject("SocialNetworkProjectPath");
 		TSAutomationTester.launchHtml5Preview();
 		TSAutomationTester.fullScreenBrowser();
 		TSAutomationUtils.pauseScript(new Long(2000));

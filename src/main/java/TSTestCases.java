@@ -1,3 +1,6 @@
+import java.io.File;
+import org.sikuli.script.FindFailed;
+
 
 
 public class TSTestCases
@@ -134,11 +137,11 @@ public class TSTestCases
 	}
 	
 	public static boolean isLayoutPresent(TSTester tester,
-		String overviewImagePath,
+		String expectedLayout,
 		float similar)
 	{
 		boolean result = true;
-		if (tester.isPresentElement(overviewImagePath, similar) != null)
+		if (tester.isPresentElement(expectedLayout, similar) != null)
 		{
 			result = true;
 		}
@@ -177,7 +180,7 @@ public class TSTestCases
 
 	{
 		boolean result = true;
-		long timeOut = 1200;
+		long timeOut = 1000;
 
 		if (tester.operativeSystem.contains("windows"))
 		{
@@ -189,6 +192,35 @@ public class TSTestCases
 			tester.onMouseHoverDesktopMac(imageHover);
 		}
 		if (tester.isPresentElement(imageExpected, new Float(0.7), timeOut) != null)
+		{
+			result = true;
+		}
+		else
+		{
+			result = false;
+		}
+		System.out.println("isToolTipPresent result =" + result);
+		return result;
+	}
+	
+	public static boolean isToolTipPresentDesktop(TSTester tester,
+		String imageHover,
+		String imageExpected, float similar)
+
+	{
+		boolean result = true;
+		long timeOut = 1200;
+
+		if (tester.operativeSystem.contains("windows"))
+		{
+			tester.onMouseHoverDesktop(imageHover,similar);
+		}
+
+		else
+		{
+			tester.onMouseHoverDesktopMac(imageHover);
+		}
+		if (tester.isPresentElement(imageExpected, similar, timeOut) != null)
 		{
 			result = true;
 		}
@@ -228,6 +260,45 @@ public class TSTestCases
 		return result;
 	}
 	
+	public static boolean runMSliceCanvas(TSTester tester,String minCapacity, String expectedLayout){
+	boolean result;
+		String mSliceButton = tester.tspHtml5PreviewImagePath + File.separator + "MSliceCanvas.png";
+		String minCapacityButton = tester.tspHtml5PreviewImagePath + File.separator + "MinCapacityCanvas.png";
+		String comboButton = tester.tspHtml5PreviewImagePath + File.separator + "ComboCanvas.png";
+		try{
+			tester.automationTesterCurrentScreen.click(mSliceButton);
+			tester.automationTesterCurrentScreen.doubleClick(minCapacityButton);
+			tester.automationTesterCurrentScreen.click(comboButton);
+			tester.automationTesterCurrentScreen.click(minCapacity);
+		}
+		
+		catch(FindFailed ff){
+			System.out.println(ff.getMessage());
+		}
+		result=isLayoutPresent(tester, expectedLayout, new Float(0.80));
 	
 	
+	return result;
+	}
+	
+	public static boolean runMSliceImageMap(TSTester tester,String minCapacity, String expectedLayout){
+		boolean result;
+			String mSliceButton = tester.tspImageMapImagesPath + File.separator + "MSliceImageMap.png";
+			String minCapacityButton = tester.tspImageMapImagesPath + File.separator + "MinCapacityImageMap.png";
+			String comboButton = tester.tspImageMapImagesPath + File.separator + "ComboImageMap.png";
+			try{
+				tester.automationTesterCurrentScreen.click(mSliceButton);
+				tester.automationTesterCurrentScreen.doubleClick(minCapacityButton);
+				tester.automationTesterCurrentScreen.click(comboButton);
+				tester.automationTesterCurrentScreen.click(minCapacity);
+			}
+			
+			catch(FindFailed ff){
+				System.out.println(ff.getMessage());
+			}
+			result=isLayoutPresent(tester, expectedLayout, new Float(0.80));
+		
+		
+		return result;
+		}
 }

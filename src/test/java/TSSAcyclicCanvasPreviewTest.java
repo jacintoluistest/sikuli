@@ -14,14 +14,14 @@ public class TSSAcyclicCanvasPreviewTest
 		// org.sikuli.basics.Debug.setDebugLevel(3);
 		Settings.MoveMouseDelay = new Float(1.5);
 		String defaultBrowser = TSAutomationUtils.getProperty("DefaultBrowser");
-		className = TSSocialNetworkCanvasPreviewTest.class.getName();
+		className = TSSAcyclicCanvasPreviewTest.class.getName();
 		environment =
 			new TSEnvironment("AcyclicTest",
 				TSEnvironment.HTML5_PREVIEW,
 				defaultBrowser);
 		TSAutomationTester = new TSTester(defaultBrowser);
-		//TSAutomationTester.LaunchTS();
-		//TSAutomationTester.openProject("AcyclicTestProjectPath");
+		TSAutomationTester.LaunchTS();
+		TSAutomationTester.openProject("AcyclicTestProjectPath");
 		TSAutomationTester.launchHtml5Preview();
 		TSAutomationTester.fullScreenBrowser();
 		TSAutomationUtils.pauseScript(new Long(2000));
@@ -48,7 +48,7 @@ public class TSSAcyclicCanvasPreviewTest
 	{
 		TSAutomationTester.fullScreenBrowser();
 		TSAutomationTester.closeCurrentBrowser();
-		//TSAutomationTester.closeAll();
+		TSAutomationTester.closeAll();
 	}
 	
 	@Test

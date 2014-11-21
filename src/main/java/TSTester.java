@@ -385,7 +385,7 @@ public class TSTester
 		{
 			System.out.println("Trying get screen again");
 			automationTesterCurrentScreen =
-				new Screen(TSAutomationUtils.getCurrentScreenId(new Pattern(tspImageMapImagesPath
+				new Screen(TSAutomationUtils.getCurrentScreenId(new Pattern(tspHtml5PreviewImagePath
 					+ File.separator + "WebCommonToolBar.png").similar(new Float(0.8))));
 		}
 		catch (Exception e)
@@ -609,7 +609,21 @@ public class TSTester
 		App.focus("Tom Sawyer Perspectives Previewer");
 		try
 		{
-			automationTesterCurrentScreen.hover(new Pattern(patternStringPath).similar(new Float(0.85)));
+			automationTesterCurrentScreen.hover(new Pattern(patternStringPath).similar(new Float(0.95)));
+		}
+		catch (FindFailed ff)
+		{
+			System.out.println(ff.getMessage());
+		}
+
+	}
+	
+	public void onMouseHoverDesktop(String patternStringPath, float similar)
+	{
+		App.focus("Tom Sawyer Perspectives Previewer");
+		try
+		{
+			automationTesterCurrentScreen.hover(new Pattern(patternStringPath).similar(similar));
 		}
 		catch (FindFailed ff)
 		{
@@ -624,6 +638,19 @@ public class TSTester
 		try
 		{
 			automationTesterCurrentScreen.hover(new Pattern(patternStringPath).similar(new Float(0.80)));
+		}
+		catch (FindFailed ff)
+		{
+			System.out.println(ff.getMessage());
+		}
+
+	}
+	
+	public void onMouseHoverDesktopMac(String patternStringPath, float similar)
+	{
+		try
+		{
+			automationTesterCurrentScreen.hover(new Pattern(patternStringPath).similar(similar));
 		}
 		catch (FindFailed ff)
 		{
@@ -913,7 +940,51 @@ public class TSTester
 		TSAutomationUtils.pauseScript(new Long(1500));	
 	}
 
+	
+	
 	public void closeOverview(String overviewButton){ 
+		try
+		{
+			automationTesterCurrentScreen.click(overviewButton);
+		}
+		catch (FindFailed ff)
+		{
+			System.out.println(ff.getMessage());
+		}
+		TSAutomationUtils.pauseScript(new Long(1500));	
+		
+	}
+	
+	public void closeOverviewDesktop(){ 
+		String overviewButton = tspDesktopPreviewImagesPath + "closeOverview.png";
+		try
+		{
+			automationTesterCurrentScreen.click(overviewButton);
+		}
+		catch (FindFailed ff)
+		{
+			System.out.println(ff.getMessage());
+		}
+		TSAutomationUtils.pauseScript(new Long(1500));	
+		
+	}
+	
+	public void closeOverviewCanvas(){ 
+		String overviewButton = tspHtml5PreviewImagePath + File.separator+ "overviewSelectedCanvas.png";
+		try
+		{
+			automationTesterCurrentScreen.click(overviewButton);
+		}
+		catch (FindFailed ff)
+		{
+			System.out.println(ff.getMessage());
+		}
+		TSAutomationUtils.pauseScript(new Long(1500));	
+		
+	}
+	
+	public void closeOverviewImageMap(){ 
+		String overviewButton = tspImageMapImagesPath + File.separator+ "overviewSelectedImageMap.png";
 		try
 		{
 			automationTesterCurrentScreen.click(overviewButton);

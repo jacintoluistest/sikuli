@@ -11,6 +11,7 @@ public class TSSAcyclicDesktopPreviewTest
 	@BeforeClass
 	public static void setUp() throws Exception
 	{
+		org.sikuli.basics.Debug.setDebugLevel(3);
 		className = TSSAcyclicDesktopPreviewTest.class.getName();
 		Settings.MoveMouseDelay = new Float(1.5);
 		environment =
@@ -297,7 +298,7 @@ public class TSSAcyclicDesktopPreviewTest
 			environment.toolBarImagesPath + File.separator
 				+ "clearResultsAcyclicDisableToolBarDesktop.png";
 		String imageExpected =
-			environment.toolTipsImagePath + File.separator + "AcyclicClearResults.png";
+			environment.toolTipsImagePath + File.separator + "ClearResults.png";
 		boolean result =
 			TSTestCases.isToolTipPresentDesktop(TSAutomationTester,
 				imageToolBar,
@@ -348,6 +349,7 @@ public class TSSAcyclicDesktopPreviewTest
 		}
 
 		Assert.assertTrue(result);
+		TSAutomationTester.closeOverviewDesktop();
 	}
 
 
@@ -392,13 +394,13 @@ public class TSSAcyclicDesktopPreviewTest
 	{
 		boolean result = false;
 		TSAutomationTester.runAlgorithm(environment.toolBarImagesPath + File.separator
-			+ "RunAcyclicTestEnableToolBarDesktop");
+			+ "RunAcyclicTestEnableToolBarDesktop.png");
 		if (TSTestCases.isButtonPresent(TSAutomationTester, environment.projectImagesPath
 			+ File.separator + "ClearResultsEnable.png")
-			|| TSTestCases.isButtonPresent(TSAutomationTester,
+			&& TSTestCases.isButtonPresent(TSAutomationTester,
 				environment.projectImagesPath + File.separator
 					+ "RunAcyclicTestDisable.png")
-			|| TSTestCases.isViewPresent(TSAutomationTester,
+			&& TSTestCases.isViewPresent(TSAutomationTester,
 				environment.projectImagesPath + File.separator + "TreeViewDesktop"))
 		{
 			result = true;

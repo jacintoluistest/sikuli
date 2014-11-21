@@ -1,3 +1,4 @@
+
 import org.sikuli.script.App;
 import org.sikuli.script.Screen;
 
@@ -13,10 +14,8 @@ import org.sikuli.script.Screen;
  */
 public class TestSikuli {
 	public static void main(String args[]){
-		org.sikuli.basics.Debug.setDebugLevel(3);
-		TSTester a = new TSTester(TSAutomationUtils.getProperty("DefaultBrowser"));
-		a.automationTesterCurrentScreen.setRect(new Screen(0));
-		a.SymmetricLayoutHtml5();
+		App a = new App("C:\\Apps\\Tom Sawyer Software\\Tom Sawyer Perspectives\\6.3\\Java\\bin\\TomSawyerPerspectivesDesigner.exe");
+		a.open();
 		
 		
 	
