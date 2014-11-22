@@ -14,7 +14,7 @@ public class TSSAcyclicImageMapPreviewTest
 		// org.sikuli.basics.Debug.setDebugLevel(3);
 		Settings.MoveMouseDelay = new Float(1.5);
 		String defaultBrowser = TSAutomationUtils.getProperty("DefaultBrowser");
-		className = TSSocialNetworkCanvasPreviewTest.class.getName();
+		className = TSSocialNetworkHtml5PreviewTest.class.getName();
 		environment =
 			new TSEnvironment("AcyclicTest",
 				TSEnvironment.IMAGEMAP_PREVIEW,

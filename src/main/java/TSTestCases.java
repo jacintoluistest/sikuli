@@ -1,5 +1,6 @@
 import java.io.File;
 import org.sikuli.script.FindFailed;
+import org.sikuli.script.Pattern;
 
 
 
@@ -301,4 +302,37 @@ public class TSTestCases
 		
 		return result;
 		}
+	
+	public static boolean runMaxFlowDesktop(TSTester tester, String expectedImage,
+		TSEnvironment environment){
+		boolean result = false;
+		float similar = new Float(0.96);
+		float similarButtons = new Float (0.94);
+		String sourceNode = environment.projectImagesPath + File.separator + "sourceNode.png";
+		String sinkNode =environment.projectImagesPath + File.separator + "sinkNode.png";
+		String setSourceNodeButton=environment.toolBarImagesPath+File.separator + "SetSourceNodeToolBarDesktop.png";
+		String setSinkNodeButton=environment.toolBarImagesPath + File.separator + "SetSinkNodeToolBarDesktop.png";
+		String runMaximumFlowButton=environment.toolBarImagesPath + File.separator + "RunMaximumFlowToolBarDesktop.png";
+		
+		try{
+			tester.automationTesterCurrentScreen.click(new Pattern(sourceNode).similar(similarButtons));
+			tester.automationTesterCurrentScreen.click(new Pattern(setSourceNodeButton).similar(similarButtons));
+			tester.automationTesterCurrentScreen.click(new Pattern(sinkNode).similar(similarButtons));
+			tester.automationTesterCurrentScreen.click(new Pattern(setSinkNodeButton).similar(similarButtons));
+			tester.automationTesterCurrentScreen.click(new Pattern(runMaximumFlowButton).similar(similarButtons));
+		}
+		
+		catch (FindFailed ff)
+		{
+			System.out.println(ff.getMessage());
+		}
+		
+		
+		result =isLayoutPresent(tester, expectedImage, similar);
+		
+		
+		
+		return result;
+		
+	}
 }

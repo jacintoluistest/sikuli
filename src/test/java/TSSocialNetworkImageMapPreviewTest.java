@@ -24,7 +24,7 @@ public class TSSocialNetworkImageMapPreviewTest
 
 		TSAutomationTester = new TSTester(defaultBrowser);
 		TSAutomationTester.LaunchTS();
-		TSAutomationTester.openProject("SocialNetworkProyectPath");
+		TSAutomationTester.openProject("SocialNetworkProjectPath");
 		TSAutomationTester.launchWebPreview();
 		TSAutomationTester.fullScreenBrowser();
 		TSAutomationUtils.pauseScript(new Long(2000));
@@ -335,6 +335,7 @@ public class TSSocialNetworkImageMapPreviewTest
 				+ "testOnMouseHoverHierarchicalLayout", environment.evidencePath);
 		}
 		Assert.assertTrue(result);
+		
 
 	}
 
@@ -545,6 +546,7 @@ public class TSSocialNetworkImageMapPreviewTest
 				+ "testIsOverviewPresent", environment.evidencePath);
 		}
 		Assert.assertTrue(result);
+		TSAutomationTester.closeOverviewImageMap();
 
 	}
 

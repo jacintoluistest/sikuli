@@ -429,12 +429,12 @@ public class TSTester
 		TSAutomationUtils.pauseScript(new Long(1500));
 
 	}
-	
+
+
 	public void orthogonalLayoutImageMap()
 	{
 		String orthogonalLayout =
-			tspImageMapImagesPath + File.separator
-				+ "OrthogonalLayoutImageMap.png";
+			tspImageMapImagesPath + File.separator + "OrthogonalLayoutImageMap.png";
 		try
 		{
 			automationTesterCurrentScreen.click(orthogonalLayout);
@@ -446,12 +446,12 @@ public class TSTester
 		TSAutomationUtils.pauseScript(new Long(1500));
 
 	}
-	
+
+
 	public void orthogonalLayoutHtml5()
 	{
 		String orthogonalLayout =
-			tspImageMapImagesPath + File.separator
-				+ "OrthogonalLayoutCanvas.png";
+			tspImageMapImagesPath + File.separator + "OrthogonalLayoutCanvas.png";
 		try
 		{
 			automationTesterCurrentScreen.click(orthogonalLayout);
@@ -528,12 +528,12 @@ public class TSTester
 		System.out.println("Closing Web Preview");
 		if (browser.contains("Explorer"))
 		{
-			
-				App.close(browser);
-				App.close(browser);
-			
+
+			App.close(browser);
+			App.close(browser);
+
 		}
-		else if(browser.contains("Safari"))
+		else if (browser.contains("Safari"))
 		{
 			App.close("Tom Sawyer Perspectives Previewer");
 		}
@@ -617,7 +617,8 @@ public class TSTester
 		}
 
 	}
-	
+
+
 	public void onMouseHoverDesktop(String patternStringPath, float similar)
 	{
 		App.focus("Tom Sawyer Perspectives Previewer");
@@ -645,7 +646,8 @@ public class TSTester
 		}
 
 	}
-	
+
+
 	public void onMouseHoverDesktopMac(String patternStringPath, float similar)
 	{
 		try
@@ -911,7 +913,8 @@ public class TSTester
 		TSAutomationUtils.pauseScript(new Long(1500));
 
 	}
-	
+
+
 	public void runAlgorithm(String button)
 	{
 		try
@@ -923,10 +926,10 @@ public class TSTester
 			System.out.println(ff.getMessage());
 		}
 		TSAutomationUtils.pauseScript(new Long(1500));
-		
-		
+
 	}
-	
+
+
 	public void clearResults(String button)
 	{
 		try
@@ -937,12 +940,12 @@ public class TSTester
 		{
 			System.out.println(ff.getMessage());
 		}
-		TSAutomationUtils.pauseScript(new Long(1500));	
+		TSAutomationUtils.pauseScript(new Long(1500));
 	}
 
-	
-	
-	public void closeOverview(String overviewButton){ 
+
+	public void closeOverview(String overviewButton)
+	{
 		try
 		{
 			automationTesterCurrentScreen.click(overviewButton);
@@ -951,11 +954,13 @@ public class TSTester
 		{
 			System.out.println(ff.getMessage());
 		}
-		TSAutomationUtils.pauseScript(new Long(1500));	
-		
+		TSAutomationUtils.pauseScript(new Long(1500));
+
 	}
-	
-	public void closeOverviewDesktop(){ 
+
+
+	public void closeOverviewDesktop()
+	{
 		String overviewButton = tspDesktopPreviewImagesPath + "closeOverview.png";
 		try
 		{
@@ -965,12 +970,15 @@ public class TSTester
 		{
 			System.out.println(ff.getMessage());
 		}
-		TSAutomationUtils.pauseScript(new Long(1500));	
-		
+		TSAutomationUtils.pauseScript(new Long(1500));
+
 	}
-	
-	public void closeOverviewCanvas(){ 
-		String overviewButton = tspHtml5PreviewImagePath + File.separator+ "overviewSelectedCanvas.png";
+
+
+	public void closeOverviewCanvas()
+	{
+		String overviewButton =
+			tspHtml5PreviewImagePath + File.separator + "overviewSelectedCanvas.png";
 		try
 		{
 			automationTesterCurrentScreen.click(overviewButton);
@@ -979,12 +987,15 @@ public class TSTester
 		{
 			System.out.println(ff.getMessage());
 		}
-		TSAutomationUtils.pauseScript(new Long(1500));	
-		
+		TSAutomationUtils.pauseScript(new Long(1500));
+
 	}
-	
-	public void closeOverviewImageMap(){ 
-		String overviewButton = tspImageMapImagesPath + File.separator+ "overviewSelectedImageMap.png";
+
+
+	public void closeOverviewImageMap()
+	{
+		String overviewButton =
+			tspImageMapImagesPath + File.separator + "overviewSelectedImageMap.png";
 		try
 		{
 			automationTesterCurrentScreen.click(overviewButton);
@@ -993,7 +1004,27 @@ public class TSTester
 		{
 			System.out.println(ff.getMessage());
 		}
-		TSAutomationUtils.pauseScript(new Long(1500));	
-		
+		TSAutomationUtils.pauseScript(new Long(1500));
+
+	}
+
+
+	public void clearResultsMaxFlowDesktop()
+	{
+		String clearResultsButton =
+			tspDesktopPreviewImagesPath + File.separator
+				+ "ClearResultsEnableToolBarDesktop.png";
+		String hierarchicalSelected = tspDesktopPreviewImagesPath + File.separator
+			+ "HierarchicalSelectedToolBarDEsktop.png";
+		try
+		{
+			automationTesterCurrentScreen.click(clearResultsButton);
+			automationTesterCurrentScreen.click(hierarchicalSelected);
+			
+		}
+		catch(FindFailed ff)
+		{
+			System.out.println(ff.getMessage());
+		}
 	}
 }
