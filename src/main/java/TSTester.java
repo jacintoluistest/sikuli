@@ -47,6 +47,7 @@ public class TSTester
 		setAutomationOsEnvironmentWeb();
 		System.out.println("Wait Time Out for sleep is " + openTSPerspectivesTimeOut);
 		automationTesterCurrentScreen = new Screen();
+		
 
 	}
 
@@ -366,7 +367,6 @@ public class TSTester
 		{
 			System.out.println(e.getMessage());
 		}
-		// Launch CanvasPreview
 		try
 		{
 			automationTesterCurrentScreen.click(new Pattern(tsperspectivesToolBarImagesPath
@@ -377,13 +377,13 @@ public class TSTester
 		{
 			System.out.println(ff.getMessage());
 		}
-		System.out.println("Pause on launchCanvasPreview");
+		System.out.println("Pause on HTML5 Preview");
 		TSAutomationUtils.pauseScript(new Long(Long.valueOf(TSAutomationUtils.getProperty("TimeWaitwebPreview"))));
 		System.out.println("Getting again screen");
 
 		try
 		{
-			System.out.println("Trying get screen again");
+			System.out.println("Trying get screen for Preview");
 			automationTesterCurrentScreen =
 				new Screen(TSAutomationUtils.getCurrentScreenId(new Pattern(tspHtml5PreviewImagePath
 					+ File.separator + "WebCommonToolBar.png").similar(new Float(0.8))));
@@ -1027,4 +1027,42 @@ public class TSTester
 			System.out.println(ff.getMessage());
 		}
 	}
+		
+		public void clearResultsMaxFlowHtml5()
+		{
+			String clearResultsButton =
+				tspHtml5PreviewImagePath + File.separator
+					+ "ClearResultsEnableCanvas.png";
+			String hierarchicalSelected = tspHtml5PreviewImagePath + File.separator
+				+ "HierarchicalLayoutSelectedCanvas.png";
+			try
+			{
+				automationTesterCurrentScreen.click(clearResultsButton);
+				automationTesterCurrentScreen.click(hierarchicalSelected);
+				
+			}
+			catch(FindFailed ff)
+			{
+				System.out.println(ff.getMessage());
+			}
+	}
+		
+		public void clearResultsMaxFlowImageMap()
+		{
+			String clearResultsButton =
+				tspImageMapImagesPath + File.separator
+					+ "ClearResultsEnableToolBarDesktop.png";
+			String hierarchicalSelected = tspImageMapImagesPath + File.separator
+				+ "HierarchicalSelectedToolBarDEsktop.png";
+			try
+			{
+				automationTesterCurrentScreen.click(clearResultsButton);
+				automationTesterCurrentScreen.click(hierarchicalSelected);
+				
+			}
+			catch(FindFailed ff)
+			{
+				System.out.println(ff.getMessage());
+			}
+		}
 }

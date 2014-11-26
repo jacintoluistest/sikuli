@@ -61,7 +61,7 @@ public class TSSAcyclicImageMapPreviewTest
 			environment.toolBarImagesPath + File.separator + "PanImageMap.png";
 		String imageExpected = environment.toolTipsImagePath + File.separator + "Pan.png";
 		boolean result =
-			TSTestCases.isToolTipPresentWeb(TSAutomationTester,
+			TSFunctions.isToolTipPresentWeb(TSAutomationTester,
 				imageToolBar,
 				imageExpected);
 
@@ -84,7 +84,7 @@ public class TSSAcyclicImageMapPreviewTest
 		String imageExpected =
 			environment.toolTipsImagePath + File.separator + "MarqueeZoom.png";
 		boolean result =
-			TSTestCases.isToolTipPresentWeb(TSAutomationTester,
+			TSFunctions.isToolTipPresentWeb(TSAutomationTester,
 				imageToolBar,
 				imageExpected);
 
@@ -107,7 +107,7 @@ public class TSSAcyclicImageMapPreviewTest
 		String imageExpected =
 			environment.toolTipsImagePath + File.separator + "ZoomIn.png";
 		boolean result =
-			TSTestCases.isToolTipPresentWeb(TSAutomationTester,
+			TSFunctions.isToolTipPresentWeb(TSAutomationTester,
 				imageToolBar,
 				imageExpected);
 
@@ -130,7 +130,7 @@ public class TSSAcyclicImageMapPreviewTest
 		String imageExpected =
 			environment.toolTipsImagePath + File.separator + "ZoomOut.png";
 		boolean result =
-			TSTestCases.isToolTipPresentWeb(TSAutomationTester,
+			TSFunctions.isToolTipPresentWeb(TSAutomationTester,
 				imageToolBar,
 				imageExpected);
 
@@ -152,7 +152,7 @@ public class TSSAcyclicImageMapPreviewTest
 		String imageExpected =
 			environment.toolTipsImagePath + File.separator + "ZoomFit.png";
 		boolean result =
-			TSTestCases.isToolTipPresentWeb(TSAutomationTester,
+			TSFunctions.isToolTipPresentWeb(TSAutomationTester,
 				imageToolBar,
 				imageExpected);
 
@@ -175,7 +175,7 @@ public class TSSAcyclicImageMapPreviewTest
 		String imageExpected =
 			environment.toolTipsImagePath + File.separator + "Overview.png";
 		boolean result =
-			TSTestCases.isToolTipPresentWeb(TSAutomationTester,
+			TSFunctions.isToolTipPresentWeb(TSAutomationTester,
 				imageToolBar,
 				imageExpected);
 
@@ -198,7 +198,7 @@ public class TSSAcyclicImageMapPreviewTest
 		String imageExpected =
 			environment.toolTipsImagePath + File.separator + "HierarchicalLayout.png";
 		boolean result =
-			TSTestCases.isToolTipPresentWeb(TSAutomationTester,
+			TSFunctions.isToolTipPresentWeb(TSAutomationTester,
 				imageToolBar,
 				imageExpected);
 
@@ -222,7 +222,7 @@ public class TSSAcyclicImageMapPreviewTest
 		String imageExpected =
 			environment.toolTipsImagePath + File.separator + "RunAcyclicTest.png";
 		boolean result =
-			TSTestCases.isToolTipPresentDesktop(TSAutomationTester,
+			TSFunctions.isToolTipPresentDesktop(TSAutomationTester,
 				imageToolBar,
 				imageExpected);
 		if (!result)
@@ -249,7 +249,7 @@ public class TSSAcyclicImageMapPreviewTest
 		System.out.println("*******testRunAcyclicButtonEnable******");
 
 		boolean result =
-			TSTestCases.isButtonPresent(TSAutomationTester, environment.projectImagesPath
+			TSFunctions.isButtonPresent(TSAutomationTester, environment.projectImagesPath
 				+ File.separator + "RunAcyclicTestEnable.png", new Float(0.80));
 		if (!result)
 		{
@@ -267,7 +267,7 @@ public class TSSAcyclicImageMapPreviewTest
 		System.out.println("*******testIsClearResultsButtonDisable******");
 
 		boolean result =
-			TSTestCases.isButtonPresent(TSAutomationTester, environment.projectImagesPath
+			TSFunctions.isButtonPresent(TSAutomationTester, environment.projectImagesPath
 				+ File.separator + "clearResultsDisable.png", new Float(0.65));
 		if (!result)
 		{
@@ -286,12 +286,12 @@ public class TSSAcyclicImageMapPreviewTest
 		float similar = new Float(0.85);
 		TSAutomationTester.runAlgorithm(environment.toolBarImagesPath + File.separator
 			+ "RunAcyclicTestEnableImageMap");
-		if (TSTestCases.isButtonPresent(TSAutomationTester, environment.projectImagesPath
+		if (TSFunctions.isButtonPresent(TSAutomationTester, environment.projectImagesPath
 			+ File.separator + "ClearResultsEnable.png",similar)
-			&& TSTestCases.isButtonPresent(TSAutomationTester,
+			&& TSFunctions.isButtonPresent(TSAutomationTester,
 				environment.projectImagesPath + File.separator
 					+ "RunAcyclicTestDisable.png",similar)
-			&& TSTestCases.isViewPresent(TSAutomationTester,
+			&& TSFunctions.isViewPresent(TSAutomationTester,
 				environment.projectImagesPath + File.separator + "TreeViewImageMap"))
 		{
 			result = true;
@@ -318,7 +318,7 @@ public class TSSAcyclicImageMapPreviewTest
 		System.out.println("testHierarchicalLayout");
 		TSAutomationTester.HierarchicalLayoutDesktop();
 		boolean result =
-			TSTestCases.isLayoutPresent(TSAutomationTester, environment.projectImagesPath
+			TSFunctions.isLayoutPresent(TSAutomationTester, environment.projectImagesPath
 				+ File.separator + "HierarchicalExpected.png", new Float(0.80));
 		if (!result)
 		{
@@ -341,7 +341,7 @@ public class TSSAcyclicImageMapPreviewTest
 		String imageExpected =
 			environment.toolTipsImagePath + File.separator + "OrthogonalLayout.png";
 		boolean result =
-			TSTestCases.isToolTipPresentWeb(TSAutomationTester,
+			TSFunctions.isToolTipPresentWeb(TSAutomationTester,
 				imageToolBar,
 				imageExpected);
 
@@ -364,7 +364,7 @@ public class TSSAcyclicImageMapPreviewTest
 		String imageExpected =
 			environment.toolTipsImagePath + File.separator + "Select.png";
 		boolean result =
-			TSTestCases.isToolTipPresentWeb(TSAutomationTester,
+			TSFunctions.isToolTipPresentWeb(TSAutomationTester,
 				imageToolBar,
 				imageExpected);
 
@@ -384,7 +384,7 @@ public class TSSAcyclicImageMapPreviewTest
 		System.out.println("testIsOverViewPresent");
 		TSAutomationTester.openOverviewDesktop();
 		boolean result =
-			TSTestCases.isOverviewPresent(TSAutomationTester,
+			TSFunctions.isOverviewPresent(TSAutomationTester,
 				environment.projectImagesPath + File.separator + "overviewExpected.png",
 				new Float(0.65));
 		if (!result)
@@ -410,7 +410,7 @@ public class TSSAcyclicImageMapPreviewTest
 		String imageExpected =
 			environment.toolTipsImagePath + File.separator + "AcyclicClearResults.png";
 		boolean result =
-			TSTestCases.isToolTipPresentDesktop(TSAutomationTester,
+			TSFunctions.isToolTipPresentDesktop(TSAutomationTester,
 				imageToolBar,
 				imageExpected);
 		if (!result)

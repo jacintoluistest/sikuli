@@ -51,7 +51,7 @@ public class TSSocialNetworkDesktopPreviewTest
 	{
 		System.out.println("testLaunchDesktopPreview");
 		boolean result =
-			TSTestCases.isDesktopPreviewLaunched(TSAutomationTester,
+			TSFunctions.isDesktopPreviewLaunched(TSAutomationTester,
 				environment.projectImagesPath + File.separator
 					+ "SocialNetworkDesktopDefault.png");
 
@@ -70,7 +70,7 @@ public class TSSocialNetworkDesktopPreviewTest
 	{
 		System.out.println("testToolBarPresent");
 		boolean result =
-			TSTestCases.isToolBarPresent(TSAutomationTester,
+			TSFunctions.isToolBarPresent(TSAutomationTester,
 				environment.projectImagesPath + File.separator
 					+ "SocialNetworkAnalysisToolBar.png");
 		if (!result)
@@ -88,7 +88,7 @@ public class TSSocialNetworkDesktopPreviewTest
 	{
 		System.out.println("testIsTableViewPresent");
 		boolean result =
-			TSTestCases.isViewPresent(TSAutomationTester, environment.projectImagesPath
+			TSFunctions.isViewPresent(TSAutomationTester, environment.projectImagesPath
 				+ File.separator + "SocialNetworkAnalysisDesktopTableView.png");
 		if (!result)
 		{
@@ -104,7 +104,7 @@ public class TSSocialNetworkDesktopPreviewTest
 	{
 		System.out.println("testIsTreeViewPresent");
 		boolean result =
-			TSTestCases.isViewPresent(TSAutomationTester, environment.projectImagesPath
+			TSFunctions.isViewPresent(TSAutomationTester, environment.projectImagesPath
 				+ File.separator + "SocialNetworkAnalysisDesktopTreeView.png");
 		if (!result)
 		{
@@ -122,7 +122,7 @@ public class TSSocialNetworkDesktopPreviewTest
 		System.out.println("testIsOverViewPresent");
 		TSAutomationTester.openOverviewDesktop();
 		boolean result =
-			TSTestCases.isOverviewPresent(TSAutomationTester,
+			TSFunctions.isOverviewPresent(TSAutomationTester,
 				environment.projectImagesPath + File.separator + "overviewExpected.png",
 				new Float(0.80));
 		if (!result)
@@ -141,7 +141,7 @@ public class TSSocialNetworkDesktopPreviewTest
 		System.out.println("testCircularLayout");
 		TSAutomationTester.CircularLayoutDesktop();
 		boolean result =
-			TSTestCases.isLayoutPresent(TSAutomationTester,
+			TSFunctions.isLayoutPresent(TSAutomationTester,
 				environment.projectImagesPath + File.separator
 					+ "SocialNetworkAnalysisDesktopCircularExpected.png",
 				new Float(0.80));
@@ -162,7 +162,7 @@ public class TSSocialNetworkDesktopPreviewTest
 		System.out.println("testHierarchicalLayout");
 		TSAutomationTester.HierarchicalLayoutDesktop();
 		boolean result =
-			TSTestCases.isLayoutPresent(TSAutomationTester,
+			TSFunctions.isLayoutPresent(TSAutomationTester,
 				environment.projectImagesPath + File.separator
 					+ "SocialNetworkAnalysisDesktopHierarchicalExpected.png",
 				new Float(0.80));
@@ -186,7 +186,7 @@ public class TSSocialNetworkDesktopPreviewTest
 		String imageExpected =
 			environment.toolTipsImagePath + File.separator + "SaveAsImage.png";
 		boolean result =
-			TSTestCases.isToolTipPresentDesktop(TSAutomationTester,
+			TSFunctions.isToolTipPresentDesktop(TSAutomationTester,
 				imageToolBar,
 				imageExpected);
 		if (!result)
@@ -209,7 +209,7 @@ public class TSSocialNetworkDesktopPreviewTest
 		String imageExpected =
 			environment.toolTipsImagePath + File.separator + "Select.png";
 		boolean result =
-			TSTestCases.isToolTipPresentDesktop(TSAutomationTester,
+			TSFunctions.isToolTipPresentDesktop(TSAutomationTester,
 				imageToolBar,
 				imageExpected);
 		if (!result)
@@ -231,7 +231,7 @@ public class TSSocialNetworkDesktopPreviewTest
 			environment.toolBarImagesPath + File.separator + "PanToolBarDesktop.png";
 		String imageExpected = environment.toolTipsImagePath + File.separator + "Pan.png";
 		boolean result =
-			TSTestCases.isToolTipPresentDesktop(TSAutomationTester,
+			TSFunctions.isToolTipPresentDesktop(TSAutomationTester,
 				imageToolBar,
 				imageExpected);
 		if (!result)
@@ -255,7 +255,7 @@ public class TSSocialNetworkDesktopPreviewTest
 		String imageExpected =
 			environment.toolTipsImagePath + File.separator + "NavigateLinks.png";
 		boolean result =
-			TSTestCases.isToolTipPresentDesktop(TSAutomationTester,
+			TSFunctions.isToolTipPresentDesktop(TSAutomationTester,
 				imageToolBar,
 				imageExpected);
 		if (!result)
@@ -278,7 +278,7 @@ public class TSSocialNetworkDesktopPreviewTest
 		String imageExpected =
 			environment.toolTipsImagePath + File.separator + "MarqueeZoom.png";
 		boolean result =
-			TSTestCases.isToolTipPresentDesktop(TSAutomationTester,
+			TSFunctions.isToolTipPresentDesktop(TSAutomationTester,
 				imageToolBar,
 				imageExpected);
 		if (!result)
@@ -301,7 +301,7 @@ public class TSSocialNetworkDesktopPreviewTest
 		String imageExpected =
 			environment.toolTipsImagePath + File.separator + "ZoomIn.png";
 		boolean result =
-			TSTestCases.isToolTipPresentDesktop(TSAutomationTester,
+			TSFunctions.isToolTipPresentDesktop(TSAutomationTester,
 				imageToolBar,
 				imageExpected);
 		if (!result)
@@ -324,7 +324,7 @@ public class TSSocialNetworkDesktopPreviewTest
 		String imageExpected =
 			environment.toolTipsImagePath + File.separator + "ZoomOut.png";
 		boolean result =
-			TSTestCases.isToolTipPresentDesktop(TSAutomationTester,
+			TSFunctions.isToolTipPresentDesktop(TSAutomationTester,
 				imageToolBar,
 				imageExpected);
 		if (!result)
@@ -347,7 +347,7 @@ public class TSSocialNetworkDesktopPreviewTest
 		String imageExpected =
 			environment.toolTipsImagePath + File.separator + "ZoomFit.png";
 		boolean result =
-			TSTestCases.isToolTipPresentDesktop(TSAutomationTester,
+			TSFunctions.isToolTipPresentDesktop(TSAutomationTester,
 				imageToolBar,
 				imageExpected);
 		if (!result)
@@ -370,7 +370,7 @@ public class TSSocialNetworkDesktopPreviewTest
 		String imageExpected =
 			environment.toolTipsImagePath + File.separator + "Overview.png";
 		boolean result =
-			TSTestCases.isToolTipPresentDesktop(TSAutomationTester,
+			TSFunctions.isToolTipPresentDesktop(TSAutomationTester,
 				imageToolBar,
 				imageExpected);
 		if (!result)
@@ -393,7 +393,7 @@ public class TSSocialNetworkDesktopPreviewTest
 		String imageExpected =
 			environment.toolTipsImagePath + File.separator + "CircularLayout.png";
 		boolean result =
-			TSTestCases.isToolTipPresentDesktop(TSAutomationTester,
+			TSFunctions.isToolTipPresentDesktop(TSAutomationTester,
 				imageToolBar,
 				imageExpected);
 		if (!result)
@@ -417,7 +417,7 @@ public class TSSocialNetworkDesktopPreviewTest
 		String imageExpected =
 			environment.toolTipsImagePath + File.separator + "HierarchicalLayout.png";
 		boolean result =
-			TSTestCases.isToolTipPresentDesktop(TSAutomationTester,
+			TSFunctions.isToolTipPresentDesktop(TSAutomationTester,
 				imageToolBar,
 				imageExpected);
 		if (!result)
@@ -440,7 +440,7 @@ public class TSSocialNetworkDesktopPreviewTest
 		String imageExpected =
 			environment.toolTipsImagePath + File.separator + "OrthogonalLayout.png";
 		boolean result =
-			TSTestCases.isToolTipPresentDesktop(TSAutomationTester,
+			TSFunctions.isToolTipPresentDesktop(TSAutomationTester,
 				imageToolBar,
 				imageExpected);
 		if (!result)
@@ -463,7 +463,7 @@ public class TSSocialNetworkDesktopPreviewTest
 		String imageExpected =
 			environment.toolTipsImagePath + File.separator + "SymmetricLayout.png";
 		boolean result =
-			TSTestCases.isToolTipPresentDesktop(TSAutomationTester,
+			TSFunctions.isToolTipPresentDesktop(TSAutomationTester,
 				imageToolBar,
 				imageExpected);
 		if (!result)
@@ -486,7 +486,7 @@ public class TSSocialNetworkDesktopPreviewTest
 		String imageExpected =
 			environment.toolTipsImagePath + File.separator + "GlobalLayout.png";
 		boolean result =
-			TSTestCases.isToolTipPresentDesktop(TSAutomationTester,
+			TSFunctions.isToolTipPresentDesktop(TSAutomationTester,
 				imageToolBar,
 				imageExpected);
 		if (!result)
@@ -510,7 +510,7 @@ public class TSSocialNetworkDesktopPreviewTest
 		String imageExpected =
 			environment.toolTipsImagePath + File.separator + "IncrementalLayout.png";
 		boolean result =
-			TSTestCases.isToolTipPresentDesktop(TSAutomationTester,
+			TSFunctions.isToolTipPresentDesktop(TSAutomationTester,
 				imageToolBar,
 				imageExpected);
 		if (!result)
@@ -534,7 +534,7 @@ public class TSSocialNetworkDesktopPreviewTest
 		String imageExpected =
 			environment.toolTipsImagePath + File.separator + "BetweennessCentrality.png";
 		boolean result =
-			TSTestCases.isToolTipPresentDesktop(TSAutomationTester,
+			TSFunctions.isToolTipPresentDesktop(TSAutomationTester,
 				imageToolBar,
 				imageExpected);
 		if (!result)
@@ -557,7 +557,7 @@ public class TSSocialNetworkDesktopPreviewTest
 		String imageExpected =
 			environment.toolTipsImagePath + File.separator + "ClosenessCentrality.png";
 		boolean result =
-			TSTestCases.isToolTipPresentDesktop(TSAutomationTester,
+			TSFunctions.isToolTipPresentDesktop(TSAutomationTester,
 				imageToolBar,
 				imageExpected);
 		if (!result)
@@ -581,7 +581,7 @@ public class TSSocialNetworkDesktopPreviewTest
 		String imageExpected =
 			environment.toolTipsImagePath + File.separator + "DegreeCentrality.png";
 		boolean result =
-			TSTestCases.isToolTipPresentDesktop(TSAutomationTester,
+			TSFunctions.isToolTipPresentDesktop(TSAutomationTester,
 				imageToolBar,
 				imageExpected);
 		if (!result)
@@ -605,7 +605,7 @@ public class TSSocialNetworkDesktopPreviewTest
 		String imageExpected =
 			environment.toolTipsImagePath + File.separator + "EigenVectorCentrality.png";
 		boolean result =
-			TSTestCases.isToolTipPresentDesktop(TSAutomationTester,
+			TSFunctions.isToolTipPresentDesktop(TSAutomationTester,
 				imageToolBar,
 				imageExpected);
 		if (!result)
