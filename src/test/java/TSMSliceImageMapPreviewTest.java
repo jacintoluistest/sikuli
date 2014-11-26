@@ -62,7 +62,7 @@ public class TSMSliceImageMapPreviewTest
 		String imageExpected =
 			environment.toolTipsImagePath + File.separator + "SaveAsImage.png";
 		boolean result =
-			TSTestCases.isToolTipPresentWeb(TSAutomationTester,
+			TSFunctions.isToolTipPresentWeb(TSAutomationTester,
 				imageToolBar,
 				imageExpected);
 
@@ -84,7 +84,7 @@ public class TSMSliceImageMapPreviewTest
 		String imageExpected =
 			environment.toolTipsImagePath + File.separator + "PrintSetUp.png";
 		boolean result =
-			TSTestCases.isToolTipPresentWeb(TSAutomationTester,
+			TSFunctions.isToolTipPresentWeb(TSAutomationTester,
 				imageToolBar,
 				imageExpected);
 
@@ -106,7 +106,7 @@ public class TSMSliceImageMapPreviewTest
 		String imageExpected =
 			environment.toolTipsImagePath + File.separator + "PrintSetUp.png";
 		boolean result =
-			TSTestCases.isToolTipPresentWeb(TSAutomationTester,
+			TSFunctions.isToolTipPresentWeb(TSAutomationTester,
 				imageToolBar,
 				imageExpected);
 
@@ -128,7 +128,7 @@ public class TSMSliceImageMapPreviewTest
 		String imageExpected =
 			environment.toolTipsImagePath + File.separator + "Select.png";
 		boolean result =
-			TSTestCases.isToolTipPresentWeb(TSAutomationTester,
+			TSFunctions.isToolTipPresentWeb(TSAutomationTester,
 				imageToolBar,
 				imageExpected);
 
@@ -150,7 +150,7 @@ public class TSMSliceImageMapPreviewTest
 			environment.toolBarImagesPath + File.separator + "PanImageMap.png";
 		String imageExpected = environment.toolTipsImagePath + File.separator + "Pan.png";
 		boolean result =
-			TSTestCases.isToolTipPresentWeb(TSAutomationTester,
+			TSFunctions.isToolTipPresentWeb(TSAutomationTester,
 				imageToolBar,
 				imageExpected);
 
@@ -174,7 +174,7 @@ public class TSMSliceImageMapPreviewTest
 		String imageExpected =
 			environment.toolTipsImagePath + File.separator + "MarqueeZoom.png";
 		boolean result =
-			TSTestCases.isToolTipPresentWeb(TSAutomationTester,
+			TSFunctions.isToolTipPresentWeb(TSAutomationTester,
 				imageToolBar,
 				imageExpected);
 
@@ -198,7 +198,7 @@ public class TSMSliceImageMapPreviewTest
 		String imageExpected =
 			environment.toolTipsImagePath + File.separator + "ZoomIn.png";
 		boolean result =
-			TSTestCases.isToolTipPresentWeb(TSAutomationTester,
+			TSFunctions.isToolTipPresentWeb(TSAutomationTester,
 				imageToolBar,
 				imageExpected);
 
@@ -222,7 +222,7 @@ public class TSMSliceImageMapPreviewTest
 		String imageExpected =
 			environment.toolTipsImagePath + File.separator + "ZoomOut.png";
 		boolean result =
-			TSTestCases.isToolTipPresentWeb(TSAutomationTester,
+			TSFunctions.isToolTipPresentWeb(TSAutomationTester,
 				imageToolBar,
 				imageExpected);
 
@@ -245,7 +245,7 @@ public class TSMSliceImageMapPreviewTest
 		String imageExpected =
 			environment.toolTipsImagePath + File.separator + "ZoomFit.png";
 		boolean result =
-			TSTestCases.isToolTipPresentWeb(TSAutomationTester,
+			TSFunctions.isToolTipPresentWeb(TSAutomationTester,
 				imageToolBar,
 				imageExpected);
 
@@ -269,7 +269,7 @@ public class TSMSliceImageMapPreviewTest
 		String imageExpected =
 			environment.toolTipsImagePath + File.separator + "Overview.png";
 		boolean result =
-			TSTestCases.isToolTipPresentWeb(TSAutomationTester,
+			TSFunctions.isToolTipPresentWeb(TSAutomationTester,
 				imageToolBar,
 				imageExpected);
 
@@ -289,7 +289,7 @@ public class TSMSliceImageMapPreviewTest
 		System.out.println("*******TestIsOverviewPresent*******");
 		TSAutomationTester.openOverviewImageMap();
 		boolean result =
-			TSTestCases.isOverviewPresent(TSAutomationTester,
+			TSFunctions.isOverviewPresent(TSAutomationTester,
 				environment.projectImagesPath + File.separator + "overviewExpected.png",
 				similar);
 		if (!result)
@@ -309,7 +309,7 @@ public class TSMSliceImageMapPreviewTest
 		String minCapacity = environment.toolBarImagesPath + File.separator+"100ImageMap.png";
 		String expectedLayout = environment.projectImagesPath + File.separator + "MinCapacity100.png";
 		String clearResultsButton=environment.toolBarImagesPath+File.separator + "ClearResultsEnableImageMap.png";
-		boolean result = TSTestCases.runMSliceImageMap(TSAutomationTester, minCapacity, expectedLayout);
+		boolean result = TSFunctions.runMSliceImageMap(TSAutomationTester, minCapacity, expectedLayout);
 		if (!result)
 		{
 			TSAutomationUtils.getScreenShot(TSAutomationTester, className
@@ -329,7 +329,7 @@ public class TSMSliceImageMapPreviewTest
 		String minCapacity = environment.toolBarImagesPath + File.separator+"1000ImageMap.png";
 		String expectedLayout = environment.projectImagesPath + File.separator + "MinCapacity1000.png";
 		String clearResultsButton=environment.toolBarImagesPath+File.separator + "ClearResultsEnableImageMap.png";
-		boolean result = TSTestCases.runMSliceImageMap(TSAutomationTester, minCapacity, expectedLayout);
+		boolean result = TSFunctions.runMSliceImageMap(TSAutomationTester, minCapacity, expectedLayout);
 		if (!result)
 		{
 			TSAutomationUtils.getScreenShot(TSAutomationTester, className

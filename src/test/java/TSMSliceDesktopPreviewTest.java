@@ -55,7 +55,7 @@ public class TSMSliceDesktopPreviewTest
 		String imageExpected =
 			environment.toolTipsImagePath + File.separator + "SaveAsImage.png";
 		boolean result =
-			TSTestCases.isToolTipPresentDesktop(TSAutomationTester,
+			TSFunctions.isToolTipPresentDesktop(TSAutomationTester,
 				imageToolBar,
 				imageExpected);
 		if (!result)
@@ -76,7 +76,7 @@ public class TSMSliceDesktopPreviewTest
 		String imageExpected =
 			environment.toolTipsImagePath + File.separator + "PrintSetUp.png";
 		boolean result =
-			TSTestCases.isToolTipPresentDesktop(TSAutomationTester,
+			TSFunctions.isToolTipPresentDesktop(TSAutomationTester,
 				imageToolBar,
 				imageExpected);
 		if (!result)
@@ -97,7 +97,7 @@ public class TSMSliceDesktopPreviewTest
 		String imageExpected =
 			environment.toolTipsImagePath + File.separator + "PrintPreview.png";
 		boolean result =
-			TSTestCases.isToolTipPresentDesktop(TSAutomationTester,
+			TSFunctions.isToolTipPresentDesktop(TSAutomationTester,
 				imageToolBar,
 				imageExpected);
 		if (!result)
@@ -118,7 +118,7 @@ public class TSMSliceDesktopPreviewTest
 		String imageExpected =
 			environment.toolTipsImagePath + File.separator + "Print.png";
 		boolean result =
-			TSTestCases.isToolTipPresentDesktop(TSAutomationTester,
+			TSFunctions.isToolTipPresentDesktop(TSAutomationTester,
 				imageToolBar,
 				imageExpected);
 		if (!result)
@@ -140,7 +140,7 @@ public class TSMSliceDesktopPreviewTest
 		String imageExpected =
 			environment.toolTipsImagePath + File.separator + "Select.png";
 		boolean result =
-			TSTestCases.isToolTipPresentDesktop(TSAutomationTester,
+			TSFunctions.isToolTipPresentDesktop(TSAutomationTester,
 				imageToolBar,
 				imageExpected);
 		if (!result)
@@ -161,7 +161,7 @@ public class TSMSliceDesktopPreviewTest
 			environment.toolBarImagesPath + File.separator + "PanToolBarDesktop.png";
 		String imageExpected = environment.toolTipsImagePath + File.separator + "Pan.png";
 		boolean result =
-			TSTestCases.isToolTipPresentDesktop(TSAutomationTester,
+			TSFunctions.isToolTipPresentDesktop(TSAutomationTester,
 				imageToolBar,
 				imageExpected);
 		if (!result)
@@ -187,7 +187,7 @@ public class TSMSliceDesktopPreviewTest
 		String imageExpected =
 			environment.toolTipsImagePath + File.separator + "NavigateLinks.png";
 		boolean result =
-			TSTestCases.isToolTipPresentDesktop(TSAutomationTester,
+			TSFunctions.isToolTipPresentDesktop(TSAutomationTester,
 				imageToolBar,
 				imageExpected,similar);
 		if (!result)
@@ -209,7 +209,7 @@ public class TSMSliceDesktopPreviewTest
 		String imageExpected =
 			environment.toolTipsImagePath + File.separator + "MarqueeZoom.png";
 		boolean result =
-			TSTestCases.isToolTipPresentDesktop(TSAutomationTester,
+			TSFunctions.isToolTipPresentDesktop(TSAutomationTester,
 				imageToolBar,
 				imageExpected);
 		if (!result)
@@ -232,7 +232,7 @@ public class TSMSliceDesktopPreviewTest
 		String imageExpected =
 			environment.toolTipsImagePath + File.separator + "InteractiveZoom.png";
 		boolean result =
-			TSTestCases.isToolTipPresentDesktop(TSAutomationTester,
+			TSFunctions.isToolTipPresentDesktop(TSAutomationTester,
 				imageToolBar,
 				imageExpected);
 		if (!result)
@@ -255,7 +255,7 @@ public class TSMSliceDesktopPreviewTest
 		String imageExpected =
 			environment.toolTipsImagePath + File.separator + "ZoomIn.png";
 		boolean result =
-			TSTestCases.isToolTipPresentDesktop(TSAutomationTester,
+			TSFunctions.isToolTipPresentDesktop(TSAutomationTester,
 				imageToolBar,
 				imageExpected,similar);
 		if (!result)
@@ -277,7 +277,7 @@ public class TSMSliceDesktopPreviewTest
 		String imageExpected =
 			environment.toolTipsImagePath + File.separator + "ZoomFit.png";
 		boolean result =
-			TSTestCases.isToolTipPresentDesktop(TSAutomationTester,
+			TSFunctions.isToolTipPresentDesktop(TSAutomationTester,
 				imageToolBar,
 				imageExpected);
 		if (!result)
@@ -299,7 +299,7 @@ public class TSMSliceDesktopPreviewTest
 		String imageExpected =
 			environment.toolTipsImagePath + File.separator + "Overview.png";
 		boolean result =
-			TSTestCases.isToolTipPresentDesktop(TSAutomationTester,
+			TSFunctions.isToolTipPresentDesktop(TSAutomationTester,
 				imageToolBar,
 				imageExpected);
 		if (!result)
@@ -320,7 +320,7 @@ public class TSMSliceDesktopPreviewTest
 		String imageExpected =
 			environment.toolTipsImagePath + File.separator + "MSlice.png";
 		boolean result =
-			TSTestCases.isToolTipPresentDesktop(TSAutomationTester,
+			TSFunctions.isToolTipPresentDesktop(TSAutomationTester,
 				imageToolBar,
 				imageExpected);
 		if (!result)
@@ -341,7 +341,7 @@ public class TSMSliceDesktopPreviewTest
 		String imageExpected =
 			environment.toolTipsImagePath + File.separator + "ClearResults.png";
 		boolean result =
-			TSTestCases.isToolTipPresentDesktop(TSAutomationTester,
+			TSFunctions.isToolTipPresentDesktop(TSAutomationTester,
 				imageToolBar,
 				imageExpected);
 		if (!result)
@@ -368,7 +368,7 @@ public class TSMSliceDesktopPreviewTest
 		String imageExpected =
 			environment.toolTipsImagePath + File.separator + "ZoomOut.png";
 		boolean result =
-			TSTestCases.isToolTipPresentDesktop(TSAutomationTester,
+			TSFunctions.isToolTipPresentDesktop(TSAutomationTester,
 				imageToolBar,
 				imageExpected,similar);
 		if (!result)
@@ -387,7 +387,7 @@ public class TSMSliceDesktopPreviewTest
 		System.out.println("testIsOverViewPresent");
 		TSAutomationTester.openOverviewDesktop();
 		boolean result =
-			TSTestCases.isOverviewPresent(TSAutomationTester,
+			TSFunctions.isOverviewPresent(TSAutomationTester,
 				environment.projectImagesPath + File.separator + "overviewExpected.png",
 				new Float(0.80));
 		if (!result)
@@ -407,7 +407,7 @@ public class TSMSliceDesktopPreviewTest
 		System.out.println("*******testIsMSliceButtonEnable******");
 
 		boolean result =
-			TSTestCases.isButtonPresent(TSAutomationTester, environment.toolBarImagesPath
+			TSFunctions.isButtonPresent(TSAutomationTester, environment.toolBarImagesPath
 				+ File.separator + "MSliceEnableToolBarDesktop.png", new Float(0.65));
 		if (!result)
 		{
@@ -425,7 +425,7 @@ public class TSMSliceDesktopPreviewTest
 		System.out.println("*******testIsClearResultsButtonDisable******");
 
 		boolean result =
-			TSTestCases.isButtonPresent(TSAutomationTester, environment.projectImagesPath
+			TSFunctions.isButtonPresent(TSAutomationTester, environment.projectImagesPath
 				+ File.separator + "clearResultsDisable.png", new Float(0.65));
 		if (!result)
 		{
@@ -454,7 +454,7 @@ public class TSMSliceDesktopPreviewTest
 		TSAutomationTester.runAlgorithm(comboButton);
 		TSAutomationTester.runAlgorithm(capacity);
 		boolean result =
-			TSTestCases.isViewPresent(TSAutomationTester, environment.projectImagesPath
+			TSFunctions.isViewPresent(TSAutomationTester, environment.projectImagesPath
 				+ File.separator + "MinCapacity100.png");
 		if (!result)
 		{
@@ -484,7 +484,7 @@ public class TSMSliceDesktopPreviewTest
 		TSAutomationTester.runAlgorithm(comboButton);
 		TSAutomationTester.runAlgorithm(capacity);
 		boolean result =
-			TSTestCases.isViewPresent(TSAutomationTester, environment.projectImagesPath
+			TSFunctions.isViewPresent(TSAutomationTester, environment.projectImagesPath
 				+ File.separator + "MinCapacity1000.png");
 		if (!result)
 		{
