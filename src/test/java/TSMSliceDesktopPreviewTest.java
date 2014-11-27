@@ -11,33 +11,17 @@ public class TSMSliceDesktopPreviewTest
 	@BeforeClass
 	public static void setUp() throws Exception
 	{
-		org.sikuli.basics.Debug.setDebugLevel(3);
-		className = TSSocialNetworkDesktopPreviewTest.class.getName();
+		//org.sikuli.basics.Debug.setDebugLevel(3);
+		className = TSMSliceDesktopPreviewTest.class.getName();
 		Settings.MoveMouseDelay = new Float(1.5);
 		environment =
 			new TSEnvironment("MSlice", TSEnvironment.DESKTOP_PREVIEW);
 		TSAutomationTester = new TSTester();
-		TSAutomationTester.LaunchTS();
-		TSAutomationTester.maximizeWindow();
-		TSAutomationTester.openProject("MSliceProjectPath");
-		TSAutomationTester.launchDesktopPreview();
-		TSAutomationTester.maximizeWindow();
-		screenId = TSAutomationTester.automationTesterCurrentScreen.getID();
-		if (screenId == 0)
-		{
-			environment.projectImagesPath =
-				environment.projectImagesPath.concat(File.separator + "PrimaryScreen");
-
-		}
-		else if (screenId == 1)
-		{
-			environment.projectImagesPath =
-				environment.projectImagesPath.concat(File.separator + "SecondaryScreen");
-		}
-
+		desktopTester = new TSDesktopPreviewTestCases(environment, TSAutomationTester, className);
+		TSAutomationTester = TSFunctions.setDesktopTest(TSAutomationTester, "MSliceProjectPath");
+		environment = TSFunctions.setScreenFolder(TSAutomationTester, environment);
 
 	}
-
 
 	@AfterClass
 	public static void closeAll()
@@ -49,129 +33,39 @@ public class TSMSliceDesktopPreviewTest
 	@Test
 	public void testOnMouseHoverSaveAs()
 	{
-		System.out.println("******testOnMouseHoverSaveAs******");
-		String imageToolBar =
-			environment.toolBarImagesPath + File.separator + "SaveAsToolBarDesktop.png";
-		String imageExpected =
-			environment.toolTipsImagePath + File.separator + "SaveAsImage.png";
-		boolean result =
-			TSFunctions.isToolTipPresentDesktop(TSAutomationTester,
-				imageToolBar,
-				imageExpected);
-		if (!result)
-		{
-			TSAutomationUtils.getScreenShot(TSAutomationTester, className
-				+ "testOnMouseHoverSaveAs", environment.evidencePath);
-		}
-
-		Assert.assertTrue(result);
+		Assert.assertTrue(desktopTester.testOnMouseHoverSaveAs());
 
 	}
 	
 	@Test
 	public void testOnMouseHoverPrintSetUp(){
-		System.out.println("******testOnMouseHoverPrintSetUp******");
-		String imageToolBar =
-			environment.toolBarImagesPath + File.separator + "PrintSetUpToolBarDesktop.png";
-		String imageExpected =
-			environment.toolTipsImagePath + File.separator + "PrintSetUp.png";
-		boolean result =
-			TSFunctions.isToolTipPresentDesktop(TSAutomationTester,
-				imageToolBar,
-				imageExpected);
-		if (!result)
-		{
-			TSAutomationUtils.getScreenShot(TSAutomationTester, className
-				+ "testOnMouseHoverPrintSetUp", environment.evidencePath);
-		}
-
-		Assert.assertTrue(result);
+	
+		Assert.assertTrue(desktopTester.testOnMouseHoverPrintSetUp());
 		
 	}
 
 	@Test
 	public void testOnMouseHoverPrintPreview(){
-		System.out.println("******testOnMouseHoverPrintSetUp******");
-		String imageToolBar =
-			environment.toolBarImagesPath + File.separator + "PrintPreviewToolBarDesktop.png";
-		String imageExpected =
-			environment.toolTipsImagePath + File.separator + "PrintPreview.png";
-		boolean result =
-			TSFunctions.isToolTipPresentDesktop(TSAutomationTester,
-				imageToolBar,
-				imageExpected);
-		if (!result)
-		{
-			TSAutomationUtils.getScreenShot(TSAutomationTester, className
-				+ "testOnMouseHoverPrintPreview", environment.evidencePath);
-		}
-
-		Assert.assertTrue(result);
-		
+	
+		Assert.assertTrue(desktopTester.testOnMouseHoverPrintSetUp());
+	
 	}
 
 	@Test
 	public void testOnMouseHoverPrint(){
-		System.out.println("******testOnMouseHoverPrint******");
-		String imageToolBar =
-			environment.toolBarImagesPath + File.separator + "PrintToolBarDesktop.png";
-		String imageExpected =
-			environment.toolTipsImagePath + File.separator + "Print.png";
-		boolean result =
-			TSFunctions.isToolTipPresentDesktop(TSAutomationTester,
-				imageToolBar,
-				imageExpected);
-		if (!result)
-		{
-			TSAutomationUtils.getScreenShot(TSAutomationTester, className
-				+ "testOnMouseHoverPrint", environment.evidencePath);
-		}
-
-		Assert.assertTrue(result);
-		
+		Assert.assertTrue(desktopTester.testOnMouseHoverPrint());
 	}
 	
 	@Test
 	public void testOnMouseHoverSelect()
 	{
-		System.out.println("******testOnMouseHoverSelect******");
-		String imageToolBar =
-			environment.toolBarImagesPath + File.separator + "SelectToolBarDesktop.png";
-		String imageExpected =
-			environment.toolTipsImagePath + File.separator + "Select.png";
-		boolean result =
-			TSFunctions.isToolTipPresentDesktop(TSAutomationTester,
-				imageToolBar,
-				imageExpected);
-		if (!result)
-		{
-			TSAutomationUtils.getScreenShot(TSAutomationTester, className
-				+ "testOnMouseHoverSaveAs", environment.evidencePath);
-		}
-
-		Assert.assertTrue(result);
-
+		Assert.assertTrue(desktopTester.testOnMouseHoverSelect());
 	}
 	
 	@Test
 	public void testOnMouseHoverPan()
 	{
-		System.out.println("******testOnMouseHoverPan******");
-		String imageToolBar =
-			environment.toolBarImagesPath + File.separator + "PanToolBarDesktop.png";
-		String imageExpected = environment.toolTipsImagePath + File.separator + "Pan.png";
-		boolean result =
-			TSFunctions.isToolTipPresentDesktop(TSAutomationTester,
-				imageToolBar,
-				imageExpected);
-		if (!result)
-		{
-			TSAutomationUtils.getScreenShot(TSAutomationTester, className
-				+ "testOnMouseHoverPan", environment.evidencePath);
-		}
-
-		Assert.assertTrue(result);
-
+		Assert.assertTrue(desktopTester.testOnMouseHoverPan());
 	}
 	
 	
@@ -179,225 +73,64 @@ public class TSMSliceDesktopPreviewTest
 	@Test
 	public void testOnMouseHoverNavigateLinks()
 	{
-		System.out.println("******testOnMouseHoverNavigateLinks******");
-		float similar = new Float(0.6);
-		String imageToolBar =
-			environment.toolBarImagesPath + File.separator
-				+ "NavigateLinksToolBarDesktop.png";
-		String imageExpected =
-			environment.toolTipsImagePath + File.separator + "NavigateLinks.png";
-		boolean result =
-			TSFunctions.isToolTipPresentDesktop(TSAutomationTester,
-				imageToolBar,
-				imageExpected,similar);
-		if (!result)
-		{
-			TSAutomationUtils.getScreenShot(TSAutomationTester, className
-				+ "testOnMouseHoverNavigateLinks", environment.evidencePath);
-		}
-
-		Assert.assertTrue(result);
+		Assert.assertTrue(desktopTester.testOnMouseHoverNavigateLinks());
 	}
 	
 	@Test
 	public void testOnMouseHoverMarqueeZoom()
 	{
-		System.out.println("******testOnMouseHoverMarqueeZoom******");
-		String imageToolBar =
-			environment.toolBarImagesPath + File.separator
-				+ "MarqueeZoomToolBarDesktop.png";
-		String imageExpected =
-			environment.toolTipsImagePath + File.separator + "MarqueeZoom.png";
-		boolean result =
-			TSFunctions.isToolTipPresentDesktop(TSAutomationTester,
-				imageToolBar,
-				imageExpected);
-		if (!result)
-		{
-			TSAutomationUtils.getScreenShot(TSAutomationTester, className
-				+ "testOnMouseHoverMarqueeZoom", environment.evidencePath);
-		}
-
-		Assert.assertTrue(result);
-
+		Assert.assertTrue(desktopTester.testOnMouseHoverMarqueeZoom());
 	}
 	
 	@Test
 	public void testOnMouseHoverInteractiveZoom()
 	{
-		System.out.println("******testOnMouseHoverInteractiveZoom******");
-		String imageToolBar =
-			environment.toolBarImagesPath + File.separator
-				+ "InteractiveZoomToolBarDesktop.png";
-		String imageExpected =
-			environment.toolTipsImagePath + File.separator + "InteractiveZoom.png";
-		boolean result =
-			TSFunctions.isToolTipPresentDesktop(TSAutomationTester,
-				imageToolBar,
-				imageExpected);
-		if (!result)
-		{
-			TSAutomationUtils.getScreenShot(TSAutomationTester, className
-				+ "testOnMouseHoverMarqueeZoom", environment.evidencePath);
-		}
-
-		Assert.assertTrue(result);
-
+		Assert.assertTrue(desktopTester.testOnMouseHoverInteractiveZoom());
 	}
 	
 	@Test
 	public void testOnMouseHoverZoomIn()
 	{
-		System.out.println("******testOnMouseHoverZoomIn******");
-		float similar = new Float(0.94);
-		String imageToolBar =
-			environment.projectImagesPath + File.separator + "ZoomInDesktop.png";
-		String imageExpected =
-			environment.toolTipsImagePath + File.separator + "ZoomIn.png";
-		boolean result =
-			TSFunctions.isToolTipPresentDesktop(TSAutomationTester,
-				imageToolBar,
-				imageExpected,similar);
-		if (!result)
-		{
-			TSAutomationUtils.getScreenShot(TSAutomationTester, className
-				+ "testOnMouseHoverZoomIn", environment.evidencePath);
-		}
-
-		Assert.assertTrue(result);
-
+		Assert.assertTrue(desktopTester.testOnMouseHoverZoomIn());
 	}
 
 	@Test
 	public void testOnMouseHoverZoomFit()
 	{
-		System.out.println("******testOnMouseHoverZoomFit******");
-		String imageToolBar =
-			environment.toolBarImagesPath + File.separator + "ZoomFitToolBarDesktop.png";
-		String imageExpected =
-			environment.toolTipsImagePath + File.separator + "ZoomFit.png";
-		boolean result =
-			TSFunctions.isToolTipPresentDesktop(TSAutomationTester,
-				imageToolBar,
-				imageExpected);
-		if (!result)
-		{
-			TSAutomationUtils.getScreenShot(TSAutomationTester, className
-				+ "testOnMouseHoverZoomFit", environment.evidencePath);
-		}
-
-		Assert.assertTrue(result);
-
+		Assert.assertTrue(desktopTester.testOnMouseHoverZoomFit());
 	}
 	
 	@Test
 	public void testOnMouseHoverOverview()
 	{
-		System.out.println("******testOnMouseHoverOverview******");
-		String imageToolBar =
-			environment.toolBarImagesPath + File.separator + "OverviewToolBarDesktop.png";
-		String imageExpected =
-			environment.toolTipsImagePath + File.separator + "Overview.png";
-		boolean result =
-			TSFunctions.isToolTipPresentDesktop(TSAutomationTester,
-				imageToolBar,
-				imageExpected);
-		if (!result)
-		{
-			TSAutomationUtils.getScreenShot(TSAutomationTester, className
-				+ "testOnMouseHoverOverview", environment.evidencePath);
-		}
 
-		Assert.assertTrue(result);
+		Assert.assertTrue(desktopTester.testOnMouseHoverOverview());
 	}
 	
 	@Test
 	public void testOnMouseHoverMSlice()
 	{
-		System.out.println("******testOnMouseHoverMSlice******");
-		String imageToolBar =
-			environment.toolBarImagesPath + File.separator + "MSliceEnableToolBarDesktop.png";
-		String imageExpected =
-			environment.toolTipsImagePath + File.separator + "MSlice.png";
-		boolean result =
-			TSFunctions.isToolTipPresentDesktop(TSAutomationTester,
-				imageToolBar,
-				imageExpected);
-		if (!result)
-		{
-			TSAutomationUtils.getScreenShot(TSAutomationTester, className
-				+ "testOnMouseHoverMSlice", environment.evidencePath);
-		}
-
-		Assert.assertTrue(result);
+		Assert.assertTrue(desktopTester.testOnMouseHoverMSlice());
 	}
 	
 	@Test
 	public void testOnMouseHoverClearResult()
 	{
-		System.out.println("******testOnMouseHoverMSlice******");
-		String imageToolBar =
-			environment.projectImagesPath + File.separator + "clearResultsDisable.png";
-		String imageExpected =
-			environment.toolTipsImagePath + File.separator + "ClearResults.png";
-		boolean result =
-			TSFunctions.isToolTipPresentDesktop(TSAutomationTester,
-				imageToolBar,
-				imageExpected);
-		if (!result)
-		{
-			TSAutomationUtils.getScreenShot(TSAutomationTester, className
-				+ "testOnMouseHoverMSlice", environment.evidencePath);
-		}
-
-		Assert.assertTrue(result);
+		Assert.assertTrue(desktopTester.testOnMouseHoverClearResults());
 	}
-	
-	
-
 	
 	
 	@Test
 	public void testOnMouseHoverZoomOut()
 	{
-		
-		float similar = new Float((0.80));
-		System.out.println("******testOnMouseHoverZoomOut******");
-		String imageToolBar =
-			environment.projectImagesPath + File.separator + "ZoomOutDesktop.png";
-		String imageExpected =
-			environment.toolTipsImagePath + File.separator + "ZoomOut.png";
-		boolean result =
-			TSFunctions.isToolTipPresentDesktop(TSAutomationTester,
-				imageToolBar,
-				imageExpected,similar);
-		if (!result)
-		{
-			TSAutomationUtils.getScreenShot(TSAutomationTester, className
-				+ "testOnMouseHoverZoomOut", environment.evidencePath);
-		}
-
-		Assert.assertTrue(result);
-
+		Assert.assertTrue(desktopTester.testOnMouseHoverZoomOut());
 	}
 	
 	@Test
 	public void testIsOverviewPresent()
 	{
-		System.out.println("testIsOverViewPresent");
-		TSAutomationTester.openOverviewDesktop();
-		boolean result =
-			TSFunctions.isOverviewPresent(TSAutomationTester,
-				environment.projectImagesPath + File.separator + "overviewExpected.png",
-				new Float(0.80));
-		if (!result)
-		{
-			TSAutomationUtils.getScreenShot(TSAutomationTester, className
-				+ "testIsOverviewPresent", environment.evidencePath);
-		}
-
-		Assert.assertTrue(result);
-		TSAutomationTester.closeOverviewDesktop();
+		Assert.assertTrue(desktopTester.testIsOverviewPresent());
+		
 	}
 	
 
@@ -504,5 +237,7 @@ public class TSMSliceDesktopPreviewTest
 	static TSEnvironment environment;
 	
 	static int screenId;
+	
+	static TSDesktopPreviewTestCases desktopTester;
 
 }

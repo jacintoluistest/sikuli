@@ -104,7 +104,7 @@ public class TSTester
 					+ "TomSawyerPerspectives" + File.separator + "CommonCanvasPreview"
 					+ File.separator + browser + File.separator + "ToolBar";
 		}
-
+        System.out.println("*****Paths set for init Test");
 		System.out.println(tomSawyerDesignerApplicationPath);
 		System.out.println(tsperspectivesToolBarImagesPath);
 		System.out.println(tspImageMapImagesPath);
@@ -306,7 +306,7 @@ public class TSTester
 	}
 
 
-	public void launchWebPreview()
+	public void launchImageMap()
 	{
 
 		// Setting the screen
@@ -961,7 +961,7 @@ public class TSTester
 
 	public void closeOverviewDesktop()
 	{
-		String overviewButton = tspDesktopPreviewImagesPath + "closeOverview.png";
+		String overviewButton = tspDesktopPreviewImagesPath + File.separator+"toolBarCloseOverview.png";
 		try
 		{
 			automationTesterCurrentScreen.click(overviewButton);

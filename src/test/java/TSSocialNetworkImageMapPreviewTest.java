@@ -25,7 +25,7 @@ public class TSSocialNetworkImageMapPreviewTest
 		TSAutomationTester = new TSTester(defaultBrowser);
 		TSAutomationTester.LaunchTS();
 		TSAutomationTester.openProject("SocialNetworkProjectPath");
-		TSAutomationTester.launchWebPreview();
+		TSAutomationTester.launchImageMap();
 		TSAutomationTester.fullScreenBrowser();
 		TSAutomationUtils.pauseScript(new Long(2000));
 		TSAutomationTester.refreshBrowser();

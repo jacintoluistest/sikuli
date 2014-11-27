@@ -4,7 +4,55 @@ import org.sikuli.script.Pattern;
 
 public class TSFunctions
 {
+	public static TSTester setDesktopTest(TSTester tester, String projectPathPropertyName){
+		tester.LaunchTS();
+		tester.openProject(projectPathPropertyName);
+		tester.launchDesktopPreview();
+		tester.maximizeWindow();
+		TSAutomationUtils.pauseScript(new Long(2000));
+		return tester;
+	}
+	
+	
+	public static TSTester setHtml5Test(TSTester tester, String project){
+		tester.LaunchTS();
+		tester.openProject(project);
+		tester.launchHtml5Preview();
+		tester.fullScreenBrowser();
+		TSAutomationUtils.pauseScript(new Long(2000));
+		tester.refreshBrowser();
+		
+		return tester;
+	}
+	
+	public static TSTester setImageMapTest(TSTester tester, String project){
+		tester.LaunchTS();
+		tester.openProject(project);
+		tester.launchImageMap();
+		tester.fullScreenBrowser();
+		TSAutomationUtils.pauseScript(new Long(2000));
+		tester.refreshBrowser();
+		return tester;
+	}
+	
+	public static TSEnvironment  setScreenFolder(TSTester tester, TSEnvironment environment){
+		
+		  int screenId = tester.automationTesterCurrentScreen.getID();
+			if (screenId == 0)
+			{
+				environment.projectImagesPath =
+					environment.projectImagesPath.concat(File.separator + "PrimaryScreen");
 
+			}
+			else if (screenId == 1)
+			{
+				environment.projectImagesPath =
+					environment.projectImagesPath.concat(File.separator + "SecondaryScreen");
+			}
+			return environment;
+		}
+	
+	
 	public static boolean isDesktopPreviewLaunched(TSTester tester,
 		String expected)
 	{
@@ -409,35 +457,6 @@ public class TSFunctions
 		
 		tester.clearResultsMaxFlowImageMap();
 		return result;
-	}
-	
-	
-	public static TSTester setHtml5Test(TSTester tester, String project){
-		tester.LaunchTS();
-		tester.openProject(project);
-		tester.launchHtml5Preview();
-		tester.fullScreenBrowser();
-		TSAutomationUtils.pauseScript(new Long(2000));
-		tester.refreshBrowser();
-		
-		return tester;
-	}
-	
-	public static TSEnvironment  setScreenFolder(TSTester tester, TSEnvironment environment){
-		
-	  int screenId = tester.automationTesterCurrentScreen.getID();
-		if (screenId == 0)
-		{
-			environment.projectImagesPath =
-				environment.projectImagesPath.concat(File.separator + "PrimaryScreen");
-
-		}
-		else if (screenId == 1)
-		{
-			environment.projectImagesPath =
-				environment.projectImagesPath.concat(File.separator + "SecondaryScreen");
-		}
-		return environment;
 	}
 	
 

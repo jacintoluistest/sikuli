@@ -25,7 +25,7 @@ public class TSMSliceImageMapPreviewTest
 		TSAutomationTester = new TSTester(defaultBrowser);
 		TSAutomationTester.LaunchTS();
 		TSAutomationTester.openProject("MSliceProjectPath");
-		TSAutomationTester.launchWebPreview();
+		TSAutomationTester.launchImageMap();
 		TSAutomationTester.fullScreenBrowser();
 		TSAutomationUtils.pauseScript(new Long(2000));
 		TSAutomationTester.refreshBrowser();

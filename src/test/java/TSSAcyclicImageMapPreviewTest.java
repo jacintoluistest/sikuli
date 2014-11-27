@@ -22,7 +22,7 @@ public class TSSAcyclicImageMapPreviewTest
 		TSAutomationTester = new TSTester(defaultBrowser);
 		TSAutomationTester.LaunchTS();
 		TSAutomationTester.openProject("AcyclicTestProjectPath");
-		TSAutomationTester.launchWebPreview();
+		TSAutomationTester.launchImageMap();
 		TSAutomationTester.fullScreenBrowser();
 		TSAutomationUtils.pauseScript(new Long(2000));
 		TSAutomationTester.refreshBrowser();
