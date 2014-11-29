@@ -1,4 +1,5 @@
 import java.io.File;
+import org.junit.Test;
 
 
 public class TSImageMapPreviewTestCases
@@ -29,7 +30,46 @@ public class TSImageMapPreviewTestCases
 				imageExpected);
 		return result;
 	}
+	public boolean testOnMouseHoverPrintSetUp()
+	{
+		System.out.println("*******testHoverPrintSetUp*******");
+		String imageToolBar =
+			environmentTestCase.toolBarImagesPath + File.separator + "PrintSetUpImageMap.png";
+		String imageExpected =
+			environmentTestCase.toolTipsImagePath + File.separator + "PrintSetUp.png";
+		boolean result =
+			TSFunctions.isToolTipPresentWeb(testerTestCase,
+				imageToolBar,
+				imageExpected);
+
+		if (!result)
+		{
+			TSAutomationUtils.getScreenShot(testerTestCase, className
+				+ "testHoverPrintSetUp", environmentTestCase.evidencePath);
+		}
+	return result;	
+	}
    
+	public boolean testOnMouseHoverPrintPreview()
+	{
+		System.out.println("*******testHoverPrintPreview*******");
+		String imageToolBar =
+			environmentTestCase.toolBarImagesPath + File.separator + "PrintPreviewImageMap.png";
+		String imageExpected =
+			environmentTestCase.toolTipsImagePath + File.separator + "PrintSetUp.png";
+		boolean result =
+			TSFunctions.isToolTipPresentWeb(testerTestCase,
+				imageToolBar,
+				imageExpected);
+
+		if (!result)
+		{
+			TSAutomationUtils.getScreenShot(testerTestCase, className
+				+ "testHoverPrintPreview", environmentTestCase.evidencePath);
+		}
+		
+		return result;
+	}
 
 	
 	public boolean testOnMouseHoverSelect()
@@ -53,9 +93,6 @@ public class TSImageMapPreviewTestCases
 		return result;
 
 	}
-
-
-	
 	public boolean testOnMouseHoverPan()
 	{
 		System.out.println("*******testOnMouseHoverPan*******");
@@ -99,9 +136,7 @@ public class TSImageMapPreviewTestCases
 
 	}
 
-
-	
-	public boolean testOnMouseHoverMarqueeZoom()
+		public boolean testOnMouseHoverMarqueeZoom()
 	{
 		System.out.println("*******TestOnMouseHoverMarqueeZoom*******");
 		String imageToolBar =
@@ -480,6 +515,7 @@ public class TSImageMapPreviewTestCases
 			TSAutomationUtils.getScreenShot(testerTestCase, className
 				+ "testIsOverviewPresent", environmentTestCase.evidencePath);
 		}
+			testerTestCase.closeOverviewImageMap();
 				return result;
 
 	}
@@ -629,4 +665,43 @@ public class TSImageMapPreviewTestCases
 		
 		return result;
 	}
+	
+	@Test
+	public boolean testMSlice100(){
+		System.out.println("******testMSlice100******");
+		String minCapacity = environmentTestCase.toolBarImagesPath + File.separator+"100ImageMap.png";
+		String expectedLayout = environmentTestCase.projectImagesPath + File.separator + "MinCapacity100.png";
+		String clearResultsButton=environmentTestCase.toolBarImagesPath+File.separator + "ClearResultsEnableImageMap.png";
+		boolean result = TSFunctions.runMSliceImageMap(testerTestCase, minCapacity, expectedLayout);
+		if (!result)
+		{
+			TSAutomationUtils.getScreenShot(testerTestCase, className
+				+ "testMSlice100", environmentTestCase.evidencePath);
+
+		}
+		
+		testerTestCase.clearResults(clearResultsButton);
+		testerTestCase.refreshBrowser();
+		return result;
+	}
+	
+public boolean testMSlice1000(){
+		
+		System.out.println("******testMSlice1000******");
+		String minCapacity = environmentTestCase.toolBarImagesPath + File.separator+"1000ImageMap.png";
+		String expectedLayout = environmentTestCase.projectImagesPath + File.separator + "MinCapacity1000.png";
+		String clearResultsButton=environmentTestCase.toolBarImagesPath+File.separator + "ClearResultsEnableImageMap.png";
+		boolean result = TSFunctions.runMSliceImageMap(testerTestCase, minCapacity, expectedLayout);
+		if (!result)
+		{
+			TSAutomationUtils.getScreenShot(testerTestCase, className
+				+ "testMSlice1000", environmentTestCase.evidencePath);
+
+		}
+		
+		testerTestCase.clearResults(clearResultsButton);
+		testerTestCase.refreshBrowser();
+		return result;
+	}
+	
 }

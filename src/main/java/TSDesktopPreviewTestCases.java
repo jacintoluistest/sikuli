@@ -103,6 +103,7 @@ public class TSDesktopPreviewTestCases
 			TSAutomationUtils.getScreenShot(testerTestCase, className
 				+ "testIsOverviewPresent", environmentTester.evidencePath);
 		}
+		testerTestCase.closeOverviewDesktop();
 
 		return result;
 	}
@@ -128,14 +129,13 @@ public class TSDesktopPreviewTestCases
 	}
 
 
-	public boolean testHierarchicalLayout()
+	public boolean testHierarchicalLayout(String expected)
 	{
 		System.out.println("testHierarchicalLayout");
 		testerTestCase.HierarchicalLayoutDesktop();
 		boolean result =
 			TSFunctions.isLayoutPresent(testerTestCase,
-				environmentTester.projectImagesPath + File.separator
-					+ "SocialNetworkAnalysisDesktopHierarchicalExpected.png",
+				expected,
 				new Float(0.80));
 		if (!result)
 		{
@@ -786,5 +786,161 @@ public class TSDesktopPreviewTestCases
 		
 		return result;
 	}
+	
+	public boolean testIsMSliceButtonEnable(){
+		System.out.println("*******testIsMSliceButtonEnable******");
 
+		boolean result =
+			TSFunctions.isButtonPresent(testerTestCase, environmentTester.toolBarImagesPath
+				+ File.separator + "MSliceEnableToolBarDesktop.png", new Float(0.65));
+		if (!result)
+		{
+			TSAutomationUtils.getScreenShot(testerTestCase, className
+				+ "testIsMSliceButtonEnable", environmentTester.evidencePath);
+		}
+		return result;
+	}
+	
+	public boolean testIsClearResultsButtonDisable()
+	{
+		System.out.println("*******testIsClearResultsButtonDisable******");
+
+		boolean result =
+			TSFunctions.isButtonPresent(testerTestCase, environmentTester.projectImagesPath
+				+ File.separator + "clearResultsDisable.png", new Float(0.65));
+		if (!result)
+		{
+			TSAutomationUtils.getScreenShot(testerTestCase, className
+				+ "IsClearResultsButtonDisable", environmentTester.evidencePath);
+		}
+		
+		return result;
+	
+	}
+	
+	public boolean testMSlice100()
+	{
+		System.out.println("******testMSlice100******");
+		String msliceButton =
+			environmentTester.projectImagesPath + File.separator + "MSlice.png";
+		String comboButton = environmentTester.projectImagesPath + File.separator + "Combo.png";
+		String minCapacityButton =
+			environmentTester.projectImagesPath + File.separator + "MinCapacity.png";
+		String capacity = environmentTester.projectImagesPath + File.separator + "100.png";
+		String clearResultsButton =
+			environmentTester.projectImagesPath + File.separator + "ClearResults.png";
+		testerTestCase.runAlgorithm(msliceButton);
+		testerTestCase.runAlgorithm(minCapacityButton);
+		testerTestCase.runAlgorithm(comboButton);
+		testerTestCase.runAlgorithm(capacity);
+		boolean result =
+			TSFunctions.isViewPresent(testerTestCase, environmentTester.projectImagesPath
+				+ File.separator + "MinCapacity100.png");
+		if (!result)
+		{
+			TSAutomationUtils.getScreenShot(testerTestCase, className
+				+ "testMSlice100", environmentTester.evidencePath);
+
+		}
+		
+		testerTestCase.runAlgorithm(clearResultsButton);
+		return result;
+	}
+	
+	public boolean testMSlice1000()
+	{
+		System.out.println("******testMSlice1000******");
+		String msliceButton =
+			environmentTester.projectImagesPath + File.separator + "MSlice.png";
+		String comboButton = environmentTester.projectImagesPath + File.separator + "Combo.png";
+		String minCapacityButton =
+			environmentTester.projectImagesPath + File.separator + "MinCapacity.png";
+		String capacity = environmentTester.projectImagesPath + File.separator + "1000.png";
+		String clearResultsButton =
+			environmentTester.projectImagesPath + File.separator + "ClearResults.png";
+		testerTestCase.runAlgorithm(msliceButton);
+		testerTestCase.runAlgorithm(minCapacityButton);
+		testerTestCase.runAlgorithm(comboButton);
+		testerTestCase.runAlgorithm(capacity);
+		boolean result =
+			TSFunctions.isViewPresent(testerTestCase, environmentTester.projectImagesPath
+				+ File.separator + "MinCapacity1000.png");
+		if (!result)
+		{
+			TSAutomationUtils.getScreenShot(testerTestCase, className
+				+ "testMSlice1000", environmentTester.evidencePath);
+
+		}
+		testerTestCase.runAlgorithm(clearResultsButton);
+		return result;
+	}
+	
+	public boolean testOnMouseHoverRunAcyclicTest()
+	{
+		System.out.println("******testOnMouseHoverRunAcyclicTest******");
+		String imageToolBar =
+			environmentTester.toolBarImagesPath + File.separator
+				+ "Run.png";
+		String imageExpected =
+			environmentTester.toolTipsImagePath + File.separator + "RunAcyclicTest.png";
+		boolean result =
+			TSFunctions.isToolTipPresentDesktop(testerTestCase,
+				imageToolBar,
+				imageExpected);
+		if (!result)
+		{
+			TSAutomationUtils.getScreenShot(testerTestCase, className
+				+ "testOnMouseHoverRunAcyclicTest", environmentTester.evidencePath);
+		}
+		
+		return result;
+	
+	}	
+	
+	public boolean testIsRunAcyclicButtonEnable()
+	{
+		System.out.println("*******testRunAcyclicButtonEnable******");
+
+		boolean result =
+			TSFunctions.isButtonPresent(testerTestCase, environmentTester.projectImagesPath
+				+ File.separator + "RunAcyclicTestEnable.png", new Float(0.80));
+		if (!result)
+		{
+			TSAutomationUtils.getScreenShot(testerTestCase, className
+				+ "RunAcyclicButtonEnable", environmentTester.evidencePath);
+		}
+		return result;
+	}
+	
+	public boolean testRunAcyclicTest(){
+		boolean result = false;
+		testerTestCase.runAlgorithm(environmentTester.toolBarImagesPath + File.separator
+			+ "Run.png");
+		if (TSFunctions.isButtonPresent(testerTestCase, environmentTester.projectImagesPath
+			+ File.separator + "ClearResultsEnable.png")
+			&& TSFunctions.isButtonPresent(testerTestCase,
+				environmentTester.projectImagesPath + File.separator
+					+ "RunAcyclicTestDisable.png")
+			&& TSFunctions.isViewPresent(testerTestCase,
+				environmentTester.projectImagesPath + File.separator + "TreeViewDesktop"))
+		{
+			result = true;
+		}
+		else
+		{
+			result = false;
+		}
+
+		if (!result)
+		{
+			TSAutomationUtils.getScreenShot(testerTestCase, className
+				+ "testRunAcyclicTest", environmentTester.evidencePath);
+		}
+		testerTestCase.clearResults(environmentTester.toolBarImagesPath + File.separator
+			+ "ClearResultsAcyclicEnableToolBarDesktop");
+		return result;
+	}
+
+
+	
 }

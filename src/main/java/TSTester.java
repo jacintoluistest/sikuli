@@ -3,6 +3,7 @@ import org.sikuli.script.FindFailed;
 import org.sikuli.script.Key;
 import org.sikuli.script.Match;
 import org.sikuli.script.Pattern;
+import org.sikuli.script.Region;
 import org.sikuli.script.Screen;
 import org.sikuli.script.App;
 
@@ -47,7 +48,6 @@ public class TSTester
 		setAutomationOsEnvironmentWeb();
 		System.out.println("Wait Time Out for sleep is " + openTSPerspectivesTimeOut);
 		automationTesterCurrentScreen = new Screen();
-		
 
 	}
 
@@ -104,7 +104,7 @@ public class TSTester
 					+ "TomSawyerPerspectives" + File.separator + "CommonCanvasPreview"
 					+ File.separator + browser + File.separator + "ToolBar";
 		}
-        System.out.println("*****Paths set for init Test");
+		System.out.println("*****Paths set for init Test");
 		System.out.println(tomSawyerDesignerApplicationPath);
 		System.out.println(tsperspectivesToolBarImagesPath);
 		System.out.println(tspImageMapImagesPath);
@@ -526,24 +526,26 @@ public class TSTester
 	{
 		String browser = TSAutomationUtils.getProperty("DefaultBrowser");
 		System.out.println("Closing Web Preview");
-		if (browser.contains("Explorer"))
+		if(operativeSystem.contains("windows"))
 		{
-
-			App.close(browser);
-			App.close(browser);
-
+			if (browser.contains("Explorer"))
+			{
+				App.close(browser);
+				App.close(browser);
+			}
+			else if (browser.contains("Safari"))
+			{
+				App.close("Tom Sawyer Perspectives Previewer");
+			}
+		
 		}
-		else if (browser.contains("Safari"))
-		{
-			App.close("Tom Sawyer Perspectives Previewer");
-		}
+		
 		else
 		{
 			App.close(browser);
 		}
+
 	}
-
-
 	public void openOverviewDesktop()
 	{
 		System.out.println("Opening Overview");
@@ -680,12 +682,23 @@ public class TSTester
 	{
 		if (TSAutomationUtils.getOs().contains("mac"))
 		{
+			String maximizeWindowIcon =
+				tsperspectivesToolBarImagesPath + File.separator + "maximize.png";
 
 			automationTesterCurrentScreen.type("f", Key.CTRL + Key.META);
+			try
+			{
+				automationTesterCurrentScreen.click(new Pattern(maximizeWindowIcon).similar(new Float(0.88)));
+			}
+			catch (FindFailed ff)
+			{
+				System.out.println(ff.getMessage());
+			}
 		}
 
 		else
 			automationTesterCurrentScreen.type(Key.UP, Key.WIN);
+
 		{
 		}
 
@@ -701,6 +714,10 @@ public class TSTester
 	public void refreshBrowser()
 	{
 
+		if(operativeSystem.contains("mac")){
+			automationTesterCurrentScreen.type("r",Key.CMD);
+			TSAutomationUtils.pauseScript(new Long(3500));
+		}
 		automationTesterCurrentScreen.type(Key.F5);
 		TSAutomationUtils.pauseScript(new Long(3500));
 	}
@@ -961,7 +978,8 @@ public class TSTester
 
 	public void closeOverviewDesktop()
 	{
-		String overviewButton = tspDesktopPreviewImagesPath + File.separator+"toolBarCloseOverview.png";
+		String overviewButton =
+			tspDesktopPreviewImagesPath + File.separator + "toolBarCloseOverview.png";
 		try
 		{
 			automationTesterCurrentScreen.click(overviewButton);
@@ -971,7 +989,7 @@ public class TSTester
 			System.out.println(ff.getMessage());
 		}
 		TSAutomationUtils.pauseScript(new Long(1500));
-
+		
 	}
 
 
@@ -1014,55 +1032,78 @@ public class TSTester
 		String clearResultsButton =
 			tspDesktopPreviewImagesPath + File.separator
 				+ "ClearResultsEnableToolBarDesktop.png";
-		String hierarchicalSelected = tspDesktopPreviewImagesPath + File.separator
-			+ "HierarchicalSelectedToolBarDEsktop.png";
+		String hierarchicalSelected =
+			tspDesktopPreviewImagesPath + File.separator
+				+ "HierarchicalSelectedToolBarDEsktop.png";
 		try
 		{
 			automationTesterCurrentScreen.click(clearResultsButton);
 			automationTesterCurrentScreen.click(hierarchicalSelected);
-			
+
 		}
-		catch(FindFailed ff)
+		catch (FindFailed ff)
 		{
 			System.out.println(ff.getMessage());
 		}
 	}
-		
-		public void clearResultsMaxFlowHtml5()
-		{
-			String clearResultsButton =
-				tspHtml5PreviewImagePath + File.separator
-					+ "ClearResultsEnableCanvas.png";
-			String hierarchicalSelected = tspHtml5PreviewImagePath + File.separator
+
+
+	public void clearResultsMaxFlowHtml5()
+	{
+		String clearResultsButton =
+			tspHtml5PreviewImagePath + File.separator + "ClearResultsImageMap.png";
+		String hierarchicalSelected =
+			tspHtml5PreviewImagePath + File.separator
 				+ "HierarchicalLayoutSelectedCanvas.png";
-			try
-			{
-				automationTesterCurrentScreen.click(clearResultsButton);
-				automationTesterCurrentScreen.click(hierarchicalSelected);
-				
-			}
-			catch(FindFailed ff)
-			{
-				System.out.println(ff.getMessage());
-			}
-	}
-		
-		public void clearResultsMaxFlowImageMap()
+		try
 		{
-			String clearResultsButton =
-				tspImageMapImagesPath + File.separator
-					+ "ClearResultsEnableToolBarDesktop.png";
-			String hierarchicalSelected = tspImageMapImagesPath + File.separator
-				+ "HierarchicalSelectedToolBarDEsktop.png";
-			try
-			{
-				automationTesterCurrentScreen.click(clearResultsButton);
-				automationTesterCurrentScreen.click(hierarchicalSelected);
-				
-			}
-			catch(FindFailed ff)
-			{
-				System.out.println(ff.getMessage());
-			}
+			automationTesterCurrentScreen.click(clearResultsButton);
+			automationTesterCurrentScreen.click(hierarchicalSelected);
+
 		}
+		catch (FindFailed ff)
+		{
+			System.out.println(ff.getMessage());
+		}
+	}
+
+
+	public void clearResultsMaxFlowImageMap()
+	{
+		
+		String clearResultsButton =
+			tspImageMapImagesPath + File.separator
+				+ "ClearResultsImageMap.png";
+		String hierarchicalSelected =
+			tspImageMapImagesPath + File.separator
+				+ "HierarchicalLayoutSelectedImageMap.png";
+		Region r;
+		
+		switch (automationTesterCurrentScreen.getID())
+		{
+			case 0:
+				r = new Region(332, 98, 10, 10);
+				break;
+
+			case 1:
+				r = new Region(659, 98, 10, 10);
+				break;
+
+			default:
+				r = null;
+				break;
+		}
+
+		try
+		{
+			automationTesterCurrentScreen.click(clearResultsButton);
+			automationTesterCurrentScreen.click(hierarchicalSelected);
+			automationTesterCurrentScreen.click(r);
+
+		}
+		catch (FindFailed ff)
+		{
+			System.out.println(ff.getMessage());
+		}
+	}
 }

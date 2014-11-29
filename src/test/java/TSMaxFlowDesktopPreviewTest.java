@@ -31,7 +31,7 @@ public class TSMaxFlowDesktopPreviewTest
 	
 	@Test
 	public void testOnMouseHoverSaveAs()
-	{
+	{	
 		Assert.assertTrue(desktopTester.testOnMouseHoverSaveAs());
 	}
 	

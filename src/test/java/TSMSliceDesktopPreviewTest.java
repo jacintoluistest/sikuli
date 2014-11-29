@@ -1,4 +1,4 @@
-import java.io.File;
+
 import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.BeforeClass;
@@ -137,97 +137,28 @@ public class TSMSliceDesktopPreviewTest
 	@Test
 	public void testIsMSliceButtonEnable()
 	{
-		System.out.println("*******testIsMSliceButtonEnable******");
-
-		boolean result =
-			TSFunctions.isButtonPresent(TSAutomationTester, environment.toolBarImagesPath
-				+ File.separator + "MSliceEnableToolBarDesktop.png", new Float(0.65));
-		if (!result)
-		{
-			TSAutomationUtils.getScreenShot(TSAutomationTester, className
-				+ "testIsMSliceButtonEnable", environment.evidencePath);
-		}
-
-		Assert.assertTrue(result);
+		Assert.assertTrue(desktopTester.testIsMSliceButtonEnable());
 	}
 	
 	
 	@Test
 	public void testIsClearResultsButtonDisable()
 	{
-		System.out.println("*******testIsClearResultsButtonDisable******");
-
-		boolean result =
-			TSFunctions.isButtonPresent(TSAutomationTester, environment.projectImagesPath
-				+ File.separator + "clearResultsDisable.png", new Float(0.65));
-		if (!result)
-		{
-			TSAutomationUtils.getScreenShot(TSAutomationTester, className
-				+ "IsClearResultsButtonDisable", environment.evidencePath);
-		}
-
-		Assert.assertTrue(result);
+		Assert.assertTrue(desktopTester.testIsClearResultsButtonDisable());
 	}
 
 
 	@Test
 	public void testMSlice100()
 	{
-		System.out.println("******testMSlice100******");
-		String msliceButton =
-			environment.projectImagesPath + File.separator + "MSlice.png";
-		String comboButton = environment.projectImagesPath + File.separator + "Combo.png";
-		String minCapacityButton =
-			environment.projectImagesPath + File.separator + "MinCapacity.png";
-		String capacity = environment.projectImagesPath + File.separator + "100.png";
-		String clearResultsButton =
-			environment.projectImagesPath + File.separator + "ClearResults.png";
-		TSAutomationTester.runAlgorithm(msliceButton);
-		TSAutomationTester.runAlgorithm(minCapacityButton);
-		TSAutomationTester.runAlgorithm(comboButton);
-		TSAutomationTester.runAlgorithm(capacity);
-		boolean result =
-			TSFunctions.isViewPresent(TSAutomationTester, environment.projectImagesPath
-				+ File.separator + "MinCapacity100.png");
-		if (!result)
-		{
-			TSAutomationUtils.getScreenShot(TSAutomationTester, className
-				+ "testMSlice100", environment.evidencePath);
-
-		}
-		Assert.assertTrue(result);
-		TSAutomationTester.runAlgorithm(clearResultsButton);
-
+		Assert.assertTrue(desktopTester.testMSlice100());
 	}
 	
 	@Test
 	public void testMSlice1000()
 	{
-		System.out.println("******testMSlice1000******");
-		String msliceButton =
-			environment.projectImagesPath + File.separator + "MSlice.png";
-		String comboButton = environment.projectImagesPath + File.separator + "Combo.png";
-		String minCapacityButton =
-			environment.projectImagesPath + File.separator + "MinCapacity.png";
-		String capacity = environment.projectImagesPath + File.separator + "1000.png";
-		String clearResultsButton =
-			environment.projectImagesPath + File.separator + "ClearResults.png";
-		TSAutomationTester.runAlgorithm(msliceButton);
-		TSAutomationTester.runAlgorithm(minCapacityButton);
-		TSAutomationTester.runAlgorithm(comboButton);
-		TSAutomationTester.runAlgorithm(capacity);
-		boolean result =
-			TSFunctions.isViewPresent(TSAutomationTester, environment.projectImagesPath
-				+ File.separator + "MinCapacity1000.png");
-		if (!result)
-		{
-			TSAutomationUtils.getScreenShot(TSAutomationTester, className
-				+ "testMSlice1000", environment.evidencePath);
-
-		}
-		Assert.assertTrue(result);
-		TSAutomationTester.runAlgorithm(clearResultsButton);
-
+		Assert.assertTrue(desktopTester.testMSlice1000());
+		
 	}
 
 	static TSTester TSAutomationTester;

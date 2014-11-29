@@ -22,12 +22,21 @@ public class TSMaxFlowImageMapPreviewTest
 		imageMapTester =
 			new TSImageMapPreviewTestCases(environment, TSAutomationTester, className);
 		TSAutomationTester =
-			TSFunctions.setHtml5Test(TSAutomationTester, "MaxFlowProjectPath");
+			TSFunctions.setImageMapTest(TSAutomationTester, "MaxFlowProjectPath");
 		environment = TSFunctions.setScreenFolder(TSAutomationTester, environment);
 
 	}
-	
-	
+
+
+	@AfterClass
+	public static void closeAll()
+	{
+		TSAutomationTester.fullScreenBrowser();
+		TSAutomationTester.closeCurrentBrowser();
+		TSAutomationTester.closeAll();
+	}
+
+
 	@Test
 	public void testOnMouseHoverSelect()
 	{
@@ -48,17 +57,11 @@ public class TSMaxFlowImageMapPreviewTest
 		Assert.assertTrue(imageMapTester.testOnMouseHoverPan());
 	}
 
+
 	@Test
 	public void testOnMouseHoverMarqueeZoom()
 	{
 		Assert.assertTrue(imageMapTester.testOnMouseHoverMarqueeZoom());
-	}
-
-
-	@Test
-	public void testOnMouseHoverInteractiveZoom()
-	{
-		Assert.assertTrue(imageMapTester.testOnMouseHoverInteractiveZoom());
 	}
 
 
@@ -95,7 +98,7 @@ public class TSMaxFlowImageMapPreviewTest
 	{
 		String hierarchicalButtonPath =
 			environment.toolBarImagesPath + File.separator
-				+ "HierarchicalLayoutSelectedCanvas.png";
+				+ "HierarchicalLayoutSelectedImageMap.png";
 		Assert.assertTrue(imageMapTester.testOnMouseHoverHierarchicalLayout(hierarchicalButtonPath));
 	}
 
@@ -105,6 +108,7 @@ public class TSMaxFlowImageMapPreviewTest
 	{
 		Assert.assertTrue(imageMapTester.testOnMouseHoverGlobalLayout());
 	}
+
 
 	@Test
 	public void testOnMouseHoverIncrementallLayout()
@@ -116,11 +120,12 @@ public class TSMaxFlowImageMapPreviewTest
 	@Test
 	public void testOnMouseHoverSetSourceNode()
 	{
-		Assert.assertTrue(imageMapTester.testOnMouseHoverSetSinkNode());
+		Assert.assertTrue(imageMapTester.testOnMouseHoverSetSourceNode());
 	}
 
 
-	public void testOnMouseHoverSetSinNode()
+	@Test
+	public void testOnMouseHoverSetSinkNode()
 	{
 		Assert.assertTrue(imageMapTester.testOnMouseHoverSetSinkNode());
 	}
@@ -137,24 +142,16 @@ public class TSMaxFlowImageMapPreviewTest
 		Assert.assertTrue(imageMapTester.testOnMouseHoverClearResults());
 
 	}
-	
+
+
 	@Test
-	public  void testRunMaxFlow()
+	public void testRunMaxFlow()
 	{
-		String layoutExpected = environment.projectImagesPath + File.separator + "MaxFlowExpected.png";
-		String viewExpected = environment.projectImagesPath + File.separator + "TreeViewMaxFlow.png";
-		Assert.assertTrue(imageMapTester.runMaximumImageMap(layoutExpected,viewExpected));
-	}
-	
-	
-
-
-	@AfterClass
-	public static void closeAll()
-	{
-		TSAutomationTester.fullScreenBrowser();
-		TSAutomationTester.closeCurrentBrowser();
-		TSAutomationTester.closeAll();
+		String layoutExpected =
+			environment.projectImagesPath + File.separator + "MaxFlowExpected.png";
+		String viewExpected =
+			environment.projectImagesPath + File.separator + "TreeViewMaxFlow.png";
+		Assert.assertTrue(imageMapTester.runMaximumImageMap(layoutExpected, viewExpected));
 	}
 
 

@@ -13,35 +13,18 @@ public class TSMSliceImageMapPreviewTest
 	public static void setUp()
 	{
 		// org.sikuli.basics.Debug.setDebugLevel(3);
-		Settings.MoveMouseDelay = new Float(1.5);
-		String defaultBrowser = TSAutomationUtils.getProperty("DefaultBrowser");
-		System.out.println(TSAutomationUtils.getOs());
-		className = TSMSliceImageMapPreviewTest.class.getName();
-		environment =
-			new TSEnvironment("MSlice",
-				TSEnvironment.IMAGEMAP_PREVIEW,
-				defaultBrowser);
 
-		TSAutomationTester = new TSTester(defaultBrowser);
-		TSAutomationTester.LaunchTS();
-		TSAutomationTester.openProject("MSliceProjectPath");
-		TSAutomationTester.launchImageMap();
-		TSAutomationTester.fullScreenBrowser();
-		TSAutomationUtils.pauseScript(new Long(2000));
-		TSAutomationTester.refreshBrowser();
-
-		screenId = TSAutomationTester.automationTesterCurrentScreen.getID();
-		if (screenId == 0)
-		{
-			environment.projectImagesPath =
-				environment.projectImagesPath.concat(File.separator + "PrimaryScreen");
-
-		}
-		else if (screenId == 1)
-		{
-			environment.projectImagesPath =
-				environment.projectImagesPath.concat(File.separator + "SecondaryScreen");
-		}
+				Settings.MoveMouseDelay = new Float(1.5);
+				String defaultBrowser = TSAutomationUtils.getProperty("DefaultBrowser");
+				className = TSMaxFlowImageMapPreviewTest.class.getName();
+				environment =
+					new TSEnvironment("MSlice", TSEnvironment.IMAGEMAP_PREVIEW, defaultBrowser);
+				TSAutomationTester = new TSTester(defaultBrowser);
+				imageMapTester =
+					new TSImageMapPreviewTestCases(environment, TSAutomationTester, className);
+				TSAutomationTester =
+					TSFunctions.setImageMapTest(TSAutomationTester, "MSliceProjectPath");
+				environment = TSFunctions.setScreenFolder(TSAutomationTester, environment);
 	}
 
 
@@ -55,111 +38,33 @@ public class TSMSliceImageMapPreviewTest
 	@Test
 	public void testOnMouseHoverSaveAs()
 	{
-		System.out.println("*******testHoverSaveAs*******");
-
-		String imageToolBar =
-			environment.toolBarImagesPath + File.separator + "SaveAsImageMap.png";
-		String imageExpected =
-			environment.toolTipsImagePath + File.separator + "SaveAsImage.png";
-		boolean result =
-			TSFunctions.isToolTipPresentWeb(TSAutomationTester,
-				imageToolBar,
-				imageExpected);
-
-		if (!result)
-		{
-			TSAutomationUtils.getScreenShot(TSAutomationTester, className
-				+ "testOnMouseHoverSaveAs", environment.evidencePath);
-		}
-		Assert.assertTrue(result);
+		Assert.assertTrue(imageMapTester.testOnMouseHoverSaveAsImage());
 
 	}
 	
 	@Test
 	public void testOnMouseHoverPrintSetUp()
 	{
-		System.out.println("*******testHoverPrintSetUp*******");
-		String imageToolBar =
-			environment.toolBarImagesPath + File.separator + "PrintSetUpImageMap.png";
-		String imageExpected =
-			environment.toolTipsImagePath + File.separator + "PrintSetUp.png";
-		boolean result =
-			TSFunctions.isToolTipPresentWeb(TSAutomationTester,
-				imageToolBar,
-				imageExpected);
-
-		if (!result)
-		{
-			TSAutomationUtils.getScreenShot(TSAutomationTester, className
-				+ "testHoverPrintSetUp", environment.evidencePath);
-		}
-		Assert.assertTrue(result);
-
+		Assert.assertTrue(imageMapTester.testOnMouseHoverPrintSetUp());
 	}
 	
 	@Test
 	public void testOnMouseHoverPrintPreview()
 	{
-		System.out.println("*******testHoverPrintPreview*******");
-		String imageToolBar =
-			environment.toolBarImagesPath + File.separator + "PrintPreviewImageMap.png";
-		String imageExpected =
-			environment.toolTipsImagePath + File.separator + "PrintSetUp.png";
-		boolean result =
-			TSFunctions.isToolTipPresentWeb(TSAutomationTester,
-				imageToolBar,
-				imageExpected);
-
-		if (!result)
-		{
-			TSAutomationUtils.getScreenShot(TSAutomationTester, className
-				+ "testHoverPrintPreview", environment.evidencePath);
-		}
-		Assert.assertTrue(result);
+		Assert.assertTrue(imageMapTester.testOnMouseHoverPrintPreview());
 
 	}
 
 	@Test
 	public void testOnMouseHoverSelect()
 	{
-		System.out.println("*******testOnMouseHoverSelect*******");
-		String imageToolBar =
-			environment.toolBarImagesPath + File.separator + "SelectImageMap.png";
-		String imageExpected =
-			environment.toolTipsImagePath + File.separator + "Select.png";
-		boolean result =
-			TSFunctions.isToolTipPresentWeb(TSAutomationTester,
-				imageToolBar,
-				imageExpected);
-
-		if (!result)
-		{
-			TSAutomationUtils.getScreenShot(TSAutomationTester, className
-				+ "testOnMouseHoverSelect", environment.evidencePath);
-		}
-		Assert.assertTrue(result);
-
+		Assert.assertTrue(imageMapTester.testOnMouseHoverSelect());
 	}
 
 	@Test
 	public void testOnMouseHoverPan()
 	{
-		System.out.println("*******testOnMouseHoverPan*******");
-
-		String imageToolBar =
-			environment.toolBarImagesPath + File.separator + "PanImageMap.png";
-		String imageExpected = environment.toolTipsImagePath + File.separator + "Pan.png";
-		boolean result =
-			TSFunctions.isToolTipPresentWeb(TSAutomationTester,
-				imageToolBar,
-				imageExpected);
-
-		if (!result)
-		{
-			TSAutomationUtils.getScreenShot(TSAutomationTester, className
-				+ "testOnMouseHoverPan", environment.evidencePath);
-		}
-		Assert.assertTrue(result);
+		Assert.assertTrue(imageMapTester.testOnMouseHoverPan());
 
 	}
 
@@ -167,179 +72,56 @@ public class TSMSliceImageMapPreviewTest
 	@Test
 	public void testOnMouseHoverMarqueeZoom()
 	{
-
-		System.out.println("*******TestOnMouseHoverMarqueeZoom*******");
-		String imageToolBar =
-			environment.toolBarImagesPath + File.separator + "MarqueeZoomImageMap.png";
-		String imageExpected =
-			environment.toolTipsImagePath + File.separator + "MarqueeZoom.png";
-		boolean result =
-			TSFunctions.isToolTipPresentWeb(TSAutomationTester,
-				imageToolBar,
-				imageExpected);
-
-		if (!result)
-		{
-			TSAutomationUtils.getScreenShot(TSAutomationTester, className
-				+ "testOnMouseHoverMarqueeZoom", environment.evidencePath);
-		}
-		Assert.assertTrue(result);
-
+		Assert.assertTrue(imageMapTester.testOnMouseHoverMarqueeZoom());
 	}
 
 
 	@Test
 	public void testOnMouseHoverZoomIn()
 	{
-		System.out.println("*******TestOnMouseHoverZoomIn*******");
-
-		String imageToolBar =
-			environment.toolBarImagesPath + File.separator + "ZoomInImageMap.png";
-		String imageExpected =
-			environment.toolTipsImagePath + File.separator + "ZoomIn.png";
-		boolean result =
-			TSFunctions.isToolTipPresentWeb(TSAutomationTester,
-				imageToolBar,
-				imageExpected);
-
-		if (!result)
-		{
-			TSAutomationUtils.getScreenShot(TSAutomationTester, className
-				+ "testOnMouseHoverZoomIn", environment.evidencePath);
-		}
-		Assert.assertTrue(result);
-
+		Assert.assertTrue(imageMapTester.testOnMouseHoverZoomIn());
 	}
 
 
 	@Test
 	public void testOnMouseHoverZoomOut()
 	{
-		System.out.println("*******TestOnMouseHoverZoomOut*******");
-
-		String imageToolBar =
-			environment.toolBarImagesPath + File.separator + "ZoomOutImageMap.png";
-		String imageExpected =
-			environment.toolTipsImagePath + File.separator + "ZoomOut.png";
-		boolean result =
-			TSFunctions.isToolTipPresentWeb(TSAutomationTester,
-				imageToolBar,
-				imageExpected);
-
-		if (!result)
-		{
-			TSAutomationUtils.getScreenShot(TSAutomationTester, className
-				+ "testOnMouseHoverZoomOut", environment.evidencePath);
-		}
-		Assert.assertTrue(result);
+		Assert.assertTrue(imageMapTester.testOnMouseHoverZoomOut());
 	}
 
 
 	@Test
 	public void testOnMouseHoverZoomFit()
 	{
-		System.out.println("*******TestOnMouseHoverZoomFit*******");
-
-		String imageToolBar =
-			environment.toolBarImagesPath + File.separator + "ZoomFitImageMap.png";
-		String imageExpected =
-			environment.toolTipsImagePath + File.separator + "ZoomFit.png";
-		boolean result =
-			TSFunctions.isToolTipPresentWeb(TSAutomationTester,
-				imageToolBar,
-				imageExpected);
-
-		if (!result)
-		{
-			TSAutomationUtils.getScreenShot(TSAutomationTester, className
-				+ "testOnMouseHoverZoomFit", environment.evidencePath);
-		}
-		Assert.assertTrue(result);
-
+		Assert.assertTrue(imageMapTester.testOnMouseHoverZoomFit());
 	}
 
 
 	@Test
 	public void testOnMouseHoverOverview()
 	{
-		System.out.println("*******TestOnMouseHoverOverview*******");
-
-		String imageToolBar =
-			environment.toolBarImagesPath + File.separator + "OverviewImageMap.png";
-		String imageExpected =
-			environment.toolTipsImagePath + File.separator + "Overview.png";
-		boolean result =
-			TSFunctions.isToolTipPresentWeb(TSAutomationTester,
-				imageToolBar,
-				imageExpected);
-
-		if (!result)
-		{
-			TSAutomationUtils.getScreenShot(TSAutomationTester, className
-				+ "testOnMouseHoverOverview", environment.evidencePath);
-		}
-		Assert.assertTrue(result);
-
+		Assert.assertTrue(imageMapTester.testOnMouseHoverOverview());
 	}
 	
 	@Test
 	public void testIsOverviewPresent()
 	{
-		Float similar = new Float(0.82);
-		System.out.println("*******TestIsOverviewPresent*******");
-		TSAutomationTester.openOverviewImageMap();
-		boolean result =
-			TSFunctions.isOverviewPresent(TSAutomationTester,
-				environment.projectImagesPath + File.separator + "overviewExpected.png",
-				similar);
-		if (!result)
-		{
-			TSAutomationUtils.getScreenShot(TSAutomationTester, className
-				+ "testIsOverviewPresent", environment.evidencePath);
-		}
-		Assert.assertTrue(result);
-		TSAutomationTester.closeOverviewImageMap();
-	
+		Assert.assertTrue(imageMapTester.testIsOverviewPresent());	
 	}
 	
 
 	@Test
 	public void testMSlice100(){
-		System.out.println("******testMSlice100******");
-		String minCapacity = environment.toolBarImagesPath + File.separator+"100ImageMap.png";
-		String expectedLayout = environment.projectImagesPath + File.separator + "MinCapacity100.png";
-		String clearResultsButton=environment.toolBarImagesPath+File.separator + "ClearResultsEnableImageMap.png";
-		boolean result = TSFunctions.runMSliceImageMap(TSAutomationTester, minCapacity, expectedLayout);
-		if (!result)
-		{
-			TSAutomationUtils.getScreenShot(TSAutomationTester, className
-				+ "testMSlice100", environment.evidencePath);
 
-		}
-		Assert.assertTrue(result);
-		
-		TSAutomationTester.clearResults(clearResultsButton);
-		TSAutomationTester.refreshBrowser();
+		Assert.assertTrue(imageMapTester.testMSlice100());
 	}
 	
 	@Test
 	public void testMSlice1000(){
 		
-		System.out.println("******testMSlice1000******");
-		String minCapacity = environment.toolBarImagesPath + File.separator+"1000ImageMap.png";
-		String expectedLayout = environment.projectImagesPath + File.separator + "MinCapacity1000.png";
-		String clearResultsButton=environment.toolBarImagesPath+File.separator + "ClearResultsEnableImageMap.png";
-		boolean result = TSFunctions.runMSliceImageMap(TSAutomationTester, minCapacity, expectedLayout);
-		if (!result)
-		{
-			TSAutomationUtils.getScreenShot(TSAutomationTester, className
-				+ "testMSlice1000", environment.evidencePath);
-
-		}
-		Assert.assertTrue(result);
+		Assert.assertTrue(imageMapTester.testMSlice1000());
 		
-		TSAutomationTester.clearResults(clearResultsButton);
-		TSAutomationTester.refreshBrowser();
+		
 		
 	}
 	
@@ -352,5 +134,7 @@ public class TSMSliceImageMapPreviewTest
 	static TSEnvironment environment;
 
 	static int screenId;
+	
+	static TSImageMapPreviewTestCases imageMapTester;
 
 }

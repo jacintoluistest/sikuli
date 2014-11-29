@@ -6,9 +6,9 @@ public class TSFunctions
 {
 	public static TSTester setDesktopTest(TSTester tester, String projectPathPropertyName){
 		tester.LaunchTS();
+		tester.maximizeWindow();
 		tester.openProject(projectPathPropertyName);
 		tester.launchDesktopPreview();
-		tester.maximizeWindow();
 		TSAutomationUtils.pauseScript(new Long(2000));
 		return tester;
 	}
@@ -18,7 +18,7 @@ public class TSFunctions
 		tester.LaunchTS();
 		tester.openProject(project);
 		tester.launchHtml5Preview();
-		tester.fullScreenBrowser();
+		//tester.fullScreenBrowser();
 		TSAutomationUtils.pauseScript(new Long(2000));
 		tester.refreshBrowser();
 		
@@ -28,6 +28,7 @@ public class TSFunctions
 	public static TSTester setImageMapTest(TSTester tester, String project){
 		tester.LaunchTS();
 		tester.openProject(project);
+		tester.maximizeWindow();
 		tester.launchImageMap();
 		tester.fullScreenBrowser();
 		TSAutomationUtils.pauseScript(new Long(2000));
@@ -358,7 +359,7 @@ public class TSFunctions
 		String sinkNode =environment.projectImagesPath + File.separator + "sinkNode.png";
 		String setSourceNodeButton=environment.toolBarImagesPath+File.separator + "SetSourceNodeToolBarDesktop.png";
 		String setSinkNodeButton=environment.toolBarImagesPath + File.separator + "SetSinkNodeToolBarDesktop.png";
-		String runMaximumFlowButton=environment.toolBarImagesPath + File.separator + "RunMaximumFlowToolBarDesktop.png";
+		String runMaximumFlowButton=environment.toolBarImagesPath + File.separator + "Run.png";
 		
 		try{
 			tester.automationTesterCurrentScreen.click(new Pattern(sourceNode).similar(similarButtons));
@@ -387,7 +388,7 @@ public class TSFunctions
 		String sinkNode =environment.projectImagesPath + File.separator + "sinkNode.png";
 		String setSourceNodeButton=environment.toolBarImagesPath+File.separator + "SetSourceNodeCanvas.png";
 		String setSinkNodeButton=environment.toolBarImagesPath + File.separator + "SetSinkNodeCanvas.png";
-		String runMaximumFlowButton=environment.toolBarImagesPath + File.separator + "RunMaximumFlowCanvas.png";
+		String runMaximumFlowButton=environment.toolBarImagesPath + File.separator + "Run.png";
 		
 		try{
 			tester.automationTesterCurrentScreen.click(new Pattern(sourceNode).similar(similarButtons));
@@ -428,10 +429,15 @@ public class TSFunctions
 		String sinkNode =environment.projectImagesPath + File.separator + "sinkNode.png";
 		String setSourceNodeButton=environment.toolBarImagesPath+File.separator + "SetSourceNodeImageMap.png";
 		String setSinkNodeButton=environment.toolBarImagesPath + File.separator + "SetSinkNodeImageMap.png";
-		String runMaximumFlowButton=environment.toolBarImagesPath + File.separator + "RunMaximumFlowImageMap.png";
+		String runMaximumFlowButton=environment.toolBarImagesPath + File.separator + "RunImageMap.png";
 		
 		try{
 			tester.automationTesterCurrentScreen.click(new Pattern(sourceNode).similar(similarButtons));
+			if(TSAutomationUtils.getOs().contains("mac"))
+			{
+				tester.automationTesterCurrentScreen.click(new Pattern(sourceNode).similar(similarButtons));
+				
+			}
 			TSAutomationUtils.pauseScript(new Long(800));
 			tester.automationTesterCurrentScreen.click(new Pattern(setSourceNodeButton).similar(similarButtons));
 			TSAutomationUtils.pauseScript(new Long(800));
