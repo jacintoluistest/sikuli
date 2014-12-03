@@ -545,7 +545,7 @@ public class TSImageMapPreviewTestCases
 	public boolean testHierarchicalLayout()
 	{
 		System.out.println("testHierarchicalLayout");
-		testerTestCase.HierarchicalLayoutHtml5();
+		testerTestCase.HierarchicalLayoutImageMap();
 		boolean result =
 			TSFunctions.isLayoutPresent(testerTestCase, environmentTestCase.projectImagesPath
 				+ File.separator + "HierarchicalExpected.png", new Float(0.80));
@@ -556,7 +556,7 @@ public class TSImageMapPreviewTestCases
 		}
 
 				
-		testerTestCase.SymmetricLayoutHtml5();
+		testerTestCase.undoImageMap();
 		return result;
 	}
 	
@@ -638,7 +638,7 @@ public class TSImageMapPreviewTestCases
 	}
 	
 	public boolean testOnMouseHoverClearResults(){
-		System.out.println("*******TestOnMouseHoverSetSinkNode*******");
+		System.out.println("*******TestOnMouseHoverClearResults*******");
 		String imageToolBar =
 			environmentTestCase.toolBarImagesPath + File.separator + "ClearResultsDisableImageMap.png";
 		String imageExpected =
@@ -669,7 +669,7 @@ public class TSImageMapPreviewTestCases
 	@Test
 	public boolean testMSlice100(){
 		System.out.println("******testMSlice100******");
-		String minCapacity = environmentTestCase.toolBarImagesPath + File.separator+"100ImageMap.png";
+		String minCapacity = environmentTestCase.projectImagesPath  + File.separator+"100ImageMap.png";
 		String expectedLayout = environmentTestCase.projectImagesPath + File.separator + "MinCapacity100.png";
 		String clearResultsButton=environmentTestCase.toolBarImagesPath+File.separator + "ClearResultsEnableImageMap.png";
 		boolean result = TSFunctions.runMSliceImageMap(testerTestCase, minCapacity, expectedLayout);
@@ -688,7 +688,7 @@ public class TSImageMapPreviewTestCases
 public boolean testMSlice1000(){
 		
 		System.out.println("******testMSlice1000******");
-		String minCapacity = environmentTestCase.toolBarImagesPath + File.separator+"1000ImageMap.png";
+		String minCapacity = environmentTestCase.projectImagesPath + File.separator+"1000ImageMap.png";
 		String expectedLayout = environmentTestCase.projectImagesPath + File.separator + "MinCapacity1000.png";
 		String clearResultsButton=environmentTestCase.toolBarImagesPath+File.separator + "ClearResultsEnableImageMap.png";
 		boolean result = TSFunctions.runMSliceImageMap(testerTestCase, minCapacity, expectedLayout);
@@ -703,5 +703,98 @@ public boolean testMSlice1000(){
 		testerTestCase.refreshBrowser();
 		return result;
 	}
+
+
+	public boolean testOnMouseHoverRunAcyclicTest()
+	{
+		System.out.println("******testOnMouseHoverRunAcyclicTest******");
+		String imageToolBar =
+			environmentTestCase.toolBarImagesPath + File.separator
+				+ "RunImageMap.png";
+		String imageExpected =
+			environmentTestCase.toolTipsImagePath + File.separator + "RunAcyclicTest.png";
+		boolean result =
+			TSFunctions.isToolTipPresentDesktop(testerTestCase,
+				imageToolBar,
+				imageExpected);
+		if (!result)
+		{
+			TSAutomationUtils.getScreenShot(testerTestCase, className
+				+ "testOnMouseHoverRunAcyclicTest", environmentTestCase.evidencePath);
+		}
+
+		return result;
+	}
 	
+
+	public boolean testIsRunAcyclicButtonEnable()
+	{
+		System.out.println("*******testRunAcyclicButtonEnable******");
+
+		boolean result =
+			TSFunctions.isButtonPresent(testerTestCase,
+				environmentTestCase.projectImagesPath + File.separator
+					+ "RunAcyclicTestEnable.png",
+				new Float(0.80));
+		if (!result)
+		{
+			TSAutomationUtils.getScreenShot(testerTestCase, className
+				+ "RunAcyclicButtonEnable", environmentTestCase.evidencePath);
+		}
+
+		return result;
+	}
+	
+	public boolean testIsClearResultsButtonDisable()
+	{
+		System.out.println("*******testIsClearResultsButtonDisable******");
+
+		boolean result =
+			TSFunctions.isButtonPresent(testerTestCase, environmentTestCase.projectImagesPath
+				+ File.separator + "clearResultsDisable.png", new Float(0.65));
+		if (!result)
+		{
+			TSAutomationUtils.getScreenShot(testerTestCase, className
+				+ "IsClearResultsButtonDisable", environmentTestCase.evidencePath);
+		}
+
+		return result;
+	}
+	
+	
+	public boolean testRunAcyclicTest()
+	{
+		boolean result = false;
+		float similar = new Float(0.85);
+		testerTestCase.runAlgorithm(environmentTestCase.toolBarImagesPath
+			+ File.separator + "RunImageMap");
+		if (TSFunctions.isButtonPresent(testerTestCase,
+			environmentTestCase.projectImagesPath + File.separator
+				+ "ClearResultsEnable.png",
+			similar)
+			&& TSFunctions.isButtonPresent(testerTestCase,
+				environmentTestCase.projectImagesPath + File.separator
+					+ "RunAcyclicTestDisable.png",
+				similar)
+			&& TSFunctions.isViewPresent(testerTestCase,
+				environmentTestCase.projectImagesPath + File.separator
+					+ "TreeViewImageMap"))
+		{
+			result = true;
+		}
+		else
+		{
+			result = false;
+		}
+
+		if (!result)
+		{
+			TSAutomationUtils.getScreenShot(testerTestCase, className
+				+ "testRunAcyclicTest", environmentTestCase.evidencePath);
+		}
+
+		testerTestCase.clearResults(environmentTestCase.toolBarImagesPath
+			+ File.separator + "ClearResultsAcyclicEnableImageMap.png");
+		return result;
+	}
 }

@@ -18,7 +18,7 @@ public class TSFunctions
 		tester.LaunchTS();
 		tester.openProject(project);
 		tester.launchHtml5Preview();
-		//tester.fullScreenBrowser();
+		tester.fullScreenBrowser();
 		TSAutomationUtils.pauseScript(new Long(2000));
 		tester.refreshBrowser();
 		
@@ -28,7 +28,6 @@ public class TSFunctions
 	public static TSTester setImageMapTest(TSTester tester, String project){
 		tester.LaunchTS();
 		tester.openProject(project);
-		tester.maximizeWindow();
 		tester.launchImageMap();
 		tester.fullScreenBrowser();
 		TSAutomationUtils.pauseScript(new Long(2000));
@@ -328,27 +327,58 @@ public class TSFunctions
 	
 	return result;
 	}
-	
-	public static boolean runMSliceImageMap(TSTester tester,String minCapacity, String expectedLayout){
+
+
+	public static boolean runMSliceImageMap(TSTester tester,
+		String minCapacity,
+		String expectedLayout)
+	{
 		boolean result;
-			String mSliceButton = tester.tspImageMapImagesPath + File.separator + "MSliceImageMap.png";
-			String minCapacityButton = tester.tspImageMapImagesPath + File.separator + "MinCapacityImageMap.png";
-			String comboButton = tester.tspImageMapImagesPath + File.separator + "ComboImageMap.png";
-			try{
+		String mSliceButton =
+			tester.tspImageMapImagesPath + File.separator + "MSliceImageMap.png";
+		String minCapacityButton =
+			tester.tspImageMapImagesPath + File.separator + "MinCapacityImageMap.png";
+		String comboButton =
+			tester.tspImageMapImagesPath + File.separator + "ComboImageMap.png";
+
+		if (tester.operativeSystem.contains("windows"))
+		{
+			try
+			{
 				tester.automationTesterCurrentScreen.click(mSliceButton);
 				tester.automationTesterCurrentScreen.doubleClick(minCapacityButton);
 				tester.automationTesterCurrentScreen.click(comboButton);
 				tester.automationTesterCurrentScreen.click(minCapacity);
 			}
-			
-			catch(FindFailed ff){
+			catch (FindFailed ff)
+			{
 				System.out.println(ff.getMessage());
 			}
-			result=isLayoutPresent(tester, expectedLayout, new Float(0.80));
-		
-		
-		return result;
+			result = isLayoutPresent(tester, expectedLayout, new Float(0.80));
 		}
+
+		else
+		{
+
+			try
+			{
+				tester.automationTesterCurrentScreen.click(mSliceButton);
+				tester.automationTesterCurrentScreen.doubleClick(minCapacityButton);
+				tester.automationTesterCurrentScreen.doubleClick(comboButton);
+				tester.automationTesterCurrentScreen.click(minCapacity);
+			}
+			catch (FindFailed ff)
+			{
+				System.out.println(ff.getMessage());
+			}
+			result = isLayoutPresent(tester, expectedLayout, new Float(0.80));
+		}
+
+		return result;
+
+	}
+			
+
 	
 	public static boolean runMaxFlowDesktop(TSTester tester, String expectedImage,
 		TSEnvironment environment){
@@ -432,16 +462,16 @@ public class TSFunctions
 		String runMaximumFlowButton=environment.toolBarImagesPath + File.separator + "RunImageMap.png";
 		
 		try{
-			tester.automationTesterCurrentScreen.click(new Pattern(sourceNode).similar(similarButtons));
+			tester.automationTesterCurrentScreen.click(new Pattern(sourceNode).similar(similar));
 			if(TSAutomationUtils.getOs().contains("mac"))
 			{
-				tester.automationTesterCurrentScreen.click(new Pattern(sourceNode).similar(similarButtons));
+				tester.automationTesterCurrentScreen.click(new Pattern(sourceNode).similar(similar));
 				
 			}
 			TSAutomationUtils.pauseScript(new Long(800));
 			tester.automationTesterCurrentScreen.click(new Pattern(setSourceNodeButton).similar(similarButtons));
 			TSAutomationUtils.pauseScript(new Long(800));
-			tester.automationTesterCurrentScreen.click(new Pattern(sinkNode).similar(similarButtons));
+			tester.automationTesterCurrentScreen.click(new Pattern(sinkNode).similar(similar));
 			TSAutomationUtils.pauseScript(new Long(800));
 			tester.automationTesterCurrentScreen.click(new Pattern(setSinkNodeButton).similar(similarButtons));
 			TSAutomationUtils.pauseScript(new Long(800));

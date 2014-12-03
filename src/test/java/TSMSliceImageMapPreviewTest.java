@@ -1,4 +1,3 @@
-import java.io.File;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.AfterClass;

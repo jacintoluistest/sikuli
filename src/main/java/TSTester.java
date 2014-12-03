@@ -526,7 +526,7 @@ public class TSTester
 	{
 		String browser = TSAutomationUtils.getProperty("DefaultBrowser");
 		System.out.println("Closing Web Preview");
-		if(operativeSystem.contains("windows"))
+		if (operativeSystem.contains("windows"))
 		{
 			if (browser.contains("Explorer"))
 			{
@@ -537,15 +537,17 @@ public class TSTester
 			{
 				App.close("Tom Sawyer Perspectives Previewer");
 			}
-		
+
 		}
-		
+
 		else
 		{
 			App.close(browser);
 		}
 
 	}
+
+
 	public void openOverviewDesktop()
 	{
 		System.out.println("Opening Overview");
@@ -666,10 +668,19 @@ public class TSTester
 
 	public void onMouseHoverImageMap(String patternStringPath)
 	{
-
+		float similar;
+		if(operativeSystem.contains("windows"))
+		{
+			similar = new Float(0.85);
+		}
+		else
+		{
+		similar = new Float(0.78);	
+		}
+		
 		try
 		{
-			automationTesterCurrentScreen.hover(new Pattern(patternStringPath).similar(new Float(0.85)));
+			automationTesterCurrentScreen.hover(new Pattern(patternStringPath).similar(similar));
 		}
 		catch (FindFailed ff)
 		{
@@ -707,19 +718,35 @@ public class TSTester
 
 	public void fullScreenBrowser()
 	{
-		automationTesterCurrentScreen.type(Key.F11);
+		if (operativeSystem.contains("windows"))
+		{
+			automationTesterCurrentScreen.type(Key.F11);
+		}
+		else
+		{
+			Region buttonsRegion = new Region(0, 0, 70, 50,automationTesterCurrentScreen.getID());
+			if (buttonsRegion.exists(tsperspectivesToolBarImagesPath + File.separator
+				+ "maximize.png") != null)
+			{
+				automationTesterCurrentScreen.type("f", Key.CTRL + Key.META);
+			}
+		}
 	}
 
 
 	public void refreshBrowser()
 	{
 
-		if(operativeSystem.contains("mac")){
-			automationTesterCurrentScreen.type("r",Key.CMD);
+		if (operativeSystem.contains("mac"))
+		{
+			automationTesterCurrentScreen.type("r", Key.CMD);
 			TSAutomationUtils.pauseScript(new Long(3500));
 		}
-		automationTesterCurrentScreen.type(Key.F5);
-		TSAutomationUtils.pauseScript(new Long(3500));
+		else
+		{
+			automationTesterCurrentScreen.type(Key.F5);
+			TSAutomationUtils.pauseScript(new Long(3500));
+		}
 	}
 
 
@@ -847,7 +874,7 @@ public class TSTester
 	public void HierarchicalLayoutImageMap()
 	{
 		String circularLayout =
-			tspImageMapImagesPath + File.separator + "HierarchicaLayoutImageMap.png";
+			tspImageMapImagesPath + File.separator + "HierarchicalLayoutImageMap.png";
 		try
 		{
 			automationTesterCurrentScreen.click(circularLayout);
@@ -863,11 +890,11 @@ public class TSTester
 
 	public void HierarchicalLayoutHtml5()
 	{
-		String circularLayout =
+		String hierarchicalLayout =
 			tspHtml5PreviewImagePath + File.separator + "HierarchicalLayoutCanvas.png";
 		try
 		{
-			automationTesterCurrentScreen.click(circularLayout);
+			automationTesterCurrentScreen.click(hierarchicalLayout);
 		}
 		catch (FindFailed ff)
 		{
@@ -989,14 +1016,14 @@ public class TSTester
 			System.out.println(ff.getMessage());
 		}
 		TSAutomationUtils.pauseScript(new Long(1500));
-		
+
 	}
 
 
 	public void closeOverviewCanvas()
 	{
 		String overviewButton =
-			tspHtml5PreviewImagePath + File.separator + "overviewSelectedCanvas.png";
+			tspHtml5PreviewImagePath + File.separator + "closeOverviewCanvas.png";
 		try
 		{
 			automationTesterCurrentScreen.click(overviewButton);
@@ -1013,7 +1040,7 @@ public class TSTester
 	public void closeOverviewImageMap()
 	{
 		String overviewButton =
-			tspImageMapImagesPath + File.separator + "overviewSelectedImageMap.png";
+			tspImageMapImagesPath + File.separator + "closeOverviewImageMap.png";
 		try
 		{
 			automationTesterCurrentScreen.click(overviewButton);
@@ -1070,15 +1097,14 @@ public class TSTester
 
 	public void clearResultsMaxFlowImageMap()
 	{
-		
+
 		String clearResultsButton =
-			tspImageMapImagesPath + File.separator
-				+ "ClearResultsImageMap.png";
+			tspImageMapImagesPath + File.separator + "ClearResultsImageMap.png";
 		String hierarchicalSelected =
 			tspImageMapImagesPath + File.separator
 				+ "HierarchicalLayoutSelectedImageMap.png";
 		Region r;
-		
+
 		switch (automationTesterCurrentScreen.getID())
 		{
 			case 0:
@@ -1105,5 +1131,33 @@ public class TSTester
 		{
 			System.out.println(ff.getMessage());
 		}
+	}
+	
+	public void undoImageMap(){
+		String undoButton= tspImageMapImagesPath+File.separator + "undo.png";
+		
+		try
+		{
+			automationTesterCurrentScreen.click(undoButton);
+		}
+		catch (FindFailed ff)
+		{
+			System.out.println(ff.getMessage());
+		}
+		
+	}
+	
+	public void undoHtml5(){
+		String undoButton= tspHtml5PreviewImagePath+File.separator + "undoCanvas.png";
+		
+		try
+		{
+			automationTesterCurrentScreen.click(undoButton);
+		}
+		catch (FindFailed ff)
+		{
+			System.out.println(ff.getMessage());
+		}
+		
 	}
 }
