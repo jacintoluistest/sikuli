@@ -99,7 +99,7 @@ public class TSMaxFlowDesktopPreviewTest
 	@Test
 	public void testOnMouseHoverHierarchicalLayout()
 	{
-		Assert.assertTrue(desktopTester.testOnMouseHoverHierarchicalLayout());
+		Assert.assertTrue(desktopTester.testOnMouseHoverHierarchicalLayoutSelected());
 	}
 	
 	@Test

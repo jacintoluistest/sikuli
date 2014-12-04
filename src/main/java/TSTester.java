@@ -695,11 +695,14 @@ public class TSTester
 		{
 			String maximizeWindowIcon =
 				tsperspectivesToolBarImagesPath + File.separator + "maximize.png";
+			
 
-			automationTesterCurrentScreen.type("f", Key.CTRL + Key.META);
+			//automationTesterCurrentScreen.type("f", Key.CTRL + Key.META);
 			try
 			{
 				automationTesterCurrentScreen.click(new Pattern(maximizeWindowIcon).similar(new Float(0.88)));
+				TSAutomationUtils.pauseScript(new Long(1500));
+				zoomFit();
 			}
 			catch (FindFailed ff)
 			{
@@ -788,7 +791,7 @@ public class TSTester
 	public void zoomFit()
 	{
 		String zoomFit =
-			tspDesktopPreviewImagesPath + File.separator + "SelectToolBarDesktop";
+			tspDesktopPreviewImagesPath + File.separator + "ZoomFitToolBarDesktop.png";
 		try
 		{
 			automationTesterCurrentScreen.click(zoomFit);
@@ -1160,4 +1163,6 @@ public class TSTester
 		}
 		
 	}
+	
+	
 }

@@ -23,13 +23,12 @@ public class TSDesktopPreviewTestCases
 	}
 
 
-	public boolean testLaunchDesktopPreview()
+	public boolean testLaunchDesktopPreview(String imageExpected)
 	{
 		System.out.println("testLaunchDesktopPreview");
 		boolean result =
 			TSFunctions.isDesktopPreviewLaunched(testerTestCase,
-				environmentTester.projectImagesPath + File.separator
-					+ "SocialNetworkDesktopDefault.png");
+				imageExpected);
 
 		if (!result)
 		{
@@ -58,12 +57,11 @@ public class TSDesktopPreviewTestCases
 	}
 
 
-	public boolean testIsTableViewPresent()
+	public boolean testIsTableViewPresent(String expectedViewPath)
 	{
 		System.out.println("testIsTableViewPresent");
 		boolean result =
-			TSFunctions.isViewPresent(testerTestCase, environmentTester.projectImagesPath
-				+ File.separator + "SocialNetworkAnalysisDesktopTableView.png");
+			TSFunctions.isViewPresent(testerTestCase, expectedViewPath);
 		if (!result)
 		{
 			TSAutomationUtils.getScreenShot(testerTestCase, className
@@ -109,14 +107,13 @@ public class TSDesktopPreviewTestCases
 	}
 
 
-	public boolean testCircularLayout()
+	public boolean testCircularLayout(String expectedLayoutPath)
 	{
 		System.out.println("testCircularLayout");
 		testerTestCase.CircularLayoutDesktop();
 		boolean result =
 			TSFunctions.isLayoutPresent(testerTestCase,
-				environmentTester.projectImagesPath + File.separator
-					+ "SocialNetworkAnalysisDesktopCircularExpected.png",
+				expectedLayoutPath,
 				new Float(0.80));
 		if (!result)
 		{
@@ -374,10 +371,32 @@ public class TSDesktopPreviewTestCases
 
 	public boolean testOnMouseHoverHierarchicalLayout()
 	{
-		System.out.println("******testOnMouseHoverCircularLayout******");
+		System.out.println("******testOnMouseHoverHierarchicalLayout******");
 		String imageToolBar =
 			environmentTester.toolBarImagesPath + File.separator
 				+ "HierarchicalLayoutToolBarDesktop.png";
+		String imageExpected =
+			environmentTester.toolTipsImagePath + File.separator
+				+ "HierarchicalLayout.png";
+		boolean result =
+			TSFunctions.isToolTipPresentDesktop(testerTestCase,
+				imageToolBar,
+				imageExpected);
+		if (!result)
+		{
+			TSAutomationUtils.getScreenShot(testerTestCase, className
+				+ "testOnMouseHoverHierarchicalLayout", environmentTester.evidencePath);
+		}
+
+		return result;
+	}
+	
+	public boolean testOnMouseHoverHierarchicalLayoutSelected()
+	{
+		System.out.println("******testOnMouseHoverHierarchicalLayout******");
+		String imageToolBar =
+			environmentTester.toolBarImagesPath + File.separator
+				+ "HierarchicalSelectedLayoutToolBarDesktop.png";
 		String imageExpected =
 			environmentTester.toolTipsImagePath + File.separator
 				+ "HierarchicalLayout.png";
@@ -635,7 +654,7 @@ public class TSDesktopPreviewTestCases
 		System.out.println("******testOnMouseHoverRunMaximumFlow******");
 		String imageToolBar =
 			environmentTester.toolBarImagesPath + File.separator
-				+ "RunMaximumFlowToolBarDesktop.png";
+				+ "Run.png";
 		String imageExpected =
 			environmentTester.toolTipsImagePath + File.separator + "RunMaximumFlow.png";
 		boolean result =

@@ -6,10 +6,11 @@ public class TSFunctions
 {
 	public static TSTester setDesktopTest(TSTester tester, String projectPathPropertyName){
 		tester.LaunchTS();
-		tester.maximizeWindow();
 		tester.openProject(projectPathPropertyName);
 		tester.launchDesktopPreview();
+		tester.maximizeWindow();
 		TSAutomationUtils.pauseScript(new Long(2000));
+		
 		return tester;
 	}
 	
@@ -383,7 +384,7 @@ public class TSFunctions
 	public static boolean runMaxFlowDesktop(TSTester tester, String expectedImage,
 		TSEnvironment environment){
 		boolean result = false;
-		float similar = new Float(0.96);
+		float similar = new Float(0.94);
 		float similarButtons = new Float (0.94);
 		String sourceNode = environment.projectImagesPath + File.separator + "sourceNode.png";
 		String sinkNode =environment.projectImagesPath + File.separator + "sinkNode.png";
@@ -392,9 +393,9 @@ public class TSFunctions
 		String runMaximumFlowButton=environment.toolBarImagesPath + File.separator + "Run.png";
 		
 		try{
-			tester.automationTesterCurrentScreen.click(new Pattern(sourceNode).similar(similarButtons));
+			tester.automationTesterCurrentScreen.click(new Pattern(sourceNode).similar(similar));
 			tester.automationTesterCurrentScreen.click(new Pattern(setSourceNodeButton).similar(similarButtons));
-			tester.automationTesterCurrentScreen.click(new Pattern(sinkNode).similar(similarButtons));
+			tester.automationTesterCurrentScreen.click(new Pattern(sinkNode).similar(similar));
 			tester.automationTesterCurrentScreen.click(new Pattern(setSinkNodeButton).similar(similarButtons));
 			tester.automationTesterCurrentScreen.click(new Pattern(runMaximumFlowButton).similar(similarButtons));
 		}
