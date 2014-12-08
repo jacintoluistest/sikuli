@@ -695,9 +695,8 @@ public class TSTester
 		{
 			String maximizeWindowIcon =
 				tsperspectivesToolBarImagesPath + File.separator + "maximize.png";
-			
 
-			//automationTesterCurrentScreen.type("f", Key.CTRL + Key.META);
+			// automationTesterCurrentScreen.type("f", Key.CTRL + Key.META);
 			try
 			{
 				automationTesterCurrentScreen.click(new Pattern(maximizeWindowIcon).similar(new Float(0.88)));
@@ -711,9 +710,8 @@ public class TSTester
 		}
 
 		else
-			automationTesterCurrentScreen.type(Key.UP, Key.WIN);
-
 		{
+			automationTesterCurrentScreen.type(Key.UP, Key.WIN);
 		}
 
 	}
@@ -967,6 +965,11 @@ public class TSTester
 		try
 		{
 			automationTesterCurrentScreen.click(button);
+			if(operativeSystem.contains("mac"))
+			{
+				automationTesterCurrentScreen.click(button);
+				
+			}
 		}
 		catch (FindFailed ff)
 		{
@@ -1081,14 +1084,32 @@ public class TSTester
 	public void clearResultsMaxFlowHtml5()
 	{
 		String clearResultsButton =
-			tspHtml5PreviewImagePath + File.separator + "ClearResultsImageMap.png";
+			tspHtml5PreviewImagePath + File.separator + "ClearResultsCanvas.png";
 		String hierarchicalSelected =
 			tspHtml5PreviewImagePath + File.separator
 				+ "HierarchicalLayoutSelectedCanvas.png";
+		Region r;
+
+		switch (automationTesterCurrentScreen.getID())
+		{
+			case 0:
+				r = new Region(332, 98, 10, 10);
+				break;
+
+			case 1:
+				r = new Region(659, 98, 10, 10);
+				break;
+
+			default:
+				r = null;
+				break;
+		}
+
 		try
 		{
 			automationTesterCurrentScreen.click(clearResultsButton);
 			automationTesterCurrentScreen.click(hierarchicalSelected);
+			automationTesterCurrentScreen.click(r);
 
 		}
 		catch (FindFailed ff)
@@ -1163,6 +1184,18 @@ public class TSTester
 		}
 		
 	}
-	
-	
+
+	public void undoDesktop(){
+		String undoButton= tspDesktopPreviewImagesPath+File.separator + "undo.png";
+		
+		try
+		{
+			automationTesterCurrentScreen.click(undoButton);
+		}
+		catch (FindFailed ff)
+		{
+			System.out.println(ff.getMessage());
+		}
+		
+	}
 }
