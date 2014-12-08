@@ -106,6 +106,24 @@ public class TSDesktopPreviewTestCases
 		return result;
 	}
 
+	public boolean testIsOverviewPresent(String expectedImage)
+	{
+		System.out.println("testIsOverViewPresent");
+		testerTestCase.openOverviewDesktop();
+		boolean result =
+			TSFunctions.isOverviewPresent(testerTestCase,
+				expectedImage,
+				new Float(0.80));
+		if (!result)
+		{
+			TSAutomationUtils.getScreenShot(testerTestCase, className
+				+ "testIsOverviewPresent", environmentTester.evidencePath);
+		}
+		testerTestCase.closeOverviewDesktop();
+
+		return result;
+	}
+
 
 	public boolean testCircularLayout(String expectedLayoutPath)
 	{
@@ -121,7 +139,7 @@ public class TSDesktopPreviewTestCases
 				+ "testCircularLayout", environmentTester.evidencePath);
 		}
 
-		testerTestCase.SymmetricLayoutDesktop();
+		testerTestCase.undoDesktop();
 		return result;
 	}
 
@@ -140,7 +158,7 @@ public class TSDesktopPreviewTestCases
 				+ "testIsOverviewPresent", environmentTester.evidencePath);
 		}
 
-		testerTestCase.SymmetricLayoutDesktop();
+		testerTestCase.undoDesktop();
 		return result;
 	}
 
@@ -188,6 +206,7 @@ public class TSDesktopPreviewTestCases
 		return result;
 
 	}
+	
 
 
 	public boolean testOnMouseHoverPan()
