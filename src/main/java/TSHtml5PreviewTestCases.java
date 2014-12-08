@@ -55,6 +55,45 @@ public class TSHtml5PreviewTestCases
 
 	}
 
+	public boolean testOnMouseHoverPrintSetUp()
+	{
+		System.out.println("*******testHoverPrintSetUp*******");
+		String imageToolBar =
+			environmentTestCase.toolBarImagesPath + File.separator
+				+ "PrintSetUpCanvas.png";
+		String imageExpected =
+			environmentTestCase.toolTipsImagePath + File.separator + "PrintSetUp.png";
+		boolean result =
+			TSFunctions.isToolTipPresentWeb(testerTestCase, imageToolBar, imageExpected);
+
+		if (!result)
+		{
+			TSAutomationUtils.getScreenShot(testerTestCase, className
+				+ "testHoverPrintSetUp", environmentTestCase.evidencePath);
+		}
+		return result;
+	}
+
+
+	public boolean testOnMouseHoverPrintPreview()
+	{
+		System.out.println("*******testHoverPrintPreview*******");
+		String imageToolBar =
+			environmentTestCase.toolBarImagesPath + File.separator
+				+ "PrintPreviewCanvas.png";
+		String imageExpected =
+			environmentTestCase.toolTipsImagePath + File.separator + "PrintPreview.png";
+		boolean result =
+			TSFunctions.isToolTipPresentWeb(testerTestCase, imageToolBar, imageExpected);
+
+		if (!result)
+		{
+			TSAutomationUtils.getScreenShot(testerTestCase, className
+				+ "testHoverPrintPreview", environmentTestCase.evidencePath);
+		}
+
+		return result;
+	}
 
 	public boolean testOnMouseHoverPan()
 	{
@@ -563,7 +602,7 @@ public class TSHtml5PreviewTestCases
 		System.out.println("*******TestOnMouseHoverRunMaximumFlowCanvas*******");
 		String imageToolBar =
 			environmentTestCase.toolBarImagesPath + File.separator
-				+ "RunMaximumFlowCanvas.png";
+				+ "Run.png";
 		String imageExpected =
 			environmentTestCase.toolTipsImagePath + File.separator + "RunMaximumFlow.png";
 		boolean result =
@@ -705,6 +744,100 @@ public class TSHtml5PreviewTestCases
 		testerTestCase.clearResults(environmentTestCase.toolBarImagesPath
 			+ File.separator + "ClearResultsCanvas.png");
 		
+		return result;
+	}
+	
+	public boolean testOnMouseHoverMSlice(){
+		System.out.println("*******TestOnMouseHoverMSlice*******");
+		String imageToolBar =
+			environmentTestCase.toolBarImagesPath + File.separator + "Run.png";
+		String imageExpected =
+			environmentTestCase.toolTipsImagePath + File.separator + "MSlice.png";
+		boolean result =
+			TSFunctions.isToolTipPresentWeb(testerTestCase,
+				imageToolBar,
+				imageExpected);
+
+		if (!result)
+		{
+			TSAutomationUtils.getScreenShot(testerTestCase, className
+				+ "testOnMouseHoverOverview", environmentTestCase.evidencePath);
+		}
+		
+		return result;
+	}
+	
+
+	public boolean testMSlice100()
+	{
+		System.out.println("******testMSlice100******");
+		boolean result;
+		String minCapacity =
+			environmentTestCase.projectImagesPath + File.separator + "100Canvas.png";
+		String expectedLayout =
+			environmentTestCase.projectImagesPath + File.separator + "MinCapacity100.png";
+		String clearResultsButton =
+			environmentTestCase.toolBarImagesPath + File.separator
+				+ "ClearResultsCanvas.png";
+		if (testerTestCase.operativeSystem.contains("windows"))
+		{
+			result =
+				TSFunctions.runMSliceCanvasWindows(testerTestCase,
+					minCapacity,
+					expectedLayout);
+		}
+		else
+		{
+			result =
+				TSFunctions.runMSliceCanvasMac(testerTestCase,
+					minCapacity,
+					expectedLayout);
+		}
+		if (!result)
+		{
+			TSAutomationUtils.getScreenShot(testerTestCase,
+				className + "testMSlice100",
+				environmentTestCase.evidencePath);
+
+		}
+
+		testerTestCase.clearResults(clearResultsButton);
+		testerTestCase.refreshBrowser();
+		return result;
+	}
+
+
+	public boolean testMSlice1000(){
+		boolean result;
+		System.out.println("******testMSlice100******");
+		String minCapacity = environmentTestCase.projectImagesPath + File.separator+"1000Canvas.png";
+		String expectedLayout = environmentTestCase.projectImagesPath + File.separator + "MinCapacity1000.png";
+		String clearResultsButton=environmentTestCase.toolBarImagesPath+File.separator + "ClearResultsCanvas.png";
+		
+		if (testerTestCase.operativeSystem.contains("windows"))
+		{
+			result =
+				TSFunctions.runMSliceCanvasWindows(testerTestCase,
+					minCapacity,
+					expectedLayout);
+		}
+		else
+		{
+			result =
+				TSFunctions.runMSliceCanvasMac(testerTestCase,
+					minCapacity,
+					expectedLayout);
+		}
+		if (!result)
+		{
+			TSAutomationUtils.getScreenShot(testerTestCase, className
+				+ "testMSlice100", environmentTestCase.evidencePath);
+
+		}
+		
+		
+		testerTestCase.clearResults(clearResultsButton);
+		testerTestCase.refreshBrowser();
 		return result;
 	}
 
