@@ -17,11 +17,11 @@ public class TSTesterFunctionality
 		Settings.MoveMouseDelay = new Float(1.5);
 		String defaultBrowser =TSAutomationUtils.getProperty("DefaultBrowser");
 		environment =
-			new TSEnvironment("AcyclicTest", TSEnvironment.HTML5_PREVIEW,defaultBrowser);
+			new TSEnvironment("MSlice", TSEnvironment.HTML5_PREVIEW,defaultBrowser);
 		TSAutomationTester = new TSTester(defaultBrowser);		
 		html5Tester = new TSHtml5PreviewTestCases(environment, TSAutomationTester, className);
-		
 		environment = TSFunctions.setScreenFolder(TSAutomationTester, environment);
+		TSAutomationUtils.pauseScript();
 
 	}
 	
@@ -33,6 +33,24 @@ public class TSTesterFunctionality
 		// TSAutomationTester.closeAll();
 	}
 
+
+	@Test
+	public void testOnMouseHoverSaveAsImage()
+	{
+		Assert.assertTrue(html5Tester.testOnMouseHoverSaveAsImage());
+	}
+	
+	@Test
+	public void testOnMouseHoverPrintSetUp()
+	{
+		Assert.assertTrue(html5Tester.testOnMouseHoverPrintSetUp());
+	}
+	
+	@Test
+	public void testOnMouseHoverPrintPreview()
+	{
+		Assert.assertTrue(html5Tester.testOnMouseHoverPrintPreview());
+	}
 	@Test
 	public void testOnMouseHoverSelect()
 	{
@@ -88,67 +106,36 @@ public class TSTesterFunctionality
 	}
 	
 	@Test
-	public void testOnMouseHoverHierarchicalLayout()
+	public void testOnMouseHoverMSlice()
 	{
-		Assert.assertTrue(html5Tester.testOnMouseHoverHierarchicalLayout());
-	}
-	
-	@Test
-	public void testOnMouseHoverOrthogonalLayout()
-	{
-		Assert.assertTrue(html5Tester.testOnMouseHoverOrthogonalLayout());
-	}
-	
-	@Test
-	public void testOnMouseHoverRunAcyclicTest()
-	{
-		Assert.assertTrue(html5Tester.testOnMouseHoverRunAcyclicTest());
+		Assert.assertTrue(html5Tester.testOnMouseHoverMSlice());	
 	}
 
 	@Test
 	public void testOnMouseHoverClearResults()
 	{
-		Assert.assertTrue(html5Tester.testOnMouseHoverClearResults());
+		Assert.assertTrue(html5Tester.testOnMouseHoverClearResults());	
 	}
-
 	
-	@Test
-	public void testHierarchicalLayout()
-	{
-		Assert.assertTrue(html5Tester.testHierarchicalLayout());
-		
-	}
-
-
 	@Test
 	public void testIsOverviewPresent()
 	{
-
 		Assert.assertTrue(html5Tester.testIsOverviewPresent());
+
 	}
-
-
 	@Test
-	public void testIsRunAcyclicButtonEnable()
+	public void testMSlice100()
 	{
-		Assert.assertTrue(html5Tester.testIsRunAcyclicButtonEnable());
+		Assert.assertTrue(html5Tester.testMSlice100());
 	}
-
-
-	@Test
-	public void testIsClearResultsButtonDisable()
-	{
-		Assert.assertTrue(html5Tester.testIsClearResultsButtonDisable());
-	}
-
-
-	@Test
-	public void testRunAcyclicTest()
-	{
 	
-		Assert.assertTrue(html5Tester.testRunAcyclicTest());
-
+	@Test
+	public void testMSlice1000(){
+		
+		Assert.assertTrue(html5Tester.testMSlice1000());
+		
 	}
+	
 	
 	static TSTester TSAutomationTester;
 
