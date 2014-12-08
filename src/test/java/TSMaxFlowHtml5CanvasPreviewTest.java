@@ -129,19 +129,19 @@ public class TSMaxFlowHtml5CanvasPreviewTest
 		Assert.assertTrue(html5Tester.testOnMouseHoverSetSinkNode());
 	}
 
-
+	@Test
 	public void testOnMouseHoverSetSinNode()
 	{
 		Assert.assertTrue(html5Tester.testOnMouseHoverSetSinkNode());
 	}
 
-
+	@Test
 	public void testOnMouseHoverRunMaximumFlow()
 	{
 		Assert.assertTrue(html5Tester.testOnMouseHoverRunMaximumFlow());
 	}
 
-
+	@Test
 	public void testOnMouseHoverClearResults()
 	{
 		Assert.assertTrue(html5Tester.testOnMouseHoverClearResults());
