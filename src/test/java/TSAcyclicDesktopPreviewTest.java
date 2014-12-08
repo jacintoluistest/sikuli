@@ -119,7 +119,6 @@ public class TSAcyclicDesktopPreviewTest
 	@Test
 	public void testIsOverviewPresent()
 	{
-
 		Assert.assertTrue(desktopTester.testIsOverviewPresent());
 	}
 
