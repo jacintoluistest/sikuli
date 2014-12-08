@@ -2,31 +2,36 @@ import java.io.File;
 import org.sikuli.script.FindFailed;
 import org.sikuli.script.Pattern;
 
+
 public class TSFunctions
 {
-	public static TSTester setDesktopTest(TSTester tester, String projectPathPropertyName){
+	public static TSTester setDesktopTest(TSTester tester, String projectPathPropertyName)
+	{
 		tester.LaunchTS();
 		tester.openProject(projectPathPropertyName);
 		tester.launchDesktopPreview();
 		tester.maximizeWindow();
 		TSAutomationUtils.pauseScript(new Long(2000));
-		
+
 		return tester;
 	}
-	
-	
-	public static TSTester setHtml5Test(TSTester tester, String project){
+
+
+	public static TSTester setHtml5Test(TSTester tester, String project)
+	{
 		tester.LaunchTS();
 		tester.openProject(project);
 		tester.launchHtml5Preview();
 		tester.fullScreenBrowser();
 		TSAutomationUtils.pauseScript(new Long(2000));
 		tester.refreshBrowser();
-		
+
 		return tester;
 	}
-	
-	public static TSTester setImageMapTest(TSTester tester, String project){
+
+
+	public static TSTester setImageMapTest(TSTester tester, String project)
+	{
 		tester.LaunchTS();
 		tester.openProject(project);
 		tester.launchImageMap();
@@ -35,27 +40,28 @@ public class TSFunctions
 		tester.refreshBrowser();
 		return tester;
 	}
-	
-	public static TSEnvironment  setScreenFolder(TSTester tester, TSEnvironment environment){
-		
-		  int screenId = tester.automationTesterCurrentScreen.getID();
-			if (screenId == 0)
-			{
-				environment.projectImagesPath =
-					environment.projectImagesPath.concat(File.separator + "PrimaryScreen");
 
-			}
-			else if (screenId == 1)
-			{
-				environment.projectImagesPath =
-					environment.projectImagesPath.concat(File.separator + "SecondaryScreen");
-			}
-			return environment;
+
+	public static TSEnvironment setScreenFolder(TSTester tester, TSEnvironment environment)
+	{
+
+		int screenId = tester.automationTesterCurrentScreen.getID();
+		if (screenId == 0)
+		{
+			environment.projectImagesPath =
+				environment.projectImagesPath.concat(File.separator + "PrimaryScreen");
+
 		}
-	
-	
-	public static boolean isDesktopPreviewLaunched(TSTester tester,
-		String expected)
+		else if (screenId == 1)
+		{
+			environment.projectImagesPath =
+				environment.projectImagesPath.concat(File.separator + "SecondaryScreen");
+		}
+		return environment;
+	}
+
+
+	public static boolean isDesktopPreviewLaunched(TSTester tester, String expected)
 	{
 		boolean result;
 		if (tester.isPresentElement(expected) != null)
@@ -87,8 +93,11 @@ public class TSFunctions
 		return result;
 
 	}
-	
-	public static boolean isCanvasPreviewLaunched(TSTester tester , String expectedImagePath){
+
+
+	public static boolean isCanvasPreviewLaunched(TSTester tester,
+		String expectedImagePath)
+	{
 		boolean result;
 		if (tester.isPresentElement(expectedImagePath) != null)
 		{
@@ -183,7 +192,8 @@ public class TSFunctions
 		}
 		return result;
 	}
-	
+
+
 	public static boolean isLayoutPresent(TSTester tester,
 		String expectedLayout,
 		float similar)
@@ -206,10 +216,10 @@ public class TSFunctions
 		String imageExpected)
 	{
 		boolean result = true;
-		long timeOut = Long.valueOf( TSAutomationUtils.getProperty("OnMouseHoverTimeOut"));
-		
-			tester.onMouseHoverImageMap(imageHover);
-		
+		long timeOut = Long.valueOf(TSAutomationUtils.getProperty("OnMouseHoverTimeOut"));
+
+		tester.onMouseHoverImageMap(imageHover);
+
 		if (tester.isPresentElement(imageExpected, new Float(0.64), timeOut) != null)
 		{
 			result = true;
@@ -250,10 +260,12 @@ public class TSFunctions
 		System.out.println("isToolTipPresent result =" + result);
 		return result;
 	}
-	
+
+
 	public static boolean isToolTipPresentDesktop(TSTester tester,
 		String imageHover,
-		String imageExpected, float similar)
+		String imageExpected,
+		float similar)
 
 	{
 		boolean result = true;
@@ -261,7 +273,7 @@ public class TSFunctions
 
 		if (tester.operativeSystem.contains("windows"))
 		{
-			tester.onMouseHoverDesktop(imageHover,similar);
+			tester.onMouseHoverDesktop(imageHover, similar);
 		}
 
 		else
@@ -280,7 +292,9 @@ public class TSFunctions
 		return result;
 	}
 
-	public static boolean isButtonPresent(TSTester tester, String buttonExpected){
+
+	public static boolean isButtonPresent(TSTester tester, String buttonExpected)
+	{
 		boolean result;
 		if (tester.isPresentElement(buttonExpected) != null)
 		{
@@ -293,10 +307,14 @@ public class TSFunctions
 
 		return result;
 	}
-	
-	public static boolean isButtonPresent(TSTester tester, String buttonExpected, float similar){
+
+
+	public static boolean isButtonPresent(TSTester tester,
+		String buttonExpected,
+		float similar)
+	{
 		boolean result;
-		if (tester.isPresentElement(buttonExpected,similar) != null)
+		if (tester.isPresentElement(buttonExpected, similar) != null)
 		{
 			result = true;
 		}
@@ -307,26 +325,66 @@ public class TSFunctions
 
 		return result;
 	}
-	
-	public static boolean runMSliceCanvas(TSTester tester,String minCapacity, String expectedLayout){
-	boolean result;
-		String mSliceButton = tester.tspHtml5PreviewImagePath + File.separator + "MSliceCanvas.png";
-		String minCapacityButton = tester.tspHtml5PreviewImagePath + File.separator + "MinCapacityCanvas.png";
-		String comboButton = tester.tspHtml5PreviewImagePath + File.separator + "ComboCanvas.png";
-		try{
+
+
+	public static boolean runMSliceCanvasWindows(TSTester tester,
+		String minCapacity,
+		String expectedLayout)
+	{
+		boolean result;
+		String mSliceButton =
+			tester.tspHtml5PreviewImagePath + File.separator + "Run.png";
+		String minCapacityButton =
+			tester.tspHtml5PreviewImagePath + File.separator + "MinCapacityCanvas.png";
+		String comboButton =
+			tester.tspHtml5PreviewImagePath + File.separator + "ComboCanvas.png";
+		try
+		{
 			tester.automationTesterCurrentScreen.click(mSliceButton);
 			tester.automationTesterCurrentScreen.doubleClick(minCapacityButton);
 			tester.automationTesterCurrentScreen.click(comboButton);
 			tester.automationTesterCurrentScreen.click(minCapacity);
 		}
-		
-		catch(FindFailed ff){
+
+		catch (FindFailed ff)
+		{
 			System.out.println(ff.getMessage());
 		}
-		result=isLayoutPresent(tester, expectedLayout, new Float(0.80));
-	
-	
-	return result;
+		result = isLayoutPresent(tester, expectedLayout, new Float(0.80));
+
+		return result;
+	}
+
+	public static boolean runMSliceCanvasMac(TSTester tester,
+		String minCapacity,
+		String expectedLayout)
+	{
+		boolean result;
+		String mSliceButton =
+			tester.tspHtml5PreviewImagePath + File.separator + "Run.png";
+		String minCapacityButton =
+			tester.tspHtml5PreviewImagePath + File.separator + "MinCapacityCanvas.png";
+		
+		String preComboButton = tester.tspHtml5PreviewImagePath + File.separator + "54.png";
+		String comboButton =
+			tester.tspHtml5PreviewImagePath + File.separator + "ComboCanvas.png";
+		
+		try
+		{
+			tester.automationTesterCurrentScreen.click(mSliceButton);
+			tester.automationTesterCurrentScreen.click(minCapacityButton);
+			tester.automationTesterCurrentScreen.click(preComboButton);
+			tester.automationTesterCurrentScreen.click(comboButton);
+			tester.automationTesterCurrentScreen.click(minCapacity);
+		}
+
+		catch (FindFailed ff)
+		{
+			System.out.println(ff.getMessage());
+		}
+		result = isLayoutPresent(tester, expectedLayout, new Float(0.80));
+
+		return result;
 	}
 
 
@@ -378,96 +436,73 @@ public class TSFunctions
 		return result;
 
 	}
-			
 
-	
-	public static boolean runMaxFlowDesktop(TSTester tester, String expectedImage,
-		TSEnvironment environment){
+
+	public static boolean runMaxFlowDesktop(TSTester tester,
+		String expectedImage,
+		TSEnvironment environment)
+	{
 		boolean result = false;
 		float similar = new Float(0.94);
-		float similarButtons = new Float (0.94);
-		String sourceNode = environment.projectImagesPath + File.separator + "sourceNode.png";
-		String sinkNode =environment.projectImagesPath + File.separator + "sinkNode.png";
-		String setSourceNodeButton=environment.toolBarImagesPath+File.separator + "SetSourceNodeToolBarDesktop.png";
-		String setSinkNodeButton=environment.toolBarImagesPath + File.separator + "SetSinkNodeToolBarDesktop.png";
-		String runMaximumFlowButton=environment.toolBarImagesPath + File.separator + "Run.png";
-		
-		try{
+		float similarButtons = new Float(0.94);
+		String sourceNode =
+			environment.projectImagesPath + File.separator + "sourceNode.png";
+		String sinkNode = environment.projectImagesPath + File.separator + "sinkNode.png";
+		String setSourceNodeButton =
+			environment.toolBarImagesPath + File.separator
+				+ "SetSourceNodeToolBarDesktop.png";
+		String setSinkNodeButton =
+			environment.toolBarImagesPath + File.separator
+				+ "SetSinkNodeToolBarDesktop.png";
+		String runMaximumFlowButton =
+			environment.toolBarImagesPath + File.separator + "Run.png";
+
+		try
+		{
 			tester.automationTesterCurrentScreen.click(new Pattern(sourceNode).similar(similar));
 			tester.automationTesterCurrentScreen.click(new Pattern(setSourceNodeButton).similar(similarButtons));
 			tester.automationTesterCurrentScreen.click(new Pattern(sinkNode).similar(similar));
 			tester.automationTesterCurrentScreen.click(new Pattern(setSinkNodeButton).similar(similarButtons));
 			tester.automationTesterCurrentScreen.click(new Pattern(runMaximumFlowButton).similar(similarButtons));
 		}
-		
+
 		catch (FindFailed ff)
 		{
 			System.out.println(ff.getMessage());
 		}
-		
-		result =isLayoutPresent(tester, expectedImage, similar);
-		
+
+		result = isLayoutPresent(tester, expectedImage, similar);
+
 		return result;
 	}
-	
-	public static boolean runMaxFlowHtml5(TSTester tester, String layoutExpected, String viewExpected,
-		TSEnvironment environment){
+
+
+	public static boolean runMaxFlowHtml5(TSTester tester,
+		String layoutExpected,
+		String viewExpected,
+		TSEnvironment environment)
+	{
 		boolean result = false;
 		float similar = new Float(0.90);
-		float similarButtons = new Float (0.94);
-		String sourceNode = environment.projectImagesPath + File.separator + "sourceNode.png";
-		String sinkNode =environment.projectImagesPath + File.separator + "sinkNode.png";
-		String setSourceNodeButton=environment.toolBarImagesPath+File.separator + "SetSourceNodeCanvas.png";
-		String setSinkNodeButton=environment.toolBarImagesPath + File.separator + "SetSinkNodeCanvas.png";
-		String runMaximumFlowButton=environment.toolBarImagesPath + File.separator + "Run.png";
-		
-		try{
-			tester.automationTesterCurrentScreen.click(new Pattern(sourceNode).similar(similarButtons));
-			TSAutomationUtils.pauseScript(new Long(800));
-			tester.automationTesterCurrentScreen.click(new Pattern(setSourceNodeButton).similar(similarButtons));
-			TSAutomationUtils.pauseScript(new Long(800));
-			tester.automationTesterCurrentScreen.click(new Pattern(sinkNode).similar(similarButtons));
-			TSAutomationUtils.pauseScript(new Long(800));
-			tester.automationTesterCurrentScreen.click(new Pattern(setSinkNodeButton).similar(similarButtons));
-			TSAutomationUtils.pauseScript(new Long(800));
-			tester.automationTesterCurrentScreen.click(new Pattern(runMaximumFlowButton).similar(similarButtons));
-			TSAutomationUtils.pauseScript(new Long(800));
-		}
-		
-		catch (FindFailed ff)
+		float similarButtons = new Float(0.94);
+		String sourceNode =
+			environment.projectImagesPath + File.separator + "sourceNode.png";
+		String sinkNode = environment.projectImagesPath + File.separator + "sinkNode.png";
+		String setSourceNodeButton =
+			environment.toolBarImagesPath + File.separator + "SetSourceNodeCanvas.png";
+		String setSinkNodeButton =
+			environment.toolBarImagesPath + File.separator + "SetSinkNodeCanvas.png";
+		String runMaximumFlowButton =
+			environment.toolBarImagesPath + File.separator + "Run.png";
+
+		try
 		{
-			System.out.println(ff.getMessage());
-		}
-		if(isLayoutPresent(tester, layoutExpected, similar)&&(isViewPresent(tester, viewExpected,similar)))
-		{
-			result = true;
-		}
-		else {
-			result = false;
-		}
-		
-		tester.clearResultsMaxFlowHtml5();
-		return result;
-	}
-	
-	
-	public static boolean runMaxFlowImageMap(TSTester tester, String layoutExpected, String viewExpected,
-		TSEnvironment environment){
-		boolean result = false;
-		float similar = new Float(0.90);
-		float similarButtons = new Float (0.94);
-		String sourceNode = environment.projectImagesPath + File.separator + "sourceNode.png";
-		String sinkNode =environment.projectImagesPath + File.separator + "sinkNode.png";
-		String setSourceNodeButton=environment.toolBarImagesPath+File.separator + "SetSourceNodeImageMap.png";
-		String setSinkNodeButton=environment.toolBarImagesPath + File.separator + "SetSinkNodeImageMap.png";
-		String runMaximumFlowButton=environment.toolBarImagesPath + File.separator + "RunImageMap.png";
-		
-		try{
+			
 			tester.automationTesterCurrentScreen.click(new Pattern(sourceNode).similar(similar));
-			if(TSAutomationUtils.getOs().contains("mac"))
+			if (TSAutomationUtils.getOs().contains("mac"))
 			{
 				tester.automationTesterCurrentScreen.click(new Pattern(sourceNode).similar(similar));
-				
+
 			}
 			TSAutomationUtils.pauseScript(new Long(800));
 			tester.automationTesterCurrentScreen.click(new Pattern(setSourceNodeButton).similar(similarButtons));
@@ -479,23 +514,79 @@ public class TSFunctions
 			tester.automationTesterCurrentScreen.click(new Pattern(runMaximumFlowButton).similar(similarButtons));
 			TSAutomationUtils.pauseScript(new Long(800));
 		}
-		
+
 		catch (FindFailed ff)
 		{
 			System.out.println(ff.getMessage());
 		}
-		if(isLayoutPresent(tester, layoutExpected, similar)&&(isViewPresent(tester, viewExpected,similar)))
+		if (isLayoutPresent(tester, layoutExpected, similar)
+			&& (isViewPresent(tester, viewExpected, similar)))
 		{
 			result = true;
 		}
-		else {
+		else
+		{
 			result = false;
 		}
-		
+
+		tester.clearResultsMaxFlowHtml5();
+		return result;
+	}
+
+
+	public static boolean runMaxFlowImageMap(TSTester tester,
+		String layoutExpected,
+		String viewExpected,
+		TSEnvironment environment)
+	{
+		boolean result = false;
+		float similar = new Float(0.90);
+		float similarButtons = new Float(0.94);
+		String sourceNode =
+			environment.projectImagesPath + File.separator + "sourceNode.png";
+		String sinkNode = environment.projectImagesPath + File.separator + "sinkNode.png";
+		String setSourceNodeButton =
+			environment.toolBarImagesPath + File.separator + "SetSourceNodeImageMap.png";
+		String setSinkNodeButton =
+			environment.toolBarImagesPath + File.separator + "SetSinkNodeImageMap.png";
+		String runMaximumFlowButton =
+			environment.toolBarImagesPath + File.separator + "RunImageMap.png";
+
+		try
+		{
+			tester.automationTesterCurrentScreen.click(new Pattern(sourceNode).similar(similar));
+			if (TSAutomationUtils.getOs().contains("mac"))
+			{
+				tester.automationTesterCurrentScreen.click(new Pattern(sourceNode).similar(similar));
+
+			}
+			TSAutomationUtils.pauseScript(new Long(800));
+			tester.automationTesterCurrentScreen.click(new Pattern(setSourceNodeButton).similar(similarButtons));
+			TSAutomationUtils.pauseScript(new Long(800));
+			tester.automationTesterCurrentScreen.click(new Pattern(sinkNode).similar(similar));
+			TSAutomationUtils.pauseScript(new Long(800));
+			tester.automationTesterCurrentScreen.click(new Pattern(setSinkNodeButton).similar(similarButtons));
+			TSAutomationUtils.pauseScript(new Long(800));
+			tester.automationTesterCurrentScreen.click(new Pattern(runMaximumFlowButton).similar(similarButtons));
+			TSAutomationUtils.pauseScript(new Long(800));
+		}
+
+		catch (FindFailed ff)
+		{
+			System.out.println(ff.getMessage());
+		}
+		if (isLayoutPresent(tester, layoutExpected, similar)
+			&& (isViewPresent(tester, viewExpected, similar)))
+		{
+			result = true;
+		}
+		else
+		{
+			result = false;
+		}
+
 		tester.clearResultsMaxFlowImageMap();
 		return result;
 	}
-	
 
-	
 }
