@@ -1,3 +1,5 @@
+import org.sikuli.script.Sikulix;
+
 
 
 
@@ -12,8 +14,11 @@
  */
 public class TestSikuli {
 	public static void main(String args[]){
-		TSTester tester = new TSTester();
-		tester.closeCurrentBrowser();
+	
+		org.sikuli.basics.Debug.setDebugLevel(3);
+		TSAutomationUtils.pauseScript(new Long(3000));
+		TSTester tester = new TSTester(0);
+		tester.fullScreenBrowserMac();
 		
 	
 	}

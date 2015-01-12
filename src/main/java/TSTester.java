@@ -40,6 +40,14 @@ public class TSTester
 		automationTesterCurrentScreen = new Screen();
 
 	}
+	
+	public TSTester(int screenId)
+	{
+		setAutomationOsEnvironment();
+		System.out.println("Wait Time Out for sleep is " + openTSPerspectivesTimeOut);
+		automationTesterCurrentScreen = new Screen(screenId);
+
+	}
 
 
 	public TSTester(String browser)
@@ -669,15 +677,15 @@ public class TSTester
 	public void onMouseHoverImageMap(String patternStringPath)
 	{
 		float similar;
-		if(operativeSystem.contains("windows"))
+		if (operativeSystem.contains("windows"))
 		{
 			similar = new Float(0.85);
 		}
 		else
 		{
-		similar = new Float(0.78);	
+			similar = new Float(0.78);
 		}
-		
+
 		try
 		{
 			automationTesterCurrentScreen.hover(new Pattern(patternStringPath).similar(similar));
@@ -721,17 +729,45 @@ public class TSTester
 	{
 		if (operativeSystem.contains("windows"))
 		{
-			automationTesterCurrentScreen.type(Key.F11);
+			fullScreenBrowserWindows();
+
 		}
 		else
 		{
-			Region buttonsRegion = new Region(0, 0, 70, 50,automationTesterCurrentScreen.getID());
-			if (buttonsRegion.exists(tsperspectivesToolBarImagesPath + File.separator
-				+ "maximize.png") != null)
-			{
-				automationTesterCurrentScreen.type("f", Key.CTRL + Key.META);
-			}
+			fullScreenBrowserMac();
 		}
+	}
+
+
+	public void fullScreenBrowserMac()
+	{
+		// Region buttonsRegion =
+		// new Region(0, 0, 70, 50, automationTesterCurrentScreen.getID());
+		// if (buttonsRegion.exists(tsperspectivesToolBarImagesPath + File.separator
+		// + "maximize.png") != null)
+		System.out.println(TSAutomationUtils.getProperty("DefaultBrowser"));
+		if (TSAutomationUtils.getProperty("DefaultBrowser").contains("Chrome"))
+		{
+			presentationView();
+		}
+		else
+		{
+			automationTesterCurrentScreen.type("f", Key.CTRL + Key.META);
+		}
+
+	}
+
+
+	public void fullScreenBrowserWindows()
+	{
+		automationTesterCurrentScreen.type(Key.F11);
+
+	}
+
+
+	public void presentationView()
+	{
+		automationTesterCurrentScreen.type("f", Key.SHIFT + Key.CMD);
 	}
 
 
@@ -965,10 +1001,10 @@ public class TSTester
 		try
 		{
 			automationTesterCurrentScreen.click(button);
-			if(operativeSystem.contains("mac"))
+			if (operativeSystem.contains("mac"))
 			{
 				automationTesterCurrentScreen.click(button);
-				
+
 			}
 		}
 		catch (FindFailed ff)
@@ -1156,10 +1192,12 @@ public class TSTester
 			System.out.println(ff.getMessage());
 		}
 	}
-	
-	public void undoImageMap(){
-		String undoButton= tspImageMapImagesPath+File.separator + "undo.png";
-		
+
+
+	public void undoImageMap()
+	{
+		String undoButton = tspImageMapImagesPath + File.separator + "undo.png";
+
 		try
 		{
 			automationTesterCurrentScreen.click(undoButton);
@@ -1168,26 +1206,14 @@ public class TSTester
 		{
 			System.out.println(ff.getMessage());
 		}
-		
-	}
-	
-	public void undoHtml5(){
-		String undoButton= tspHtml5PreviewImagePath+File.separator + "undoCanvas.png";
-		
-		try
-		{
-			automationTesterCurrentScreen.click(undoButton);
-		}
-		catch (FindFailed ff)
-		{
-			System.out.println(ff.getMessage());
-		}
-		
+
 	}
 
-	public void undoDesktop(){
-		String undoButton= tspDesktopPreviewImagesPath+File.separator + "undo.png";
-		
+
+	public void undoHtml5()
+	{
+		String undoButton = tspHtml5PreviewImagePath + File.separator + "undoCanvas.png";
+
 		try
 		{
 			automationTesterCurrentScreen.click(undoButton);
@@ -1196,6 +1222,22 @@ public class TSTester
 		{
 			System.out.println(ff.getMessage());
 		}
-		
+
+	}
+
+
+	public void undoDesktop()
+	{
+		String undoButton = tspDesktopPreviewImagesPath + File.separator + "undo.png";
+
+		try
+		{
+			automationTesterCurrentScreen.click(undoButton);
+		}
+		catch (FindFailed ff)
+		{
+			System.out.println(ff.getMessage());
+		}
+
 	}
 }
