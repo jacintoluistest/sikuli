@@ -15,12 +15,12 @@ public class TSMSliceHtml5PreviewTest
 				String defaultBrowser = TSAutomationUtils.getProperty("DefaultBrowser");
 				className = TSMaxFlowHtml5CanvasPreviewTest.class.getName();
 				environment =
-					new TSEnvironment("AcyclicTest", TSEnvironment.HTML5_PREVIEW, defaultBrowser);
+					new TSEnvironment("MSlice", TSEnvironment.HTML5_PREVIEW, defaultBrowser);
 				TSAutomationTester = new TSTester(defaultBrowser);
 				html5Tester =
 					new TSHtml5PreviewTestCases(environment, TSAutomationTester, className);
 				TSAutomationTester =
-					TSFunctions.setHtml5Test(TSAutomationTester, "AcyclicTestProjectPath");
+					TSFunctions.setHtml5Test(TSAutomationTester, "MSliceProjectPath");
 				environment = TSFunctions.setScreenFolder(TSAutomationTester, environment);
 	}
 	
