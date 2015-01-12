@@ -31,6 +31,12 @@ public class TSHtml5PreviewTestCases
 			environmentTestCase.toolTipsImagePath + File.separator + "SaveAsImage.png";
 		boolean result =
 			TSFunctions.isToolTipPresentWeb(testerTestCase, imageToolBar, imageExpected);
+		if (!result)
+		{
+			TSAutomationUtils.getScreenShot(testerTestCase, className
+				+ "testOnMouseHoverSaveAsImage", environmentTestCase.evidencePath);
+		}
+
 		return result;
 	}
 
@@ -54,6 +60,7 @@ public class TSHtml5PreviewTestCases
 		return result;
 
 	}
+
 
 	public boolean testOnMouseHoverPrintSetUp()
 	{
@@ -94,6 +101,7 @@ public class TSHtml5PreviewTestCases
 
 		return result;
 	}
+
 
 	public boolean testOnMouseHoverPan()
 	{
@@ -476,8 +484,30 @@ public class TSHtml5PreviewTestCases
 
 	public boolean testIsOverviewPresent()
 	{
-		Float similar = new Float(0.75);
+		Float similar = new Float(0.70);
 		System.out.println("*******TestIsOverviewPresent*******");
+		TSAutomationUtils.pauseScript(new Long(700));
+		testerTestCase.openOverviewHtml5();
+		boolean result =
+			TSFunctions.isOverviewPresent(testerTestCase,
+				environmentTestCase.projectImagesPath + File.separator
+					+ "overviewExpected.png",
+				similar);
+		if (!result)
+		{
+			TSAutomationUtils.getScreenShot(testerTestCase, className
+				+ "testIsOverviewPresent", environmentTestCase.evidencePath);
+		}
+		testerTestCase.closeOverviewCanvas();
+		return result;
+
+	}
+	
+	public boolean testIsOverviewPresent(float similar)
+	{
+		System.out.println("similar = "+ similar);
+		System.out.println("*******TestIsOverviewPresent*******");
+		TSAutomationUtils.pauseScript(new Long(700));
 		testerTestCase.openOverviewHtml5();
 		boolean result =
 			TSFunctions.isOverviewPresent(testerTestCase,
@@ -499,6 +529,7 @@ public class TSHtml5PreviewTestCases
 	{
 		System.out.println("testCircularLayout");
 		testerTestCase.CircularLayoutHtml5();
+		TSAutomationUtils.pauseScript(new Long(700));
 		boolean result =
 			TSFunctions.isLayoutPresent(testerTestCase,
 				environmentTestCase.projectImagesPath + File.separator
@@ -507,10 +538,10 @@ public class TSHtml5PreviewTestCases
 		if (!result)
 		{
 			TSAutomationUtils.getScreenShot(testerTestCase, className
-				+ "testIsOverviewPresent", environmentTestCase.evidencePath);
+				+ "testCircularLayout", environmentTestCase.evidencePath);
 		}
 
-		testerTestCase.SymmetricLayoutHtml5();
+		testerTestCase.undoHtml5();
 		return result;
 	}
 
@@ -519,6 +550,7 @@ public class TSHtml5PreviewTestCases
 	{
 		System.out.println("*************testHierarchicalLayout*************");
 		testerTestCase.HierarchicalLayoutHtml5();
+		TSAutomationUtils.pauseScript(new Long(500));
 		boolean result =
 			TSFunctions.isLayoutPresent(testerTestCase,
 				environmentTestCase.projectImagesPath + File.separator
@@ -549,9 +581,8 @@ public class TSHtml5PreviewTestCases
 
 		if (!result)
 		{
-			TSAutomationUtils.getScreenShot(testerTestCase,
-				className + "testOnMouseHoverClosenessCentralityLayout",
-				environmentTestCase.evidencePath);
+			TSAutomationUtils.getScreenShot(testerTestCase, className
+				+ "testOnMouseHoverInteractiveZoom", environmentTestCase.evidencePath);
 		}
 		return result;
 	}
@@ -601,8 +632,7 @@ public class TSHtml5PreviewTestCases
 	{
 		System.out.println("*******TestOnMouseHoverRunMaximumFlowCanvas*******");
 		String imageToolBar =
-			environmentTestCase.toolBarImagesPath + File.separator
-				+ "Run.png";
+			environmentTestCase.toolBarImagesPath + File.separator + "Run.png";
 		String imageExpected =
 			environmentTestCase.toolTipsImagePath + File.separator + "RunMaximumFlow.png";
 		boolean result =
@@ -645,7 +675,13 @@ public class TSHtml5PreviewTestCases
 				expectedLayout,
 				expectedView,
 				environmentTestCase);
+		if (!result)
+		{
+			TSAutomationUtils.getScreenShot(testerTestCase, className
+				+ "runMaximumFlowHtml5", environmentTestCase.evidencePath);
+		}
 
+		testerTestCase.clearResultsMaxFlowHtml5();
 		return result;
 	}
 
@@ -654,8 +690,7 @@ public class TSHtml5PreviewTestCases
 	{
 		System.out.println("******testOnMouseHoverRunAcyclicTest******");
 		String imageToolBar =
-			environmentTestCase.toolBarImagesPath + File.separator
-				+ "Run.png";
+			environmentTestCase.toolBarImagesPath + File.separator + "Run.png";
 		String imageExpected =
 			environmentTestCase.toolTipsImagePath + File.separator + "RunAcyclicTest.png";
 		boolean result =
@@ -667,6 +702,7 @@ public class TSHtml5PreviewTestCases
 			TSAutomationUtils.getScreenShot(testerTestCase, className
 				+ "testOnMouseHoverRunAcyclicTest", environmentTestCase.evidencePath);
 		}
+		testerTestCase.clearResultsMaxFlowHtml5();
 
 		return result;
 	}
@@ -726,7 +762,8 @@ public class TSHtml5PreviewTestCases
 					+ "RunAcyclicTestDisable.png",
 				similar)
 			&& TSFunctions.isViewPresent(testerTestCase,
-				environmentTestCase.projectImagesPath + File.separator + "TreeViewImageMap.png"))
+				environmentTestCase.projectImagesPath + File.separator
+					+ "TreeViewCanvas.png"))
 		{
 			result = true;
 		}
@@ -742,31 +779,31 @@ public class TSHtml5PreviewTestCases
 		}
 
 		testerTestCase.clearResults(environmentTestCase.toolBarImagesPath
-			+ File.separator + "ClearResultsCanvas.png");
-		
+			+ File.separator + "ClearResultsEnableCanvas.png");
+
 		return result;
 	}
-	
-	public boolean testOnMouseHoverMSlice(){
+
+
+	public boolean testOnMouseHoverMSlice()
+	{
 		System.out.println("*******TestOnMouseHoverMSlice*******");
 		String imageToolBar =
 			environmentTestCase.toolBarImagesPath + File.separator + "Run.png";
 		String imageExpected =
 			environmentTestCase.toolTipsImagePath + File.separator + "MSlice.png";
 		boolean result =
-			TSFunctions.isToolTipPresentWeb(testerTestCase,
-				imageToolBar,
-				imageExpected);
+			TSFunctions.isToolTipPresentWeb(testerTestCase, imageToolBar, imageExpected);
 
 		if (!result)
 		{
 			TSAutomationUtils.getScreenShot(testerTestCase, className
 				+ "testOnMouseHoverOverview", environmentTestCase.evidencePath);
 		}
-		
+
 		return result;
 	}
-	
+
 
 	public boolean testMSlice100()
 	{
@@ -807,13 +844,19 @@ public class TSHtml5PreviewTestCases
 	}
 
 
-	public boolean testMSlice1000(){
+	public boolean testMSlice1000()
+	{
 		boolean result;
 		System.out.println("******testMSlice100******");
-		String minCapacity = environmentTestCase.projectImagesPath + File.separator+"1000Canvas.png";
-		String expectedLayout = environmentTestCase.projectImagesPath + File.separator + "MinCapacity1000.png";
-		String clearResultsButton=environmentTestCase.toolBarImagesPath+File.separator + "ClearResultsCanvas.png";
-		
+		String minCapacity =
+			environmentTestCase.projectImagesPath + File.separator + "1000Canvas.png";
+		String expectedLayout =
+			environmentTestCase.projectImagesPath + File.separator
+				+ "MinCapacity1000.png";
+		String clearResultsButton =
+			environmentTestCase.toolBarImagesPath + File.separator
+				+ "ClearResultsCanvas.png";
+
 		if (testerTestCase.operativeSystem.contains("windows"))
 		{
 			result =
@@ -830,15 +873,44 @@ public class TSHtml5PreviewTestCases
 		}
 		if (!result)
 		{
-			TSAutomationUtils.getScreenShot(testerTestCase, className
-				+ "testMSlice100", environmentTestCase.evidencePath);
+			TSAutomationUtils.getScreenShot(testerTestCase,
+				className + "testMSlice100",
+				environmentTestCase.evidencePath);
 
 		}
-		
-		
+
 		testerTestCase.clearResults(clearResultsButton);
 		testerTestCase.refreshBrowser();
 		return result;
 	}
 
+
+	public boolean testIsTableViewPresent(String expected)
+	{
+
+		System.out.println("*******testIsTableViewPresent*******");
+
+		boolean result = TSFunctions.isViewPresent(testerTestCase, expected);
+		if (!result)
+		{
+			TSAutomationUtils.getScreenShot(testerTestCase, className
+				+ "testIsTableViewPresent", environmentTestCase.evidencePath);
+		}
+
+		return result;
+	}
+
+
+	public boolean testIsTreeViewPresent(String expected)
+	{
+		System.out.println("*******testIsTreeViewPresent*******");
+
+		boolean result = TSFunctions.isViewPresent(testerTestCase, expected);
+		if (!result)
+		{
+			TSAutomationUtils.getScreenShot(testerTestCase, className
+				+ "testIsTableViewPresent", environmentTestCase.evidencePath);
+		}
+		return result;
+	}
 }
