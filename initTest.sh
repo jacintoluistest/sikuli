@@ -4,4 +4,4 @@ echo $JAVA_HOME
 export M2_HOME=/Users/ljacinto/Applications/apache-maven-3.2.2/
 echo $M2_HOME
 export PATH=$PATH:$M2_HOME/bin
-mvn -Dtest=*DesktopPreviewTest test site
+mvn -Dtest=*TSSocialNetwork* test
