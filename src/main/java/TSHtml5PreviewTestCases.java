@@ -334,7 +334,7 @@ public class TSHtml5PreviewTestCases
 		System.out.println("*******TestOnMouseHoverSymmetricLayout*******");
 		String imageToolBar =
 			environmentTestCase.toolBarImagesPath + File.separator
-				+ "SelectedSymmetricLayout.png";
+				+ "SymmetricLayoutCanvas.png";
 		String imageExpected =
 			environmentTestCase.toolTipsImagePath + File.separator
 				+ "SymmetricLayout.png";
@@ -527,7 +527,7 @@ public class TSHtml5PreviewTestCases
 
 	public boolean testCircularLayout()
 	{
-		System.out.println("testCircularLayout");
+		System.out.println("******testCircularLayout*********");
 		testerTestCase.CircularLayoutHtml5();
 		TSAutomationUtils.pauseScript(new Long(700));
 		boolean result =
