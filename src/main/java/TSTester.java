@@ -550,7 +550,7 @@ public class TSTester
 
 		else
 		{
-			App.close(browser);
+			closeTabMac();
 		}
 
 	}
@@ -737,6 +737,8 @@ public class TSTester
 			fullScreenBrowserMac();
 		}
 	}
+	
+	
 
 
 	public void fullScreenBrowserMac()
@@ -755,6 +757,10 @@ public class TSTester
 			automationTesterCurrentScreen.type("f", Key.CTRL + Key.META);
 		}
 
+	}
+	
+	public void closeTabMac(){
+		automationTesterCurrentScreen.type("W", Key.META);
 	}
 
 
