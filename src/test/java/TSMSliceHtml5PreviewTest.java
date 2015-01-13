@@ -22,6 +22,7 @@ public class TSMSliceHtml5PreviewTest
 				TSAutomationTester =
 					TSFunctions.setHtml5Test(TSAutomationTester, "MSliceProjectPath");
 				environment = TSFunctions.setScreenFolder(TSAutomationTester, environment);
+				
 	}
 	
 	
@@ -31,6 +32,11 @@ public class TSMSliceHtml5PreviewTest
 		TSAutomationTester.fullScreenBrowser();
 		TSAutomationTester.closeCurrentBrowser();
 		TSAutomationTester.closeAll();
+	}
+	
+	public void testIsPreviewDisplayed()
+	{
+		
 	}
 	
 	@Test
