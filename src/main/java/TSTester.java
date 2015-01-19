@@ -7,6 +7,12 @@ import org.sikuli.script.Region;
 import org.sikuli.script.Screen;
 import org.sikuli.script.App;
 
+/**
+ * @author ljacinto
+ * This class implements all the functions to interactive with Tom Sawyer Perspectives 
+ * 
+ */
+
 
 public class TSTester
 {
@@ -41,6 +47,10 @@ public class TSTester
 
 	}
 	
+	/**
+	 * 
+	 * @param screenId
+	 */
 	public TSTester(int screenId)
 	{
 		setAutomationOsEnvironment();
@@ -532,19 +542,11 @@ public class TSTester
 
 	public void closeCurrentBrowser()
 	{
-		String browser = TSAutomationUtils.getProperty("DefaultBrowser");
+		//String browser = TSAutomationUtils.getProperty("DefaultBrowser");
 		System.out.println("Closing Web Preview");
 		if (operativeSystem.contains("windows"))
 		{
-			if (browser.contains("Explorer"))
-			{
-				App.close(browser);
-				App.close(browser);
-			}
-			else if (browser.contains("Safari"))
-			{
-				App.close("Tom Sawyer Perspectives Previewer");
-			}
+			closeTabWindows();
 
 		}
 
@@ -761,6 +763,11 @@ public class TSTester
 	
 	public void closeTabMac(){
 		automationTesterCurrentScreen.type("W", Key.META);
+	}
+	
+	public void closeTabWindows()
+	{
+		automationTesterCurrentScreen.type("W", Key.CTRL);
 	}
 
 

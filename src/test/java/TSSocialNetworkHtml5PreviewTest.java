@@ -213,7 +213,7 @@ public class TSSocialNetworkHtml5PreviewTest
 
 
 	@Test
-	public void testHierarchicalLayout()
+	public void testHierarchicalLayout(String fil)
 	{
 	
 		Assert.assertTrue(html5Tester.testHierarchicalLayout());
