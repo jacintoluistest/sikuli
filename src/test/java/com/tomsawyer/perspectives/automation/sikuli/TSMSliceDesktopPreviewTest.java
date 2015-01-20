@@ -1,9 +1,15 @@
+package com.tomsawyer.perspectives.automation.sikuli;
 
 import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.sikuli.basics.Settings;
+
+import com.tomsawyer.perspectives.automation.sikuli.tests.TSDesktopPreviewTestCases;
+import com.tomsawyer.perspectives.automation.sikuli.tests.TSEnvironment;
+import com.tomsawyer.perspectives.automation.sikuli.tests.TSFunctions;
+import com.tomsawyer.perspectives.automation.sikuli.tests.TSTester;
 
 public class TSMSliceDesktopPreviewTest
 {
