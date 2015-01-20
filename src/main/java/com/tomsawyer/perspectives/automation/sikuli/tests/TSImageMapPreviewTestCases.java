@@ -1,3 +1,4 @@
+package com.tomsawyer.perspectives.automation.sikuli.tests;
 import java.io.File;
 import org.junit.Test;
 
@@ -823,6 +824,55 @@ public class TSImageMapPreviewTestCases
 				+ "testOnMouseHoverOverview", environmentTestCase.evidencePath);
 		}
 		
+		return result;
+	}
+	
+	public boolean testIsPresentToolBar()
+	{
+		System.out.println("*******testIsPresentToolBar*******");
+
+		boolean result =
+			TSFunctions.isToolBarPresent(testerTestCase,
+				environmentTestCase.projectImagesPath + File.separator
+					+ "ToolBarImageMap.png");
+		if (!result)
+		{
+			TSAutomationUtils.getScreenShot(testerTestCase, className
+				+ "IsPresentToolBar", environmentTestCase.evidencePath);
+		}
+		return result;
+	}
+	
+	
+	public boolean testIsTableViewPresent()
+	{
+		System.out.println("*******testIsTableViewPresent*******");
+
+		boolean result =
+			TSFunctions.isViewPresent(testerTestCase,
+				environmentTestCase.projectImagesPath + File.separator
+					+ "TableViewImageMap.png");
+		if (!result)
+		{
+			TSAutomationUtils.getScreenShot(testerTestCase, className
+				+ "testIsTableViewPresent", environmentTestCase.evidencePath);
+		}
+		return result;
+	}
+	
+	public boolean testIsTreeViewPresent()
+	{
+		System.out.println("*******testIsTreeViewPresent*******");
+
+		boolean result =
+			TSFunctions.isViewPresent(testerTestCase, environmentTestCase.projectImagesPath
+				+ File.separator + "TreeViewImageMap.png");
+		if (!result)
+		{
+			TSAutomationUtils.getScreenShot(testerTestCase, className
+				+ "testIsTableViewPresent", environmentTestCase.evidencePath);
+		}
+
 		return result;
 	}
 }

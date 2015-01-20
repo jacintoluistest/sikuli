@@ -1,3 +1,4 @@
+package com.tomsawyer.perspectives.automation.sikuli.tests;
 import java.io.File;
 import org.sikuli.script.FindFailed;
 import org.sikuli.script.Pattern;

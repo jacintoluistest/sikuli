@@ -1,3 +1,4 @@
+package com.tomsawyer.perspectives.automation.sikuli.tests;
 import java.io.File;
 import org.sikuli.basics.Settings;
 
@@ -91,12 +92,22 @@ public class TSEnvironment
 		
 		Settings.MoveMouseDelay = new Float(1.5);
 
-		if (TSAutomationUtils.getOs().contains("mac os x"))
+		String currentOperativeSystem=TSAutomationUtils.getOs();	
+		if (currentOperativeSystem.contains("mac os x"))
 
 			operativeSystem = "Mac";
 		else
 		{
-			operativeSystem = "Windows";
+			if(currentOperativeSystem.contains("8"))
+			{
+				operativeSystem = "Windows";
+			}
+			
+			if (currentOperativeSystem.contains("7"))
+					{
+					 operativeSystem="Windows7";
+					}
+			
 		}
 
 		projectImagesPath =

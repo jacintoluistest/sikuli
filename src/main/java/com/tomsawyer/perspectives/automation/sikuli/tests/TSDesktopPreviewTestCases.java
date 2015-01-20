@@ -1,3 +1,4 @@
+package com.tomsawyer.perspectives.automation.sikuli.tests;
 import java.io.File;
 import org.junit.Assert;
 

@@ -1,3 +1,4 @@
+package com.tomsawyer.perspectives.automation.sikuli.tests;
 import org.sikuli.script.Sikulix;
 
 
