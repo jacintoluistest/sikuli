@@ -209,6 +209,7 @@ public class TSTester
 			automationTesterCurrentScreen =
 				new Screen(TSAutomationUtils.getCurrentScreenId(new Pattern(this.tsperspectivesToolBarImagesPath
 					+ File.separator + "openFileIcon.png").similar(new Float(0.8))));
+			automationTesterCurrentScreen.type(Key.DELETE);
 		}
 		catch (Exception e)
 		{
@@ -226,7 +227,7 @@ public class TSTester
 			System.out.println("Open Dialog");
 			automationTesterCurrentScreen.wait(new Pattern(tsperspectivesToolBarImagesPath
 				+ File.separator + "pathTextBox.png").similar(new Float(0.9)),
-				25000);
+				5000);
 			System.out.println("Waiting for Text Area");
 			automationTesterCurrentScreen.click(new Pattern(tsperspectivesToolBarImagesPath
 				+ File.separator + "pathTextBox.png"));
