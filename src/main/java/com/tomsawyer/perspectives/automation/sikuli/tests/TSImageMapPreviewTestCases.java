@@ -524,7 +524,7 @@ public class TSImageMapPreviewTestCases
 
 	public boolean testHierarchicalLayout()
 	{
-		System.out.println("testHierarchicalLayout");
+		System.out.println("****testHierarchicalLayout******");
 		testerTestCase.HierarchicalLayoutImageMap();
 		boolean result =
 			TSFunctions.isLayoutPresent(testerTestCase,
