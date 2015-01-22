@@ -1,7 +1,8 @@
+
 package com.tomsawyer.perspectives.automation.sikuli;
 
-import java.io.File;
 
+import java.io.File;
 import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.BeforeClass;
@@ -12,53 +13,62 @@ import com.tomsawyer.perspectives.automation.sikuli.tests.TSEnvironment;
 import com.tomsawyer.perspectives.automation.sikuli.tests.TSFunctions;
 import com.tomsawyer.perspectives.automation.sikuli.tests.TSTester;
 
+
 public class TSAcyclicDesktopPreviewTest
 {
 	@BeforeClass
-		public static void setUp() throws Exception
-		{
-			//org.sikuli.basics.Debug.setDebugLevel(3);
-			className = TSMSliceDesktopPreviewTest.class.getName();
-			Settings.MoveMouseDelay = new Float(1.5);
-			environment =
-				new TSEnvironment("AcyclicTest", TSEnvironment.DESKTOP_PREVIEW);
-			TSAutomationTester = new TSTester();
-			desktopTester = new TSDesktopPreviewTestCases(environment, TSAutomationTester, className);
-			TSAutomationTester = TSFunctions.setDesktopTest(TSAutomationTester, "AcyclicTestProjectPath");
-			environment = TSFunctions.setScreenFolder(TSAutomationTester, environment);
-		}
+	public static void setUp() throws Exception
+	{
+		// org.sikuli.basics.Debug.setDebugLevel(3);
+		className = TSMSliceDesktopPreviewTest.class.getName();
+		Settings.MoveMouseDelay = new Float(2.5);
+
+		environment = new TSEnvironment("AcyclicTest", TSEnvironment.DESKTOP_PREVIEW);
+		TSAutomationTester = new TSTester();
+		desktopTester =
+			new TSDesktopPreviewTestCases(environment, TSAutomationTester, className);
+		TSAutomationTester =
+			TSFunctions.setDesktopTest(TSAutomationTester, "AcyclicTestProjectPath");
+		environment = TSFunctions.setScreenFolder(TSAutomationTester, environment);
+	}
+
 
 	@AfterClass
 	public static void closeAll()
 	{
 		TSAutomationTester.closeDekstopPreview();
-		//TSAutomationTester.closeAll();
+		// TSAutomationTester.closeAll();
 	}
-	
+
+
 	@Test
 	public void testOnMouseHoverPan()
 	{
 		Assert.assertTrue(desktopTester.testOnMouseHoverPan());
 	}
-	
+
+
 	@Test
 	public void testOnMouseHoverNavigateLinks()
 	{
 		Assert.assertTrue(desktopTester.testOnMouseHoverNavigateLinks());
 	}
-	
+
+
 	@Test
 	public void testOnMouseHoverMarqueeZoom()
 	{
 		Assert.assertTrue(desktopTester.testOnMouseHoverMarqueeZoom());
 	}
-	
+
+
 	@Test
 	public void testOnMouseHoverInteractiveZoom()
 	{
 		Assert.assertTrue(desktopTester.testOnMouseHoverInteractiveZoom());
 	}
-	
+
+
 	@Test
 	public void testOnMouseHoverZoomIn()
 	{
@@ -85,7 +95,8 @@ public class TSAcyclicDesktopPreviewTest
 	{
 		Assert.assertTrue(desktopTester.testOnMouseHoverOverview());
 	}
-	
+
+
 	@Test
 	public void testOnMouseHoverHierarchicalLayout()
 	{
@@ -96,27 +107,32 @@ public class TSAcyclicDesktopPreviewTest
 	@Test
 	public void testOnMouseHoverOrthogonalLayout()
 	{
-		Assert.assertTrue(desktopTester.testOnMouseHoverOrthogonalLayout());
+		Assert.assertTrue(desktopTester.testOnMouseHoverOrthogonalLayout(environment.toolBarImagesPath
+			+ File.separator + "OrthogonalLayoutToolBarDesktopSelected"));
 	}
-	
+
+
 	@Test
 	public void testOnMouseHoverRunAcyclicTest()
 	{
-	
 
 		Assert.assertTrue(desktopTester.testOnMouseHoverRunAcyclicTest());
 	}
+
 
 	@Test
 	public void testOnMouseHoverClearResults()
 	{
 		Assert.assertTrue(desktopTester.testOnMouseHoverClearResults());
 	}
-	
+
+
 	@Test
 	public void testHierarchicalLayout()
 	{
-		String expectedHierarchical= environment.projectImagesPath + File.separator + "AcyclicTestDesktopHierarchicalExpected.png";
+		String expectedHierarchical =
+			environment.projectImagesPath + File.separator
+				+ "AcyclicTestDesktopHierarchicalExpected.png";
 		Assert.assertTrue(desktopTester.testHierarchicalLayout(expectedHierarchical));
 		TSAutomationTester.orthogonalLayoutDesktop();
 	}
@@ -148,15 +164,15 @@ public class TSAcyclicDesktopPreviewTest
 	{
 		Assert.assertTrue(desktopTester.testRunAcyclicTest());
 	}
-	
+
+
 	static TSTester TSAutomationTester;
 
 	static String className;
 
 	static TSEnvironment environment;
-	
+
 	static int screenId;
-	
+
 	static TSDesktopPreviewTestCases desktopTester;
 }
-
