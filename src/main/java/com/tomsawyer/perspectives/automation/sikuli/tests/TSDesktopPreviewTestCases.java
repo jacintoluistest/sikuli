@@ -1,7 +1,9 @@
+
 package com.tomsawyer.perspectives.automation.sikuli.tests;
+
+
 import java.io.File;
 import org.junit.Assert;
-
 
 
 public class TSDesktopPreviewTestCases
@@ -28,8 +30,7 @@ public class TSDesktopPreviewTestCases
 	{
 		System.out.println("testLaunchDesktopPreview");
 		boolean result =
-			TSFunctions.isDesktopPreviewLaunched(testerTestCase,
-				imageExpected);
+			TSFunctions.isDesktopPreviewLaunched(testerTestCase, imageExpected);
 
 		if (!result)
 		{
@@ -61,8 +62,7 @@ public class TSDesktopPreviewTestCases
 	public boolean testIsTableViewPresent(String expectedViewPath)
 	{
 		System.out.println("testIsTableViewPresent");
-		boolean result =
-			TSFunctions.isViewPresent(testerTestCase, expectedViewPath);
+		boolean result = TSFunctions.isViewPresent(testerTestCase, expectedViewPath);
 		if (!result)
 		{
 			TSAutomationUtils.getScreenShot(testerTestCase, className
@@ -107,14 +107,13 @@ public class TSDesktopPreviewTestCases
 		return result;
 	}
 
+
 	public boolean testIsOverviewPresent(String expectedImage)
 	{
 		System.out.println("testIsOverViewPresent");
 		testerTestCase.openOverviewDesktop();
 		boolean result =
-			TSFunctions.isOverviewPresent(testerTestCase,
-				expectedImage,
-				new Float(0.80));
+			TSFunctions.isOverviewPresent(testerTestCase, expectedImage, new Float(0.80));
 		if (!result)
 		{
 			TSAutomationUtils.getScreenShot(testerTestCase, className
@@ -150,9 +149,7 @@ public class TSDesktopPreviewTestCases
 		System.out.println("testHierarchicalLayout");
 		testerTestCase.HierarchicalLayoutDesktop();
 		boolean result =
-			TSFunctions.isLayoutPresent(testerTestCase,
-				expected,
-				new Float(0.80));
+			TSFunctions.isLayoutPresent(testerTestCase, expected, new Float(0.80));
 		if (!result)
 		{
 			TSAutomationUtils.getScreenShot(testerTestCase, className
@@ -207,7 +204,6 @@ public class TSDesktopPreviewTestCases
 		return result;
 
 	}
-	
 
 
 	public boolean testOnMouseHoverPan()
@@ -410,7 +406,8 @@ public class TSDesktopPreviewTestCases
 
 		return result;
 	}
-	
+
+
 	public boolean testOnMouseHoverHierarchicalLayoutSelected()
 	{
 		System.out.println("******testOnMouseHoverHierarchicalLayout******");
@@ -440,6 +437,26 @@ public class TSDesktopPreviewTestCases
 		String imageToolBar =
 			environmentTester.toolBarImagesPath + File.separator
 				+ "OrthogonalLayoutToolBarDesktop.png";
+		String imageExpected =
+			environmentTester.toolTipsImagePath + File.separator + "OrthogonalLayout.png";
+		boolean result =
+			TSFunctions.isToolTipPresentDesktop(testerTestCase,
+				imageToolBar,
+				imageExpected);
+		if (!result)
+		{
+			TSAutomationUtils.getScreenShot(testerTestCase, className
+				+ "testOnMouseHoverOrthogonalLayout", environmentTester.evidencePath);
+		}
+
+		return result;
+	}
+
+
+	public boolean testOnMouseHoverOrthogonalLayout(String orthogonalButtonPath)
+	{
+		System.out.println("******testOnMouseHoverOrthogonalLayout******");
+		String imageToolBar = orthogonalButtonPath;
 		String imageExpected =
 			environmentTester.toolTipsImagePath + File.separator + "OrthogonalLayout.png";
 		boolean result =
@@ -673,8 +690,7 @@ public class TSDesktopPreviewTestCases
 
 		System.out.println("******testOnMouseHoverRunMaximumFlow******");
 		String imageToolBar =
-			environmentTester.toolBarImagesPath + File.separator
-				+ "Run.png";
+			environmentTester.toolBarImagesPath + File.separator + "Run.png";
 		String imageExpected =
 			environmentTester.toolTipsImagePath + File.separator + "RunMaximumFlow.png";
 		boolean result =
@@ -758,11 +774,14 @@ public class TSDesktopPreviewTestCases
 
 		return result;
 	}
-	
-	public boolean testOnMouseHoverPrintSetUp(){
+
+
+	public boolean testOnMouseHoverPrintSetUp()
+	{
 		System.out.println("******testOnMouseHoverPrintSetUp******");
 		String imageToolBar =
-			environmentTester.toolBarImagesPath + File.separator + "PrintSetUpToolBarDesktop.png";
+			environmentTester.toolBarImagesPath + File.separator
+				+ "PrintSetUpToolBarDesktop.png";
 		String imageExpected =
 			environmentTester.toolTipsImagePath + File.separator + "PrintSetUp.png";
 		boolean result =
@@ -776,11 +795,14 @@ public class TSDesktopPreviewTestCases
 		}
 		return result;
 	}
-	
-	public boolean testOnMouseHoverPrint(){
+
+
+	public boolean testOnMouseHoverPrint()
+	{
 		System.out.println("******testOnMouseHoverPrint******");
 		String imageToolBar =
-			environmentTester.toolBarImagesPath + File.separator + "PrintToolBarDesktop.png";
+			environmentTester.toolBarImagesPath + File.separator
+				+ "PrintToolBarDesktop.png";
 		String imageExpected =
 			environmentTester.toolTipsImagePath + File.separator + "Print.png";
 		boolean result =
@@ -792,9 +814,9 @@ public class TSDesktopPreviewTestCases
 			TSAutomationUtils.getScreenShot(testerTestCase, className
 				+ "testOnMouseHoverPrint", environmentTester.evidencePath);
 		}
-	 return result;	
+		return result;
 	}
- 
+
 
 	public boolean testMaxFlowDefaultLayout()
 	{
@@ -811,27 +833,39 @@ public class TSDesktopPreviewTestCases
 		}
 		return result;
 	}
-	
-	public boolean testRunMaxFlow(){
+
+
+	public boolean testRunMaxFlow()
+	{
 		System.out.println("******testRunMaxFlow******");
-		String expectedImage = environmentTester.projectImagesPath + File.separator + "MaxFlowExpected.png";
-		boolean result = TSFunctions.runMaxFlowDesktop(testerTestCase, expectedImage, environmentTester);
-		if(!result){
-			TSAutomationUtils.getScreenShot(testerTestCase, className
-				+ "testRunMaxFlow", environmentTester.evidencePath);
+		String expectedImage =
+			environmentTester.projectImagesPath + File.separator + "MaxFlowExpected.png";
+		boolean result =
+			TSFunctions.runMaxFlowDesktop(testerTestCase,
+				expectedImage,
+				environmentTester);
+		if (!result)
+		{
+			TSAutomationUtils.getScreenShot(testerTestCase,
+				className + "testRunMaxFlow",
+				environmentTester.evidencePath);
 		}
 		Assert.assertTrue(result);
 		testerTestCase.clearResultsMaxFlowDesktop();
-		
+
 		return result;
 	}
-	
-	public boolean testIsMSliceButtonEnable(){
+
+
+	public boolean testIsMSliceButtonEnable()
+	{
 		System.out.println("*******testIsMSliceButtonEnable******");
 
 		boolean result =
-			TSFunctions.isButtonPresent(testerTestCase, environmentTester.toolBarImagesPath
-				+ File.separator + "MSliceEnableToolBarDesktop.png", new Float(0.65));
+			TSFunctions.isButtonPresent(testerTestCase,
+				environmentTester.toolBarImagesPath + File.separator
+					+ "MSliceEnableToolBarDesktop.png",
+				new Float(0.65));
 		if (!result)
 		{
 			TSAutomationUtils.getScreenShot(testerTestCase, className
@@ -839,33 +873,39 @@ public class TSDesktopPreviewTestCases
 		}
 		return result;
 	}
-	
+
+
 	public boolean testIsClearResultsButtonDisable()
 	{
 		System.out.println("*******testIsClearResultsButtonDisable******");
 
 		boolean result =
-			TSFunctions.isButtonPresent(testerTestCase, environmentTester.projectImagesPath
-				+ File.separator + "clearResultsDisable.png", new Float(0.65));
+			TSFunctions.isButtonPresent(testerTestCase,
+				environmentTester.projectImagesPath + File.separator
+					+ "clearResultsDisable.png",
+				new Float(0.65));
 		if (!result)
 		{
 			TSAutomationUtils.getScreenShot(testerTestCase, className
 				+ "IsClearResultsButtonDisable", environmentTester.evidencePath);
 		}
-		
+
 		return result;
-	
+
 	}
-	
+
+
 	public boolean testMSlice100()
 	{
 		System.out.println("******testMSlice100******");
 		String msliceButton =
 			environmentTester.projectImagesPath + File.separator + "MSlice.png";
-		String comboButton = environmentTester.projectImagesPath + File.separator + "Combo.png";
+		String comboButton =
+			environmentTester.projectImagesPath + File.separator + "Combo.png";
 		String minCapacityButton =
 			environmentTester.projectImagesPath + File.separator + "MinCapacity.png";
-		String capacity = environmentTester.projectImagesPath + File.separator + "100.png";
+		String capacity =
+			environmentTester.projectImagesPath + File.separator + "100.png";
 		String clearResultsButton =
 			environmentTester.projectImagesPath + File.separator + "ClearResults.png";
 		testerTestCase.runAlgorithm(msliceButton);
@@ -877,24 +917,28 @@ public class TSDesktopPreviewTestCases
 				+ File.separator + "MinCapacity100.png");
 		if (!result)
 		{
-			TSAutomationUtils.getScreenShot(testerTestCase, className
-				+ "testMSlice100", environmentTester.evidencePath);
+			TSAutomationUtils.getScreenShot(testerTestCase,
+				className + "testMSlice100",
+				environmentTester.evidencePath);
 
 		}
-		
+
 		testerTestCase.runAlgorithm(clearResultsButton);
 		return result;
 	}
-	
+
+
 	public boolean testMSlice1000()
 	{
 		System.out.println("******testMSlice1000******");
 		String msliceButton =
 			environmentTester.projectImagesPath + File.separator + "MSlice.png";
-		String comboButton = environmentTester.projectImagesPath + File.separator + "Combo.png";
+		String comboButton =
+			environmentTester.projectImagesPath + File.separator + "Combo.png";
 		String minCapacityButton =
 			environmentTester.projectImagesPath + File.separator + "MinCapacity.png";
-		String capacity = environmentTester.projectImagesPath + File.separator + "1000.png";
+		String capacity =
+			environmentTester.projectImagesPath + File.separator + "1000.png";
 		String clearResultsButton =
 			environmentTester.projectImagesPath + File.separator + "ClearResults.png";
 		testerTestCase.runAlgorithm(msliceButton);
@@ -906,20 +950,21 @@ public class TSDesktopPreviewTestCases
 				+ File.separator + "MinCapacity1000.png");
 		if (!result)
 		{
-			TSAutomationUtils.getScreenShot(testerTestCase, className
-				+ "testMSlice1000", environmentTester.evidencePath);
+			TSAutomationUtils.getScreenShot(testerTestCase,
+				className + "testMSlice1000",
+				environmentTester.evidencePath);
 
 		}
 		testerTestCase.runAlgorithm(clearResultsButton);
 		return result;
 	}
-	
+
+
 	public boolean testOnMouseHoverRunAcyclicTest()
 	{
 		System.out.println("******testOnMouseHoverRunAcyclicTest******");
 		String imageToolBar =
-			environmentTester.toolBarImagesPath + File.separator
-				+ "Run.png";
+			environmentTester.toolBarImagesPath + File.separator + "RunDesktop.png";
 		String imageExpected =
 			environmentTester.toolTipsImagePath + File.separator + "RunAcyclicTest.png";
 		boolean result =
@@ -931,18 +976,21 @@ public class TSDesktopPreviewTestCases
 			TSAutomationUtils.getScreenShot(testerTestCase, className
 				+ "testOnMouseHoverRunAcyclicTest", environmentTester.evidencePath);
 		}
-		
+
 		return result;
-	
-	}	
-	
+
+	}
+
+
 	public boolean testIsRunAcyclicButtonEnable()
 	{
 		System.out.println("*******testRunAcyclicButtonEnable******");
 
 		boolean result =
-			TSFunctions.isButtonPresent(testerTestCase, environmentTester.projectImagesPath
-				+ File.separator + "RunAcyclicTestEnable.png", new Float(0.80));
+			TSFunctions.isButtonPresent(testerTestCase,
+				environmentTester.projectImagesPath + File.separator
+					+ "RunAcyclicTestEnable.png",
+				new Float(0.80));
 		if (!result)
 		{
 			TSAutomationUtils.getScreenShot(testerTestCase, className
@@ -950,13 +998,16 @@ public class TSDesktopPreviewTestCases
 		}
 		return result;
 	}
-	
-	public boolean testRunAcyclicTest(){
+
+
+	public boolean testRunAcyclicTest()
+	{
 		boolean result = false;
 		testerTestCase.runAlgorithm(environmentTester.toolBarImagesPath + File.separator
-			+ "Run.png");
-		if (TSFunctions.isButtonPresent(testerTestCase, environmentTester.projectImagesPath
-			+ File.separator + "ClearResultsEnable.png")
+			+ "RunDesktop.png");
+		if (TSFunctions.isButtonPresent(testerTestCase,
+			environmentTester.projectImagesPath + File.separator
+				+ "ClearResultsEnable.png")
 			&& TSFunctions.isButtonPresent(testerTestCase,
 				environmentTester.projectImagesPath + File.separator
 					+ "RunAcyclicTestDisable.png")
@@ -980,6 +1031,4 @@ public class TSDesktopPreviewTestCases
 		return result;
 	}
 
-
-	
 }
