@@ -133,13 +133,23 @@ public class TSEnvironment
 	{
 		
 		Settings.MoveMouseDelay = new Float(1.5);
+		String currentOperativeSystem = TSAutomationUtils.getOs();
 
-		if (TSAutomationUtils.getOs().contains("mac os x"))
+		if (currentOperativeSystem.contains("mac os x"))
 
 			operativeSystem = "Mac";
 		else
 		{
-			operativeSystem = "Windows";
+			
+			if(currentOperativeSystem.contains("7"))
+			{
+			
+				operativeSystem = "Windows7";
+				}
+			else
+			{
+				operativeSystem="Windows";
+			}
 		}
 
 		projectImagesPath =
