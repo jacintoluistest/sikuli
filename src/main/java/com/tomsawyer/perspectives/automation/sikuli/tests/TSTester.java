@@ -1,4 +1,7 @@
+
 package com.tomsawyer.perspectives.automation.sikuli.tests;
+
+
 import java.io.File;
 import org.sikuli.script.FindFailed;
 import org.sikuli.script.Key;
@@ -8,12 +11,12 @@ import org.sikuli.script.Region;
 import org.sikuli.script.Screen;
 import org.sikuli.script.App;
 
+
 /**
- * @author ljacinto
- * This class implements all the functions to interactive with Tom Sawyer Perspectives 
+ * @author ljacinto This class implements all the functions to interactive with Tom Sawyer
+ * Perspectives
  * 
  */
-
 
 public class TSTester
 {
@@ -47,7 +50,8 @@ public class TSTester
 		automationTesterCurrentScreen = new Screen();
 
 	}
-	
+
+
 	/**
 	 * 
 	 * @param screenId
@@ -80,55 +84,99 @@ public class TSTester
 
 		if (operativeSystem.contains("mac os x"))
 		{
-			TS_HOME = TSAutomationUtils.getProperty("TS_HOME_Mac");
-			System.out.println("Path de Tom Sawyer es " + TS_HOME);
-			tomSawyerDesignerApplicationPath =
-				TSAutomationUtils.getProperty("TSPApplicationPathMac");
-			tsperspectivesToolBarImagesPath =
-				"images/Mac/TomSawyerPerspectives" + File.separator
-					+ "TSPerspectivesToolBar";
-			tspDesktopPreviewImagesPath =
-				"images" + File.separator + "Mac" + File.separator
-					+ "TomSawyerPerspectives" + File.separator + "CommonDesktopPreview"
-					+ File.separator + "ToolBar";
-			tspImageMapImagesPath =
-				"images" + File.separator + "Mac" + File.separator
-					+ "TomSawyerPerspectives" + File.separator + "CommonImageMapPreview"
-					+ File.separator + browser + File.separator + "ToolBar";
-
-			tspHtml5PreviewImagePath =
-				"images" + File.separator + "Mac" + File.separator
-					+ "TomSawyerPerspectives" + File.separator + "CommonCanvasPreview"
-					+ File.separator + browser + File.separator + "ToolBar";
+			setAutomationOsEnvironmentWebMac();
 		}
 		else
 		{
-			TS_HOME = TSAutomationUtils.getProperty("TS_HOME_Win");
-			System.out.println("Path de Tom Sawyer es " + TS_HOME);
-			tomSawyerDesignerApplicationPath =
-				TSAutomationUtils.getProperty("TSPApplicationPathWindows");
-			tsperspectivesToolBarImagesPath =
-				"images" + File.separator + "Windows" + File.separator
-					+ "TomSawyerPerspectives" + File.separator + "TSPerspectivesToolBar";
-			tspDesktopPreviewImagesPath =
-				"images" + File.separator + "Windows" + File.separator
-					+ "TomSawyerPerspectives" + File.separator + "CommonDesktopPreview"
-					+ File.separator + "ToolBar";
-			tspImageMapImagesPath =
-				"images" + File.separator + "Windows" + File.separator
-					+ "TomSawyerPerspectives" + File.separator + "CommonImageMapPreview"
-					+ File.separator + browser + File.separator + "ToolBar";
-			tspHtml5PreviewImagePath =
-				"images" + File.separator + "Windows" + File.separator
-					+ "TomSawyerPerspectives" + File.separator + "CommonCanvasPreview"
-					+ File.separator + browser + File.separator + "ToolBar";
+			if (operativeSystem.contains("7"))
+			{
+				setAutomationOsEnvironmentWebWindows7();
+			}
+
+			else
+			{
+				setAutomationOsEnvironmentWebWindows();
+			}
 		}
-		System.out.println("*****Paths set for init Test");
+		System.out.println("*****Paths set for init Test**********");
 		System.out.println(tomSawyerDesignerApplicationPath);
 		System.out.println(tsperspectivesToolBarImagesPath);
 		System.out.println(tspImageMapImagesPath);
 		System.out.println(tspHtml5PreviewImagePath);
 
+	}
+
+
+	public void setAutomationOsEnvironmentWebMac()
+	{
+
+		TS_HOME = TSAutomationUtils.getProperty("TS_HOME_Mac");
+		System.out.println("Path de Tom Sawyer es " + TS_HOME);
+		tomSawyerDesignerApplicationPath =
+			TSAutomationUtils.getProperty("TSPApplicationPathMac");
+		tsperspectivesToolBarImagesPath =
+			"images/Mac/TomSawyerPerspectives" + File.separator + "TSPerspectivesToolBar";
+		tspDesktopPreviewImagesPath =
+			"images" + File.separator + "Mac" + File.separator + "TomSawyerPerspectives"
+				+ File.separator + "CommonDesktopPreview" + File.separator + "ToolBar";
+		tspImageMapImagesPath =
+			"images" + File.separator + "Mac" + File.separator + "TomSawyerPerspectives"
+				+ File.separator + "CommonImageMapPreview" + File.separator + browser
+				+ File.separator + "ToolBar";
+
+		tspHtml5PreviewImagePath =
+			"images" + File.separator + "Mac" + File.separator + "TomSawyerPerspectives"
+				+ File.separator + "CommonCanvasPreview" + File.separator + browser
+				+ File.separator + "ToolBar";
+	}
+
+
+	public void setAutomationOsEnvironmentWebWindows()
+	{
+
+		TS_HOME = TSAutomationUtils.getProperty("TS_HOME_Win");
+		System.out.println("Path de Tom Sawyer es " + TS_HOME);
+		tomSawyerDesignerApplicationPath =
+			TSAutomationUtils.getProperty("TSPApplicationPathWindows");
+		tsperspectivesToolBarImagesPath =
+			"images" + File.separator + "Windows" + File.separator
+				+ "TomSawyerPerspectives" + File.separator + "TSPerspectivesToolBar";
+		tspDesktopPreviewImagesPath =
+			"images" + File.separator + "Windows" + File.separator
+				+ "TomSawyerPerspectives" + File.separator + "CommonDesktopPreview"
+				+ File.separator + "ToolBar";
+		tspImageMapImagesPath =
+			"images" + File.separator + "Windows" + File.separator
+				+ "TomSawyerPerspectives" + File.separator + "CommonImageMapPreview"
+				+ File.separator + browser + File.separator + "ToolBar";
+		tspHtml5PreviewImagePath =
+			"images" + File.separator + "Windows" + File.separator
+				+ "TomSawyerPerspectives" + File.separator + "CommonCanvasPreview"
+				+ File.separator + browser + File.separator + "ToolBar";
+	}
+
+
+	public void setAutomationOsEnvironmentWebWindows7()
+	{
+		TS_HOME = TSAutomationUtils.getProperty("TS_HOME_Win");
+		System.out.println("Path de Tom Sawyer es " + TS_HOME);
+		tomSawyerDesignerApplicationPath =
+			TSAutomationUtils.getProperty("TSPApplicationPathWindows");
+		tsperspectivesToolBarImagesPath =
+			"images" + File.separator + "Windows7" + File.separator
+				+ "TomSawyerPerspectives" + File.separator + "TSPerspectivesToolBar";
+		tspDesktopPreviewImagesPath =
+			"images" + File.separator + "Windows7" + File.separator
+				+ "TomSawyerPerspectives" + File.separator + "CommonDesktopPreview"
+				+ File.separator + "ToolBar";
+		tspImageMapImagesPath =
+			"images" + File.separator + "Windows7" + File.separator
+				+ "TomSawyerPerspectives" + File.separator + "CommonImageMapPreview"
+				+ File.separator + browser + File.separator + "ToolBar";
+		tspHtml5PreviewImagePath =
+			"images" + File.separator + "Windows7" + File.separator
+				+ "TomSawyerPerspectives" + File.separator + "CommonCanvasPreview"
+				+ File.separator + browser + File.separator + "ToolBar";
 	}
 
 
@@ -210,7 +258,7 @@ public class TSTester
 			automationTesterCurrentScreen =
 				new Screen(TSAutomationUtils.getCurrentScreenId(new Pattern(this.tsperspectivesToolBarImagesPath
 					+ File.separator + "openFileIcon.png").similar(new Float(0.8))));
-			automationTesterCurrentScreen.type(Key.DELETE);
+
 		}
 		catch (Exception e)
 		{
@@ -224,6 +272,7 @@ public class TSTester
 
 			automationTesterCurrentScreen.click(new Pattern(this.tsperspectivesToolBarImagesPath
 				+ File.separator + "openFileIcon.png").similar(new Float(0.9)));
+			// automationTesterCurrentScreen.type(Key.DELETE);
 
 			System.out.println("Open Dialog");
 			automationTesterCurrentScreen.wait(new Pattern(tsperspectivesToolBarImagesPath
@@ -544,7 +593,7 @@ public class TSTester
 
 	public void closeCurrentBrowser()
 	{
-		//String browser = TSAutomationUtils.getProperty("DefaultBrowser");
+		// String browser = TSAutomationUtils.getProperty("DefaultBrowser");
 		System.out.println("Closing Web Preview");
 		if (operativeSystem.contains("windows"))
 		{
@@ -724,6 +773,7 @@ public class TSTester
 		else
 		{
 			automationTesterCurrentScreen.type(Key.UP, Key.WIN);
+			zoomFit();
 		}
 
 	}
@@ -741,8 +791,6 @@ public class TSTester
 			fullScreenBrowserMac();
 		}
 	}
-	
-	
 
 
 	public void fullScreenBrowserMac()
@@ -762,11 +810,14 @@ public class TSTester
 		}
 
 	}
-	
-	public void closeTabMac(){
+
+
+	public void closeTabMac()
+	{
 		automationTesterCurrentScreen.type("W", Key.META);
 	}
-	
+
+
 	public void closeTabWindows()
 	{
 		automationTesterCurrentScreen.type("W", Key.CTRL);
