@@ -7,7 +7,7 @@ public class TSFunctions
 {
 	public static TSTester setDesktopTest(TSTester tester, String projectPathPropertyName)
 	{
-		//tester.LaunchTS();
+		tester.LaunchTS();
 		tester.openProject(projectPathPropertyName);
 		tester.launchDesktopPreview();
 		tester.maximizeWindow();
