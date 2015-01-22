@@ -1114,7 +1114,7 @@ public class TSTester
 	public void closeOverviewDesktop()
 	{
 		String overviewButton =
-			tspDesktopPreviewImagesPath + File.separator + "toolBarCloseOverview.png";
+			tspDesktopPreviewImagesPath + File.separator + "closeOverview.png";
 		try
 		{
 			automationTesterCurrentScreen.click(overviewButton);
