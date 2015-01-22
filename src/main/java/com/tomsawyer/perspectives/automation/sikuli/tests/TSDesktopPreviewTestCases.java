@@ -90,7 +90,7 @@ public class TSDesktopPreviewTestCases
 
 	public boolean testIsOverviewPresent()
 	{
-		System.out.println("testIsOverViewPresent");
+		System.out.println("*****testIsOverViewPresent*****");
 		testerTestCase.openOverviewDesktop();
 		boolean result =
 			TSFunctions.isOverviewPresent(testerTestCase,
@@ -146,7 +146,7 @@ public class TSDesktopPreviewTestCases
 
 	public boolean testHierarchicalLayout(String expected)
 	{
-		System.out.println("testHierarchicalLayout");
+		System.out.println("****testHierarchicalLayout*****");
 		testerTestCase.HierarchicalLayoutDesktop();
 		boolean result =
 			TSFunctions.isLayoutPresent(testerTestCase, expected, new Float(0.80));
@@ -232,6 +232,7 @@ public class TSDesktopPreviewTestCases
 	public boolean testOnMouseHoverNavigateLinks()
 	{
 		System.out.println("******testOnMouseHoverNavigateLinks******");
+		float similar = new Float(0.85);
 		String imageToolBar =
 			environmentTester.toolBarImagesPath + File.separator
 				+ "NavigateLinksToolBarDesktop.png";
@@ -240,7 +241,7 @@ public class TSDesktopPreviewTestCases
 		boolean result =
 			TSFunctions.isToolTipPresentDesktop(testerTestCase,
 				imageToolBar,
-				imageExpected);
+				imageExpected,similar);
 		if (!result)
 		{
 			TSAutomationUtils.getScreenShot(testerTestCase, className
