@@ -1,5 +1,4 @@
 package com.tomsawyer.perspectives.automation.sikuli;
-import java.io.File;
 
 import org.junit.AfterClass;
 import org.junit.Assert;
