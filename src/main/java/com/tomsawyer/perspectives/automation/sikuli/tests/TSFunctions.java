@@ -229,6 +229,7 @@ public class TSFunctions
 		{
 			result = false;
 		}
+		System.out.println("isToolTipPresent result =" + result);
 		return result;
 	}
 
