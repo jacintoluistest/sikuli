@@ -121,7 +121,7 @@ public class TSAutomationUtils
 					.getFile());
 			destinationFile =
 				new File(evidencePath
-					+ TestSikuli.class.getName() + currentMethod + ".png");
+					+ currentMethod.substring(52) + ".png");
 			defautlFile.renameTo(destinationFile);
 			System.out.println("Saving Evidence in: " + destinationFile);
 
