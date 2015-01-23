@@ -485,7 +485,7 @@ public class TSImageMapPreviewTestCases
 	{
 		Float similar = new Float(0.75);
 		System.out.println("*******TestIsOverviewPresent*******");
-		testerTestCase.openOverviewHtml5();
+		testerTestCase.openOverviewImageMap();
 		boolean result =
 			TSFunctions.isOverviewPresent(testerTestCase,
 				environmentTestCase.projectImagesPath + File.separator
