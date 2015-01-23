@@ -773,6 +773,7 @@ public class TSImageMapPreviewTestCases
 
 	public boolean testRunAcyclicTest()
 	{
+		System.out.println("*******testRunAcyclicTest******");
 		boolean result = false;
 		float similar = new Float(0.85);
 		testerTestCase.runAlgorithm(environmentTestCase.toolBarImagesPath
