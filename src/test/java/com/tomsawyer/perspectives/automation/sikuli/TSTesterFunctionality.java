@@ -1,17 +1,15 @@
 package com.tomsawyer.perspectives.automation.sikuli;
 
-import java.io.File;
 
 import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.sikuli.basics.Settings;
-
 import com.tomsawyer.perspectives.automation.sikuli.tests.TSAutomationUtils;
 import com.tomsawyer.perspectives.automation.sikuli.tests.TSEnvironment;
 import com.tomsawyer.perspectives.automation.sikuli.tests.TSFunctions;
-import com.tomsawyer.perspectives.automation.sikuli.tests.TSHtml5PreviewTestCases;
+import com.tomsawyer.perspectives.automation.sikuli.tests.TSImageMapPreviewTestCases;
 import com.tomsawyer.perspectives.automation.sikuli.tests.TSTester;
 
 
@@ -26,12 +24,12 @@ public class TSTesterFunctionality
 		Settings.MoveMouseDelay = new Float(1.5);
 		String defaultBrowser =TSAutomationUtils.getProperty("DefaultBrowser");
 		environment =
-			new TSEnvironment("SocialNetworkAnalysis", TSEnvironment.HTML5_PREVIEW,defaultBrowser);
+			new TSEnvironment("AcyclicTest", TSEnvironment.IMAGEMAP_PREVIEW,defaultBrowser);
 		TSAutomationTester = new TSTester(defaultBrowser);		
-		html5Tester = new TSHtml5PreviewTestCases(environment, TSAutomationTester, className);
+		imageMapTester = new TSImageMapPreviewTestCases(environment, TSAutomationTester, className);
 		environment = TSFunctions.setScreenFolder(TSAutomationTester, environment);
 		TSAutomationUtils.pauseScript();
-
+		
 	}
 	
 	@AfterClass
@@ -45,28 +43,98 @@ public class TSTesterFunctionality
 
 
 	@Test
-	public void testIsTableViewPresent()
+	public void testOnMouseHoverPan()
 	{
-		String expected=environment.projectImagesPath
-			+ File.separator + "TableViewCanvas.png";
-		Assert.assertTrue(html5Tester.testIsTableViewPresent(expected));
+		Assert.assertTrue(imageMapTester.testOnMouseHoverPan());
 	}
 
 
 	@Test
-	public void testIsTreeViewPresent()
+	public void testOnMouseHoverMarqueeZoom()
 	{
-		String expected =  environment.projectImagesPath
-			+ File.separator + "TreeViewCanvas.png";
-		Assert.assertTrue(html5Tester.testIsTreeViewPresent(expected));
+		Assert.assertTrue(imageMapTester.testOnMouseHoverMarqueeZoom());
+
 	}
 
 
 	@Test
-	public void testOnMouseHoverSaveAsImage()
+	public void testOnMouseHoverZoomIn()
 	{
-	
-		Assert.assertTrue(html5Tester.testOnMouseHoverSaveAsImage());
+		Assert.assertTrue(imageMapTester.testOnMouseHoverZoomIn());
+
+	}
+
+
+	@Test
+	public void testOnMouseHoverZoomOut()
+	{
+		Assert.assertTrue(imageMapTester.testOnMouseHoverZoomOut());
+	}
+
+
+	@Test
+	public void testOnMouseHoverZoomFit()
+	{
+		Assert.assertTrue(imageMapTester.testOnMouseHoverZoomFit());
+
+	}
+
+
+	@Test
+	public void testOnMouseHoverOverview()
+	{
+		Assert.assertTrue(imageMapTester.testOnMouseHoverOverview());
+	}
+
+
+	@Test
+	public void testOnMouseHoverHierarchicalLayout()
+	{
+		Assert.assertTrue(imageMapTester.testOnMouseHoverHierarchicalLayout());
+	}
+
+
+	@Test
+	public void testOnMouseHoverRunAcyclicTest()
+	{
+		Assert.assertTrue(imageMapTester.testOnMouseHoverRunAcyclicTest());
+	}
+
+
+	@Test
+	public void testIsRunAcyclicButtonEnable()
+	{
+
+		Assert.assertTrue(imageMapTester.testIsRunAcyclicButtonEnable());
+	}
+
+
+	@Test
+	public void testIsClearResultsButtonDisable()
+	{
+
+		Assert.assertTrue(imageMapTester.testIsClearResultsButtonDisable());
+	}
+
+
+	@Test
+	public void testRunAcyclicTest()
+	{
+		Assert.assertTrue(imageMapTester.testRunAcyclicTest());
+	}
+
+
+	@Test
+	public void testHierarchicalLayout()
+	{
+		Assert.assertTrue(imageMapTester.testHierarchicalLayout());
+	}
+
+
+	@Test
+	public void testOnMouseHoverOrthogonalLayout()
+	{
+		Assert.assertTrue(imageMapTester.testOnMouseHoverOrthogonalLayout());
 
 	}
 
@@ -74,158 +142,24 @@ public class TSTesterFunctionality
 	@Test
 	public void testOnMouseHoverSelect()
 	{
-		
-		Assert.assertTrue(html5Tester.testOnMouseHoverSelect());
+		Assert.assertTrue(imageMapTester.testOnMouseHoverSelect());
 
-	}
-
-
-	@Test
-	public void testOnMouseHoverPan()
-	{
-		
-		Assert.assertTrue(html5Tester.testOnMouseHoverPan());
-
-	}
-
-
-	@Test
-	public void testOnMouseHoverNavigateLinks()
-	{
-		
-		Assert.assertTrue(html5Tester.testOnMouseHoverNavigateLinks());
-
-	}
-
-
-	@Test
-	public void testOnMouseHoverMarqueeZoom()
-	{
-		Assert.assertTrue(html5Tester.testOnMouseHoverMarqueeZoom());
-	}
-
-	@Test
-	public void testOnMouseHoverZoomIn()
-	{
-		Assert.assertTrue(html5Tester.testOnMouseHoverZoomIn());
-	}
-
-
-	@Test
-	public void testOnMouseHoverZoomOut()
-	{
-		Assert.assertTrue(html5Tester.testOnMouseHoverZoomOut());
-	}
-
-
-	@Test
-	public void testOnMouseHoverZoomFit()
-	{
-		Assert.assertTrue(html5Tester.testOnMouseHoverZoomFit());
-	}
-
-
-	@Test
-	public void testOnMouseHoverOverview()
-	{
-		Assert.assertTrue(html5Tester.testOnMouseHoverOverview());
-	}
-
-
-	@Test
-	public void testOnMouseHoverCircularLayout()
-	{
-		Assert.assertTrue(html5Tester.testOnMouseHoverCircularLayout());
-	}
-
-
-	@Test
-	public void testOnMouseHoverHierarchicalLayout()
-	{
-		Assert.assertTrue(html5Tester.testOnMouseHoverHierarchicalLayout());
-	}
-
-
-	@Test
-	public void testOnMouseHoverOrthogonalLayout()
-	{
-		Assert.assertTrue(html5Tester.testOnMouseHoverOrthogonalLayout());
-
-	}
-
-
-	@Test
-	public void testOnMouseHoverSymmetricLayout()
-	{
-		Assert.assertTrue(html5Tester.testOnMouseHoverSymmetricLayout());
-	}
-
-
-	@Test
-	public void testOnMouseHoverGlobalLayout()
-	{
-		
-		Assert.assertTrue(html5Tester.testOnMouseHoverGlobalLayout());
-
-	}		
-	@Test
-	public void testOnMouseHoverIncrementalLayout()
-	{
-		Assert.assertTrue(html5Tester.testOnMouseHoverIncrementalLayout());
-	}
-
-
-	@Test
-	public void testOnMouseHoverBetweenCentralityLayout()
-	{
-		
-		Assert.assertTrue(html5Tester.testOnMouseHoverBetweenCentralityLayout());
-	}
-
-
-	@Test
-	public void testOnMouseHoverClosenessCentralityLayout()
-	{
-		Assert.assertTrue(html5Tester.testOnMouseHoverClosenessCentralityLayout());
-	}
-
-
-	@Test
-	public void testOnMouseHoverDegreeCentralityLayout()
-	{
-		Assert.assertTrue(html5Tester.testOnMouseHoverDegreeCentralityLayout());
-	}
-
-
-	@Test
-	public void testOnMouseHoverEigenVectorCentralityLayout()
-	{
-		Assert.assertTrue(html5Tester.testOnMouseHoverEigenVectorCentralityLayout());
 	}
 
 
 	@Test
 	public void testIsOverviewPresent()
 	{
-		Assert.assertTrue(html5Tester.testIsOverviewPresent());
+		Assert.assertTrue(imageMapTester.testIsOverviewPresent());
 	}
 
 
 	@Test
-	public void testCircularLayout()
+	public void testOnMouseHoverClearResults()
 	{
-		Assert.assertTrue(html5Tester.testCircularLayout());		
+		Assert.assertTrue(imageMapTester.testOnMouseHoverClearResults());
 	}
 
-
-	@Test
-	public void testHierarchicalLayout()
-	{
-	
-		Assert.assertTrue(html5Tester.testHierarchicalLayout());
-	}
-
-		
 	
 	
 	static TSTester TSAutomationTester;
@@ -236,6 +170,6 @@ public class TSTesterFunctionality
 
 	static int screenId;
 	
-	static TSHtml5PreviewTestCases html5Tester;
+	static TSImageMapPreviewTestCases imageMapTester;
 
 }
