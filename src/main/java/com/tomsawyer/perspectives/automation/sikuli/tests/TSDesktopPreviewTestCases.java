@@ -690,7 +690,7 @@ public class TSDesktopPreviewTestCases
 
 		System.out.println("******testOnMouseHoverRunMaximumFlow******");
 		String imageToolBar =
-			environmentTester.toolBarImagesPath + File.separator + "Run.png";
+			environmentTester.toolBarImagesPath + File.separator + "RunDisableDesktop.png";
 		String imageExpected =
 			environmentTester.toolTipsImagePath + File.separator + "RunMaximumFlow.png";
 		boolean result =
