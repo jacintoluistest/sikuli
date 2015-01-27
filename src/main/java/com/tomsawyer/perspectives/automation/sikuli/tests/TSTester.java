@@ -1187,9 +1187,9 @@ public class TSTester
 	{
 		String clearResultsButton =
 			tspHtml5PreviewImagePath + File.separator + "ClearResultsCanvas.png";
-		String hierarchicalSelected =
-			tspHtml5PreviewImagePath + File.separator
-				+ "HierarchicalLayoutSelectedCanvas.png";
+		//String hierarchicalSelected =
+		//	tspHtml5PreviewImagePath + File.separator
+		//		+ "HierarchicalLayoutSelectedCanvas.png";
 		Region r;
 
 		switch (automationTesterCurrentScreen.getID())
@@ -1210,7 +1210,7 @@ public class TSTester
 		try
 		{
 			automationTesterCurrentScreen.click(clearResultsButton);
-			automationTesterCurrentScreen.click(hierarchicalSelected);
+			//automationTesterCurrentScreen.click(hierarchicalSelected);
 			automationTesterCurrentScreen.click(r);
 
 		}
