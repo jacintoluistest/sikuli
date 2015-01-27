@@ -652,6 +652,12 @@ public class TSImageMapPreviewTestCases
 				expectedLayout,
 				expectedView,
 				environmentTestCase);
+		
+		if (!result)
+		{
+			TSAutomationUtils.getScreenShot(testerTestCase, className
+				+ "runMaximumImageMap", environmentTestCase.evidencePath);
+		}
 
 		return result;
 	}
