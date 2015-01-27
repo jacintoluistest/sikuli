@@ -1,4 +1,7 @@
+
 package com.tomsawyer.perspectives.automation.sikuli.tests;
+
+
 import java.io.File;
 import org.sikuli.script.FindFailed;
 import org.sikuli.script.Pattern;
@@ -158,6 +161,8 @@ public class TSFunctions
 		{
 			result = false;
 		}
+		
+		System.out.println("isViewPresent: " + result);
 		return result;
 
 	}
@@ -208,6 +213,7 @@ public class TSFunctions
 		{
 			result = false;
 		}
+		System.out.println("isLayoutPresent: " + result);
 		return result;
 	}
 
@@ -357,6 +363,7 @@ public class TSFunctions
 		return result;
 	}
 
+
 	public static boolean runMSliceCanvasMac(TSTester tester,
 		String minCapacity,
 		String expectedLayout)
@@ -366,11 +373,12 @@ public class TSFunctions
 			tester.tspHtml5PreviewImagePath + File.separator + "Run.png";
 		String minCapacityButton =
 			tester.tspHtml5PreviewImagePath + File.separator + "MinCapacityCanvas.png";
-		
-		String preComboButton = tester.tspHtml5PreviewImagePath + File.separator + "54.png";
+
+		String preComboButton =
+			tester.tspHtml5PreviewImagePath + File.separator + "54.png";
 		String comboButton =
 			tester.tspHtml5PreviewImagePath + File.separator + "ComboCanvas.png";
-		
+
 		try
 		{
 			tester.automationTesterCurrentScreen.click(mSliceButton);
@@ -499,7 +507,7 @@ public class TSFunctions
 
 		try
 		{
-			
+
 			tester.automationTesterCurrentScreen.click(new Pattern(sourceNode).similar(similar));
 			if (TSAutomationUtils.getOs().contains("mac"))
 			{
