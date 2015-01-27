@@ -54,9 +54,7 @@ public class TSMaxFlowDesktopPreviewTest
 		Assert.assertTrue(desktopTester.testOnMouseHoverPan());
 
 	}
-	
-	
-	
+
 	@Test
 	public void testOnMouseHoverNavigateLinks()
 	{
