@@ -1246,9 +1246,9 @@ public class TSTester
 
 		String clearResultsButton =
 			tspImageMapImagesPath + File.separator + "ClearResultsImageMap.png";
-		String hierarchicalSelected =
-			tspImageMapImagesPath + File.separator
-				+ "HierarchicalLayoutSelectedImageMap.png";
+//		String hierarchicalSelected =
+//			tspImageMapImagesPath + File.separator
+//				+ "HierarchicalLayoutSelectedImageMap.png";
 		Region r;
 
 		switch (automationTesterCurrentScreen.getID())
@@ -1269,7 +1269,7 @@ public class TSTester
 		try
 		{
 			automationTesterCurrentScreen.click(clearResultsButton);
-			automationTesterCurrentScreen.click(hierarchicalSelected);
+			//automationTesterCurrentScreen.click(hierarchicalSelected);
 			automationTesterCurrentScreen.click(r);
 
 		}
