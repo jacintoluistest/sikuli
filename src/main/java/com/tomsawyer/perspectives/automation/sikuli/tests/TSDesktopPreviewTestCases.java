@@ -159,6 +159,23 @@ public class TSDesktopPreviewTestCases
 		testerTestCase.undoDesktop();
 		return result;
 	}
+	
+	public boolean testHierarchicalLayout()
+	{
+		System.out.println("****testHierarchicalLayout*****");
+		String expectedLayout = environmentTester.projectImagesPath + File.separator + "HierarchicalExpected.png";
+		testerTestCase.HierarchicalLayoutDesktop();
+		boolean result =
+			TSFunctions.isLayoutPresent(testerTestCase, expectedLayout, new Float(0.80));
+		if (!result)
+		{
+			TSAutomationUtils.getScreenShot(testerTestCase, className
+				+ "testIsOverviewPresent", environmentTester.evidencePath);
+		}
+
+		testerTestCase.undoDesktop();
+		return result;
+	}
 
 
 	public boolean testOnMouseHoverSaveAs()
@@ -669,7 +686,7 @@ public class TSDesktopPreviewTestCases
 		System.out.println("******testOnMouseHoverSetSinkNode******");
 		String imageToolBar =
 			environmentTester.toolBarImagesPath + File.separator
-				+ "SetSinkNodeToolBarDesktop.png";
+				+ "SetSinkNodeDisableToolBarDesktop.png";
 		String imageExpected =
 			environmentTester.toolTipsImagePath + File.separator + "SetSinkNode.png";
 		boolean result =
@@ -691,7 +708,7 @@ public class TSDesktopPreviewTestCases
 
 		System.out.println("******testOnMouseHoverRunMaximumFlow******");
 		String imageToolBar =
-			environmentTester.toolBarImagesPath + File.separator + "Run.png";
+			environmentTester.toolBarImagesPath + File.separator + "RunMaximumFlowToolBarDesktop.png";
 		String imageExpected =
 			environmentTester.toolTipsImagePath + File.separator + "RunMaximumFlow.png";
 		boolean result =
@@ -851,7 +868,6 @@ public class TSDesktopPreviewTestCases
 				className + "testRunMaxFlow",
 				environmentTester.evidencePath);
 		}
-		Assert.assertTrue(result);
 		testerTestCase.clearResultsMaxFlowDesktop();
 
 		return result;

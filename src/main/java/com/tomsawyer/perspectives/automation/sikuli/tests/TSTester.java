@@ -547,7 +547,7 @@ public class TSTester
 
 	public Match isPresentElement(String patternStringPath, float similar)
 	{
-		TSAutomationUtils.pauseScript();
+		TSAutomationUtils.pauseScript(new Long (2500));
 		System.out.println("Searching image for validation" + patternStringPath);
 		// Waiting for screen
 
@@ -1169,17 +1169,37 @@ public class TSTester
 				+ "ClearResultsEnableToolBarDesktop.png";
 		String hierarchicalSelected =
 			tspDesktopPreviewImagesPath + File.separator
-				+ "HierarchicalSelectedToolBarDEsktop.png";
+				+ "HierarchicalSelectedToolBarDEsktop.png";		
+		Region r;
+
+		switch (automationTesterCurrentScreen.getID())
+		{
+			case 0:
+				r = new Region(350, 120, 10, 10);
+				break;
+
+			case 1:
+				r = new Region(659, 98, 10, 10);
+				break;
+
+			default:
+				r = null;
+				break;
+		}
+		
 		try
 		{
 			automationTesterCurrentScreen.click(clearResultsButton);
 			automationTesterCurrentScreen.click(hierarchicalSelected);
+			TSAutomationUtils.pauseScript(new Long(1500));
+			automationTesterCurrentScreen.click(r);
 
 		}
 		catch (FindFailed ff)
 		{
 			System.out.println(ff.getMessage());
 		}
+		
 	}
 
 
@@ -1187,9 +1207,6 @@ public class TSTester
 	{
 		String clearResultsButton =
 			tspHtml5PreviewImagePath + File.separator + "ClearResultsCanvas.png";
-		String hierarchicalSelected =
-			tspHtml5PreviewImagePath + File.separator
-				+ "HierarchicalLayoutSelectedCanvas.png";
 		Region r;
 
 		switch (automationTesterCurrentScreen.getID())
@@ -1210,7 +1227,6 @@ public class TSTester
 		try
 		{
 			automationTesterCurrentScreen.click(clearResultsButton);
-			automationTesterCurrentScreen.click(hierarchicalSelected);
 			automationTesterCurrentScreen.click(r);
 
 		}
@@ -1226,9 +1242,9 @@ public class TSTester
 
 		String clearResultsButton =
 			tspImageMapImagesPath + File.separator + "ClearResultsImageMap.png";
-		String hierarchicalSelected =
-			tspImageMapImagesPath + File.separator
-				+ "HierarchicalLayoutSelectedImageMap.png";
+//		String hierarchicalSelected =
+//			tspImageMapImagesPath + File.separator
+//				+ "HierarchicalLayoutSelectedImageMap.png";
 		Region r;
 
 		switch (automationTesterCurrentScreen.getID())
@@ -1249,7 +1265,7 @@ public class TSTester
 		try
 		{
 			automationTesterCurrentScreen.click(clearResultsButton);
-			automationTesterCurrentScreen.click(hierarchicalSelected);
+			//automationTesterCurrentScreen.click(hierarchicalSelected);
 			automationTesterCurrentScreen.click(r);
 
 		}

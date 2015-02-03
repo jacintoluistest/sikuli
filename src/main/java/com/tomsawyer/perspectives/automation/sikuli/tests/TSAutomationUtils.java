@@ -1,5 +1,4 @@
 package com.tomsawyer.perspectives.automation.sikuli.tests;
-
 import org.sikuli.script.Pattern;
 import org.sikuli.script.Screen;
 import java.io.File;
@@ -8,10 +7,23 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
+/**
+ * 
+ * @author ljacinto
+ * This class provices some utils to prepare the Tests
+ */
 
 public class TSAutomationUtils
 {
 
+	/**
+	 * This method returns the screen id to be used.
+	 * The pattern to search in one of the both screen that QA team uses.
+	 * With the pattern decides which screen id is going to be used.
+	 * @param pattern  
+	 * @return
+	 * @throws Exception this method throws the Sikuli Find Failed exception.
+	 */
 	public static int getCurrentScreenId(Pattern pattern) throws Exception
 	{
 		int result = 0;
@@ -61,7 +73,11 @@ public class TSAutomationUtils
 
 	}
 
-
+	/**
+	 * This method reads a specific property from config.properties
+	 * @param property
+	 * @return
+	 */
 	public static String getProperty(String property)
 	{
 		Properties propertiesFile = new Properties();

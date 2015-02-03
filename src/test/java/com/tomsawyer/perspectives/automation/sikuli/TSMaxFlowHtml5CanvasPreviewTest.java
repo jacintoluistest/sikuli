@@ -165,8 +165,6 @@ public class TSMaxFlowHtml5CanvasPreviewTest
 	}
 	
 	
-
-
 	@AfterClass
 	public static void closeAll()
 	{
