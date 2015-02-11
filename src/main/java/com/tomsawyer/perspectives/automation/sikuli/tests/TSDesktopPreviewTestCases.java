@@ -3,8 +3,7 @@ package com.tomsawyer.perspectives.automation.sikuli.tests;
 
 
 import java.io.File;
-import org.junit.Assert;
-
+import org.sikuli.script.Region;
 
 public class TSDesktopPreviewTestCases
 {
@@ -511,6 +510,24 @@ public class TSDesktopPreviewTestCases
 
 		return result;
 	}
+	
+	public boolean testOnMouseHoverSymmetricLayout(String imageToolBar)
+	{
+		System.out.println("******testOnMouseHoverSymmetricLayout******");
+		String imageExpected =
+			environmentTester.toolTipsImagePath + File.separator + "SymmetricLayout.png";
+		boolean result =
+			TSFunctions.isToolTipPresentDesktop(testerTestCase,
+				imageToolBar,
+				imageExpected);
+		if (!result)
+		{
+			TSAutomationUtils.getScreenShot(testerTestCase, className
+				+ "testOnMouseHoverSymmetricLayout", environmentTester.evidencePath);
+		}
+
+		return result;
+	}
 
 
 	public boolean testOnMouseHoverGlobalLayout()
@@ -834,6 +851,67 @@ public class TSDesktopPreviewTestCases
 		}
 		return result;
 	}
+	
+	public boolean testOnMouseHoverUndo()
+	{
+		System.out.println("******testOnMouseHoverUndo******");
+		String imageToolBar =
+			environmentTester.toolBarImagesPath + File.separator
+				+ "undoToolBarDesktopDisabled.png";
+		String imageExpected =
+			environmentTester.toolTipsImagePath + File.separator + "undo.png";
+		boolean result =
+			TSFunctions.isToolTipPresentDesktop(testerTestCase,
+				imageToolBar,
+				imageExpected);
+		if (!result)
+		{
+			TSAutomationUtils.getScreenShot(testerTestCase, className
+				+ "testOnMouseHoverUndo", environmentTester.evidencePath);
+		}
+		return result;
+	}
+	
+	public boolean testOnMouseHoverRedo()
+	{
+		System.out.println("******testOnMouseHoverRedo******");
+		String imageToolBar =
+			environmentTester.toolBarImagesPath + File.separator
+				+ "redoToolBarDesktopDisabled.png";
+		String imageExpected =
+			environmentTester.toolTipsImagePath + File.separator + "redo.png";
+		boolean result =
+			TSFunctions.isToolTipPresentDesktop(testerTestCase,
+				imageToolBar,
+				imageExpected);
+		if (!result)
+		{
+			TSAutomationUtils.getScreenShot(testerTestCase, className
+				+ "testOnMouseHoverRedo", environmentTester.evidencePath);
+		}
+		return result;
+	}
+	
+	public boolean testOnMouseHoverShowAbout()
+	{
+		System.out.println("******testOnMouseHoverShowAbout******");
+		String imageToolBar =
+			environmentTester.toolBarImagesPath + File.separator
+				+ "showAbout.png";
+		String imageExpected =
+			environmentTester.toolTipsImagePath + File.separator + "showAbout.png";
+		boolean result =
+			TSFunctions.isToolTipPresentDesktop(testerTestCase,
+				imageToolBar,
+				imageExpected);
+		if (!result)
+		{
+			TSAutomationUtils.getScreenShot(testerTestCase, className
+				+ "testOnMouseHoverRedo", environmentTester.evidencePath);
+		}
+		return result;
+		
+	}
 
 
 	public boolean testMaxFlowDefaultLayout()
@@ -997,6 +1075,27 @@ public class TSDesktopPreviewTestCases
 		return result;
 
 	}
+	
+	public boolean testOnMouseHoverRun()
+	{
+		System.out.println("******testOnMouseHoverRun******");
+		String imageToolBar =
+			environmentTester.toolBarImagesPath + File.separator + "RunDesktop.png";
+		String imageExpected =
+			environmentTester.toolTipsImagePath + File.separator + "RunAcyclicTest.png";
+		boolean result =
+			TSFunctions.isToolTipPresentDesktop(testerTestCase,
+				imageToolBar,
+				imageExpected);
+		if (!result)
+		{
+			TSAutomationUtils.getScreenShot(testerTestCase, className
+				+ "testOnMouseHoverRunAcyclicTest", environmentTester.evidencePath);
+		}
+
+		return result;
+
+	}
 
 
 	public boolean testIsRunAcyclicButtonEnable()
@@ -1047,5 +1146,41 @@ public class TSDesktopPreviewTestCases
 			+ "ClearResultsAcyclicEnableToolBarDesktop");
 		return result;
 	}
+	
+	public boolean networkEditorViews()
+	{
+		boolean result = false;
+		String nodeSelected= environmentTester.projectImagesPath + File.separator + "nodeSelected";
+		String treeView=environmentTester.projectImagesPath + File.separator + "treeViewExpected";
+		String inspectorView=environmentTester.projectImagesPath + File.separator + "inspectorViewExpected";
+		String tableView=environmentTester.projectImagesPath + File.separator + "tableViewExpected";
+		testerTestCase.clickOnElement(nodeSelected);
+		if(TSFunctions.isViewPresent(testerTestCase,tableView)&& TSFunctions.isViewPresent(testerTestCase, inspectorView)&& TSFunctions.isViewPresent(testerTestCase, treeView))
+		{
+			result = true;
+		}
+		testerTestCase.zoomFit();
+		Region collapse = new Region(40, 197, 24, 20);
+		collapse.click();
+		
+		return result;
+	}
+	
+	public boolean networkEditorViews(String treeView, String inspectorView,String tableView, String nodeSelected)
+	{
+		boolean result = false;
+		testerTestCase.clickOnElement(nodeSelected);
+		if(TSFunctions.isViewPresent(testerTestCase,tableView)&& TSFunctions.isViewPresent(testerTestCase, inspectorView)&& TSFunctions.isViewPresent(testerTestCase, treeView))
+		{
+			result = true;
+		}
+		testerTestCase.zoomFit();
+		Region collapse = new Region(40, 197, 24, 20);
+		collapse.click();
+		
+		return result;
+	}
+	
+	
 
 }
