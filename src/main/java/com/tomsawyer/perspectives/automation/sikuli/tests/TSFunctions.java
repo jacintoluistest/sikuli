@@ -7,6 +7,7 @@ import org.sikuli.script.FindFailed;
 import org.sikuli.script.Pattern;
 
 
+
 public class TSFunctions
 {
 	public static TSTester setDesktopTest(TSTester tester, String projectPathPropertyName)
@@ -161,7 +162,7 @@ public class TSFunctions
 		{
 			result = false;
 		}
-		
+
 		System.out.println("isViewPresent: " + result);
 		return result;
 
@@ -598,5 +599,7 @@ public class TSFunctions
 		tester.clearResultsMaxFlowImageMap();
 		return result;
 	}
+	
+	
 
 }
