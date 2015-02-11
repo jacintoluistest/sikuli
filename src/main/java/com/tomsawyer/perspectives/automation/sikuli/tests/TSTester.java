@@ -532,6 +532,21 @@ public class TSTester
 		TSAutomationUtils.pauseScript(new Long(1500));
 
 	}
+	
+	public void orthogonalLayoutHtml5(String orthogonalLayoutImage)
+	{
+		
+		try
+		{
+			automationTesterCurrentScreen.click(orthogonalLayoutImage);
+		}
+		catch (FindFailed ff)
+		{
+			System.out.println(ff.getMessage());
+		}
+		TSAutomationUtils.pauseScript(new Long(1500));
+
+	}
 
 
 	public Match isPresentElement(String patternStringPath)
@@ -1042,6 +1057,20 @@ public class TSTester
 
 	}
 
+	public void SymmetricLayoutImageMap(String circularLayout)
+	{
+		try
+		{
+			automationTesterCurrentScreen.click(circularLayout);
+		}
+		catch (FindFailed ff)
+		{
+			System.out.println(ff.getMessage());
+		}
+		TSAutomationUtils.pauseScript(new Long(1500));
+
+	}
+
 
 	public void SymmetricLayoutHtml5()
 	{
@@ -1052,6 +1081,21 @@ public class TSTester
 		{
 			System.out.println(circularLayout);
 			automationTesterCurrentScreen.click(circularLayout);
+		}
+		catch (FindFailed ff)
+		{
+			System.out.println(ff.getMessage());
+		}
+		TSAutomationUtils.pauseScript(new Long(1500));
+
+	}
+
+	public void SymmetricLayoutHtml5(String symmetricLayoutImage)
+	{
+		try
+		{
+			System.out.println(symmetricLayoutImage);
+			automationTesterCurrentScreen.click(symmetricLayoutImage);
 		}
 		catch (FindFailed ff)
 		{
@@ -1320,6 +1364,19 @@ public class TSTester
 		{
 			System.out.println(ff.getMessage());
 		}
-
 	}
+	
+	public void clickOnElement(String element)
+	{
+		try{
+			automationTesterCurrentScreen.click(element);
+		}
+		
+		catch(FindFailed ff)
+		{
+			System.out.println(ff.getMessage());
+		}
+		
+	}
+	
 }
