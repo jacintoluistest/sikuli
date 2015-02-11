@@ -164,6 +164,7 @@ public class TSAcyclicDesktopPreviewTest
 	{
 		Assert.assertTrue(desktopTester.testRunAcyclicTest());
 	}
+	
 
 
 	static TSTester TSAutomationTester;
