@@ -1,17 +1,22 @@
+
 package com.tomsawyer.perspectives.automation.sikuli.tests;
+
+
 import java.io.File;
 import org.sikuli.script.FindFailed;
+import org.sikuli.script.Key;
 import org.sikuli.script.Pattern;
+import org.sikuli.script.Region;
 
 
 public class TSFunctions
 {
 	public static TSTester setDesktopTest(TSTester tester, String projectPathPropertyName)
 	{
-		tester.LaunchTS();
-		tester.openProject(projectPathPropertyName);
-		tester.launchDesktopPreview();
-		tester.maximizeWindow();
+		// tester.LaunchTS();
+		// tester.openProject(projectPathPropertyName);
+		// tester.launchDesktopPreview();
+		// tester.maximizeWindow();
 		TSAutomationUtils.pauseScript(new Long(2000));
 
 		return tester;
@@ -127,6 +132,21 @@ public class TSFunctions
 	}
 
 
+	public static boolean isElementPresent(TSTester tester, String elementImagePath)
+	{
+		boolean result;
+		if (tester.isPresentElement(elementImagePath) != null)
+		{
+			result = true;
+		}
+		else
+		{
+			result = false;
+		}
+		return result;
+	}
+
+
 	public static boolean isViewPresent(TSTester tester, String viewImagePath)
 	{
 
@@ -151,6 +171,46 @@ public class TSFunctions
 
 		boolean result = true;
 		if (tester.isPresentElement(viewImagePath, similar) != null)
+		{
+			result = true;
+		}
+		else
+		{
+			result = false;
+		}
+
+		System.out.println("isViewPresent: " + result);
+		return result;
+
+	}
+
+
+	public static boolean isDrawPresent(TSTester tester,
+		String drawImagePath,
+		float similar)
+	{
+
+		boolean result = true;
+		if (tester.isPresentElement(drawImagePath, similar) != null)
+		{
+			result = true;
+		}
+		else
+		{
+			result = false;
+		}
+
+		System.out.println("isViewPresent: " + result);
+		return result;
+
+	}
+
+
+	public static boolean isDrawPresent(TSTester tester, String drawImagePath)
+	{
+
+		boolean result = true;
+		if (tester.isPresentElement(drawImagePath) != null)
 		{
 			result = true;
 		}
@@ -208,6 +268,23 @@ public class TSFunctions
 		{
 			result = false;
 		}
+		System.out.println("isLayoutPresent: " + result);
+		return result;
+	}
+
+
+	public static boolean isLayoutPresent(TSTester tester, String expectedLayout)
+	{
+		boolean result = true;
+		if (tester.isPresentElement(expectedLayout) != null)
+		{
+			result = true;
+		}
+		else
+		{
+			result = false;
+		}
+		System.out.println("isLayoutPresent: " + result);
 		return result;
 	}
 
@@ -357,6 +434,7 @@ public class TSFunctions
 		return result;
 	}
 
+
 	public static boolean runMSliceCanvasMac(TSTester tester,
 		String minCapacity,
 		String expectedLayout)
@@ -366,11 +444,12 @@ public class TSFunctions
 			tester.tspHtml5PreviewImagePath + File.separator + "Run.png";
 		String minCapacityButton =
 			tester.tspHtml5PreviewImagePath + File.separator + "MinCapacityCanvas.png";
-		
-		String preComboButton = tester.tspHtml5PreviewImagePath + File.separator + "54.png";
+
+		String preComboButton =
+			tester.tspHtml5PreviewImagePath + File.separator + "54.png";
 		String comboButton =
 			tester.tspHtml5PreviewImagePath + File.separator + "ComboCanvas.png";
-		
+
 		try
 		{
 			tester.automationTesterCurrentScreen.click(mSliceButton);
@@ -499,7 +578,7 @@ public class TSFunctions
 
 		try
 		{
-			
+
 			tester.automationTesterCurrentScreen.click(new Pattern(sourceNode).similar(similar));
 			if (TSAutomationUtils.getOs().contains("mac"))
 			{
@@ -589,6 +668,97 @@ public class TSFunctions
 
 		tester.clearResultsMaxFlowImageMap();
 		return result;
+	}
+
+
+	public static void runShortestPathsAlgorithm(TSTester tester,
+		TSEnvironment environment)
+	{
+		String setStartNodeButton =
+			environment.toolBarImagesPath + File.separator
+				+ "setStartNodeToolBarDesktop.png";
+		String setFinishNodeButton =
+			environment.toolBarImagesPath + File.separator
+				+ "setFinishNodeToolBarDesktop.png";
+		String runShortestPathsButton =
+			environment.toolBarImagesPath + File.separator + "RunToolBarDesktop.png";
+
+		String startNode =
+			environment.toolBarImagesPath + File.separator + "startNode.png";
+		String finishNode =
+			environment.toolBarImagesPath + File.separator + "finishNode.png";
+
+		tester.clickOnElement(startNode);
+		tester.clickOnElement(setStartNodeButton);
+		tester.clickOnElement(finishNode);
+		tester.clickOnElement(setFinishNodeButton);
+		tester.clickOnElement(runShortestPathsButton);
+	}
+
+
+	public static void defaultDraw(TSTester tester, String defaultTabDraw)
+	{
+		tester.clickOnElement(defaultTabDraw);
+	}
+
+
+	public static void clickBlankRegion(TSTester tester)
+	{
+		Region blankArea = null;
+		switch (tester.automationTesterCurrentScreen.getID())
+		{
+			case 0:
+				blankArea = new Region(1154, 114, 62, 38);
+
+			case 1:
+				blankArea = new Region(-119, -106, 40, 25);
+				break;
+		}
+		blankArea.click();
+
+	}
+
+
+	public static void runTopologicalSort(TSTester tester, TSEnvironment environment)
+	{
+		String runTopologicalSort = environment.toolBarImagesPath + "Run.png";
+		tester.runAlgorithm(runTopologicalSort);
+	}
+
+
+	public static void search(TSTester tester,
+		TSEnvironment environtment,
+		String searchBoxPath,
+		String searchCriteria)
+	{
+		tester.clickOnElement(searchBoxPath);
+		tester.automationTesterCurrentScreen.type(searchCriteria);
+		tester.automationTesterCurrentScreen.type(Key.ENTER);
+		tester.automationTesterCurrentScreen.type(Key.DOWN);
+		tester.automationTesterCurrentScreen.type(Key.ENTER);
+
+	}
+
+
+	public static void cleanSearch(TSTester tester,
+		TSEnvironment environment,
+		String clearSearch)
+	{
+		try
+		{
+			tester.automationTesterCurrentScreen.click(clearSearch);
+		}
+		catch (FindFailed ff)
+		{
+			System.out.println(ff.getMessage());
+		}
+	}
+
+
+	public static void closeTreeNode(TSTester tester ,String closeNodeTool)
+	{
+		tester.clickOnElement(closeNodeTool);
+		
 	}
 
 }

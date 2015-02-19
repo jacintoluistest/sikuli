@@ -126,6 +126,7 @@ public class TSEnvironment
 				+ File.separator + "HoverToolTips";
 		System.out.println(toolTipsImagePath);
 		
+		
 		evidencePath = "images" + File.separator + operativeSystem + File.separator + projectName + File.separator +"Evidence"+File.separator;
 
 	}
@@ -154,21 +155,21 @@ public class TSEnvironment
 
 		projectImagesPath =
 			"images" + File.separator + operativeSystem + File.separator
-				+ this.projectName + File.separator + testPreviewType + File.separator + browserPath;
+				+ this.projectName + File.separator + testPreviewType + File.separator
+				+ browserPath;
 		System.out.println(projectImagesPath);
 		toolBarImagesPath =
 			"images" + File.separator + operativeSystem + File.separator
 				+ "TomSawyerPerspectives" + File.separator + testTypeImagePath
-				+ File.separator + browserPath
-				+ File.separator + "ToolBar";
+				+ File.separator + browserPath + File.separator + "ToolBar";
 		System.out.println(toolBarImagesPath);
 
 		toolTipsImagePath =
 			"images" + File.separator + operativeSystem + File.separator
 				+ "TomSawyerPerspectives" + File.separator + testTypeImagePath
-				+File.separator + browserPath
-				+ File.separator + "HoverToolTips";
+				+ File.separator + browserPath + File.separator + "HoverToolTips";
 		System.out.println(toolTipsImagePath);
+
 		
 		evidencePath = "images" + File.separator + operativeSystem + File.separator + projectName + File.separator +"Evidence"+File.separator;
 

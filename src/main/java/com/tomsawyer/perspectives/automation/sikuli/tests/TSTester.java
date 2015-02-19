@@ -465,7 +465,96 @@ public class TSTester
 		System.out.println("Finish launch Web Preview");
 	}
 
+	public void zoomInDesktop()
+	{
+		try
+		{
+			automationTesterCurrentScreen.click(new Pattern(tsperspectivesToolBarImagesPath
+				+ File.separator + "ZoomInToolBarDesktop.png").similar(new Float(0.7)));
+		}
 
+		catch (FindFailed ff)
+		{
+			System.out.println(ff.getMessage());
+		}
+
+	}
+	
+	public void zoomInImageMap()
+	{
+		try
+		{
+			automationTesterCurrentScreen.click(new Pattern(tsperspectivesToolBarImagesPath
+				+ File.separator + "ZoomInImageMap.png").similar(new Float(0.7)));
+		}
+
+		catch (FindFailed ff)
+		{
+			System.out.println(ff.getMessage());
+		}
+
+	}
+	
+	public void zoomInHtml5()
+	{
+		try
+		{
+			automationTesterCurrentScreen.click(new Pattern(tsperspectivesToolBarImagesPath
+				+ File.separator + "ZoomInCanvas.png").similar(new Float(0.7)));
+		}
+
+		catch (FindFailed ff)
+		{
+			System.out.println(ff.getMessage());
+		}
+
+	}
+	
+	public void zoomFitDesktop()
+	{
+		try
+		{
+			automationTesterCurrentScreen.click(new Pattern(tsperspectivesToolBarImagesPath
+				+ File.separator + "ZoomFitToolBarDesktop.png").similar(new Float(0.7)));
+		}
+
+		catch (FindFailed ff)
+		{
+			System.out.println(ff.getMessage());
+		}
+
+	}
+	
+	public void zoomFitImageMap()
+	{
+		try
+		{
+			automationTesterCurrentScreen.click(new Pattern(tsperspectivesToolBarImagesPath
+				+ File.separator + "ZoomFitImageMap.png").similar(new Float(0.7)));
+		}
+
+		catch (FindFailed ff)
+		{
+			System.out.println(ff.getMessage());
+		}
+
+	}
+	
+	public void zoomFitHtml5()
+	{
+		try
+		{
+			automationTesterCurrentScreen.click(new Pattern(tsperspectivesToolBarImagesPath
+				+ File.separator + "ZoomFitCanvas.png").similar(new Float(0.7)));
+		}
+
+		catch (FindFailed ff)
+		{
+			System.out.println(ff.getMessage());
+		}
+
+	}
+	
 	public void circularLayout()
 	{
 		try
@@ -498,6 +587,8 @@ public class TSTester
 		TSAutomationUtils.pauseScript(new Long(1500));
 
 	}
+	
+	
 
 
 	public void orthogonalLayoutImageMap()
@@ -532,6 +623,21 @@ public class TSTester
 		TSAutomationUtils.pauseScript(new Long(1500));
 
 	}
+	
+	public void orthogonalLayoutHtml5(String orthogonalLayoutImage)
+	{
+		
+		try
+		{
+			automationTesterCurrentScreen.click(orthogonalLayoutImage);
+		}
+		catch (FindFailed ff)
+		{
+			System.out.println(ff.getMessage());
+		}
+		TSAutomationUtils.pauseScript(new Long(1500));
+
+	}
 
 
 	public Match isPresentElement(String patternStringPath)
@@ -547,7 +653,7 @@ public class TSTester
 
 	public Match isPresentElement(String patternStringPath, float similar)
 	{
-		TSAutomationUtils.pauseScript();
+		TSAutomationUtils.pauseScript(new Long (2500));
 		System.out.println("Searching image for validation" + patternStringPath);
 		// Waiting for screen
 
@@ -1024,6 +1130,20 @@ public class TSTester
 		TSAutomationUtils.pauseScript(new Long(1500));
 
 	}
+	
+	public void SymmetricLayoutDesktop(String circularLayout)
+	{
+		try
+		{
+			automationTesterCurrentScreen.click(circularLayout);
+		}
+		catch (FindFailed ff)
+		{
+			System.out.println(ff.getMessage());
+		}
+		TSAutomationUtils.pauseScript(new Long(1500));
+
+	}
 
 
 	public void SymmetricLayoutImageMap()
@@ -1033,6 +1153,20 @@ public class TSTester
 		try
 		{
 			automationTesterCurrentScreen.click(circularLayout);
+		}
+		catch (FindFailed ff)
+		{
+			System.out.println(ff.getMessage());
+		}
+		TSAutomationUtils.pauseScript(new Long(1500));
+
+	}
+
+	public void SymmetricLayoutImageMap(String symmetricLayout)
+	{
+		try
+		{
+			automationTesterCurrentScreen.click(symmetricLayout);
 		}
 		catch (FindFailed ff)
 		{
@@ -1052,6 +1186,21 @@ public class TSTester
 		{
 			System.out.println(circularLayout);
 			automationTesterCurrentScreen.click(circularLayout);
+		}
+		catch (FindFailed ff)
+		{
+			System.out.println(ff.getMessage());
+		}
+		TSAutomationUtils.pauseScript(new Long(1500));
+
+	}
+
+	public void SymmetricLayoutHtml5(String symmetricLayoutImage)
+	{
+		try
+		{
+			System.out.println(symmetricLayoutImage);
+			automationTesterCurrentScreen.click(symmetricLayoutImage);
 		}
 		catch (FindFailed ff)
 		{
@@ -1114,7 +1263,7 @@ public class TSTester
 	public void closeOverviewDesktop()
 	{
 		String overviewButton =
-			tspDesktopPreviewImagesPath + File.separator + "toolBarCloseOverview.png";
+			tspDesktopPreviewImagesPath + File.separator + "closeOverview.png";
 		try
 		{
 			automationTesterCurrentScreen.click(overviewButton);
@@ -1169,11 +1318,111 @@ public class TSTester
 				+ "ClearResultsEnableToolBarDesktop.png";
 		String hierarchicalSelected =
 			tspDesktopPreviewImagesPath + File.separator
-				+ "HierarchicalSelectedToolBarDEsktop.png";
+				+ "HierarchicalSelectedToolBarDEsktop.png";		
+		Region r;
+
+		switch (automationTesterCurrentScreen.getID())
+		{
+			case 0:
+				r = new Region(350, 120, 10, 10);
+				break;
+
+			case 1:
+				r = new Region(659, 98, 10, 10);
+				break;
+
+			default:
+				r = null;
+				break;
+		}
+		
 		try
 		{
 			automationTesterCurrentScreen.click(clearResultsButton);
 			automationTesterCurrentScreen.click(hierarchicalSelected);
+			TSAutomationUtils.pauseScript(new Long(1500));
+			automationTesterCurrentScreen.click(r);
+
+		}
+		catch (FindFailed ff)
+		{
+			System.out.println(ff.getMessage());
+		}
+		
+	}
+	
+	public void clearResultsShortesPathsDesktop()
+	{
+		String clearResultsButton =
+			tspDesktopPreviewImagesPath + File.separator
+				+ "ClearResultsEnableToolBarDesktop.png";
+		Region r;
+
+		switch (automationTesterCurrentScreen.getID())
+		{
+			case 0:
+				r = new Region(350, 120, 10, 10);
+				break;
+
+			case 1:
+				r = new Region(659, 98, 10, 10);
+				break;
+
+			default:
+				r = null;
+				break;
+		}
+		
+		try
+		{
+			automationTesterCurrentScreen.click(clearResultsButton);
+			TSAutomationUtils.pauseScript(new Long(1500));
+			automationTesterCurrentScreen.click(r);
+
+		}
+		catch (FindFailed ff)
+		{
+			System.out.println(ff.getMessage());
+		}
+		
+	}
+
+
+	public void clearResultsMaxFlowHtml5()
+	{
+		String clearResultsButton =
+			tspHtml5PreviewImagePath + File.separator + "ClearResultsCanvas.png";
+<<<<<<< HEAD
+		//String hierarchicalSelected =
+		//	tspHtml5PreviewImagePath + File.separator
+		//		+ "HierarchicalLayoutSelectedCanvas.png";
+=======
+>>>>>>> refs/remotes/origin/master
+		Region r;
+
+		switch (automationTesterCurrentScreen.getID())
+		{
+			case 0:
+				r = new Region(332, 98, 10, 10);
+				break;
+
+			case 1:
+				r = new Region(659, 98, 10, 10);
+				break;
+
+			default:
+				r = null;
+				break;
+		}
+
+		try
+		{
+			automationTesterCurrentScreen.click(clearResultsButton);
+<<<<<<< HEAD
+			//automationTesterCurrentScreen.click(hierarchicalSelected);
+=======
+>>>>>>> refs/remotes/origin/master
+			automationTesterCurrentScreen.click(r);
 
 		}
 		catch (FindFailed ff)
@@ -1183,13 +1432,14 @@ public class TSTester
 	}
 
 
-	public void clearResultsMaxFlowHtml5()
+	public void clearResultsMaxFlowImageMap()
 	{
+
 		String clearResultsButton =
-			tspHtml5PreviewImagePath + File.separator + "ClearResultsCanvas.png";
-		//String hierarchicalSelected =
-		//	tspHtml5PreviewImagePath + File.separator
-		//		+ "HierarchicalLayoutSelectedCanvas.png";
+			tspImageMapImagesPath + File.separator + "ClearResultsImageMap.png";
+//		String hierarchicalSelected =
+//			tspImageMapImagesPath + File.separator
+//				+ "HierarchicalLayoutSelectedImageMap.png";
 		Region r;
 
 		switch (automationTesterCurrentScreen.getID())
@@ -1211,45 +1461,6 @@ public class TSTester
 		{
 			automationTesterCurrentScreen.click(clearResultsButton);
 			//automationTesterCurrentScreen.click(hierarchicalSelected);
-			automationTesterCurrentScreen.click(r);
-
-		}
-		catch (FindFailed ff)
-		{
-			System.out.println(ff.getMessage());
-		}
-	}
-
-
-	public void clearResultsMaxFlowImageMap()
-	{
-
-		String clearResultsButton =
-			tspImageMapImagesPath + File.separator + "ClearResultsImageMap.png";
-		String hierarchicalSelected =
-			tspImageMapImagesPath + File.separator
-				+ "HierarchicalLayoutSelectedImageMap.png";
-		Region r;
-
-		switch (automationTesterCurrentScreen.getID())
-		{
-			case 0:
-				r = new Region(332, 98, 10, 10);
-				break;
-
-			case 1:
-				r = new Region(659, 98, 10, 10);
-				break;
-
-			default:
-				r = null;
-				break;
-		}
-
-		try
-		{
-			automationTesterCurrentScreen.click(clearResultsButton);
-			automationTesterCurrentScreen.click(hierarchicalSelected);
 			automationTesterCurrentScreen.click(r);
 
 		}
@@ -1304,6 +1515,30 @@ public class TSTester
 		{
 			System.out.println(ff.getMessage());
 		}
-
 	}
+	
+	public void clickOnElement(String element)
+	{
+		try{
+			automationTesterCurrentScreen.click(element);
+		}
+		
+		catch(FindFailed ff)
+		{
+			System.out.println(ff.getMessage());
+		}
+		
+	}
+	
+	public void rightClickOnElement(String element)
+	{
+		try{
+			automationTesterCurrentScreen.rightClick(element);
+		}
+		catch (FindFailed ff)
+		{
+			System.out.println(ff.getMessage());
+		}
+		}
+	
 }
