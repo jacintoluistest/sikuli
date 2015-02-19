@@ -1,3 +1,4 @@
+
 package com.tomsawyer.perspectives.automation.sikuli;
 
 
@@ -21,18 +22,22 @@ public class TSTesterFunctionality
 	public static void setUp()
 	{
 
+		// org.sikuli.basics.Debug.setDebugLevel(3);
 		className = TSTesterFunctionality.class.getName();
 		Settings.MoveMouseDelay = new Float(1.5);
-		//String defaultBrowser =TSAutomationUtils.getProperty("DefaultBrowser");
+		//String defaultBrowser = TSAutomationUtils.getProperty("Default Browser");
 		environment =
-			new TSEnvironment("AcyclicTest", TSEnvironment.DESKTOP_PREVIEW);
-		TSAutomationTester = new TSTester();		
-		desktopTester = new TSDesktopPreviewTestCases(environment, TSAutomationTester, className);
+			new TSEnvironment("NetwokEditor",
+				TSEnvironment.DESKTOP_PREVIEW);
+		TSAutomationTester = new TSTester();
+		desktopTester =
+			new TSDesktopPreviewTestCases(environment, TSAutomationTester, className);
 		environment = TSFunctions.setScreenFolder(TSAutomationTester, environment);
 		TSAutomationUtils.pauseScript();
-		
+
 	}
-	
+
+
 	@AfterClass
 	public static void closeAll()
 	{
@@ -41,15 +46,39 @@ public class TSTesterFunctionality
 		// TSAutomationTester.closeAll();
 	}
 
-
-
+	@Test
+	public void testOnMouseHoverSelect()
+	{
+		Assert.assertTrue(desktopTester.testOnMouseHoverSelect());
+	}
+	@Test
+	public void testOnMouseHoverSaveAs()
+	{
+		Assert.assertTrue(desktopTester.testOnMouseHoverSaveAs());
+		
+	}
+	
 	@Test
 	public void testOnMouseHoverPan()
 	{
 		Assert.assertTrue(desktopTester.testOnMouseHoverPan());
 	}
 
+	@Test
+	public void testOnMouseHoverPrintSetUp()
+	{
+		Assert.assertTrue(desktopTester.testOnMouseHoverPrintSetUp());
+	}
+	
+	@Test
+	public void testOnMouseHoverPrintPreview()
+	{
+		Assert.assertTrue(desktopTester.testOnMouseHoverPrint());
+	}
 
+	
+
+	
 	@Test
 	public void testOnMouseHoverNavigateLinks()
 	{
@@ -113,60 +142,9 @@ public class TSTesterFunctionality
 			+ File.separator + "OrthogonalLayoutToolBarDesktopSelected"));
 	}
 
-
-	@Test
-	public void testOnMouseHoverRunAcyclicTest()
-	{
-
-		Assert.assertTrue(desktopTester.testOnMouseHoverRunAcyclicTest());
-	}
-
-
-	@Test
-	public void testOnMouseHoverClearResults()
-	{
-		Assert.assertTrue(desktopTester.testOnMouseHoverClearResults());
-	}
-
-
-	@Test
-	public void testHierarchicalLayout()
-	{
-		String expectedHierarchical =
-			environment.projectImagesPath + File.separator
-				+ "AcyclicTestDesktopHierarchicalExpected.png";
-		Assert.assertTrue(desktopTester.testHierarchicalLayout(expectedHierarchical));
-		
-	}
-
-
-	@Test
-	public void testIsOverviewPresent()
-	{
-		Assert.assertTrue(desktopTester.testIsOverviewPresent());
-	}
-
-
-	@Test
-	public void testIsRunAcyclicButtonEnable()
-	{
-		Assert.assertTrue(desktopTester.testIsRunAcyclicButtonEnable());
-	}
-
-
-	@Test
-	public void testIsClearResultsButtonDisable()
-	{
-		Assert.assertTrue(desktopTester.testIsClearResultsButtonDisable());
-	}
-
-
-	@Test
-	public void testRunAcyclicTest()
-	{
-		Assert.assertTrue(desktopTester.testRunAcyclicTest());
-	}
 	
+	
+
 	
 	
 	static TSTester TSAutomationTester;
@@ -176,7 +154,7 @@ public class TSTesterFunctionality
 	static TSEnvironment environment;
 
 	static int screenId;
-	
+
 	static TSDesktopPreviewTestCases desktopTester;
 
 }
