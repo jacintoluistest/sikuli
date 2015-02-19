@@ -465,7 +465,96 @@ public class TSTester
 		System.out.println("Finish launch Web Preview");
 	}
 
+	public void zoomInDesktop()
+	{
+		try
+		{
+			automationTesterCurrentScreen.click(new Pattern(tsperspectivesToolBarImagesPath
+				+ File.separator + "ZoomInToolBarDesktop.png").similar(new Float(0.7)));
+		}
 
+		catch (FindFailed ff)
+		{
+			System.out.println(ff.getMessage());
+		}
+
+	}
+	
+	public void zoomInImageMap()
+	{
+		try
+		{
+			automationTesterCurrentScreen.click(new Pattern(tsperspectivesToolBarImagesPath
+				+ File.separator + "ZoomInImageMap.png").similar(new Float(0.7)));
+		}
+
+		catch (FindFailed ff)
+		{
+			System.out.println(ff.getMessage());
+		}
+
+	}
+	
+	public void zoomInHtml5()
+	{
+		try
+		{
+			automationTesterCurrentScreen.click(new Pattern(tsperspectivesToolBarImagesPath
+				+ File.separator + "ZoomInCanvas.png").similar(new Float(0.7)));
+		}
+
+		catch (FindFailed ff)
+		{
+			System.out.println(ff.getMessage());
+		}
+
+	}
+	
+	public void zoomFitDesktop()
+	{
+		try
+		{
+			automationTesterCurrentScreen.click(new Pattern(tsperspectivesToolBarImagesPath
+				+ File.separator + "ZoomFitToolBarDesktop.png").similar(new Float(0.7)));
+		}
+
+		catch (FindFailed ff)
+		{
+			System.out.println(ff.getMessage());
+		}
+
+	}
+	
+	public void zoomFitImageMap()
+	{
+		try
+		{
+			automationTesterCurrentScreen.click(new Pattern(tsperspectivesToolBarImagesPath
+				+ File.separator + "ZoomFitImageMap.png").similar(new Float(0.7)));
+		}
+
+		catch (FindFailed ff)
+		{
+			System.out.println(ff.getMessage());
+		}
+
+	}
+	
+	public void zoomFitHtml5()
+	{
+		try
+		{
+			automationTesterCurrentScreen.click(new Pattern(tsperspectivesToolBarImagesPath
+				+ File.separator + "ZoomFitCanvas.png").similar(new Float(0.7)));
+		}
+
+		catch (FindFailed ff)
+		{
+			System.out.println(ff.getMessage());
+		}
+
+	}
+	
 	public void circularLayout()
 	{
 		try
@@ -498,6 +587,8 @@ public class TSTester
 		TSAutomationUtils.pauseScript(new Long(1500));
 
 	}
+	
+	
 
 
 	public void orthogonalLayoutImageMap()
@@ -1039,6 +1130,20 @@ public class TSTester
 		TSAutomationUtils.pauseScript(new Long(1500));
 
 	}
+	
+	public void SymmetricLayoutDesktop(String circularLayout)
+	{
+		try
+		{
+			automationTesterCurrentScreen.click(circularLayout);
+		}
+		catch (FindFailed ff)
+		{
+			System.out.println(ff.getMessage());
+		}
+		TSAutomationUtils.pauseScript(new Long(1500));
+
+	}
 
 
 	public void SymmetricLayoutImageMap()
@@ -1057,11 +1162,11 @@ public class TSTester
 
 	}
 
-	public void SymmetricLayoutImageMap(String circularLayout)
+	public void SymmetricLayoutImageMap(String symmetricLayout)
 	{
 		try
 		{
-			automationTesterCurrentScreen.click(circularLayout);
+			automationTesterCurrentScreen.click(symmetricLayout);
 		}
 		catch (FindFailed ff)
 		{
@@ -1245,6 +1350,42 @@ public class TSTester
 		}
 		
 	}
+	
+	public void clearResultsShortesPathsDesktop()
+	{
+		String clearResultsButton =
+			tspDesktopPreviewImagesPath + File.separator
+				+ "ClearResultsEnableToolBarDesktop.png";
+		Region r;
+
+		switch (automationTesterCurrentScreen.getID())
+		{
+			case 0:
+				r = new Region(350, 120, 10, 10);
+				break;
+
+			case 1:
+				r = new Region(659, 98, 10, 10);
+				break;
+
+			default:
+				r = null;
+				break;
+		}
+		
+		try
+		{
+			automationTesterCurrentScreen.click(clearResultsButton);
+			TSAutomationUtils.pauseScript(new Long(1500));
+			automationTesterCurrentScreen.click(r);
+
+		}
+		catch (FindFailed ff)
+		{
+			System.out.println(ff.getMessage());
+		}
+		
+	}
 
 
 	public void clearResultsMaxFlowHtml5()
@@ -1378,5 +1519,16 @@ public class TSTester
 		}
 		
 	}
+	
+	public void rightClickOnElement(String element)
+	{
+		try{
+			automationTesterCurrentScreen.rightClick(element);
+		}
+		catch (FindFailed ff)
+		{
+			System.out.println(ff.getMessage());
+		}
+		}
 	
 }
