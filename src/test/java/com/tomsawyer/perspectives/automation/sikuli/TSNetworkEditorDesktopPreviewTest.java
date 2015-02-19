@@ -187,11 +187,6 @@ public class TSNetworkEditorDesktopPreviewTest
 	}
 	
 
-	
-	
-	
-	
-	
 	static TSTester TSAutomationTester;
 
 	static String className;
