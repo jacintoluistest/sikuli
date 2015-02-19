@@ -153,7 +153,7 @@ public class TSDesktopPreviewTestCases
 		if (!result)
 		{
 			TSAutomationUtils.getScreenShot(testerTestCase, className
-				+ "testIsOverviewPresent", environmentTester.evidencePath);
+				+ "testIsHierarchicalLayout", environmentTester.evidencePath);
 		}
 
 		testerTestCase.undoDesktop();
@@ -881,8 +881,8 @@ public class TSDesktopPreviewTestCases
 
 		boolean result =
 			TSFunctions.isButtonPresent(testerTestCase,
-				environmentTester.projectImagesPath + File.separator
-					+ "clearResultsDisable.png",
+				environmentTester.toolBarImagesPath + File.separator
+					+ "RunDisableDesktop.png",
 				new Float(0.65));
 		if (!result)
 		{
@@ -988,8 +988,8 @@ public class TSDesktopPreviewTestCases
 
 		boolean result =
 			TSFunctions.isButtonPresent(testerTestCase,
-				environmentTester.projectImagesPath + File.separator
-					+ "RunAcyclicTestEnable.png",
+				environmentTester.toolBarImagesPath + File.separator
+					+ "RunDesktop.png",
 				new Float(0.80));
 		if (!result)
 		{
