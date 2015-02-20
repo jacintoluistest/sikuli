@@ -13,10 +13,10 @@ public class TSFunctions
 {
 	public static TSTester setDesktopTest(TSTester tester, String projectPathPropertyName)
 	{
-		// tester.LaunchTS();
-		// tester.openProject(projectPathPropertyName);
-		// tester.launchDesktopPreview();
-		// tester.maximizeWindow();
+		//tester.LaunchTS();
+		//tester.openProject(projectPathPropertyName);
+		//tester.launchDesktopPreview();
+		//tester.maximizeWindow();
 		TSAutomationUtils.pauseScript(new Long(2000));
 
 		return tester;

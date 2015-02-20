@@ -17,15 +17,15 @@ public class TSBiconnectedComponentsDesktopPreview
 	public static void setUp() throws Exception
 	{
 		// org.sikuli.basics.Debug.setDebugLevel(3);
-		className = TSMSliceDesktopPreviewTest.class.getName();
+		className = TSBiconnectedComponentsDesktopPreview.class.getName();
 		Settings.MoveMouseDelay = new Float(2.5);
 
-		environment = new TSEnvironment("AcyclicTest", TSEnvironment.DESKTOP_PREVIEW);
+		environment = new TSEnvironment("BiconnectedComponents", TSEnvironment.DESKTOP_PREVIEW);
 		TSAutomationTester = new TSTester();
 		desktopTester =
 			new TSDesktopPreviewTestCases(environment, TSAutomationTester, className);
 		TSAutomationTester =
-			TSFunctions.setDesktopTest(TSAutomationTester, "AcyclicTestProjectPath");
+			TSFunctions.setDesktopTest(TSAutomationTester, "BiconnectedComponentsProjectPath");
 		environment = TSFunctions.setScreenFolder(TSAutomationTester, environment);
 	}
 
@@ -33,7 +33,7 @@ public class TSBiconnectedComponentsDesktopPreview
 	@AfterClass
 	public static void closeAll()
 	{
-		TSAutomationTester.closeDekstopPreview();
+		//TSAutomationTester.closeDekstopPreview();
 		// TSAutomationTester.closeAll();
 	}
 	
@@ -116,14 +116,14 @@ public class TSBiconnectedComponentsDesktopPreview
 	@Test
 	public void testOnMouseHoverOrthogonalLayout()
 	{
-		String imageTool = environment.toolBarImagesPath + File.separator + "";
-		Assert.assertTrue(desktopTester.testOnMouseHoverOrthogonalLayout(imageTool));
+		
+		Assert.assertTrue(desktopTester.testOnMouseHoverOrthogonalLayout());
 	}
 	
 	@Test
 	public void testOnMouseHoverSymmetricLayout()
 	{
-		Assert.assertTrue(desktopTester.testOnMouseHoverSymmetricLayout());
+		Assert.assertTrue(desktopTester.testOnMouseHoverSymmetricLayoutSelected());
 	}
 
 	@Test
@@ -139,9 +139,9 @@ public class TSBiconnectedComponentsDesktopPreview
 	}
 	
 	@Test
-	public void testOnMouseHoverRun()
+	public void testOnMouseHoverRunBiconnectedAnalysis()
 	{
-		Assert.assertTrue(desktopTester.testOnMouseHoverRunAcyclicTest());
+		Assert.assertTrue(desktopTester.testOnMouseHoverRunBiconnectedComponentsAnalysis());
 	}
 	
 	@Test
@@ -156,6 +156,33 @@ public class TSBiconnectedComponentsDesktopPreview
 		Assert.assertTrue(desktopTester.testIsOverviewPresent());
 	}
 	
+	@Test
+	public void testCircularLayout()
+	{
+		Assert.assertTrue(desktopTester.testCircularLayout());
+	}
+	
+	@Test
+	public void testOrthogonalLayout()
+	{
+		Assert.assertTrue(desktopTester.testOrthogonalLayout());
+	}
+	
+	@Test
+	public void testHierarchicalLayout()
+	{
+		Assert.assertTrue(desktopTester.testHierarchicalLayout());
+	}
+	
+	@Test
+	public void runBiconnectedComponents()
+	{
+		String drawExpected = environment.projectImagesPath + File.separator + "drawExpected.png";
+		String treeViewExpected = environment.projectImagesPath + File.separator + "treeViewExpected.png";
+		String toolBarExpected = environment.projectImagesPath + File.separator + "toolBarExpected.png";
+		
+		Assert.assertTrue(desktopTester.runBiconnectedComponents(drawExpected, treeViewExpected, toolBarExpected));
+	}
 
 	static TSTester TSAutomationTester;
 

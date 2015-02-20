@@ -1,4 +1,3 @@
-
 package com.tomsawyer.perspectives.automation.sikuli.tests;
 
 
@@ -272,7 +271,7 @@ public class TSTester
 
 			automationTesterCurrentScreen.click(new Pattern(this.tsperspectivesToolBarImagesPath
 				+ File.separator + "openFileIcon.png").similar(new Float(0.9)));
-			// automationTesterCurrentScreen.type(Key.DELETE);
+			 automationTesterCurrentScreen.type(Key.DELETE);
 
 			System.out.println("Open Dialog");
 			automationTesterCurrentScreen.wait(new Pattern(tsperspectivesToolBarImagesPath
@@ -1023,7 +1022,7 @@ public class TSTester
 		{
 			System.out.println(ff.getMessage());
 		}
-		TSAutomationUtils.pauseScript(new Long(1500));
+		TSAutomationUtils.pauseScript(new Long(2000));
 
 	}
 
@@ -1392,12 +1391,6 @@ public class TSTester
 	{
 		String clearResultsButton =
 			tspHtml5PreviewImagePath + File.separator + "ClearResultsCanvas.png";
-<<<<<<< HEAD
-		//String hierarchicalSelected =
-		//	tspHtml5PreviewImagePath + File.separator
-		//		+ "HierarchicalLayoutSelectedCanvas.png";
-=======
->>>>>>> refs/remotes/origin/master
 		Region r;
 
 		switch (automationTesterCurrentScreen.getID())
@@ -1418,10 +1411,6 @@ public class TSTester
 		try
 		{
 			automationTesterCurrentScreen.click(clearResultsButton);
-<<<<<<< HEAD
-			//automationTesterCurrentScreen.click(hierarchicalSelected);
-=======
->>>>>>> refs/remotes/origin/master
 			automationTesterCurrentScreen.click(r);
 
 		}
