@@ -208,7 +208,30 @@ public class TSTester
 					+ "TomSawyerPerspectives" + File.separator + "CommonCanvasPreview"
 					+ File.separator + "ToolBar";
 		}
-		else
+		
+		else if(operativeSystem.contains("7"))
+		{
+			TS_HOME = TSAutomationUtils.getProperty("TS_HOME_Win");
+			System.out.println("Path de Tom Sawyer es " + TS_HOME);
+			tomSawyerDesignerApplicationPath =
+				TSAutomationUtils.getProperty("TSPApplicationPathWindows");
+			tsperspectivesToolBarImagesPath =
+				"images" + File.separator + "Windows7" + File.separator
+					+ "TomSawyerPerspectives" + File.separator + "TSPerspectivesToolBar";
+			tspDesktopPreviewImagesPath =
+				"images" + File.separator + "Windows7" + File.separator
+					+ "TomSawyerPerspectives" + File.separator + "CommonDesktopPreview"
+					+ File.separator + "ToolBar";
+			tspImageMapImagesPath =
+				"images" + File.separator + "Windows7" + File.separator
+					+ "TomSawyerPerspectives" + File.separator + "CommonImageMapPreview"
+					+ File.separator + "ToolBar";
+			tspHtml5PreviewImagePath =
+				"images" + File.separator + "Windows7" + File.separator
+					+ "TomSawyerPerspectives" + File.separator + "CommonCanvasPreview"
+					+ File.separator + "ToolBar";
+		}
+		else 
 		{
 			TS_HOME = TSAutomationUtils.getProperty("TS_HOME_Win");
 			System.out.println("Path de Tom Sawyer es " + TS_HOME);
@@ -652,7 +675,7 @@ public class TSTester
 
 	public Match isPresentElement(String patternStringPath, float similar)
 	{
-		TSAutomationUtils.pauseScript(new Long (2500));
+		TSAutomationUtils.pauseScript(new Long (1500));
 		System.out.println("Searching image for validation" + patternStringPath);
 		// Waiting for screen
 
@@ -723,7 +746,7 @@ public class TSTester
 		{
 			automationTesterCurrentScreen.click(new Pattern(tspDesktopPreviewImagesPath
 				+ "//OverviewToolBarDesktop.png").similar(new Float(0.7)));
-			TSAutomationUtils.pauseScript(new Long(2000));
+			TSAutomationUtils.pauseScript(new Long(2500));
 		}
 		catch (FindFailed ff)
 		{

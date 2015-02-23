@@ -18,8 +18,9 @@ public class TSBiconnectedComponentImageMapPreviewTest
 	public static void setUp()
 	{
 		Settings.MoveMouseDelay = new Float(1.5);
+		Settings.SlowMotionDelay = new Float (3);
 		String defaultBrowser = TSAutomationUtils.getProperty("DefaultBrowser");
-		className = TSAcyclicImageMapPreviewTest.class.getName();
+		className = TSBiconnectedComponentImageMapPreviewTest.class.getName();
 		environment =
 			new TSEnvironment("BiconnectedComponents",
 				TSEnvironment.IMAGEMAP_PREVIEW,
@@ -37,9 +38,9 @@ public class TSBiconnectedComponentImageMapPreviewTest
 	@AfterClass
 	public static void closeAll()
 	{
-		TSAutomationTester.fullScreenBrowser();
-		TSAutomationTester.closeCurrentBrowser();
-		TSAutomationTester.closeAll();
+//		TSAutomationTester.fullScreenBrowser();
+//		TSAutomationTester.closeCurrentBrowser();
+//		TSAutomationTester.closeAll();
 	}
 	
 	@Test
@@ -116,12 +117,6 @@ public class TSBiconnectedComponentImageMapPreviewTest
 		Assert.assertTrue(imageMapTester.testOnMouseHoverOrthogonalLayout());
 	}
 
-
-	@Test
-	public void testOnMouseHoverSymmetricLayout()
-	{
-		Assert.assertTrue(imageMapTester.testOnMouseHoverSymmetricLayout());
-	}
 	
 	@Test
 	public void testOnMouseHoverGlobalLayout()
@@ -134,6 +129,13 @@ public class TSBiconnectedComponentImageMapPreviewTest
 	{
 		Assert.assertTrue(imageMapTester.testOnMouseHoverIncrementalLayout());
 	}
+	
+	@Test
+	public void testOnMouseHoverRunBiconnectedAnalysis()
+	{
+		Assert.assertTrue(imageMapTester.testOnMouseHoverRunBiconnectedComponentsAnalysis());
+	}
+	
 	
 	public void testOnMouseHoverShowAbout()
 	{
@@ -159,14 +161,23 @@ public class TSBiconnectedComponentImageMapPreviewTest
 		Assert.assertTrue(imageMapTester.testOrthogonalLayout());
 	}
 	
+	
 	@Test
-	public void testSymmetricLayout()
+	public void testRunBiconnectedComponents()
 	{
-		String symmetricLayoutToolBar = environment.toolBarImagesPath + File.separator + "SelectedSymmetricLayout.png";
-		Assert.assertTrue(imageMapTester.testSymmetricLayout(symmetricLayoutToolBar));
+		String drawExpected = environment.projectImagesPath + File.separator + "drawExpected.png";
+		String treeViewExpected = environment.projectImagesPath + File.separator + "treeViewExpected.png";
+		String toolBarExpected = environment.projectImagesPath + File.separator + "toolBarExpected.png";
+		
+		Assert.assertTrue(imageMapTester.runBiconnectedComponents(drawExpected, treeViewExpected, toolBarExpected));
 	}
 	
-	
+	@Test
+	public void testDefautlLayout()
+	{
+		String defaultLayoutExpected = environment.projectImagesPath + File.separator + "defaultLayoutExpected.png";
+		Assert.assertTrue(imageMapTester.testDefautlDraw(defaultLayoutExpected));
+	}
 	
 	
 	static TSTester TSAutomationTester;

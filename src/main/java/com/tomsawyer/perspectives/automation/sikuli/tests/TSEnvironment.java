@@ -1,4 +1,7 @@
+
 package com.tomsawyer.perspectives.automation.sikuli.tests;
+
+
 import java.io.File;
 import org.sikuli.basics.Settings;
 
@@ -13,8 +16,7 @@ public class TSEnvironment
 
 	// On this path are the tool tips expected for the tests
 	public String toolTipsImagePath;
-	
-	
+
 	String testTypeImagePath;
 
 	String projectName;
@@ -22,58 +24,57 @@ public class TSEnvironment
 	String operativeSystem;
 
 	String testPreviewType;
-	
+
 	String evidencePath;
-	
+
 	String browserPath;
 
 
 	public TSEnvironment(String project, int testType, String browser)
 	{
-		
-		
+
 		switch (testType)
 		{
 			case 1:
 				this.testTypeImagePath = "CommonDesktopPreview";
-				this.testPreviewType="Desktop";
+				this.testPreviewType = "Desktop";
 				break;
 			case 2:
 				this.testTypeImagePath = "CommonImageMapPreview";
-				this.testPreviewType="ImageMap";
+				this.testPreviewType = "ImageMap";
 				break;
 			case 3:
 				this.testTypeImagePath = "CommonCanvasPreview";
-				this.testPreviewType="HtmlCanvas";
+				this.testPreviewType = "HtmlCanvas";
 				break;
 
 			default:
 				System.out.println("Error");
 
 		}
-		this.browserPath=browser;
+		this.browserPath = browser;
 		this.projectName = project;
 		System.out.println("Setting");
 		setEnvironmentWeb();
 	}
-	
+
+
 	public TSEnvironment(String project, int testType)
 	{
-		
-		
+
 		switch (testType)
 		{
 			case 1:
 				this.testTypeImagePath = "CommonDesktopPreview";
-				this.testPreviewType="Desktop";
+				this.testPreviewType = "Desktop";
 				break;
 			case 2:
 				this.testTypeImagePath = "CommonImageMapPreview";
-				this.testPreviewType="ImageMap";
+				this.testPreviewType = "ImageMap";
 				break;
 			case 3:
 				this.testTypeImagePath = "CommonCanvasPreview";
-				this.testPreviewType="HtmlCanvas";
+				this.testPreviewType = "HtmlCanvas";
 				break;
 
 			default:
@@ -86,28 +87,27 @@ public class TSEnvironment
 	}
 
 
-
 	public void setEnvironment()
 	{
-		
+
 		Settings.MoveMouseDelay = new Float(1.5);
 
-		String currentOperativeSystem=TSAutomationUtils.getOs();	
+		String currentOperativeSystem = TSAutomationUtils.getOs();
 		if (currentOperativeSystem.contains("mac os x"))
 
 			operativeSystem = "Mac";
 		else
 		{
-			if(currentOperativeSystem.contains("8"))
+			if (currentOperativeSystem.contains("8"))
 			{
 				operativeSystem = "Windows";
 			}
-			
+
 			if (currentOperativeSystem.contains("7"))
-					{
-					 operativeSystem="Windows7";
-					}
-			
+			{
+				operativeSystem = "Windows7";
+			}
+
 		}
 
 		projectImagesPath =
@@ -125,14 +125,17 @@ public class TSEnvironment
 				+ "TomSawyerPerspectives" + File.separator + testTypeImagePath
 				+ File.separator + "HoverToolTips";
 		System.out.println(toolTipsImagePath);
-		
-		
-		evidencePath = "images" + File.separator + operativeSystem + File.separator + projectName + File.separator +"Evidence"+File.separator;
+
+		evidencePath =
+			"images" + File.separator + operativeSystem + File.separator + projectName
+				+ File.separator + "Evidence" + File.separator;
 
 	}
+
+
 	public void setEnvironmentWeb()
 	{
-		
+
 		Settings.MoveMouseDelay = new Float(1.5);
 		String currentOperativeSystem = TSAutomationUtils.getOs();
 
@@ -141,15 +144,15 @@ public class TSEnvironment
 			operativeSystem = "Mac";
 		else
 		{
-			
-			if(currentOperativeSystem.contains("7"))
+
+			if (currentOperativeSystem.contains("7"))
 			{
-			
+
 				operativeSystem = "Windows7";
-				}
+			}
 			else
 			{
-				operativeSystem="Windows";
+				operativeSystem = "Windows";
 			}
 		}
 
@@ -170,15 +173,16 @@ public class TSEnvironment
 				+ File.separator + browserPath + File.separator + "HoverToolTips";
 		System.out.println(toolTipsImagePath);
 
-		
-		evidencePath = "images" + File.separator + operativeSystem + File.separator + projectName + File.separator +"Evidence"+File.separator;
+		evidencePath =
+			"images" + File.separator + operativeSystem + File.separator + projectName
+				+ File.separator + "Evidence" + File.separator;
 
 	}
-	
-	public void setBrowserPath(String defaultBrowser){
-		
-		
-		
+
+
+	public void setBrowserPath(String defaultBrowser)
+	{
+
 	}
 
 
@@ -187,6 +191,5 @@ public class TSEnvironment
 	public final static int IMAGEMAP_PREVIEW = 2;
 
 	public final static int HTML5_PREVIEW = 3;
-	
 
 }

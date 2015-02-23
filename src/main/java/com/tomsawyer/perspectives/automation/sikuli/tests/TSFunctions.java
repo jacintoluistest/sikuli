@@ -38,10 +38,10 @@ public class TSFunctions
 
 	public static TSTester setImageMapTest(TSTester tester, String project)
 	{
-		tester.LaunchTS();
-		tester.openProject(project);
-		tester.launchImageMap();
-		tester.fullScreenBrowser();
+//		tester.LaunchTS();
+//		tester.openProject(project);
+//		tester.launchImageMap();
+//		tester.fullScreenBrowser();
 		TSAutomationUtils.pauseScript(new Long(2000));
 		tester.refreshBrowser();
 		return tester;
@@ -143,6 +143,7 @@ public class TSFunctions
 		{
 			result = false;
 		}
+		System.out.println("isElementPresent: " + result);
 		return result;
 	}
 
@@ -159,6 +160,8 @@ public class TSFunctions
 		{
 			result = false;
 		}
+		
+		System.out.println("isViewPresent: " + result);
 		return result;
 
 	}
@@ -218,6 +221,8 @@ public class TSFunctions
 		{
 			result = false;
 		}
+		
+		System.out.println("isDrawPresent: " + result);
 		return result;
 
 	}
@@ -251,6 +256,8 @@ public class TSFunctions
 		{
 			result = false;
 		}
+		
+		System.out.println("isOverviewPresent: " + result);
 		return result;
 	}
 

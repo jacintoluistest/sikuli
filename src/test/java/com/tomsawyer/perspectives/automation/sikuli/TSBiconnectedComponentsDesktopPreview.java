@@ -20,12 +20,14 @@ public class TSBiconnectedComponentsDesktopPreview
 		className = TSBiconnectedComponentsDesktopPreview.class.getName();
 		Settings.MoveMouseDelay = new Float(2.5);
 
-		environment = new TSEnvironment("BiconnectedComponents", TSEnvironment.DESKTOP_PREVIEW);
+		environment =
+			new TSEnvironment("BiconnectedComponents", TSEnvironment.DESKTOP_PREVIEW);
 		TSAutomationTester = new TSTester();
 		desktopTester =
 			new TSDesktopPreviewTestCases(environment, TSAutomationTester, className);
 		TSAutomationTester =
-			TSFunctions.setDesktopTest(TSAutomationTester, "BiconnectedComponentsProjectPath");
+			TSFunctions.setDesktopTest(TSAutomationTester,
+				"BiconnectedComponentsProjectPath");
 		environment = TSFunctions.setScreenFolder(TSAutomationTester, environment);
 	}
 
@@ -164,7 +166,7 @@ public class TSBiconnectedComponentsDesktopPreview
 	
 	@Test
 	public void testOrthogonalLayout()
-	{
+	{		
 		Assert.assertTrue(desktopTester.testOrthogonalLayout());
 	}
 	

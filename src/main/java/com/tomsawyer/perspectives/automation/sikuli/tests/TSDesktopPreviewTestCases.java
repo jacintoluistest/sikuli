@@ -240,7 +240,7 @@ public class TSDesktopPreviewTestCases
 			TSFunctions.isOverviewPresent(testerTestCase,
 				environmentTester.projectImagesPath + File.separator
 					+ "overviewExpected.png",
-				new Float(0.80));
+				new Float(0.65));
 		if (!result)
 		{
 			TSAutomationUtils.getScreenShot(testerTestCase, className
@@ -297,7 +297,7 @@ public class TSDesktopPreviewTestCases
 		boolean result =
 			TSFunctions.isLayoutPresent(testerTestCase,
 				expectedLayoutPath,
-				new Float(0.80));
+				new Float(0.70));
 		if (!result)
 		{
 			TSAutomationUtils.getScreenShot(testerTestCase, className
@@ -334,7 +334,7 @@ public class TSDesktopPreviewTestCases
 				+ "hierarchicalExpected.png";
 		testerTestCase.HierarchicalLayoutDesktop();
 		boolean result =
-			TSFunctions.isLayoutPresent(testerTestCase, expectedLayout, new Float(0.80));
+			TSFunctions.isLayoutPresent(testerTestCase, expectedLayout, new Float(0.70));
 		if (!result)
 		{
 			TSAutomationUtils.getScreenShot(testerTestCase, className
@@ -352,9 +352,9 @@ public class TSDesktopPreviewTestCases
 		String expectedLayout =
 			environmentTester.projectImagesPath + File.separator
 				+ "orthogonalExpected.png";
-		testerTestCase.HierarchicalLayoutDesktop();
+		testerTestCase.orthogonalLayoutDesktop();
 		boolean result =
-			TSFunctions.isLayoutPresent(testerTestCase, expectedLayout, new Float(0.80));
+			TSFunctions.isLayoutPresent(testerTestCase, expectedLayout, new Float(0.70));
 		if (!result)
 		{
 			TSAutomationUtils.getScreenShot(testerTestCase, className
@@ -1534,7 +1534,7 @@ public class TSDesktopPreviewTestCases
 	{
 		System.out.println("******testOnMouseHoverRun******");
 		String imageToolBar =
-			environmentTester.toolBarImagesPath + File.separator + "RunDesktop.png";
+			environmentTester.toolBarImagesPath + File.separator + "RunToolBarDesktop.png";
 		String imageExpected =
 			environmentTester.toolTipsImagePath + File.separator
 				+ "RunBiconnectedComponentsAnalysis.png";
