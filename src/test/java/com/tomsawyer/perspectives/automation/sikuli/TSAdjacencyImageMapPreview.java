@@ -1,5 +1,6 @@
 package com.tomsawyer.perspectives.automation.sikuli;
 
+import java.io.File;
 import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.BeforeClass;
@@ -20,14 +21,14 @@ public class TSAdjacencyImageMapPreview
 		String defaultBrowser = TSAutomationUtils.getProperty("DefaultBrowser");
 		className = TSAcyclicImageMapPreviewTest.class.getName();
 		environment =
-			new TSEnvironment("AcyclicTest",
+			new TSEnvironment("Adjacency",
 				TSEnvironment.IMAGEMAP_PREVIEW,
 				defaultBrowser);
 		TSAutomationTester = new TSTester(defaultBrowser);
 		imageMapTester =
 			new TSImageMapPreviewTestCases(environment, TSAutomationTester, className);
 		TSAutomationTester =
-			TSFunctions.setImageMapTest(TSAutomationTester, "AcyclicTestProjectPath");
+			TSFunctions.setImageMapTest(TSAutomationTester, "AdjacencyProjectPath");
 		environment = TSFunctions.setScreenFolder(TSAutomationTester, environment);
 
 	}
@@ -36,9 +37,9 @@ public class TSAdjacencyImageMapPreview
 	@AfterClass
 	public static void closeAll()
 	{
-		TSAutomationTester.fullScreenBrowser();
-		TSAutomationTester.closeCurrentBrowser();
-		TSAutomationTester.closeAll();
+//		TSAutomationTester.fullScreenBrowser();
+//		TSAutomationTester.closeCurrentBrowser();
+//		TSAutomationTester.closeAll();
 	}
 	
 	@Test
@@ -79,13 +80,6 @@ public class TSAdjacencyImageMapPreview
 	public void testOnMouseHoverMarqueeZoom()
 	{
 		Assert.assertTrue(imageMapTester.testOnMouseHoverMarqueeZoom());
-	}
-
-
-	@Test
-	public void testOnMouseHoverInteractiveZoom()
-	{
-		Assert.assertTrue(imageMapTester.testOnMouseHoverInteractiveZoom());
 	}
 
 
@@ -138,7 +132,7 @@ public class TSAdjacencyImageMapPreview
 	@Test
 	public void testOnMouseHoverSymmetricLayout()
 	{
-		Assert.assertTrue(imageMapTester.testOnMouseHoverSymmetricLayoutSelected());
+		Assert.assertTrue(imageMapTester.testOnMouseHoverSymmetricLayout());
 	}
 	
 	@Test
@@ -159,7 +153,7 @@ public class TSAdjacencyImageMapPreview
 		Assert.assertTrue(imageMapTester.testCircularLayout());
 	}
 	@Test
-	public void testCircularHierarchical()
+	public void testHierarchicalLayout()
 	{
 		Assert.assertTrue(imageMapTester.testHierarchicalLayout());
 	}
@@ -172,16 +166,24 @@ public class TSAdjacencyImageMapPreview
 	@Test
 	public void testAdjencyMatrixDrawView()
 	{
-		String drawTab="";
-		String drawExpected="";
-		String defaultTabDraw="";
-		Assert.assertTrue(imageMapTester.testDrawView(drawTab, drawExpected, defaultTabDraw));
+		String drawTab =
+			environment.projectImagesPath + File.separator + "Tabs" + File.separator
+				+ "adjacencyMatrixTab.png";
+		String drawExpected =
+			environment.projectImagesPath + File.separator + "adjacencyMatrixDrawExpected.png";
+		String defaultTabDraw =
+			environment.projectImagesPath + File.separator + "Tabs" + File.separator
+				+ "adjacencyGraphTab.png";
+		Assert.assertTrue(imageMapTester.testDrawView(drawTab,
+			drawExpected,
+			defaultTabDraw));
 	}
 	
 	@Test
 	public void testDefaulDrawView()
 	{
-		String defaultDrawExpected="";
+		String defaultDrawExpected =
+			environment.projectImagesPath + File.separator + "defaultDrawExpected.png";
 		Assert.assertTrue(imageMapTester.testDefautlDraw(defaultDrawExpected));
 	}
 	
