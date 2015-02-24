@@ -1045,7 +1045,7 @@ public class TSTester
 		{
 			System.out.println(ff.getMessage());
 		}
-		TSAutomationUtils.pauseScript(new Long(2000));
+		TSAutomationUtils.pauseScript(new Long(2200));
 
 	}
 
@@ -1086,18 +1086,18 @@ public class TSTester
 
 	public void HierarchicalLayoutDesktop()
 	{
-		String circularLayout =
+		String hierarchicalLayout =
 			tspDesktopPreviewImagesPath + File.separator
 				+ "HierarchicalLayoutToolBarDesktop.png";
 		try
 		{
-			automationTesterCurrentScreen.click(circularLayout);
+			automationTesterCurrentScreen.click(hierarchicalLayout);
 		}
 		catch (FindFailed ff)
 		{
 			System.out.println(ff.getMessage());
 		}
-		TSAutomationUtils.pauseScript(new Long(1500));
+		TSAutomationUtils.pauseScript(new Long(2000));
 
 	}
 
@@ -1502,7 +1502,7 @@ public class TSTester
 	public void undoHtml5()
 	{
 		String undoButton = tspHtml5PreviewImagePath + File.separator + "undoCanvas.png";
-
+		TSAutomationUtils.pauseScript(new Long (1000));
 		try
 		{
 			automationTesterCurrentScreen.click(undoButton);
