@@ -25,10 +25,10 @@ public class TSFunctions
 
 	public static TSTester setHtml5Test(TSTester tester, String project)
 	{
-		tester.LaunchTS();
-		tester.openProject(project);
-		tester.launchHtml5Preview();
-		tester.fullScreenBrowser();
+//		tester.LaunchTS();
+//		tester.openProject(project);
+//		tester.launchHtml5Preview();
+//		tester.fullScreenBrowser();
 		TSAutomationUtils.pauseScript(new Long(2000));
 		tester.refreshBrowser();
 
