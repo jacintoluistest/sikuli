@@ -47,7 +47,7 @@ public class TSSocialNetworkImageMapPreviewTest
 	@Test
 	public void testIsPresentToolBar()
 	{
-		Assert.assertTrue(ImageMapTester.testIsPresentToolBar());
+		Assert.assertTrue(ImageMapTester.testIsToolBarPresent());
 	}
 
 
