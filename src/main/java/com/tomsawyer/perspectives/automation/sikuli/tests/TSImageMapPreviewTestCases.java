@@ -67,7 +67,7 @@ public class TSImageMapPreviewTestCases
 			environmentTestCase.toolBarImagesPath + File.separator
 				+ "PrintPreviewImageMap.png";
 		String imageExpected =
-			environmentTestCase.toolTipsImagePath + File.separator + "PrintSetUp.png";
+			environmentTestCase.toolTipsImagePath + File.separator + "PrintPreview.png";
 		boolean result =
 			TSFunctions.isToolTipPresentWeb(testerTestCase, imageToolBar, imageExpected);
 
@@ -381,7 +381,7 @@ public class TSImageMapPreviewTestCases
 		System.out.println("*******TestOnMouseHoverSymmetricLayout*******");
 		String imageToolBar =
 			environmentTestCase.toolBarImagesPath + File.separator
-				+ "SymmetricLayoutImageMapSelected.png";
+				+ "SymmetricLayoutCanvas.png";
 		String imageExpected =
 			environmentTestCase.toolTipsImagePath + File.separator
 				+ "SymmetricLayout.png";
@@ -626,7 +626,7 @@ public class TSImageMapPreviewTestCases
 				+ "testIsOverviewPresent", environmentTestCase.evidencePath);
 		}
 
-		testerTestCase.SymmetricLayoutHtml5();
+		testerTestCase.undoImageMap();
 		return result;
 	}
 
@@ -643,7 +643,7 @@ public class TSImageMapPreviewTestCases
 		if (!result)
 		{
 			TSAutomationUtils.getScreenShot(testerTestCase, className
-				+ "testOrthogonalLayout", environmentTestCase.evidencePath);
+				+ "testHierarchicalLayout", environmentTestCase.evidencePath);
 		}
 
 		testerTestCase.undoImageMap();
@@ -1151,7 +1151,7 @@ public class TSImageMapPreviewTestCases
 
 	public boolean testOnMouseHoverRunBridgeDetection()
 	{
-		System.out.println("******testOnMouseHoverRunAcyclicTest******");
+		System.out.println("******testOnMouseHoverRunBridgeDetection******");
 		String imageToolBar =
 			environmentTestCase.toolBarImagesPath + File.separator + "RunImageMap.png";
 		String imageExpected =
@@ -1267,7 +1267,7 @@ public class TSImageMapPreviewTestCases
 	}
 
 
-	public boolean testIsPresentToolBar()
+	public boolean testIsToolBarPresent()
 	{
 		System.out.println("*******testIsPresentToolBar*******");
 
@@ -1275,6 +1275,21 @@ public class TSImageMapPreviewTestCases
 			TSFunctions.isToolBarPresent(testerTestCase,
 				environmentTestCase.projectImagesPath + File.separator
 					+ "ToolBarImageMap.png");
+		if (!result)
+		{
+			TSAutomationUtils.getScreenShot(testerTestCase, className
+				+ "IsPresentToolBar", environmentTestCase.evidencePath);
+		}
+		return result;
+	}
+	
+
+	public boolean testIsToolBarPresent(String toolBarExpected)
+	{
+		System.out.println("*******testIsPresentToolBar*******");
+
+		boolean result =
+			TSFunctions.isToolBarPresent(testerTestCase,toolBarExpected);
 		if (!result)
 		{
 			TSAutomationUtils.getScreenShot(testerTestCase, className
@@ -1385,6 +1400,7 @@ public class TSImageMapPreviewTestCases
 
 	public boolean testDrawView(String drawTab, String drawExpected, String defaultTabDraw)
 	{
+		System.out.println("*****testDrawView*****");
 		boolean result = false;
 		testerTestCase.clickOnElement(drawTab);
 		if (TSFunctions.isButtonPresent(testerTestCase, drawTab))
@@ -1485,6 +1501,34 @@ public class TSImageMapPreviewTestCases
 
 		return result;
 	}
+	
+	
+	public boolean runBridgeDetection(String drawExpected, String toolBarExpected)
+	{
+		boolean result = false;
+		
+		String runButton =
+			environmentTestCase.toolBarImagesPath + File.separator
+				+ "RunImageMap.png";
+		String clearResultsButton =
+			environmentTestCase.toolBarImagesPath + File.separator
+				+ "ClearEnableImageMap.png";
+		testerTestCase.clickOnElement(runButton);
+		result =
+			TSFunctions.isDrawPresent(testerTestCase, drawExpected)
+				&& TSFunctions.isElementPresent(testerTestCase, toolBarExpected);
+		if(!result)
+		{
+
+			TSAutomationUtils.getScreenShot(testerTestCase, className
+				+ "runBridgeDetection", environmentTestCase.evidencePath);
+		}
+		
+		testerTestCase.clickOnElement(clearResultsButton);
+		
+		return result;
+	}
+	
 
 
 	public boolean testIsInspectorViewPresentCurriculum()
