@@ -57,6 +57,20 @@ public class TSDesktopPreviewTestCases
 		}
 		return result;
 	}
+	
+	public boolean testIsToolBarPresent(String toolBarExpected)
+	{
+		System.out.println("*****testToolBarPresent*****");
+		boolean result =
+			TSFunctions.isToolBarPresent(testerTestCase,toolBarExpected);
+		if (!result)
+		{
+			TSAutomationUtils.getScreenShot(testerTestCase, className
+				+ "testIsToolBarPresent", environmentTester.evidencePath);
+
+		}
+		return result;
+	}
 
 
 	public boolean testIsTableViewPresent(String expectedViewPath)
@@ -392,7 +406,7 @@ public class TSDesktopPreviewTestCases
 
 		String expectedLayout =
 			environmentTester.projectImagesPath + File.separator
-				+ "SymmetricExpected.png";
+				+ "symmetricExpected.png";
 		testerTestCase.SymmetricLayoutDesktop();
 		boolean result =
 			TSFunctions.isLayoutPresent(testerTestCase, expectedLayout, new Float(0.80));
@@ -774,7 +788,7 @@ public class TSDesktopPreviewTestCases
 		System.out.println("******testOnMouseHoverSymmetricLayout******");
 		String imageToolBar =
 			environmentTester.toolBarImagesPath + File.separator
-				+ "SymmetricLayoutToolBarDesktopSelected.png";
+				+ "SymmetricLayoutToolBarDesktop.png";
 		String imageExpected =
 			environmentTester.toolTipsImagePath + File.separator + "SymmetricLayout.png";
 		boolean result =
@@ -789,6 +803,7 @@ public class TSDesktopPreviewTestCases
 
 		return result;
 	}
+	
 
 
 	public boolean testOnMouseHoverSymmetricLayout(String imageToolBar)
@@ -1529,6 +1544,27 @@ public class TSDesktopPreviewTestCases
 
 	}
 
+	public boolean testOnMouseHoverRunBridgeDetection()
+	{
+		System.out.println("******testOnMouseHoverRun******");
+		String imageToolBar =
+			environmentTester.toolBarImagesPath + File.separator + "RunDesktop.png";
+		String imageExpected =
+			environmentTester.toolTipsImagePath + File.separator + "RunBridgeDetection.png";
+		boolean result =
+			TSFunctions.isToolTipPresentDesktop(testerTestCase,
+				imageToolBar,
+				imageExpected);
+		if (!result)
+		{
+			TSAutomationUtils.getScreenShot(testerTestCase, className
+				+ "testOnMouseHoverRunBridgeDetection", environmentTester.evidencePath);
+		}
+
+		return result;
+
+	}
+
 
 	public boolean testOnMouseHoverRunBiconnectedComponentsAnalysis()
 	{
@@ -1978,6 +2014,32 @@ public class TSDesktopPreviewTestCases
 		testerTestCase.clickOnElement(clearResultsButton);
 		
 
+		return result;
+	}
+	
+	public boolean runBridgeDetection(String drawExpected, String toolBarExpected)
+	{
+		boolean result = false;
+		
+		String runButton =
+			environmentTester.toolBarImagesPath + File.separator
+				+ "RunToolbarDesktop.png";
+		String clearResultsButton =
+			environmentTester.toolBarImagesPath + File.separator
+				+ "ClearResultsEnableToolBarDesktop.png";
+		testerTestCase.clickOnElement(runButton);
+		result =
+			TSFunctions.isDrawPresent(testerTestCase, drawExpected)
+				&& TSFunctions.isElementPresent(testerTestCase, toolBarExpected);
+		if(!result)
+		{
+
+			TSAutomationUtils.getScreenShot(testerTestCase, className
+				+ "runBiconnectedComponents", environmentTester.evidencePath);
+		}
+		
+		testerTestCase.clickOnElement(clearResultsButton);
+		
 		return result;
 	}
 	
