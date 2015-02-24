@@ -1,5 +1,8 @@
+
 package com.tomsawyer.perspectives.automation.sikuli;
 
+
+import java.io.File;
 import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.BeforeClass;
@@ -10,6 +13,7 @@ import com.tomsawyer.perspectives.automation.sikuli.tests.TSEnvironment;
 import com.tomsawyer.perspectives.automation.sikuli.tests.TSFunctions;
 import com.tomsawyer.perspectives.automation.sikuli.tests.TSHtml5PreviewTestCases;
 import com.tomsawyer.perspectives.automation.sikuli.tests.TSTester;
+
 
 public class TSBridgeDetectionHtml5PreviewTest
 {
@@ -31,8 +35,17 @@ public class TSBridgeDetectionHtml5PreviewTest
 			TSFunctions.setHtml5Test(TSAutomationTester, "BridgeDetectionPath");
 		environment = TSFunctions.setScreenFolder(TSAutomationTester, environment);
 	}
-	
-	
+
+
+	@AfterClass
+	public static void closeAll()
+	{
+//		TSAutomationTester.fullScreenBrowser();
+//		TSAutomationTester.closeCurrentBrowser();
+//		TSAutomationTester.closeAll();
+	}
+
+
 	@Test
 	public void testOnMouseHoverSaveAs()
 	{
@@ -66,12 +79,14 @@ public class TSBridgeDetectionHtml5PreviewTest
 	{
 		Assert.assertTrue(html5Tester.testOnMouseHoverPan());
 	}
-	
+
+
 	@Test
 	public void testOnMouseHoverNavigateLinks()
 	{
 		Assert.assertTrue(html5Tester.testOnMouseHoverNavigateLinks());
 	}
+
 
 	@Test
 	public void testOnMOuseHoverMarqueeZoom()
@@ -106,8 +121,8 @@ public class TSBridgeDetectionHtml5PreviewTest
 	{
 		Assert.assertTrue(html5Tester.testOnMouseHoverOverview());
 	}
-	
-	
+
+
 	@Test
 	public void testOnMouseHoverCircularLayout()
 	{
@@ -134,8 +149,8 @@ public class TSBridgeDetectionHtml5PreviewTest
 	{
 		Assert.assertTrue(html5Tester.testOnMouseHoverSymmetricLayout());
 	}
-	
-	
+
+
 	@Test
 	public void testOnMouseHoverGlobalLayout()
 	{
@@ -163,26 +178,51 @@ public class TSBridgeDetectionHtml5PreviewTest
 	}
 
 
-	@Test
-	public void testOrthogonalLayout()
-	{
-		Assert.assertTrue(html5Tester.testOrthogonalLayout());
-	}
-
-
 	public void testSymmetricLayout()
 	{
 		Assert.assertTrue(html5Tester.testSymmetricLayout());
 	}
 
-	@AfterClass
-	public static void closeAll()
+	@Test
+	public void testDefaultView()
 	{
-		TSAutomationTester.fullScreenBrowser();
-		TSAutomationTester.closeCurrentBrowser();
-		TSAutomationTester.closeAll();
+		String defaultDrawExpected =
+			environment.projectImagesPath + File.separator + "defaulLayoutExpected.png";
+		Assert.assertTrue(html5Tester.testDefautlDraw(defaultDrawExpected));
 	}
 	
+
+	@Test
+	public void testdefaultToolBar()
+	{
+		String toolBarExpected =
+			environment.projectImagesPath + File.separator + "defaultToolBarExpected.png";
+		Assert.assertTrue(html5Tester.testIsToolBarPresent(toolBarExpected));
+	}
+
+
+	@Test
+	public void testIsPresentTreeView()
+	{
+		String treeViewExpected =
+			environment.projectImagesPath + File.separator + "treeViewExpected.png";
+		Assert.assertTrue(html5Tester.testIsTreeViewPresent(treeViewExpected));
+	}
+
+
+	@Test
+	public void testRunBridgeDetection()
+	{
+		String toolBarExpected =	
+			environment.projectImagesPath + File.separator + "runSelected.png";
+		String drawExpected =
+			environment.projectImagesPath + File.separator
+				+ "runBridgeDetectionExpected.png";
+		Assert.assertTrue(html5Tester.runBridgeDetection(drawExpected, toolBarExpected));
+	}
+
+	
+
 	static TSTester TSAutomationTester;
 
 	static String className;

@@ -20,12 +20,12 @@ public class TSBridgeDetectionDesktopPreviewTest
 		className = TSMSliceDesktopPreviewTest.class.getName();
 		Settings.MoveMouseDelay = new Float(2.5);
 
-		environment = new TSEnvironment("AcyclicTest", TSEnvironment.DESKTOP_PREVIEW);
+		environment = new TSEnvironment("BridgeDetection", TSEnvironment.DESKTOP_PREVIEW);
 		TSAutomationTester = new TSTester();
 		desktopTester =
 			new TSDesktopPreviewTestCases(environment, TSAutomationTester, className);
 		TSAutomationTester =
-			TSFunctions.setDesktopTest(TSAutomationTester, "AcyclicTestProjectPath");
+			TSFunctions.setDesktopTest(TSAutomationTester, "BridgeDetectionProjectPath");
 		environment = TSFunctions.setScreenFolder(TSAutomationTester, environment);
 	}
 
@@ -34,7 +34,7 @@ public class TSBridgeDetectionDesktopPreviewTest
 	public static void closeAll()
 	{
 		TSAutomationTester.closeDekstopPreview();
-		// TSAutomationTester.closeAll();
+		 TSAutomationTester.closeAll();
 	}
 	
 	@Test
@@ -53,7 +53,7 @@ public class TSBridgeDetectionDesktopPreviewTest
 	@Test
 	public void testOnMouseHoverPrintPreview()
 	{
-		Assert.assertTrue(desktopTester.testOnMouseHoverPrint());
+		Assert.assertTrue(desktopTester.testOnMouseHoverPrintPreview());
 	}
 	
 	@Test
@@ -139,20 +139,19 @@ public class TSBridgeDetectionDesktopPreviewTest
 	@Test
 	public void testOnMouseHoverOrthogonalLayout()
 	{
-		Assert.assertTrue(desktopTester.testOnMouseHoverOrthogonalLayout());
+		Assert.assertTrue(desktopTester.testOnMouseHoverOrthogonalLayoutSelected());
 	}
 	
 	@Test
 	public void testOnMouseHoverSymmetricLayout()
 	{
-		String imageTool = environment.toolBarImagesPath + File.separator + "";
-		Assert.assertTrue(desktopTester.testOnMouseHoverSymmetricLayout(imageTool));
+		Assert.assertTrue(desktopTester.testOnMouseHoverSymmetricLayout());
 	}
 
 	@Test
 	public void testOnMouseHoverRun()
 	{
-		Assert.assertTrue(desktopTester.testOnMouseHoverRunAcyclicTest());
+		Assert.assertTrue(desktopTester.testOnMouseHoverRunBridgeDetection());
 	}
 	
 	@Test
@@ -171,6 +170,69 @@ public class TSBridgeDetectionDesktopPreviewTest
 	public void testOnMouseHoverIncrementalLayout()
 	{
 		Assert.assertTrue(desktopTester.testOnMouseHoverIncrementalLayout());
+	}
+	
+	@Test
+	public void testIsOverviewPresent()
+	{
+		Assert.assertTrue(desktopTester.testIsOverviewPresent());
+	}
+	
+	@Test
+	public void testCircularLayout()
+	{
+		Assert.assertTrue(desktopTester.testCircularLayout());
+	}
+	
+	@Test
+	public void testHierarchicalLayout()
+	{
+		Assert.assertTrue(desktopTester.testHierarchicalLayout());
+	}
+	
+	@Test
+	public void testSymmetricLayout()
+	{
+		Assert.assertTrue(desktopTester.testSymmetricLayout());
+	}
+	
+
+	@Test
+	public void testDefaultView()
+	{
+		String defaultDrawExpected =
+			environment.projectImagesPath + File.separator + "defaulLayoutExpected.png";
+		Assert.assertTrue(desktopTester.testDefautlDraw(defaultDrawExpected));
+	}
+	
+
+	@Test
+	public void testdefaultToolBar()
+	{
+		String toolBarExpected =
+			environment.projectImagesPath + File.separator + "defaultToolBarExpected.png";
+		Assert.assertTrue(desktopTester.testIsToolBarPresent(toolBarExpected));
+	}
+
+
+	@Test
+	public void testIsPresentTreeView()
+	{
+		String treeViewExpected =
+			environment.projectImagesPath + File.separator + "treeViewExpected.png";
+		Assert.assertTrue(desktopTester.testIsTreeViewPresent(treeViewExpected));
+	}
+
+
+	@Test
+	public void testRunBridgeDetection()
+	{
+		String toolBarExpected =
+			environment.projectImagesPath + File.separator + "runSelected.png";
+		String drawExpected =
+			environment.projectImagesPath + File.separator
+				+ "runBridgeDetectionExpected.png";
+		Assert.assertTrue(desktopTester.runBridgeDetection(drawExpected, toolBarExpected));
 	}
 	
 	

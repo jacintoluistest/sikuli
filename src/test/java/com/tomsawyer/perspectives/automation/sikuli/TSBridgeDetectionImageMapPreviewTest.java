@@ -1,5 +1,6 @@
 package com.tomsawyer.perspectives.automation.sikuli;
 
+import java.io.File;
 import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.BeforeClass;
@@ -22,12 +23,12 @@ public class TSBridgeDetectionImageMapPreviewTest
 			String defaultBrowser = TSAutomationUtils.getProperty("DefaultBrowser");
 			className = TSMaxFlowImageMapPreviewTest.class.getName();
 			environment =
-				new TSEnvironment("MaxFlow", TSEnvironment.IMAGEMAP_PREVIEW, defaultBrowser);
+				new TSEnvironment("BridgeDetection", TSEnvironment.IMAGEMAP_PREVIEW, defaultBrowser);
 			TSAutomationTester = new TSTester(defaultBrowser);
 			imageMapTester =
 				new TSImageMapPreviewTestCases(environment, TSAutomationTester, className);
 			TSAutomationTester =
-				TSFunctions.setImageMapTest(TSAutomationTester, "MaxFlowProjectPath");
+				TSFunctions.setImageMapTest(TSAutomationTester, "BridgeDetectionProjectPath");
 			environment = TSFunctions.setScreenFolder(TSAutomationTester, environment);
 
 		}
@@ -35,9 +36,9 @@ public class TSBridgeDetectionImageMapPreviewTest
 		@AfterClass
 		public static void closeAll()
 		{
-			TSAutomationTester.fullScreenBrowser();
-			TSAutomationTester.closeCurrentBrowser();
-			TSAutomationTester.closeAll();
+//			TSAutomationTester.fullScreenBrowser();
+//			TSAutomationTester.closeCurrentBrowser();
+//			TSAutomationTester.closeAll();
 		}
 		
 		
@@ -162,6 +163,13 @@ public class TSBridgeDetectionImageMapPreviewTest
 			Assert.assertTrue(imageMapTester.testOnMouseHoverClearResults());
 		}
 		
+		@Test
+		public void testIsOverviewPresent()
+		{
+		
+			Assert.assertTrue(imageMapTester.testIsOverviewPresent());
+		}
+		
 		public void testCircularLayout()
 		{
 			Assert.assertTrue(imageMapTester.testCircularLayout());
@@ -174,15 +182,47 @@ public class TSBridgeDetectionImageMapPreviewTest
 		}
 
 
-		public void testOrthogonalLayout()
-		{
-			Assert.assertTrue(imageMapTester.testOrthogonalLayout());
-		}
-
-
 		public void testSymetricLayout()
 		{
 			Assert.assertTrue(imageMapTester.testSymmetricLayout());
+		}
+		
+		@Test
+		public void testDefaultView()
+		{
+			String defaultDrawExpected =
+				environment.projectImagesPath + File.separator + "defaulLayoutExpected.png";
+			Assert.assertTrue(imageMapTester.testDefautlDraw(defaultDrawExpected));
+		}
+		
+
+		@Test
+		public void testdefaultToolBar()
+		{
+			String toolBarExpected =
+				environment.projectImagesPath + File.separator + "defaultToolBarExpected.png";
+			Assert.assertTrue(imageMapTester.testIsToolBarPresent(toolBarExpected));
+		}
+
+
+		@Test
+		public void testIsPresentTreeView()
+		{
+			String treeViewExpected =
+				environment.projectImagesPath + File.separator + "treeViewExpected.png";
+			Assert.assertTrue(imageMapTester.testIsTreeViewPresent(treeViewExpected));
+		}
+
+
+		@Test
+		public void testRunBridgeDetection()
+		{
+			String toolBarExpected =	
+				environment.projectImagesPath + File.separator + "runSelected.png";
+			String drawExpected =
+				environment.projectImagesPath + File.separator
+					+ "runBridgeDetectionExpected.png";
+			Assert.assertTrue(imageMapTester.runBridgeDetection(drawExpected, toolBarExpected));
 		}
 
 		
