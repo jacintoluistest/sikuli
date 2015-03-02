@@ -34,7 +34,7 @@ public class TSBridgeDetectionDesktopPreviewTest
 	public static void closeAll()
 	{
 		TSAutomationTester.closeDekstopPreview();
-		 TSAutomationTester.closeAll();
+		TSAutomationTester.closeAll();
 	}
 	
 	@Test

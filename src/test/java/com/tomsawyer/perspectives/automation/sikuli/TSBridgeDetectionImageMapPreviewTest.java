@@ -36,9 +36,9 @@ public class TSBridgeDetectionImageMapPreviewTest
 		@AfterClass
 		public static void closeAll()
 		{
-//			TSAutomationTester.fullScreenBrowser();
-//			TSAutomationTester.closeCurrentBrowser();
-//			TSAutomationTester.closeAll();
+			TSAutomationTester.fullScreenBrowser();
+			TSAutomationTester.closeCurrentBrowser();
+			TSAutomationTester.closeAll();
 		}
 		
 		
