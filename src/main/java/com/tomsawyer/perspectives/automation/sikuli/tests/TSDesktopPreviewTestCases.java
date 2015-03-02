@@ -48,7 +48,7 @@ public class TSDesktopPreviewTestCases
 		boolean result =
 			TSFunctions.isToolBarPresent(testerTestCase,
 				environmentTester.projectImagesPath + File.separator
-					+ "SocialNetworkAnalysisToolBar.png");
+					+ "defaultToolBar.png");
 		if (!result)
 		{
 			TSAutomationUtils.getScreenShot(testerTestCase, className
@@ -1594,9 +1594,9 @@ public class TSDesktopPreviewTestCases
 
 		System.out.println("******testOnMouseHoverRunRootCause******");
 		String imageToolBar =
-			environmentTester.toolBarImagesPath + File.separator + "RunDesktop.png";
+			environmentTester.toolBarImagesPath + File.separator + "RunDisableDesktop.png";
 		String imageExpected =
-			environmentTester.toolTipsImagePath + File.separator + "RunRootCause.png";
+			environmentTester.toolTipsImagePath + File.separator + "RunRootCauseAnalysis.png";
 		boolean result =
 			TSFunctions.isToolTipPresentDesktop(testerTestCase,
 				imageToolBar,
@@ -1662,10 +1662,10 @@ public class TSDesktopPreviewTestCases
 	public boolean testOnMouseHoverSetEfectsNodes()
 	{
 
-		System.out.println("******testOnMouseHoverRunRootCause******");
+		System.out.println("******testOnMouseHoverSetEffectsNodes******");
 		String imageToolBar =
 			environmentTester.toolBarImagesPath + File.separator
-				+ "SetEffectNodesDesktop.png";
+				+ "setEffectNodesToolBarDesktop.png";
 		String imageExpected =
 			environmentTester.toolTipsImagePath + File.separator + "SetEffectNodes.png";
 		boolean result =
@@ -1970,6 +1970,47 @@ public class TSDesktopPreviewTestCases
 		}
 		return result;
 	}
+	
+	
+	
+	public boolean runRootCause(String drawExpected, String toolBarExpected)
+	{
+		boolean result = false;
+		String nodeSelected =
+			environmentTester.projectImagesPath + File.separator + "nodeSelected.png";
+		String setEffectNodes =
+			environmentTester.toolBarImagesPath + File.separator + "setEffectNodesToolBarDesktop.png";
+		String runButton =
+			environmentTester.toolBarImagesPath + File.separator + "RunDesktop.png";
+		String clearButton =
+			environmentTester.toolBarImagesPath + File.separator
+				+ "ClearResultsEnableToolBarDesktop";
+		
+		String desktopCorner =
+			environmentTester.toolBarImagesPath + File.separator + "desktopCorner.png";
+		
+		testerTestCase.clickOnElement(nodeSelected);
+		testerTestCase.clickOnElement(setEffectNodes);
+		testerTestCase.clickOnElement(runButton);
+		
+		TSAutomationUtils.pauseScript( new Long (2000));
+		result = TSFunctions.isElementPresent(testerTestCase, drawExpected)
+				&& testIsTreeViewPresent()
+				&& TSFunctions.isToolBarPresent(testerTestCase, toolBarExpected);
+		
+		if (!result)
+		{
+			TSAutomationUtils.getScreenShot(testerTestCase, className
+				+ "runRootCause", environmentTester.evidencePath);
+		}
+		
+		testerTestCase.clearResults(clearButton);
+		testerTestCase.clickOnElement(desktopCorner);
+		testerTestCase.clickOnElement(setEffectNodes);
+		
+		return result;
+	}
+	
 	
 	public boolean testSearch(String searchCriteria,String searchExpected)
 	{
