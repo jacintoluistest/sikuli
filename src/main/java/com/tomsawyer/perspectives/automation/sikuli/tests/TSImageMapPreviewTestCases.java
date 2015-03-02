@@ -1355,7 +1355,7 @@ public class TSImageMapPreviewTestCases
 		boolean result =
 			TSFunctions.isViewPresent(testerTestCase,
 				environmentTestCase.projectImagesPath + File.separator
-					+ "TreeViewImageMap.png");
+					+ "treeViewExpected.png");
 		if (!result)
 		{
 			TSAutomationUtils.getScreenShot(testerTestCase, className
@@ -1638,6 +1638,42 @@ public class TSImageMapPreviewTestCases
 		return result;
 	}
 
+	public boolean runRootCause(String drawExpected, String toolBarExpected)
+	{
+		boolean result = false;
+		String nodeSelected =
+			environmentTestCase.projectImagesPath + File.separator + "nodeSelected.png";
+		String setEffectNodes =
+			environmentTestCase.toolBarImagesPath + File.separator + "setEffectNodesImageMap.png";
+		String runButton =
+			environmentTestCase.toolBarImagesPath + File.separator + "RunImageMap.png";
+		String clearButton =
+			environmentTestCase.toolBarImagesPath + File.separator
+				+ "ClearEnableImageMap.png";
+		
+		String desktopCorner =
+			environmentTestCase.toolBarImagesPath + File.separator + "imageMapCorner.png";
+		
+		testerTestCase.clickOnElement(nodeSelected);
+		testerTestCase.clickOnElement(setEffectNodes);
+		testerTestCase.clickOnElement(runButton);
+		
+		result = TSFunctions.isElementPresent(testerTestCase, drawExpected)
+				&& testIsTreeViewPresent()
+				&& TSFunctions.isToolBarPresent(testerTestCase, toolBarExpected);
+		
+		if (!result)
+		{
+			TSAutomationUtils.getScreenShot(testerTestCase, className
+				+ "runRootCause", environmentTestCase.evidencePath);
+		}
+		
+		testerTestCase.clearResults(clearButton);
+		testerTestCase.clickOnElement(desktopCorner);
+		testerTestCase.clickOnElement(setEffectNodes);
+		
+		return result;
+	}
 
 	public boolean testSearch(String searchCriteria, String searchExpected)
 	{

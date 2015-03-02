@@ -664,7 +664,7 @@ public class TSTester
 
 	public Match isPresentElement(String patternStringPath)
 	{
-		TSAutomationUtils.pauseScript();
+		TSAutomationUtils.pauseScript(new Long (2500));
 		System.out.println("Searching image for validation " + patternStringPath);
 		// Waiting for screen
 
