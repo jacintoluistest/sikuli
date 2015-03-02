@@ -35,8 +35,8 @@ public class TSAdjacencyDesktopPreview
 	@AfterClass
 	public static void closeAll()
 	{
-		//TSAutomationTester.closeDekstopPreview();
-		// TSAutomationTester.closeAll();
+		TSAutomationTester.closeDekstopPreview();
+		TSAutomationTester.closeAll();
 	}
 
 	@Test

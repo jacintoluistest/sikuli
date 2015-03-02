@@ -38,9 +38,9 @@ public class TSAdjacencyHtml5Preview
 	@AfterClass
 	public static void closeAll()
 	{
-		// TSAutomationTester.fullScreenBrowser();
-		// TSAutomationTester.closeCurrentBrowser();
-		// TSAutomationTester.closeAll();
+		 TSAutomationTester.fullScreenBrowser();
+		 TSAutomationTester.closeCurrentBrowser();
+		 TSAutomationTester.closeAll();
 	}
 
 
