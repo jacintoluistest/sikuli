@@ -721,6 +721,11 @@ public class TSFunctions
 				blankArea = new Region(-119, -106, 40, 25);
 				break;
 		}
+		System.out.println("h=" + blankArea.h);
+		System.out.println("w=" + blankArea.w);
+		System.out.println("x=" + blankArea.x);
+		System.out.println("y=" + blankArea.y);
+		
 		blankArea.click();
 
 	}
