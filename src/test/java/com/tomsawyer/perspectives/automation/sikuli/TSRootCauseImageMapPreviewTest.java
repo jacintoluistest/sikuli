@@ -119,12 +119,23 @@ public class TSRootCauseImageMapPreviewTest
 	public void testOnMouseHoverSetEffectnodes()
 	{
 		Assert.assertTrue(imageMapTester.testOnMouseHoverSetEffectNodes());
+		
 	}
 	
 	@Test
-	public void testOnMouseHoverRunRootCause()
+	public void testDefaultDraw()
 	{
-		Assert.assertTrue(imageMapTester.testOnMouseHoverRunRootCause());
+		String defaultDraw = environment.projectImagesPath + File.separator + "defaultDrawExpected.png";
+		Assert.assertTrue(imageMapTester.testDefautlDraw(defaultDraw));
+	}
+	
+	@Test
+	public void testRunRootCause()
+	{
+	String drawExpected =
+		environment.projectImagesPath + File.separator + "rootCauseDrawExpected.png";
+	String toolBarExpected = environment.projectImagesPath + File.separator + "rootCauseToolBar.png";
+	Assert.assertTrue(imageMapTester.runRootCause(drawExpected,toolBarExpected));
 	}
 
 	@Test

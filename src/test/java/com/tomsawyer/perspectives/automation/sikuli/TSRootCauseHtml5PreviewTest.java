@@ -36,9 +36,9 @@ public class TSRootCauseHtml5PreviewTest
 	@AfterClass
 	public static void closeAll()
 	{
-		TSAutomationTester.fullScreenBrowser();
-		TSAutomationTester.closeCurrentBrowser();
-		TSAutomationTester.closeAll();
+//		TSAutomationTester.fullScreenBrowser();
+//		TSAutomationTester.closeCurrentBrowser();
+//		TSAutomationTester.closeAll();
 	}
 	
 

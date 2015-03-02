@@ -1,5 +1,6 @@
 package com.tomsawyer.perspectives.automation.sikuli;
 
+import java.io.File;
 import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.BeforeClass;
@@ -32,8 +33,8 @@ public class TSRootCauseDesktopPreviewTest
 	@AfterClass
 	public static void closeAll()
 	{
-		TSAutomationTester.closeDekstopPreview();
-		// TSAutomationTester.closeAll();
+		//TSAutomationTester.closeDekstopPreview();
+		 //TSAutomationTester.closeAll();
 	}
 	
 	@Test
@@ -109,7 +110,7 @@ public class TSRootCauseDesktopPreviewTest
 	{
 		Assert.assertTrue(desktopTester.testOnMouseHoverHierarchicalLayoutSelected());
 	}
-	
+			
 	@Test
 	public void testOnMouseHoverGlobalLayout()
 	{
@@ -123,6 +124,12 @@ public class TSRootCauseDesktopPreviewTest
 	}
 	
 	@Test
+	public void testOnMouseHoverSetEffectNodes()
+	{
+		Assert.assertTrue(desktopTester.testOnMouseHoverSetEfectsNodes());
+	}
+	
+	@Test
 	public void testOnMouseHoverRunRootCause()
 	{
 		Assert.assertTrue(desktopTester.testOnMouseHoverRunRootCause());
@@ -132,6 +139,22 @@ public class TSRootCauseDesktopPreviewTest
 	public void testOnMouseHoverClearResults()
 	{
 		Assert.assertTrue(desktopTester.testOnMouseHoverClearResults());
+	}
+	
+	@Test
+	public void testDefaultToolBar()
+	{
+		Assert.assertTrue(desktopTester.testIsToolBarPresent());
+	}
+	
+	
+	@Test
+	public void testRunRootCause()
+	{
+		String drawExpected =
+			environment.projectImagesPath + File.separator + "rootCauseDrawExpected";
+		String toolBarExpected = environment.projectImagesPath + File.separator + "rootCauseToolBar.png";
+		Assert.assertTrue(desktopTester.runRootCause(drawExpected,toolBarExpected));
 	}
 	static TSTester TSAutomationTester;
 
