@@ -598,9 +598,9 @@ public class TSHtml5PreviewTestCases
 		System.out.println("*******TestOnMouseHoverSetEffectsNode*******");
 		String imageToolBar =
 			environmentTestCase.toolBarImagesPath + File.separator
-				+ "setEffectsNodeCanvas.png";
+				+ "setEffectNodesCanvas.png";
 		String imageExpected =
-			environmentTestCase.toolTipsImagePath + File.separator + "setEffectsNode.png";
+			environmentTestCase.toolTipsImagePath + File.separator + "SetEffectsNode.png";
 		boolean result =
 			TSFunctions.isToolTipPresentWeb(testerTestCase, imageToolBar, imageExpected);
 
@@ -618,9 +618,9 @@ public class TSHtml5PreviewTestCases
 	{
 		System.out.println("*******TestOnMouseHoverRunRootCause*******");
 		String imageToolBar =
-			environmentTestCase.toolBarImagesPath + File.separator + "runCanvas.png";
+			environmentTestCase.toolBarImagesPath + File.separator + "RunCanvas.png";
 		String imageExpected =
-			environmentTestCase.toolTipsImagePath + File.separator + "RunRootCause.png";
+			environmentTestCase.toolTipsImagePath + File.separator + "RunRootCauseAnalysis.png";
 		boolean result =
 			TSFunctions.isToolTipPresentWeb(testerTestCase, imageToolBar, imageExpected);
 
