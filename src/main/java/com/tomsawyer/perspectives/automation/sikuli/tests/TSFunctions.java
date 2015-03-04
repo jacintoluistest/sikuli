@@ -13,10 +13,10 @@ public class TSFunctions
 {
 	public static TSTester setDesktopTest(TSTester tester, String projectPathPropertyName)
 	{
-		//tester.LaunchTS();
-		//tester.openProject(projectPathPropertyName);
-		//tester.launchDesktopPreview();
-		//tester.maximizeWindow();
+		tester.LaunchTS();
+		tester.openProject(projectPathPropertyName);
+		tester.launchDesktopPreview();
+		tester.maximizeWindow();
 		TSAutomationUtils.pauseScript(new Long(2000));
 
 		return tester;
@@ -25,10 +25,10 @@ public class TSFunctions
 
 	public static TSTester setHtml5Test(TSTester tester, String project)
 	{
-//		tester.LaunchTS();
-//		tester.openProject(project);
-//		tester.launchHtml5Preview();
-//		tester.fullScreenBrowser();
+		tester.LaunchTS();
+		tester.openProject(project);
+		tester.launchHtml5Preview();
+		tester.fullScreenBrowser();
 		TSAutomationUtils.pauseScript(new Long(2000));
 		tester.refreshBrowser();
 
@@ -38,10 +38,10 @@ public class TSFunctions
 
 	public static TSTester setImageMapTest(TSTester tester, String project)
 	{
-//		tester.LaunchTS();
-//		tester.openProject(project);
-//		tester.launchImageMap();
-//		tester.fullScreenBrowser();
+		tester.LaunchTS();
+		tester.openProject(project);
+		tester.launchImageMap();
+		tester.fullScreenBrowser();
 		TSAutomationUtils.pauseScript(new Long(2000));
 		tester.refreshBrowser();
 		return tester;
@@ -679,21 +679,13 @@ public class TSFunctions
 
 
 	public static void runShortestPathsAlgorithm(TSTester tester,
-		TSEnvironment environment)
+		TSEnvironment environment,
+		String setStartNodeButton,
+		String setFinishNodeButton,
+		String runShortestPathsButton,
+		String startNode,
+		String finishNode)
 	{
-		String setStartNodeButton =
-			environment.toolBarImagesPath + File.separator
-				+ "setStartNodeToolBarDesktop.png";
-		String setFinishNodeButton =
-			environment.toolBarImagesPath + File.separator
-				+ "setFinishNodeToolBarDesktop.png";
-		String runShortestPathsButton =
-			environment.toolBarImagesPath + File.separator + "RunToolBarDesktop.png";
-
-		String startNode =
-			environment.toolBarImagesPath + File.separator + "startNode.png";
-		String finishNode =
-			environment.toolBarImagesPath + File.separator + "finishNode.png";
 
 		tester.clickOnElement(startNode);
 		tester.clickOnElement(setStartNodeButton);

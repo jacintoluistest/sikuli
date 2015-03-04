@@ -2,6 +2,7 @@
 package com.tomsawyer.perspectives.automation.sikuli;
 
 
+import java.io.File;
 import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.BeforeClass;
@@ -36,7 +37,7 @@ public class TSShortestPathsDesktopPreviewTest
 	public static void closeAll()
 	{
 		TSAutomationTester.closeDekstopPreview();
-		// TSAutomationTester.closeAll();
+		TSAutomationTester.closeAll();
 	}
 
 
@@ -110,21 +111,6 @@ public class TSShortestPathsDesktopPreviewTest
 		Assert.assertTrue(desktopTester.testOnMouseHoverOverview());
 	}
 
-
-	@Test
-	public void testOnMouseHoverCircularLayout()
-	{
-		Assert.assertTrue(desktopTester.testOnMouseHoverCircularLayout());
-	}
-
-
-	@Test
-	public void testOnMouseHoverHierarchicalLayout()
-	{
-		Assert.assertTrue(desktopTester.testOnMouseHoverHierarchicalLayout());
-	}
-
-
 	@Test
 	public void testOnMouseHoverOrthogonalLayout()
 	{
@@ -171,7 +157,7 @@ public class TSShortestPathsDesktopPreviewTest
 	@Test
 	public void testOnMouseHoverRunShortestPaths()
 	{
-		Assert.assertTrue(desktopTester.testOnMouseHoverRunShortestPaths());
+		Assert.assertTrue(desktopTester.testOnMouseHoverRunShortestPath());
 	}
 
 
@@ -197,29 +183,18 @@ public class TSShortestPathsDesktopPreviewTest
 
 
 	@Test
-	public void testCircularLayout()
-	{
-		Assert.assertTrue(desktopTester.testCircularLayout());
-	}
-
-
-	@Test
-	public void testHierarchicalLayout()
-	{
-		Assert.assertTrue(desktopTester.testHierarchicalLayout());
-	}
-
-
-	@Test
 	public void testOrthogonalLayout()
 	{
 		Assert.assertTrue(desktopTester.testOrthogonalLayout());
 	}
-	
+
+
 	@Test
-	public void testSymmetricLayout()
+	public void testDefaulDraw()
 	{
-		Assert.assertTrue(desktopTester.testSymmetriclLayoutSelected());
+		String defaultDrawExpected =
+			environment.projectImagesPath + File.separator + "defaultLayoutExpected.png";
+		Assert.assertTrue(desktopTester.testDefautlDraw(defaultDrawExpected));
 	}
 
 

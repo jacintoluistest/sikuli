@@ -1612,15 +1612,15 @@ public class TSDesktopPreviewTestCases
 	}
 
 
-	public boolean testOnMouseHoverRunShortestPaths()
+	public boolean testOnMouseHoverRunShortestPath()
 	{
 
 		System.out.println("******testOnMouseHoverRunRootCause******");
 		String imageToolBar =
 			environmentTester.toolBarImagesPath + File.separator
-				+ "RunDisabledDesktop.png";
+				+ "RunDisableDesktop.png";
 		String imageExpected =
-			environmentTester.toolTipsImagePath + File.separator + "RunShortestPaths.png";
+			environmentTester.toolTipsImagePath + File.separator + "RunShortestPath.png";
 		boolean result =
 			TSFunctions.isToolTipPresentDesktop(testerTestCase,
 				imageToolBar,
@@ -1827,24 +1827,11 @@ public class TSDesktopPreviewTestCases
 
 	public boolean testShortestPathsButtonsState()
 	{
-		String setStartNodeButton =
-			environmentTester.toolBarImagesPath + File.separator
-				+ "setStartNodeToolBarDisabledDesktop.png";
-		String setFinishNodeButton =
-			environmentTester.toolBarImagesPath + File.separator
-				+ "setFinishNodeToolBarDisabledDesktop.png";
-		String runShortestPathsButton =
-			environmentTester.toolBarImagesPath + File.separator
-				+ "RunToolBarDesktop.png";
-		String clearResultsButton =
-			environmentTester.toolBarImagesPath + File.separator
-				+ "ClearResultsEnableToolBarDesktop.png";
 		boolean result = false;
+		String shortestPathsDefaulToolBar =
+			environmentTester.projectImagesPath+ File.separator + "defaultToolBar.png";
 
-		if (TSFunctions.isButtonPresent(testerTestCase, setStartNodeButton)
-			&& TSFunctions.isButtonPresent(testerTestCase, setFinishNodeButton)
-			&& TSFunctions.isButtonPresent(testerTestCase, runShortestPathsButton)
-			&& TSFunctions.isButtonPresent(testerTestCase, clearResultsButton))
+		if (TSFunctions.isButtonPresent(testerTestCase, shortestPathsDefaulToolBar))
 		{
 			result = true;
 		}
@@ -1927,12 +1914,36 @@ public class TSDesktopPreviewTestCases
 	{
 		boolean result = false;
 
-		String layoutExpected =
+		String desktopCorner =
+			environmentTester.toolBarImagesPath + File.separator + "desktopCorner.png";
+		String clearButton =
 			environmentTester.toolBarImagesPath + File.separator
-				+ "ShortestPathsExpected.png";
+				+ "ClearResultsEnableToolBarDesktop";
+		String startNode =
+			environmentTester.projectImagesPath + File.separator + "startNode.png";
+		String setStartNodeButton =
+			environmentTester.toolBarImagesPath + File.separator + "setStartNode.png";
+		String finishNode =
+			environmentTester.projectImagesPath + File.separator + "finishNode.png";
+		String setFinishNodeButton =
+			environmentTester.toolBarImagesPath + File.separator + "setFinishNode.png";
+		String runShortestPathsButton =
+			environmentTester.toolBarImagesPath + File.separator
+				+ "RunToolBarDesktop.png";
+
+		String layoutExpected =
+			environmentTester.projectImagesPath + File.separator
+				+ "shortestPathsExpected.png";
 		String treeViewExpected =
-			environmentTester.toolBarImagesPath + File.separator + "TreeViewExpected.png";
-		TSFunctions.runShortestPathsAlgorithm(testerTestCase, environmentTester);
+			environmentTester.projectImagesPath + File.separator + "treeViewExpected.png";
+
+		TSFunctions.runShortestPathsAlgorithm(testerTestCase,
+			environmentTester,
+			setStartNodeButton,
+			setFinishNodeButton,
+			runShortestPathsButton,
+			startNode,
+			finishNode);
 		if (TSFunctions.isLayoutPresent(testerTestCase, layoutExpected)
 			&& TSFunctions.isViewPresent(testerTestCase, treeViewExpected))
 		{
@@ -1944,7 +1955,8 @@ public class TSDesktopPreviewTestCases
 				+ "runShortestPathsAlgorithm", environmentTester.evidencePath);
 		}
 
-		testerTestCase.clearResultsMaxFlowDesktop();
+		testerTestCase.clickOnElement(clearButton);
+		testerTestCase.clickOnElement(desktopCorner);
 
 		return result;
 	}

@@ -37,7 +37,7 @@ public class TSAcyclicDesktopPreviewTest
 	public static void closeAll()
 	{
 		TSAutomationTester.closeDekstopPreview();
-		// TSAutomationTester.closeAll();
+		TSAutomationTester.closeAll();
 	}
 
 
