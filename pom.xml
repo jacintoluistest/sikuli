@@ -51,6 +51,24 @@
 				<version>2.16</version>
 				<configuration>
 					<skipTests>false</skipTests>
+					<excludes>
+						<exclude>*TSBiconnected*</exclude>
+						<exclude>*TSBridgeDetection*</exclude>
+						<exclude>*TSCurriculum*</exclude>
+						<exclude>*TSInvestigation*</exclude>
+						<exclude>*TSMicroWave*</exclude>
+						<exclude>*TSNetworkEditor*</exclude>
+						<exclude>*TSOrganismOntology*</exclude>
+						<exclude>*TSPeriodicTable*</exclude>
+						<exclude>*TSProcessDesign*</exclude>
+						<exclude>*TSRootCause*</exclude>
+						<exclude>*TSRootNameServer*</exclude>
+						<exclude>*TSShortestPaths*</exclude>
+						<exclude>*TSTasks*</exclude>
+						<exclude>*TSTopologicalSort*</exclude>
+						<exclude>*TSWorldCup*</exclude>
+          </excludes>
+
 				</configuration>
 			</plugin>
 		</plugins>
