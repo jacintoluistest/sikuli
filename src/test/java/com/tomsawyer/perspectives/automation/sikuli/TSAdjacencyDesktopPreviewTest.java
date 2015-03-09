@@ -12,7 +12,7 @@ import com.tomsawyer.perspectives.automation.sikuli.tests.TSEnvironment;
 import com.tomsawyer.perspectives.automation.sikuli.tests.TSFunctions;
 import com.tomsawyer.perspectives.automation.sikuli.tests.TSTester;
 
-public class TSAdjacencyDesktopPreview
+public class TSAdjacencyDesktopPreviewTest
 {
 
 	@BeforeClass
@@ -35,8 +35,8 @@ public class TSAdjacencyDesktopPreview
 	@AfterClass
 	public static void closeAll()
 	{
-//		TSAutomationTester.closeDekstopPreview();
-//		TSAutomationTester.closeAll();
+		TSAutomationTester.closeDekstopPreview();
+		TSAutomationTester.closeAll();
 	}
 
 	@Test
