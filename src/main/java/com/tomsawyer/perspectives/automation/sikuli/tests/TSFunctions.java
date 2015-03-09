@@ -13,7 +13,7 @@ public class TSFunctions
 {
 	public static TSTester setDesktopTest(TSTester tester, String projectPathPropertyName)
 	{
-		//tester.LaunchTS();
+		tester.LaunchTS();
 		tester.openProject(projectPathPropertyName);
 		tester.launchDesktopPreview();
 		tester.maximizeWindow();
@@ -25,7 +25,7 @@ public class TSFunctions
 
 	public static TSTester setHtml5Test(TSTester tester, String project)
 	{
-		//tester.LaunchTS();
+		tester.LaunchTS();
 		tester.openProject(project);
 		tester.launchHtml5Preview();
 		tester.fullScreenBrowser();
@@ -38,7 +38,7 @@ public class TSFunctions
 
 	public static TSTester setImageMapTest(TSTester tester, String project)
 	{
-		//tester.LaunchTS();
+		tester.LaunchTS();
 		tester.openProject(project);
 		tester.launchImageMap();
 		tester.fullScreenBrowser();
