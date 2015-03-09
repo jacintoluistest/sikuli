@@ -292,7 +292,7 @@ public class TSDesktopPreviewTestCases
 	{
 		System.out.println("*****testCircularLayout*****");
 		String expectedLayoutPath =
-			environmentTester.projectImagesPath + "CircularExpected.png";
+			environmentTester.projectImagesPath +File.separator + "CircularExpected.png";
 		testerTestCase.CircularLayoutDesktop();
 		boolean result =
 			TSFunctions.isLayoutPresent(testerTestCase,
@@ -774,7 +774,7 @@ public class TSDesktopPreviewTestCases
 		System.out.println("******testOnMouseHoverSymmetricLayout******");
 		String imageToolBar =
 			environmentTester.toolBarImagesPath + File.separator
-				+ "SymmetricLayoutToolBarDesktopSelected.png";
+				+ "SymmetricLayoutToolBarDesktop.png";
 		String imageExpected =
 			environmentTester.toolTipsImagePath + File.separator + "SymmetricLayout.png";
 		boolean result =

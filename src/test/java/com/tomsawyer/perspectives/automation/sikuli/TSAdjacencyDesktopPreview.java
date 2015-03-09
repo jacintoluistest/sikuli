@@ -1,6 +1,7 @@
 package com.tomsawyer.perspectives.automation.sikuli;
 
 
+import java.io.File;
 import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.BeforeClass;
@@ -34,8 +35,8 @@ public class TSAdjacencyDesktopPreview
 	@AfterClass
 	public static void closeAll()
 	{
-		TSAutomationTester.closeDekstopPreview();
-		// TSAutomationTester.closeAll();
+//		TSAutomationTester.closeDekstopPreview();
+//		TSAutomationTester.closeAll();
 	}
 
 	@Test
@@ -55,7 +56,7 @@ public class TSAdjacencyDesktopPreview
 	@Test
 	public void testOnMouseHoverPrintPreview()
 	{
-		Assert.assertTrue(desktopTester.testOnMouseHoverPrint());
+		Assert.assertTrue(desktopTester.testOnMouseHoverPrintPreview());
 	}
 	
 	@Test
@@ -147,7 +148,7 @@ public class TSAdjacencyDesktopPreview
 	@Test
 	public void testOnMouseHoverSymmetricLayout()
 	{
-		Assert.assertTrue(desktopTester.testOnMouseHoverSymmetricLayoutSelected());
+		Assert.assertTrue(desktopTester.testOnMouseHoverSymmetricLayout());
 	}
 	
 	@Test
@@ -163,12 +164,20 @@ public class TSAdjacencyDesktopPreview
 	}
 	
 	@Test
+	public void testDefaultDrawView()
+	{
+		String defaultDrawExpected= environment.projectImagesPath + File.separator + "defaultLayoutExpected.png";
+			
+		Assert.assertTrue(desktopTester.testDefautlDraw(defaultDrawExpected));
+	}
+	
+	@Test
 	public void testCircularLayout()
 	{
 		Assert.assertTrue(desktopTester.testCircularLayout());
 	}
 	@Test
-	public void testCircularHierarchical()
+	public void testHierarchicalLayout()
 	{
 		Assert.assertTrue(desktopTester.testHierarchicalLayout());
 	}
@@ -181,18 +190,20 @@ public class TSAdjacencyDesktopPreview
 	@Test
 	public void testAdjencyMatrixDrawView()
 	{
-		String drawTab="";
-		String drawExpected="";
-		String defaultTabDraw="";
-		Assert.assertTrue(desktopTester.testDrawView(drawTab, drawExpected, defaultTabDraw));
+		String drawTab =
+			environment.projectImagesPath + File.separator + "Tabs" + File.separator
+				+ "adjacencyMatrixTab.png";
+		String drawExpected =
+			environment.projectImagesPath + File.separator
+				+ "adjacencyMatrixDrawView.png";
+		String defaultTabDraw =
+			environment.projectImagesPath + File.separator + "Tabs" + File.separator
+				+ "adjacencyGraphTab.png";
+		Assert.assertTrue(desktopTester.testDrawView(drawTab,
+			drawExpected,
+			defaultTabDraw));
 	}
 	
-	@Test
-	public void testDefaulDrawView()
-	{
-		String defaultDrawExpected="";
-		Assert.assertTrue(desktopTester.testDefautlDraw(defaultDrawExpected));
-	}
 
 	static TSTester TSAutomationTester;
 
