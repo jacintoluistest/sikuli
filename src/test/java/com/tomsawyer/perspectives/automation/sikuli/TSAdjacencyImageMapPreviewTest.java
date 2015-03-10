@@ -19,7 +19,7 @@ public class TSAdjacencyImageMapPreviewTest
 	{
 		Settings.MoveMouseDelay = new Float(1.5);
 		String defaultBrowser = TSAutomationUtils.getProperty("DefaultBrowser");
-		className = TSAcyclicImageMapPreviewTest.class.getName();
+		className = TSAdjacencyImageMapPreviewTest.class.getName();
 		environment =
 			new TSEnvironment("Adjacency",
 				TSEnvironment.IMAGEMAP_PREVIEW,

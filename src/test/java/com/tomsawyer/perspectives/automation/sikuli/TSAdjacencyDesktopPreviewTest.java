@@ -19,7 +19,7 @@ public class TSAdjacencyDesktopPreviewTest
 	public static void setUp() throws Exception
 	{
 		// org.sikuli.basics.Debug.setDebugLevel(3);
-		className = TSMSliceDesktopPreviewTest.class.getName();
+		className = TSAdjacencyImageMapPreviewTest.class.getName();
 		Settings.MoveMouseDelay = new Float(2.5);
 
 		environment = new TSEnvironment("Adjacency", TSEnvironment.DESKTOP_PREVIEW);

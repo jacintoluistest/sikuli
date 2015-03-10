@@ -23,7 +23,7 @@ public class TSAdjacencyHtml5PreviewTest
 		// org.sikuli.basics.Debug.setDebugLevel(3);
 		Settings.MoveMouseDelay = new Float(1.5);
 		String defaultBrowser = TSAutomationUtils.getProperty("DefaultBrowser");
-		className = TSMaxFlowHtml5CanvasPreviewTest.class.getName();
+		className = TSAdjacencyImageMapPreviewTest.class.getName();
 		environment =
 			new TSEnvironment("Adjacency", TSEnvironment.HTML5_PREVIEW, defaultBrowser);
 		TSAutomationTester = new TSTester(defaultBrowser);

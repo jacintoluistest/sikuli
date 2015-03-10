@@ -134,12 +134,13 @@ public class TSAutomationUtils
 		File destinationFile = null;
 		
 		System.out.println(currentMethod);
+		int index = currentMethod.lastIndexOf(".");
 			defautlFile =
 				new File(tester.automationTesterCurrentScreen.capture(tester.automationTesterCurrentScreen)
 					.getFile());
 			destinationFile =
 				new File(evidencePath
-					+ currentMethod.substring(52) + ".png");
+					+ currentMethod.substring(index +1)+ ".png");
 			defautlFile.renameTo(destinationFile);
 			System.out.println("Saving Evidence in: " + destinationFile);
 

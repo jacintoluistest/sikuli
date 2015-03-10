@@ -16,10 +16,10 @@ package com.tomsawyer.perspectives.automation.sikuli.tests;
 public class TestSikuli {
 	public static void main(String args[]){
 	
-		org.sikuli.basics.Debug.setDebugLevel(3);
-		TSAutomationUtils.pauseScript(new Long(3000));
-		TSTester tester = new TSTester(0);
-		tester.fullScreenBrowserMac();
+		
+		String value = "com.tomsawyer.perspectives.automation.sikuli.TSAdjacencyImageMapPreviewTest";
+		int index = value.lastIndexOf(".");
+		System.out.println(value.substring(index +1));
 		
 	
 	}
