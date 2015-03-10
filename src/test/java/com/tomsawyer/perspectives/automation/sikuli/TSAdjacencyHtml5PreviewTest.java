@@ -79,6 +79,12 @@ public class TSAdjacencyHtml5PreviewTest
 	{
 		Assert.assertTrue(html5Tester.testOnMouseHoverPan());
 	}
+	
+	@Test
+	public void testOnMouseHoverNavigateLinks()
+	{
+		Assert.assertTrue(html5Tester.testOnMouseHoverNavigateLinks());
+	}
 
 
 	@Test
@@ -173,7 +179,7 @@ public class TSAdjacencyHtml5PreviewTest
 
 
 	@Test
-	public void testCircularHierarchical()
+	public void testHierarchicalLayout()
 	{
 		Assert.assertTrue(html5Tester.testHierarchicalLayout());
 	}
