@@ -598,9 +598,9 @@ public class TSHtml5PreviewTestCases
 		System.out.println("*******TestOnMouseHoverSetEffectsNode*******");
 		String imageToolBar =
 			environmentTestCase.toolBarImagesPath + File.separator
-				+ "setEffectsNodeCanvas.png";
+				+ "setEffectNodesCanvas.png";
 		String imageExpected =
-			environmentTestCase.toolTipsImagePath + File.separator + "setEffectsNode.png";
+			environmentTestCase.toolTipsImagePath + File.separator + "SetEffectsNode.png";
 		boolean result =
 			TSFunctions.isToolTipPresentWeb(testerTestCase, imageToolBar, imageExpected);
 
@@ -618,9 +618,9 @@ public class TSHtml5PreviewTestCases
 	{
 		System.out.println("*******TestOnMouseHoverRunRootCause*******");
 		String imageToolBar =
-			environmentTestCase.toolBarImagesPath + File.separator + "runCanvas.png";
+			environmentTestCase.toolBarImagesPath + File.separator + "RunCanvas.png";
 		String imageExpected =
-			environmentTestCase.toolTipsImagePath + File.separator + "RunRootCause.png";
+			environmentTestCase.toolTipsImagePath + File.separator + "RunRootCauseAnalysis.png";
 		boolean result =
 			TSFunctions.isToolTipPresentWeb(testerTestCase, imageToolBar, imageExpected);
 
@@ -790,11 +790,11 @@ public class TSHtml5PreviewTestCases
 	{
 		System.out.println("*************testHierarchicalLayout*************");
 		testerTestCase.HierarchicalLayoutHtml5();
-		TSAutomationUtils.pauseScript(new Long(500));
+		TSAutomationUtils.pauseScript(new Long(2000));
 		boolean result =
 			TSFunctions.isLayoutPresent(testerTestCase,
 				environmentTestCase.projectImagesPath + File.separator
-					+ "HierarchicalExpected.png",
+					+ "hierarchicalExpected.png",
 				new Float(0.80));
 		if (!result)
 		{
@@ -1312,6 +1312,21 @@ public class TSHtml5PreviewTestCases
 		testerTestCase.refreshBrowser();
 		return result;
 	}
+	
+	public boolean testIsToolBarPresent(String toolBarExpected)
+	{
+
+		System.out.println("*******testIsToolBarPresent*******");
+
+		boolean result = TSFunctions.isElementPresent(testerTestCase, toolBarExpected);
+		if (!result)
+		{
+			TSAutomationUtils.getScreenShot(testerTestCase, className
+				+ "testIsToolBarPresent", environmentTestCase.evidencePath);
+		}
+
+		return result;
+	}
 
 
 	public boolean testIsTableViewPresent(String expected)
@@ -1546,6 +1561,32 @@ public class TSHtml5PreviewTestCases
 
 		testerTestCase.clearResultsMaxFlowDesktop();
 
+		return result;
+	}
+	
+	public boolean runBridgeDetection(String drawExpected, String toolBarExpected)
+	{
+		boolean result = false;
+		
+		String runButton =
+			environmentTestCase.toolBarImagesPath + File.separator
+				+ "RunCanvas.png";
+		String clearResultsButton =
+			environmentTestCase.toolBarImagesPath + File.separator
+				+ "ClearResultsCanvas.png";
+		testerTestCase.clickOnElement(runButton);
+		result =
+			TSFunctions.isDrawPresent(testerTestCase, drawExpected)
+				&& TSFunctions.isElementPresent(testerTestCase, toolBarExpected);
+		if(!result)
+		{
+
+			TSAutomationUtils.getScreenShot(testerTestCase, className
+				+ "testRunBridgeDetection", environmentTestCase.evidencePath);
+		}
+		
+		testerTestCase.clickOnElement(clearResultsButton);
+		
 		return result;
 	}
 
