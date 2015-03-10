@@ -15,7 +15,7 @@ import com.tomsawyer.perspectives.automation.sikuli.tests.TSHtml5PreviewTestCase
 import com.tomsawyer.perspectives.automation.sikuli.tests.TSTester;
 
 
-public class TSAdjacencyHtml5Preview
+public class TSAdjacencyHtml5PreviewTest
 {
 	@BeforeClass
 	public static void setUp()

@@ -12,7 +12,7 @@ import com.tomsawyer.perspectives.automation.sikuli.tests.TSFunctions;
 import com.tomsawyer.perspectives.automation.sikuli.tests.TSImageMapPreviewTestCases;
 import com.tomsawyer.perspectives.automation.sikuli.tests.TSTester;
 
-public class TSAdjacencyImageMapPreview
+public class TSAdjacencyImageMapPreviewTest
 {
 	@BeforeClass
 	public static void setUp()
