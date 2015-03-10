@@ -39,11 +39,8 @@
 			<artifactId>sikulixapi</artifactId>
 			<version>1.1.0-SNAPSHOT</version>
 		</dependency>
-		<!-- dependency>
-			<groupId>org.sikuli</groupId>
-			<artifactId>sikuli-api</artifactId>
-			<version>1.2.0</version>
-		</dependency-->
+		<!-- dependency> <groupId>org.sikuli</groupId> <artifactId>sikuli-api</artifactId> 
+			<version>1.2.0</version> </dependency -->
 
 	</dependencies>
 	<build>
@@ -52,9 +49,31 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>2.16</version>
-					<configuration>
-						<skipTests>false</skipTests>
-					</configuration>
+				<configuration>
+					<skipTests>false</skipTests>
+					<excludes>
+						<exclude>**/TSAcyclic*</exclude>
+						<exclude>**/TSBiconnected*</exclude>
+						<exclude>**/TSBridgeDetection*</exclude>
+						<exclude>**/TSCurriculum*</exclude>
+						<exclude>**/TSInvestigation*</exclude>
+						<exclude>**/TSMaxFlow*</exclude>
+						<exclude>**/TSMicroWave*</exclude>
+						<exclude>**/TSMSlice*</exclude>
+						<exclude>**/TSNetworkEditor*</exclude>
+						<exclude>**/TSOrganismOntology*</exclude>
+						<exclude>**/TSPeriodicTable*</exclude>
+						<exclude>**/TSProcessDesign*</exclude>
+						<exclude>**/TSRootCause*</exclude>
+						<exclude>**/TSRootNameServer*</exclude>
+						<exclude>**/TSSocialNetwork*</exclude>
+						<exclude>**/TSShortestPaths*</exclude>
+						<exclude>**/TSTasks*</exclude>
+						<exclude>**/TSTopologicalSort*</exclude>
+						<exclude>**/TSWorldCup*</exclude>
+          </excludes>
+
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
